@@ -19,6 +19,8 @@ public static class NecromancySkills
 
     public static string SchoolId { get; }
     public static string SchoolName { get; }
+    /// <summary>Skill-menu meta column from JSON root <c>target</c> (e.g. Sorcery).</summary>
+    public static string SchoolTarget { get; }
     public static SkillTree Tree { get; }
     public static NecromancySkill[] All { get; }
 
@@ -27,6 +29,7 @@ public static class NecromancySkills
         var root = LoadRoot();
         SchoolId = root.Id ?? string.Empty;
         SchoolName = root.Name ?? "Necromancy";
+        SchoolTarget = string.IsNullOrWhiteSpace(root.Target) ? "Sorcery" : root.Target.Trim();
         Tree = MapTree(root.Tree);
         All = (root.Skills ?? Array.Empty<SkillDto>())
             .Select(MapSkill)
@@ -224,6 +227,7 @@ public static class NecromancySkills
     {
         public string? Id { get; set; }
         public string? Name { get; set; }
+        public string? Target { get; set; }
         public SkillDto[]? Skills { get; set; }
         public TreeDto? Tree { get; set; }
     }

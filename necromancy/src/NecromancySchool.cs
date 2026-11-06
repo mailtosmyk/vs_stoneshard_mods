@@ -57,12 +57,57 @@ public static class NecromancySchool
         }
     }
 
+    // Current Stoneshard decompiles this array as numeric asset IDs, so matching
+    // individual o_skill_category_* names fails. Replace the whole assignment
+    // (same approach as BW-s-Necromancy) using stable object names.
+    const string WeaponsColumn =
+        "o_skill_category_sword, o_skill_category_axe, o_skill_category_mace, o_skill_category_dagger, " +
+        "o_skill_category_greatsword, o_skill_category_greataxe, o_skill_category_greatmauls, " +
+        "o_skill_category_polearms, o_skill_category_bows, o_skill_category_shields, " +
+        "o_skill_category_staves, o_skill_category_wands";
+
+    const string UtilityColumn =
+        "o_skill_category_basic_skills, o_skill_category_dual_wielding, o_skill_category_combat, " +
+        "o_skill_category_athletics, o_skill_category_basic_armor, o_skill_category_survival, " +
+        "o_skill_category_mastery_of_magic, o_skill_category_alchemy, o_skill_category_sabotage";
+
+    const string SorceryColumn =
+        "o_skill_category_pyromancy, o_skill_category_geomancy, o_skill_category_electromancy, " +
+        "o_skill_category_arcanistics, o_skill_category_venomancy, o_skill_category_cryomancy, " +
+        "o_skill_category_astromancy, o_skill_category_psymancy";
+
     static void InsertCategoryIntoSkillMenu()
     {
-        // Insert after Mastery of Magic in the utility meta-column (same slot BW uses).
+        var weapons = WeaponsColumn;
+        var utility = UtilityColumn;
+        var sorcery = SorceryColumn;
+
+        switch (NecromancySkills.SchoolTarget.Trim().ToLowerInvariant())
+        {
+            case "sorcery":
+            case "magic":
+                sorcery += ", " + CategoryObjectName;
+                break;
+
+            case "utility":
+            case "survival":
+            case "mastery":
+                utility = utility.Replace(
+                    "o_skill_category_mastery_of_magic",
+                    "o_skill_category_mastery_of_magic, " + CategoryObjectName);
+                break;
+
+            default:
+                throw new InvalidOperationException(
+                    $"Unknown necromancy.json target '{NecromancySkills.SchoolTarget}'. Use \"Sorcery\" or \"Utility\".");
+        }
+
+        var replacement =
+            "var _metaCategoriesArray = [[" + weapons + "], [" + utility + "], [" + sorcery + "]]";
+
         Msl.LoadGML("gml_Object_o_skillmenu_Create_0")
-            .MatchFrom("o_skill_category_mastery_of_magic")
-            .ReplaceBy("o_skill_category_mastery_of_magic, o_skill_category_necromancy")
+            .MatchFrom("var _metaCategoriesArray = ")
+            .ReplaceBy(replacement)
             .Save();
     }
 

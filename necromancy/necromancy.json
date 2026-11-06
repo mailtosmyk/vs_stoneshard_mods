@@ -2,6 +2,7 @@
   "id": "a8c2e1f4-6b9d-4e3a-9f10-2d7c5b8a4e61",
   "name": "Necromancy",
   "source": "BW-s-Necromancy-main",
+  "target": "Sorcery",
   "totalSkills": 17,
   "activeCount": 12,
   "passiveCount": 5,

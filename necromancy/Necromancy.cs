@@ -14,7 +14,7 @@ public class Necromancy : Mod
     public override string Name => "Necromancy";
     public override string Description =>
         "Occult skill school: raise the dead, curse foes, and bind unholy power.";
-    public override string Version => "0.1.0";
+    public override string Version => NecromancyVersion.Value;
     public override string TargetVersion => "0.9.4.25";
 
     public override void PatchMod()

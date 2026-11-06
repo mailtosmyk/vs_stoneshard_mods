@@ -44,11 +44,15 @@ if not exist "%ROOT%\necromancy.json" (
   exit /b 1
 )
 
-echo Embedding necromancy.json into src\NecromancyJsonResource.cs
-powershell -NoProfile -ExecutionPolicy Bypass -File "%ROOT%\embed-json.ps1" -Root "%ROOT%"
+if not exist "%OUT_DIR%" mkdir "%OUT_DIR%"
+
+rem Bump first so the packed DLL and build.txt share the same version.
+%PYTHON% "%ROOT%\bump_build_version.py" "%ROOT%\build.txt"
 if errorlevel 1 exit /b 1
 
-if not exist "%OUT_DIR%" mkdir "%OUT_DIR%"
+echo Embedding build.txt version + necromancy.json
+powershell -NoProfile -ExecutionPolicy Bypass -File "%ROOT%\embed-json.ps1" -Root "%ROOT%"
+if errorlevel 1 exit /b 1
 
 echo Building %MOD_NAME% (%CONFIG%)...
 dotnet build "%ROOT%\Necromancy.csproj" -c %CONFIG% --nologo
@@ -66,10 +70,6 @@ echo Packing %SML%...
 if errorlevel 1 exit /b 1
 
 copy /Y "%DLL%" "%OUT_DIR%\%MOD_NAME%.dll" >nul
-
-rem Bump minor version in build.txt after a successful build (1.0.0 -> 1.1.0).
-%PYTHON% "%ROOT%\bump_build_version.py" "%ROOT%\build.txt"
-if errorlevel 1 exit /b 1
 
 echo Done.
 exit /b 0

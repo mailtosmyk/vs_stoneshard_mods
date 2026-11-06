@@ -75,32 +75,60 @@ public static class NecromancyLocalization
 
     static void PatchSchool()
     {
-        Msl.InjectTableItemLocalization(
-            "necromancy",
-            new Dictionary<ModLanguage, string>
+        // o_skillmenu Create does:
+        //   name = ds_map_find_value(global.tier_name, text)
+        //   scr_stringGetHeightExt(name, ...)
+        // global.tier_name is built from table_text's Tier_name section — NOT table_items.
+        // table_text is one giant `return [...]` line: InsertAbove puts code outside the
+        // array; MatchFrom+ReplaceBy truncates the rest of the line. Splice via Apply.
+        Msl.LoadGML("gml_GlobalScript_table_text")
+            .Apply(InjectNecromancyTableTextRows)
+            .Save();
+    }
+
+    /// <summary>
+    /// CSV columns: id;RU;EN;ZH;DE;ES;FR;IT;PT;PL;TR;JA;KO
+    /// </summary>
+    static IEnumerable<string> InjectNecromancyTableTextRows(IEnumerable<string> lines)
+    {
+        const string tierMarker = "\";Tier_name_end;";
+        const string hoverMarker = "\";skilltree_hover_end;";
+        const string tierRow =
+            "\"Necromancy;Некромантия;Necromancy;死灵术;Nekromantie;Nigromancia;Nécromancie;Necromanzia;Necromancia;Nekromancja;Ölüm Büyüleri;ネクロマンシー;강령술;\", ";
+
+        const string hoverEn =
+            "Challenge magical bounds and master the chaotic dance between life and death.##~y~Main focus:~/~#~w~Support~/~, ~w~Minion Management~/~, ~w~Survivability~/~, ~w~Weakening Effects~/~";
+        const string hoverRu =
+            "Бросьте вызов магическим ограничениям и познайте тайны на грани жизни и смерти.##~y~Особенности:~/~#~w~Поддержка~/~, ~w~Призыв слуг~/~, ~w~Выживаемость~/~, ~w~Ослабление врагов~/~";
+        const string hoverZh =
+            "挑战魔法界限，掌握生与死之间的混沌舞步。##~y~主要方向:~/~#~w~支援~/~, ~w~召唤物管理~/~, ~w~生存~/~, ~w~弱化效果~/~";
+        const string hoverDe =
+            "Fordert magische Grenzen heraus und meistert den Tanz zwischen Leben und Tod.##~y~Fokus:~/~#~w~Unterstützung~/~, ~w~Dienerverwaltung~/~, ~w~Überleben~/~, ~w~Schwächungseffekte~/~";
+        const string hoverJa =
+            "魔法の境界に挑み、生と死の混沌を操る。##~y~主な特徴:~/~#~w~支援~/~, ~w~手下管理~/~, ~w~生存~/~, ~w~弱体化~/~";
+
+        var hoverRow =
+            "\"Necromancy;" + hoverRu + ";" + hoverEn + ";" + hoverZh + ";" + hoverDe + ";" +
+            hoverEn + ";" + hoverEn + ";" + hoverEn + ";" + hoverEn + ";" + hoverEn + ";" + hoverEn + ";" +
+            hoverJa + ";" + hoverEn + ";\", ";
+
+        foreach (var line in lines)
+        {
+            var result = line;
+            if (result.Contains(tierMarker, StringComparison.Ordinal) &&
+                !result.Contains("\"Necromancy;Некромантия;", StringComparison.Ordinal))
             {
-                { ModLanguage.English, "Necromancy" },
-                { ModLanguage.Japanese, "ネクロマンシー" },
-                { ModLanguage.Chinese, "死灵术" },
-                { ModLanguage.German, "Nekromantie" },
-                { ModLanguage.Russian, "Некромантия" },
-            },
-            new Dictionary<ModLanguage, string>
+                result = result.Replace(tierMarker, tierRow + tierMarker, StringComparison.Ordinal);
+            }
+
+            if (result.Contains(hoverMarker, StringComparison.Ordinal) &&
+                !result.Contains("\"Necromancy;" + hoverRu, StringComparison.Ordinal))
             {
-                { ModLanguage.English, "Necromancy" },
-                { ModLanguage.Japanese, "ネクロマンシー" },
-                { ModLanguage.Chinese, "死灵术" },
-                { ModLanguage.German, "Nekromantie" },
-                { ModLanguage.Russian, "Некромантия" },
-            },
-            new Dictionary<ModLanguage, string>
-            {
-                { ModLanguage.English, "Necromancy" },
-                { ModLanguage.Japanese, "ネクロマンシー" },
-                { ModLanguage.Chinese, "死灵术" },
-                { ModLanguage.German, "Nekromantie" },
-                { ModLanguage.Russian, "Некромантия" },
-            });
+                result = result.Replace(hoverMarker, hoverRow + hoverMarker, StringComparison.Ordinal);
+            }
+
+            yield return result;
+        }
     }
 
     static void PatchSkills()

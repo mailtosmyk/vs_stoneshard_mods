@@ -97,7 +97,14 @@ public static class NecromancyTier1Skills
             new MslEvent("gml_Object_o_nm_desecration_bolt_Other_11.gml", EventType.Other, 11),
             new MslEvent("gml_Object_o_nm_desecration_bolt_Destroy_0.gml", EventType.Destroy, 0));
 
-        // Withering Curse impact pillar
+        // Withering Curse impact pillar (sprite shipped from BW-s-Necromancy-main).
+        var tealCurse = Msl.GetSprite("s_teal_curse");
+        tealCurse.OriginX = 20;
+        tealCurse.OriginY = 61;
+        tealCurse.IsSpecialType = true;
+        tealCurse.GMS2PlaybackSpeedType = AnimSpeedType.FramesPerGameFrame;
+        tealCurse.GMS2PlaybackSpeed = 0.4f;
+
         var curseImpact = Msl.AddObject(
             name: "o_nm_withering_curse_impact",
             spriteName: "s_teal_curse",
