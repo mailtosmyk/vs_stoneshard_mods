@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/vitali/Mods/skills/necromancy/Necromancy.csproj": {}
+    "/home/vitali/Mods/vs_stoneshard_mods/necromancy/Necromancy.csproj": {}
   },
   "projects": {
-    "/home/vitali/Mods/skills/necromancy/Necromancy.csproj": {
+    "/home/vitali/Mods/vs_stoneshard_mods/necromancy/Necromancy.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/vitali/Mods/skills/necromancy/Necromancy.csproj",
+        "projectUniqueName": "/home/vitali/Mods/vs_stoneshard_mods/necromancy/Necromancy.csproj",
         "projectName": "Necromancy",
-        "projectPath": "/home/vitali/Mods/skills/necromancy/Necromancy.csproj",
+        "projectPath": "/home/vitali/Mods/vs_stoneshard_mods/necromancy/Necromancy.csproj",
         "packagesPath": "/home/vitali/.nuget/packages/",
-        "outputPath": "/home/vitali/Mods/skills/necromancy/obj/",
+        "outputPath": "/home/vitali/Mods/vs_stoneshard_mods/necromancy/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/vitali/.nuget/NuGet/NuGet.Config"

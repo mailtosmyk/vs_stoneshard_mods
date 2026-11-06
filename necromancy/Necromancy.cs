@@ -20,8 +20,10 @@ public class Necromancy : Mod
     public override void PatchMod()
     {
         NecromancyLocalization.PatchAll();
+        NecromancyTier1Skills.Patch(ModFiles);
+        NecromancySchool.Patch(ModFiles);
 
-        // Skill definitions are available for future object / tree wiring.
+        // Ensure JSON registry is loaded (also used by future tiers).
         _ = NecromancySkills.All;
     }
 }

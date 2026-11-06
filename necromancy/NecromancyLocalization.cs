@@ -12,7 +12,65 @@ public static class NecromancyLocalization
     {
         PatchSchool();
         PatchSkills();
+        PatchBuffs();
         PatchSpeeches();
+    }
+
+    static void PatchBuffs()
+    {
+        Msl.InjectTableItemLocalization(
+            "o_db_withering_curse",
+            new Dictionary<ModLanguage, string>
+            {
+                { ModLanguage.English, "Withering Curse" },
+                { ModLanguage.Japanese, "枯死の呪い" },
+                { ModLanguage.Chinese, "凋零诅咒" },
+                { ModLanguage.German, "Verdorrender Fluch" },
+                { ModLanguage.Russian, "Иссушающее проклятие" },
+            },
+            new Dictionary<ModLanguage, string>
+            {
+                { ModLanguage.English, "Withering Curse" },
+                { ModLanguage.Japanese, "枯死の呪い" },
+                { ModLanguage.Chinese, "凋零诅咒" },
+                { ModLanguage.German, "Verdorrender Fluch" },
+                { ModLanguage.Russian, "Иссушающее проклятие" },
+            },
+            new Dictionary<ModLanguage, string>
+            {
+                { ModLanguage.English, "-8% Fortitude, -8% Magic Resistance, -5% Max Health, +3% Damage Taken. Worsens a random body part each turn." },
+                { ModLanguage.Japanese, "頑健-8%、魔法耐性-8%、最大体力-5%、被ダメージ+3%。毎ターン部位を悪化させる。" },
+                { ModLanguage.Chinese, "-8%坚韧、-8%魔法抗性、-5%最大生命、+3%受到伤害。每回合恶化随机部位。" },
+                { ModLanguage.German, "-8% Zähigkeit, -8% Magiewiderstand, -5% max. Gesundheit, +3% erlittener Schaden. Verschlechtert jeden Zug einen Körperteil." },
+                { ModLanguage.Russian, "-8% стойкости, -8% маг. сопротивления, -5% макс. здоровья, +3% получаемого урона. Каждый ход ухудшает часть тела." },
+            });
+
+        Msl.InjectTableItemLocalization(
+            "o_b_bone_ward",
+            new Dictionary<ModLanguage, string>
+            {
+                { ModLanguage.English, "Bone Ward" },
+                { ModLanguage.Japanese, "骨の守護" },
+                { ModLanguage.Chinese, "骸骨结界" },
+                { ModLanguage.German, "Knochenwächter" },
+                { ModLanguage.Russian, "Костяной щит" },
+            },
+            new Dictionary<ModLanguage, string>
+            {
+                { ModLanguage.English, "Bone Ward" },
+                { ModLanguage.Japanese, "骨の守護" },
+                { ModLanguage.Chinese, "骸骨结界" },
+                { ModLanguage.German, "Knochenwächter" },
+                { ModLanguage.Russian, "Костяной щит" },
+            },
+            new Dictionary<ModLanguage, string>
+            {
+                { ModLanguage.English, "+12% Physical Resistance, +15% Bleed Resistance, +10% Magic Resistance, +10% Move Resistance. Shatters into bone shards when it ends." },
+                { ModLanguage.Japanese, "物理耐性+12%、出血耐性+15%、魔法耐性+10%、移動耐性+10%。終了時に骨片が飛散する。" },
+                { ModLanguage.Chinese, "+12%物理抗性、+15%出血抗性、+10%魔法抗性、+10%移动抗性。结束时碎裂为骨片。" },
+                { ModLanguage.German, "+12% physischer Widerstand, +15% Blutungswiderstand, +10% Magiewiderstand, +10% Bewegungswiderstand. Zerbricht am Ende in Knochensplitter." },
+                { ModLanguage.Russian, "+12% физ. сопротивления, +15% сопротивления кровотечению, +10% маг. сопротивления, +10% сопротивления перемещению. При окончании разлетается осколками." },
+            });
     }
 
     static void PatchSchool()

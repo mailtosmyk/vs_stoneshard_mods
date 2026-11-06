@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/FJ314zKrY1Ji8Wsh6L4Vv4KAIVIDacMc4/6JzbToYgC6eqjQYyPgUuubtsdYf0zgugGscKvSj5vhnSE+YyiYg==",
+  "dgSpecHash": "SPf9PPZ1wtZEA5fE1YXcSME8ntlj4KcdX0MwZ2W51t3/Yb35a+faA1GdC0wuU5oP1Ltc9JuwyGpoNSu9qgXCEQ==",
   "success": true,
-  "projectFilePath": "/home/vitali/Mods/skills/necromancy/Necromancy.csproj",
+  "projectFilePath": "/home/vitali/Mods/vs_stoneshard_mods/necromancy/Necromancy.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -95,4 +95,8 @@ python3 "$ROOT/pack_sml.py" \
 
 # Also drop the raw DLL next to Mods for quick inspection / MSL refresh helpers.
 cp -f "$DLL" "$OUT_DIR/$MOD_NAME.dll"
+
+# Bump minor version in build.txt after a successful build (1.0.0 -> 1.1.0).
+python3 "$ROOT/bump_build_version.py" "$ROOT/build.txt"
+
 echo "Done."

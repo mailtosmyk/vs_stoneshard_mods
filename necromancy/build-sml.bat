@@ -66,5 +66,10 @@ echo Packing %SML%...
 if errorlevel 1 exit /b 1
 
 copy /Y "%DLL%" "%OUT_DIR%\%MOD_NAME%.dll" >nul
+
+rem Bump minor version in build.txt after a successful build (1.0.0 -> 1.1.0).
+%PYTHON% "%ROOT%\bump_build_version.py" "%ROOT%\build.txt"
+if errorlevel 1 exit /b 1
+
 echo Done.
 exit /b 0
