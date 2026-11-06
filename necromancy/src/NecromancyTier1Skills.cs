@@ -12,15 +12,19 @@ public static class NecromancyTier1Skills
 {
     public static void Patch(ModFile modFiles)
     {
-        foreach (var skill in NecromancySkills.ByTier(1))
+        var tier1 = NecromancySkills.ByTier(1).ToArray();
+        foreach (var skill in tier1)
         {
             if (skill.Combat is null)
                 throw new InvalidOperationException($"Tier-1 skill '{skill.Slug}' is missing combat config in necromancy.json.");
 
             CreateSkillObjects(skill, modFiles);
-            InjectSkillsStats(skill);
         }
 
+        // Msl.InjectTableSkillsStats fails to rewrite the multi-line skills_stats array on
+        // current Stoneshard builds (rows never appear in table_skills_stats). Splice like
+        // BW-s-Necromancy Bw_Bolt so Target Point / Object actually resolve at cast time.
+        InjectSkillsStatsRows(tier1);
         CreateSharedCombatObjects(modFiles);
     }
 
@@ -188,63 +192,78 @@ public static class NecromancyTier1Skills
             new MslEvent("gml_Object_o_b_nm_skeleton_timer_Destroy_0.gml", EventType.Destroy, 0));
     }
 
-    static void InjectSkillsStats(NecromancySkill skill)
+    /// <summary>
+    /// Column layout matches current table_skills_stats header:
+    /// id;Object;Target;Range;KD;MP;is_moving_zone;Duration;AOE_*;is_movement;Pattern;Validators;Class;...
+    /// JSON <c>reserve</c> maps to <c>is_moving_zone</c> (not energy reserve).
+    /// </summary>
+    static void InjectSkillsStatsRows(IReadOnlyList<NecromancySkill> skills)
+    {
+        var rows = string.Concat(skills.Select(FormatSkillsStatsRow));
+        Msl.LoadGML("gml_GlobalScript_table_skills_stats")
+            .Apply(lines => InsertAfterUndeadMarker(lines, rows))
+            .Save();
+    }
+
+    static IEnumerable<string> InsertAfterUndeadMarker(IEnumerable<string> lines, string rows)
+    {
+        const string markerPrefix = "\"// UNDEAD;";
+        var inserted = false;
+        foreach (var line in lines)
+        {
+            if (!inserted && line.Contains(markerPrefix, StringComparison.Ordinal))
+            {
+                // Idempotent across re-patches of an already-modded data.win.
+                if (line.Contains("desecration;", StringComparison.Ordinal))
+                {
+                    yield return line;
+                    inserted = true;
+                    continue;
+                }
+
+                var markerStart = line.IndexOf(markerPrefix, StringComparison.Ordinal);
+                var markerEnd = line.IndexOf("\",", markerStart, StringComparison.Ordinal);
+                if (markerEnd < 0)
+                    throw new InvalidOperationException("Could not find end of // UNDEAD skills_stats marker.");
+
+                yield return line.Insert(markerEnd + 2, rows);
+                inserted = true;
+            }
+            else
+            {
+                yield return line;
+            }
+        }
+
+        if (!inserted)
+            throw new InvalidOperationException("Could not find // UNDEAD marker in table_skills_stats.");
+    }
+
+    static string FormatSkillsStatsRow(NecromancySkill skill)
     {
         var combat = skill.Combat!;
         var target = combat.Target switch
         {
-            SkillTargetKind.Object => Msl.SkillsStatsTarget.TargetObject,
-            SkillTargetKind.Point => Msl.SkillsStatsTarget.TargetPoint,
-            SkillTargetKind.Area => Msl.SkillsStatsTarget.TargetArea,
-            SkillTargetKind.Ally => Msl.SkillsStatsTarget.TargetAlly,
-            _ => Msl.SkillsStatsTarget.NoTarget
+            SkillTargetKind.Object => "Target Object",
+            SkillTargetKind.Point => "Target Point",
+            SkillTargetKind.Area => "Target Area",
+            SkillTargetKind.Ally => "Target Ally",
+            _ => "No Target"
         };
 
-        var pattern = combat.Pattern.ToLowerInvariant() switch
-        {
-            "five" => Msl.SkillsStatsPattern.five,
-            "line" => Msl.SkillsStatsPattern.line,
-            "circle" => Msl.SkillsStatsPattern.circle,
-            "pyramid" => Msl.SkillsStatsPattern.pyramid,
-            "pyramid_shift" => Msl.SkillsStatsPattern.pyramid_shift,
-            _ => Msl.SkillsStatsPattern.normal
-        };
+        var pattern = string.IsNullOrWhiteSpace(combat.Pattern) ? "normal" : combat.Pattern.ToLowerInvariant();
+        var cls = string.IsNullOrWhiteSpace(combat.Class) ? "spell" : combat.Class.ToLowerInvariant();
+        var starcast = combat.Starcast ?? string.Empty;
+        // Player sorcery spells use metacategory "sorcery"; offensive tags match Fire_Barrage-style missiles.
+        var tags = combat.IsMissile || combat.Kind is SkillCombatKind.Missile or SkillCombatKind.Debuff
+            ? "offensive"
+            : string.Empty;
 
-        var cls = combat.Class.ToLowerInvariant() switch
-        {
-            "skill" => Msl.SkillsStatsClass.skill,
-            "attack" => Msl.SkillsStatsClass.attack,
-            _ => Msl.SkillsStatsClass.spell
-        };
-
-        Msl.InjectTableSkillsStats(
-            Msl.SkillsStatsHook.UNDEAD,
-            skill.Slug,
-            skill.BirthObjectName,
-            target,
-            combat.Range,
-            combat.Cooldown,
-            combat.Energy,
-            combat.Reserve,
-            combat.Duration,
-            combat.AoeLength,
-            combat.AoeWidth,
-            combat.IsMovement,
-            pattern,
-            Msl.SkillsStatsValidator.none,
-            cls,
-            combat.BonusRange,
-            combat.Starcast,
-            Msl.SkillsStatsBranch.necromancy,
-            is_knockback: false,
-            Crime: true,
-            Msl.SkillsStatsMetacategory.none,
-            combat.Fumble,
-            combat.ArmorPenetration,
-            Attack: false,
-            Stance: false,
-            Charge: false,
-            Maneuver: false,
-            Spell: true);
+        // Keep validators empty (;; between Pattern and Class) — required by current game CSV.
+        return
+            $"\"{skill.Slug};{skill.BirthObjectName};{target};{combat.Range};{combat.Cooldown};{combat.Energy};" +
+            $"{combat.Reserve};{combat.Duration};{combat.AoeLength};{combat.AoeWidth};{(combat.IsMovement ? "1" : "0")};" +
+            $"{pattern};;{cls};{(combat.BonusRange ? "1" : "0")};{starcast};necromancy;0;1;sorcery;" +
+            $"{combat.Fumble};{combat.ArmorPenetration};;;;;1;{tags};\",";
     }
 }

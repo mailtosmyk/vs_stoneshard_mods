@@ -27,7 +27,7 @@
         "range": "6",
         "cooldown": 3,
         "energy": 13,
-        "reserve": 9,
+        "reserve": 0,
         "duration": 0,
         "aoeLength": 0,
         "aoeWidth": 0,

@@ -55,6 +55,7 @@ public sealed record SkillTree(
 
 /// <summary>
 /// Combat / table_skills_stats fields loaded from necromancy.json.
+/// Note: JSON <c>reserve</c> maps to CSV <c>is_moving_zone</c> (not energy reservation).
 /// </summary>
 public sealed class SkillCombat
 {
