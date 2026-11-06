@@ -13,6 +13,11 @@ public static class NecromancyTier1Skills
     public static void Patch(ModFile modFiles)
     {
         var tier1 = NecromancySkills.ByTier(1).ToArray();
+
+        // Register bolt/impact/buff objects first so birth Create GML can resolve
+        // `spell = o_nm_*` as asset refs (otherwise they compile as unset variables).
+        CreateSharedCombatObjects(modFiles);
+
         foreach (var skill in tier1)
         {
             if (skill.Combat is null)
@@ -25,7 +30,6 @@ public static class NecromancyTier1Skills
         // current Stoneshard builds (rows never appear in table_skills_stats). Splice like
         // BW-s-Necromancy Bw_Bolt so Target Point / Object actually resolve at cast time.
         InjectSkillsStatsRows(tier1);
-        CreateSharedCombatObjects(modFiles);
     }
 
     static void CreateSkillObjects(NecromancySkill skill, ModFile modFiles)
@@ -86,7 +90,16 @@ public static class NecromancyTier1Skills
 
     static void CreateSharedCombatObjects(ModFile modFiles)
     {
-        // Desecration projectile
+        // Withering Curse impact pillar (sprite shipped from BW-s-Necromancy-main).
+        var tealCurse = Msl.GetSprite("s_teal_curse");
+        tealCurse.OriginX = 20;
+        tealCurse.OriginY = 61;
+        tealCurse.IsSpecialType = true;
+        tealCurse.GMS2PlaybackSpeedType = AnimSpeedType.FramesPerGameFrame;
+        tealCurse.GMS2PlaybackSpeed = 0.4f;
+
+        // Add all objects before ApplyEvent so cross-refs (bolt→curse, impact→buff, ward→shard)
+        // compile as asset indices rather than unset instance variables.
         var bolt = Msl.AddObject(
             name: "o_nm_desecration_bolt",
             spriteName: "s_spell_darlball",
@@ -95,19 +108,6 @@ public static class NecromancyTier1Skills
             isPersistent: false,
             isAwake: true,
             collisionShapeFlags: CollisionShapeFlags.Circle);
-        bolt.ApplyEvent(modFiles,
-            new MslEvent("gml_Object_o_nm_desecration_bolt_Create_0.gml", EventType.Create, 0),
-            new MslEvent("gml_Object_o_nm_desecration_bolt_Other_10.gml", EventType.Other, 10),
-            new MslEvent("gml_Object_o_nm_desecration_bolt_Other_11.gml", EventType.Other, 11),
-            new MslEvent("gml_Object_o_nm_desecration_bolt_Destroy_0.gml", EventType.Destroy, 0));
-
-        // Withering Curse impact pillar (sprite shipped from BW-s-Necromancy-main).
-        var tealCurse = Msl.GetSprite("s_teal_curse");
-        tealCurse.OriginX = 20;
-        tealCurse.OriginY = 61;
-        tealCurse.IsSpecialType = true;
-        tealCurse.GMS2PlaybackSpeedType = AnimSpeedType.FramesPerGameFrame;
-        tealCurse.GMS2PlaybackSpeed = 0.4f;
 
         var curseImpact = Msl.AddObject(
             name: "o_nm_withering_curse_impact",
@@ -117,12 +117,7 @@ public static class NecromancyTier1Skills
             isPersistent: false,
             isAwake: true,
             collisionShapeFlags: CollisionShapeFlags.Circle);
-        curseImpact.ApplyEvent(modFiles,
-            new MslEvent("gml_Object_o_nm_withering_curse_impact_Create_0.gml", EventType.Create, 0),
-            new MslEvent("gml_Object_o_nm_withering_curse_impact_Other_7.gml", EventType.Other, 7),
-            new MslEvent("gml_Object_o_nm_withering_curse_impact_Draw_0.gml", EventType.Draw, 0));
 
-        // Withering Curse debuff
         var curseBuff = Msl.AddObject(
             name: "o_db_withering_curse",
             spriteName: "s_withering_curse",
@@ -131,15 +126,7 @@ public static class NecromancyTier1Skills
             isPersistent: false,
             isAwake: true,
             collisionShapeFlags: CollisionShapeFlags.Circle);
-        curseBuff.ApplyEvent(modFiles,
-            new MslEvent("gml_Object_o_db_withering_curse_Create_0.gml", EventType.Create, 0),
-            new MslEvent("gml_Object_o_db_withering_curse_Other_10.gml", EventType.Other, 10),
-            new MslEvent("gml_Object_o_db_withering_curse_Other_15.gml", EventType.Other, 15),
-            new MslEvent("gml_Object_o_db_withering_curse_Alarm_2.gml", EventType.Alarm, 2),
-            new MslEvent("gml_Object_o_db_withering_curse_Destroy_0.gml", EventType.Destroy, 0),
-            new MslEvent("gml_Object_o_db_withering_curse_Step_0.gml", EventType.Step, 0));
 
-        // Bone Ward impact + buff
         var wardImpact = Msl.AddObject(
             name: "o_nm_bone_ward_impact",
             spriteName: "s_bone_ward",
@@ -148,10 +135,6 @@ public static class NecromancyTier1Skills
             isPersistent: false,
             isAwake: true,
             collisionShapeFlags: CollisionShapeFlags.Circle);
-        wardImpact.ApplyEvent(modFiles,
-            new MslEvent("gml_Object_o_nm_bone_ward_impact_Create_0.gml", EventType.Create, 0),
-            new MslEvent("gml_Object_o_nm_bone_ward_impact_Other_7.gml", EventType.Other, 7),
-            new MslEvent("gml_Object_o_nm_bone_ward_impact_Draw_0.gml", EventType.Draw, 0));
 
         var wardBuff = Msl.AddObject(
             name: "o_b_bone_ward",
@@ -161,11 +144,6 @@ public static class NecromancyTier1Skills
             isPersistent: false,
             isAwake: true,
             collisionShapeFlags: CollisionShapeFlags.Circle);
-        wardBuff.ApplyEvent(modFiles,
-            new MslEvent("gml_Object_o_b_bone_ward_Create_0.gml", EventType.Create, 0),
-            new MslEvent("gml_Object_o_b_bone_ward_Other_10.gml", EventType.Other, 10),
-            new MslEvent("gml_Object_o_b_bone_ward_Alarm_2.gml", EventType.Alarm, 2),
-            new MslEvent("gml_Object_o_b_bone_ward_Destroy_0.gml", EventType.Destroy, 0));
 
         var shardHit = Msl.AddObject(
             name: "o_nm_bone_shard_hit",
@@ -175,9 +153,6 @@ public static class NecromancyTier1Skills
             isPersistent: false,
             isAwake: true,
             collisionShapeFlags: CollisionShapeFlags.Circle);
-        shardHit.ApplyEvent(modFiles,
-            new MslEvent("gml_Object_o_nm_bone_shard_hit_Create_0.gml", EventType.Create, 0),
-            new MslEvent("gml_Object_o_nm_bone_shard_hit_Alarm_1.gml", EventType.Alarm, 1));
 
         var skeletonTimer = Msl.AddObject(
             name: "o_b_nm_skeleton_timer",
@@ -187,6 +162,41 @@ public static class NecromancyTier1Skills
             isPersistent: false,
             isAwake: true,
             collisionShapeFlags: CollisionShapeFlags.Circle);
+
+        bolt.ApplyEvent(modFiles,
+            new MslEvent("gml_Object_o_nm_desecration_bolt_Create_0.gml", EventType.Create, 0),
+            new MslEvent("gml_Object_o_nm_desecration_bolt_Other_10.gml", EventType.Other, 10),
+            new MslEvent("gml_Object_o_nm_desecration_bolt_Other_11.gml", EventType.Other, 11),
+            new MslEvent("gml_Object_o_nm_desecration_bolt_Destroy_0.gml", EventType.Destroy, 0));
+
+        curseImpact.ApplyEvent(modFiles,
+            new MslEvent("gml_Object_o_nm_withering_curse_impact_Create_0.gml", EventType.Create, 0),
+            new MslEvent("gml_Object_o_nm_withering_curse_impact_Other_7.gml", EventType.Other, 7),
+            new MslEvent("gml_Object_o_nm_withering_curse_impact_Draw_0.gml", EventType.Draw, 0));
+
+        curseBuff.ApplyEvent(modFiles,
+            new MslEvent("gml_Object_o_db_withering_curse_Create_0.gml", EventType.Create, 0),
+            new MslEvent("gml_Object_o_db_withering_curse_Other_10.gml", EventType.Other, 10),
+            new MslEvent("gml_Object_o_db_withering_curse_Other_15.gml", EventType.Other, 15),
+            new MslEvent("gml_Object_o_db_withering_curse_Alarm_2.gml", EventType.Alarm, 2),
+            new MslEvent("gml_Object_o_db_withering_curse_Destroy_0.gml", EventType.Destroy, 0),
+            new MslEvent("gml_Object_o_db_withering_curse_Step_0.gml", EventType.Step, 0));
+
+        wardImpact.ApplyEvent(modFiles,
+            new MslEvent("gml_Object_o_nm_bone_ward_impact_Create_0.gml", EventType.Create, 0),
+            new MslEvent("gml_Object_o_nm_bone_ward_impact_Other_7.gml", EventType.Other, 7),
+            new MslEvent("gml_Object_o_nm_bone_ward_impact_Draw_0.gml", EventType.Draw, 0));
+
+        wardBuff.ApplyEvent(modFiles,
+            new MslEvent("gml_Object_o_b_bone_ward_Create_0.gml", EventType.Create, 0),
+            new MslEvent("gml_Object_o_b_bone_ward_Other_10.gml", EventType.Other, 10),
+            new MslEvent("gml_Object_o_b_bone_ward_Alarm_2.gml", EventType.Alarm, 2),
+            new MslEvent("gml_Object_o_b_bone_ward_Destroy_0.gml", EventType.Destroy, 0));
+
+        shardHit.ApplyEvent(modFiles,
+            new MslEvent("gml_Object_o_nm_bone_shard_hit_Create_0.gml", EventType.Create, 0),
+            new MslEvent("gml_Object_o_nm_bone_shard_hit_Alarm_1.gml", EventType.Alarm, 1));
+
         skeletonTimer.ApplyEvent(modFiles,
             new MslEvent("gml_Object_o_b_nm_skeleton_timer_Create_0.gml", EventType.Create, 0),
             new MslEvent("gml_Object_o_b_nm_skeleton_timer_Destroy_0.gml", EventType.Destroy, 0));
