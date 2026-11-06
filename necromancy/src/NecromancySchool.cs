@@ -38,6 +38,7 @@ public static class NecromancySchool
 
         InsertCategoryIntoSkillMenu();
         InsertTierGlobals(tier1);
+        UnlockTier1OnSkillPanelInit();
     }
 
     static void EnsureSpriteOrigins(IEnumerable<NecromancySkill> skills)
@@ -119,6 +120,22 @@ public static class NecromancySchool
         Msl.LoadGML("gml_GlobalScript_scr_skill_tier_init")
             .MatchFrom("}")
             .InsertAbove(gml)
+            .Save();
+    }
+
+    /// <summary>
+    /// o_skill_fast_panel Alarm_0 locks every skill in every category, then unlocks
+    /// class starting tiers via scr_skill_open_from_array1d. Without that unlock,
+    /// necromancy tier-1 stays locked and shows "Read the corresponding treatise...".
+    /// </summary>
+    static void UnlockTier1OnSkillPanelInit()
+    {
+        Msl.LoadGML("gml_Object_o_skill_fast_panel_Alarm_0")
+            .MatchFrom("scr_skill_open_from_array1d(global.survival_tier1)")
+            .InsertBelow(
+                "scr_skill_open_from_array1d(" + Tier1Global + ")\n" +
+                "with (" + CategoryObjectName + ")\n" +
+                "    is_lock = false")
             .Save();
     }
 }

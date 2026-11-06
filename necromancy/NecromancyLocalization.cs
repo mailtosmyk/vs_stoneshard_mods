@@ -133,7 +133,9 @@ public static class NecromancyLocalization
 
     static void PatchSkills()
     {
-        Msl.InjectTableItemLocalization(
+        PendingSkillLocs.Clear();
+
+        RegisterSkillLocalization(
             "desecration",
             new Dictionary<ModLanguage, string>
             {
@@ -159,7 +161,7 @@ public static class NecromancyLocalization
                 { ModLanguage.German, "Schießt einen Blitz dunkler Energie (Reichweite: 6), der 7 Unheiligen Schaden mit Treffergenauigkeit verursacht. Bei einem Treffer verbrennt der Zauber 33% des verursachten Schadens als Energie und stellt dem Wirker denselben Betrag wieder her. Gewährt Unheiligen Schaden für 8–10 Züge. Dieser Effekt stapelt nicht." },
                 { ModLanguage.Russian, "Выпускает заряд тёмной энергии (дальность: 6), наносящий 7 урона нечестием с учётом точности. При попадании сжигает энергию цели в размере 33% от нанесённого урона и восстанавливает столько же энергии заклинателю. Даёт урон нечестием на 8–10 ходов. Эффект не стакается." },
             });
-        Msl.InjectTableItemLocalization(
+        RegisterSkillLocalization(
             "bone_ward",
             new Dictionary<ModLanguage, string>
             {
@@ -185,7 +187,7 @@ public static class NecromancyLocalization
                 { ModLanguage.German, "Aktiviert „Knochenwächter“ für 4 Züge (+1 Zug, wenn eine Leiche angrenzt): +12% physischer Widerstand, +15% Blutungswiderstand, +10% Magiewiderstand, +10% Bewegungswiderstand. Beim Auslaufen oder erneuten Aktivieren fügen Knochensplitter allen angrenzenden Feinden 4 Unheiligen und 3 Stichschaden zu, mit 50% Chance zu staunen." },
                 { ModLanguage.Russian, "Активирует «Костяной щит» на 4 хода (+1 ход, если рядом труп): +12% физ. сопротивления, +15% сопротивления кровотечению, +10% маг. сопротивления, +10% сопротивления перемещению. По окончании или при повторной активации осколки костей наносят всем соседним врагам 4 урона нечестием и 3 колющего урона с 50% шансом ошеломить." },
             });
-        Msl.InjectTableItemLocalization(
+        RegisterSkillLocalization(
             "summon_skeleton",
             new Dictionary<ModLanguage, string>
             {
@@ -211,7 +213,7 @@ public static class NecromancyLocalization
                 { ModLanguage.German, "Beschwört 1 Skelett auf dem Ziel-Feld (keine Leiche nötig). Dauer, max. Gesundheit % und max. Energie % skalieren mit Willenskraft (Start: 5 Züge, 33% max. Gesundheit / 25% max. Energie, Rüstungshalbarkeit 0%). Nur ein Skelett gleichzeitig. Senkt langsam den Verstand (nicht unter 70%). Risiko von „Besessenheit“: Gering. Kann keine Untoten über dem Level-Limit der Fähigkeit beschwören. Nicht unter „Besessenheit“ wirkbar." },
                 { ModLanguage.Russian, "Призывает 1 скелета на выбранную клетку (труп не нужен). Длительность, % макс. здоровья и % макс. энергии зависят от Воли (старт: 5 ходов, 33% макс. здоровья / 25% макс. энергии, прочность брони 0%). Одновременно может существовать только один скелет. Медленно снижает рассудок (не ниже 70%). Риск «Одержимости»: низкий. Нельзя призвать нежить выше уровня навыка. Нельзя использовать под «Одержимостью»." },
             });
-        Msl.InjectTableItemLocalization(
+        RegisterSkillLocalization(
             "withering_curse",
             new Dictionary<ModLanguage, string>
             {
@@ -237,7 +239,7 @@ public static class NecromancyLocalization
                 { ModLanguage.German, "Belegt das Ziel mit „Verdorrender Fluch“ für 10 Züge (Reichweite: 6): -8% Zähigkeit, -8% Magiewiderstand, -5% max. Gesundheit, +3% erlittener Schaden. Jeder Zug verschlechtert einen zufälligen Körperteil um 0,25%. Treffer mit „Entweihung“ oder erneutes Wirken auf dasselbe Ziel erneuert die Dauer (stapelt nicht auf Stufe 1)." },
                 { ModLanguage.Russian, "Накладывает на цель «Иссушающее проклятие» на 10 ходов (дальность: 6): -8% стойкости, -8% маг. сопротивления, -5% макс. здоровья, +3% получаемого урона. Каждый ход ухудшает случайную часть тела на 0,25%. Попадание «Осквернением» или повторное применение обновляет длительность (на 1-м ярусе не стакается)." },
             });
-        Msl.InjectTableItemLocalization(
+        RegisterSkillLocalization(
             "essence_leech",
             new Dictionary<ModLanguage, string>
             {
@@ -263,7 +265,7 @@ public static class NecromancyLocalization
                 { ModLanguage.German, "Verschlingt eine gezielte Leiche oder stiehlt 8% max. Gesundheit und 8% max. Energie von einem verbündeten Untoten oder Skelett und überträgt die Hälfte auf den Wirker. Aktiviert „Essenzladung“ für 12–15 Züge: +5% Magiekraft, -5% Energiekosten von Fähigkeiten, +4 max. Energie. Wiederholte Nutzung gibt einen Extra-Stapel (bis II) und erneuert die Dauer. Zauber verringern Stapel um 1. Kein Besessenheitsrisiko durch Essenzladung auf Stufe 2." },
                 { ModLanguage.Russian, "Пожирает выбранный труп или крадёт 8% макс. здоровья и 8% макс. энергии у союзной нежити/скелета, передавая половину заклинателю. Активирует «Заряд сущности» на 12–15 ходов: +5% силы магии, -5% стоимости энергии способностей, +4 макс. энергии. Повторное применение даёт доп. стак (до II) и обновляет длительность. Заклинания уменьшают стаки на 1. На 2-м ярусе «Заряд сущности» не даёт риска одержимости." },
             });
-        Msl.InjectTableItemLocalization(
+        RegisterSkillLocalization(
             "deaths_blessing",
             new Dictionary<ModLanguage, string>
             {
@@ -289,7 +291,7 @@ public static class NecromancyLocalization
                 { ModLanguage.German, "Stellt Gesundheit des Ziels wieder her (basiert auf Magiekraft) und verbessert den Zustand der Körperteile um 25% der geheilten Menge. 50% wirksamer bei verbündeten Untoten. Gewährt „Segen des Todes“ für 8–10 Züge: +6% Lebensraub, +6% Energieraub, +8% Schadensreflexion." },
                 { ModLanguage.Russian, "Восстанавливает здоровье цели (зависит от силы магии) и улучшает состояние частей тела на 25% от восстановленного здоровья. На 50% эффективнее на союзной нежити. Даёт «Благословение смерти» на 8–10 ходов: +6% вампиризма, +6% кражи энергии, +8% отражения урона." },
             });
-        Msl.InjectTableItemLocalization(
+        RegisterSkillLocalization(
             "resurrection",
             new Dictionary<ModLanguage, string>
             {
@@ -315,7 +317,7 @@ public static class NecromancyLocalization
                 { ModLanguage.German, "Belebt eine gezielte Leiche als dauerhaften Untoten mit 50–55% max. Gesundheit / 50% max. Energie und setzt die Rüstungshalbarkeit auf 0%. Erhöht die Moral (bis 70%). Senkt langsam den Verstand, aber nicht unter 60%. Risiko von „Besessenheit“: Hoch. Mehr als ein Untoter verursacht sofort „Besessenheit“. Keine Untoten über dem Level-Limit. Verhindert „Segen“. Nicht unter „Besessenheit“ wirkbar." },
                 { ModLanguage.Russian, "Оживляет выбранный труп как постоянную нежить при 50–55% макс. здоровья / 50% макс. энергии и ставит прочность брони на 0%. Повышает мораль (до 70%). Медленно снижает рассудок, но не ниже 60%. Риск «Одержимости»: высокий. Призыв более одной нежити мгновенно вызывает «Одержимость». Нельзя призвать нежить выше уровня навыка. Запрещает получение «Благословения». Нельзя использовать под «Одержимостью»." },
             });
-        Msl.InjectTableItemLocalization(
+        RegisterSkillLocalization(
             "grave_blight",
             new Dictionary<ModLanguage, string>
             {
@@ -341,7 +343,7 @@ public static class NecromancyLocalization
                 { ModLanguage.German, "Erzeugt ein verdorbenes 3x3-Gebiet auf dem Zielfeld (Reichweite: 5–6) für 4 Züge. Feinde darin erleiden 2 Unheiligen Schaden pro Zug und erhalten -4% Magiewiderstand (stapelt bis 3, solange sie drin sind). Erlaubt „Verdorrender Fluch“ bis II zu stapeln; Treffer mit „Entweihung“ oder erneuter Fluch fügt einen Stapel hinzu. Körperteilverschlechterung: 0,35% pro Zug und Stapel." },
                 { ModLanguage.Russian, "Создаёт заражённую область 3x3 на выбранной клетке (дальность: 5–6) на 4 хода. Враги в зоне получают 2 урона нечестием за ход и -4% маг. сопротивления (до 3 стаков, пока внутри). Также позволяет «Иссушающему проклятию» стакаться до II; попадание «Осквернением» или повтор проклятия добавляет стак. Ухудшение частей тела: 0,35% за ход за стак." },
             });
-        Msl.InjectTableItemLocalization(
+        RegisterSkillLocalization(
             "death_touch",
             new Dictionary<ModLanguage, string>
             {
@@ -367,7 +369,7 @@ public static class NecromancyLocalization
                 { ModLanguage.German, "Verursacht 10–12 Unheiligen Schaden (Reichweite: 4–5) mit Immobilisierungschance. Stellt allen Verbündeten in Sichtweite 40–50% des verursachten Schadens als Gesundheit wieder her. Hat das Ziel „Verdorrender Fluch“: +25% Schaden und +1 Fluchstapel. Verbrauch von 1 „Essenzladung“ gewährt +15% Magiekraft nur für diesen Wurf." },
                 { ModLanguage.Russian, "Наносит 10–12 урона нечестием (дальность: 4–5) со шансом обездвижить. Восстанавливает здоровье всем союзникам в поле зрения на 40–50% от нанесённого урона. Если на цели «Иссушающее проклятие»: +25% урона и +1 стак проклятия. Расход 1 «Заряда сущности» даёт +15% силы магии только для этого применения." },
             });
-        Msl.InjectTableItemLocalization(
+        RegisterSkillLocalization(
             "corpse_burst",
             new Dictionary<ModLanguage, string>
             {
@@ -393,7 +395,7 @@ public static class NecromancyLocalization
                 { ModLanguage.German, "Zielt auf eine Leiche oder einen verbündeten Untoten/Skelett und lässt sie explodieren (Zerstörung). Verursacht Unheiligen und Stichschaden in einem Basisgebiet 3x3 und kann Blutung verursachen. Schaden, Blutungschance und Gebietsgröße skalieren mit Willenskraft (Gebiet wächst von 3x3 zu 5x5 / 7x7). Explosion eines Verbündeten verursacht kleinen Verstandverlust." },
                 { ModLanguage.Russian, "Целится в труп или союзную нежить/скелета и взрывает их, уничтожая. Наносит урон нечестием и колющий урон в базовой области 3x3 и может наложить кровотечение. Урон, шанс кровотечения и размер области зависят от Воли (область растёт с 3x3 до 5x5 / 7x7). Взрыв союзника вызывает небольшую потерю рассудка." },
             });
-        Msl.InjectTableItemLocalization(
+        RegisterSkillLocalization(
             "mastery_of_binding",
             new Dictionary<ModLanguage, string>
             {
@@ -419,7 +421,7 @@ public static class NecromancyLocalization
                 { ModLanguage.German, "Lösen von Verbündeten kostet keinen Zug und stellt Energie in Höhe von 10% eurer Magiekraft wieder her. Erhöht das Level von Beschwörungsfähigkeiten um 1. Skelett beschwören: +2 Züge Basisdauer und +10% max. Gesundheit / max. Energie. Auferstehungsdiener starten mit 60% max. Gesundheit. Weiterhin auf einen sicheren Untoten gleichzeitig begrenzt, sofern keine höhere Fähigkeit mehr erlaubt." },
                 { ModLanguage.Russian, "Освобождение союзников не тратит ход и восстанавливает энергию, равную 10% вашей силы магии. Повышает уровень способностей призыва на 1. Призыв скелета: +2 хода базовой длительности и +10% макс. здоровья / макс. энергии. Слуги воскрешения начинают с 60% макс. здоровья. По-прежнему не более одной безопасной нежити одновременно, если более высокий навык не позволяет больше." },
             });
-        Msl.InjectTableItemLocalization(
+        RegisterSkillLocalization(
             "black_sepulchre",
             new Dictionary<ModLanguage, string>
             {
@@ -445,7 +447,7 @@ public static class NecromancyLocalization
                 { ModLanguage.German, "Zündet „Verdorrender Fluch“ am Ziel (Reichweite: 5–6) oder am stärksten verfluchten Feind in 3x3 bei Feldwirken: entfernt Stapel, verursacht 6 Unheiligen Schaden × Stapel am Ziel und 3 × Stapel an angrenzenden Feinden. Erlaubt Stapelung bis III. Bei III: Körperteilverschlechterung 0,5% pro Zug und Stapel." },
                 { ModLanguage.Russian, "Детонирует «Иссушающее проклятие» на цели (дальность: 5–6) или на сильнейшем проклятом враге в 3x3 при применении на клетку: снимает стаки, наносит цели 6 урона нечестием × стаки и соседним врагам 3 × стаки. Позволяет стакать проклятие до III. При III ухудшение частей тела: 0,5% за ход за стак." },
             });
-        Msl.InjectTableItemLocalization(
+        RegisterSkillLocalization(
             "sealed_mind",
             new Dictionary<ModLanguage, string>
             {
@@ -471,7 +473,7 @@ public static class NecromancyLocalization
                 { ModLanguage.German, "Halbiert den Verstandverlust von Okkultismus-Fähigkeiten und verringert teilweise die Nachteile von „Besessenheit“. Gewährt 33% Unheiligen Widerstand." },
                 { ModLanguage.Russian, "Вдвое снижает потерю рассудка от способностей оккультизма и частично уменьшает штрафы «Одержимости». Даёт 33% сопротивления нечестию." },
             });
-        Msl.InjectTableItemLocalization(
+        RegisterSkillLocalization(
             "immortality",
             new Dictionary<ModLanguage, string>
             {
@@ -497,7 +499,7 @@ public static class NecromancyLocalization
                 { ModLanguage.German, "Verhindert den Tod durch tödliche Treffer, solange max. Gesundheit und Moral beide über 50% liegen. Sinkt die Gesundheit unter 2, werden 33% von max. Gesundheit und max. Energie wiederhergestellt und angewendet: -10% Moral, +2% Erschöpfung. Verhindert Tod durch Hunger oder Durst." },
                 { ModLanguage.Russian, "Предотвращает смерть от смертельных ударов, пока макс. здоровье и мораль выше 50%. Когда здоровье падает ниже 2, восстанавливает 33% макс. здоровья и макс. энергии и накладывает: -10% морали, +2% усталости. Предотвращает смерть от голода или жажды." },
             });
-        Msl.InjectTableItemLocalization(
+        RegisterSkillLocalization(
             "blooming_madness",
             new Dictionary<ModLanguage, string>
             {
@@ -523,7 +525,7 @@ public static class NecromancyLocalization
                 { ModLanguage.German, "Erfolgreiches Auferwecken der Toten erlaubt das Erlernen einer ihrer aktiven Fähigkeiten gleichzeitig (solange im Menü verfügbar; verloren, wenn der Diener stirbt). Erhöht Erfahrungsgewinn durch Untoten-Kills um 100%." },
                 { ModLanguage.Russian, "Успешное воскрешение мёртвых позволяет изучить одну их активную способность за раз (пока доступна в меню навыков; теряется при смерти слуги). Увеличивает получаемый опыт за убийства нежити на 100%." },
             });
-        Msl.InjectTableItemLocalization(
+        RegisterSkillLocalization(
             "archtheurgy",
             new Dictionary<ModLanguage, string>
             {
@@ -549,7 +551,7 @@ public static class NecromancyLocalization
                 { ModLanguage.German, "Zauberwirken verursacht Unheiligen Schaden an allen Feinden in Sichtweite (basiert auf 3,33% Magiekraft). Auferwecken, Geisterbeschwörung, Essenzstehlen oder Erhalt von „Segen des Todes“ hat 33% Chance, „Aufstieg“ für 6 Züge zu aktivieren: +33% Unheiliger Widerstand, +66% Wunderstärke, wandelt Unheiligen Schaden in Heiligen Schaden um." },
                 { ModLanguage.Russian, "Применение заклинаний наносит урон нечестием всем врагам в поле зрения (на основе 3,33% силы магии). Воскрешение, призыв умертвий, кража сущности или получение «Благословения смерти» с шансом 33% активирует «Вознесение» на 6 ходов: +33% сопротивления нечестию, +66% силы чудес, преобразует урон нечестием в священный урон." },
             });
-        Msl.InjectTableItemLocalization(
+        RegisterSkillLocalization(
             "wraith_summoning",
             new Dictionary<ModLanguage, string>
             {
@@ -575,6 +577,83 @@ public static class NecromancyLocalization
                 { ModLanguage.German, "Beschwört einen Geist auf dem Zielfeld; Stärke hängt von „Essenzladung“-Stapeln ab. Entfernt „Essenzladung“. Ohne Waffe: -50% Abklingzeit und halbe Fehlschlagchance. Risiko von „Besessenheit“: Extrem hoch. Mehr als ein Geist verursacht sofort „Besessenheit\". Keine Geister über dem Level-Limit. Nicht unter „Besessenheit“ wirkbar." },
                 { ModLanguage.Russian, "Призывает умертвие на выбранную клетку; сила зависит от стаков «Заряда сущности». Снимает «Заряд сущности». Без оружия: -50% длительности перезарядки и вдвое меньший шанс сбоя. Риск «Одержимости»: крайне высокий. Призыв более одного умертвия мгновенно вызывает «Одержимость». Нельзя призвать умертвия выше уровня навыка. Нельзя использовать под «Одержимостью»." },
             });
+        // Skill tooltips resolve via global.skill_name_text / global.skill_desc from
+        // table_skills (scr_skill_atr). InjectTableItemLocalization only feeds table_items.
+        Msl.LoadGML("gml_GlobalScript_table_skills")
+            .Apply(InjectNecromancyTableSkillsRows)
+            .Save();
+    }
+
+    static readonly List<(string Id, Dictionary<ModLanguage, string> Name, Dictionary<ModLanguage, string> Desc)> PendingSkillLocs = new();
+
+    static void RegisterSkillLocalization(
+        string id,
+        Dictionary<ModLanguage, string> name,
+        Dictionary<ModLanguage, string> _unused,
+        Dictionary<ModLanguage, string> description)
+    {
+        PendingSkillLocs.Add((id, name, description));
+    }
+
+    static string EscapeSkillCsv(string value) =>
+        (value ?? string.Empty).Replace("\\", "\\\\").Replace("\"", "\\\"");
+
+    static string LocPick(Dictionary<ModLanguage, string> texts, ModLanguage lang)
+    {
+        if (texts.TryGetValue(lang, out var value) && !string.IsNullOrEmpty(value))
+            return value;
+        return texts[ModLanguage.English];
+    }
+
+    static string SkillCsvRow(string id, Dictionary<ModLanguage, string> texts)
+    {
+        // CSV columns: id;RU;EN;ZH;DE;ES;FR;IT;PT;PL;TR;JA;KO
+        var en = EscapeSkillCsv(LocPick(texts, ModLanguage.English));
+        var ru = EscapeSkillCsv(LocPick(texts, ModLanguage.Russian));
+        var zh = EscapeSkillCsv(LocPick(texts, ModLanguage.Chinese));
+        var de = EscapeSkillCsv(LocPick(texts, ModLanguage.German));
+        var ja = EscapeSkillCsv(LocPick(texts, ModLanguage.Japanese));
+        return "\"" + id + ";" + ru + ";" + en + ";" + zh + ";" + de + ";" +
+               en + ";" + en + ";" + en + ";" + en + ";" + en + ";" + en + ";" +
+               ja + ";" + en + ";\", ";
+    }
+
+    static IEnumerable<string> InjectNecromancyTableSkillsRows(IEnumerable<string> lines)
+    {
+        const string nameMarker = "\";skill_name_end;";
+        const string descMarker = "\";skill_desc_end;";
+
+        var nameInsert = new System.Text.StringBuilder();
+        var descInsert = new System.Text.StringBuilder();
+        foreach (var entry in PendingSkillLocs)
+        {
+            nameInsert.Append(SkillCsvRow(entry.Id, entry.Name));
+            descInsert.Append(SkillCsvRow(entry.Id, entry.Desc));
+        }
+
+        var nameText = nameInsert.ToString();
+        var descText = descInsert.ToString();
+        var descGuard = "\"desecration;" + EscapeSkillCsv(LocPick(PendingSkillLocs[0].Desc, ModLanguage.Russian));
+
+        foreach (var line in lines)
+        {
+            var result = line;
+            if (result.Contains(nameMarker, StringComparison.Ordinal) &&
+                !result.Contains("\"desecration;", StringComparison.Ordinal))
+            {
+                result = result.Replace(nameMarker, nameText + nameMarker, StringComparison.Ordinal);
+            }
+
+            // Name rows may already contain "desecration;" on the same giant return line,
+            // so guard skill_desc with the Russian description prefix instead.
+            if (result.Contains(descMarker, StringComparison.Ordinal) &&
+                !result.Contains(descGuard, StringComparison.Ordinal))
+            {
+                result = result.Replace(descMarker, descText + descMarker, StringComparison.Ordinal);
+            }
+
+            yield return result;
+        }
     }
 
     static void PatchSpeeches()
