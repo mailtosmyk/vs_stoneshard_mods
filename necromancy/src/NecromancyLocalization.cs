@@ -98,6 +98,33 @@ public static class NecromancyLocalization
                 { ModLanguage.German, "~ur~+Unheiliger Schaden~/~##Durch ~lg~\"Entweihung\"~/~ gewährt. Stapelt nicht." },
                 { ModLanguage.Russian, "~ur~+нечестивого урона~/~##Даётся ~lg~\"Осквернением\"~/~. Не суммируется." },
             });
+
+        Msl.InjectTableItemLocalization(
+            "o_b_nm_skeleton_timer",
+            new Dictionary<ModLanguage, string>
+            {
+                { ModLanguage.English, "Summon Skeleton" },
+                { ModLanguage.Japanese, "スケルトン召喚" },
+                { ModLanguage.Chinese, "召唤骷髅" },
+                { ModLanguage.German, "Skelett beschwören" },
+                { ModLanguage.Russian, "Призыв скелета" },
+            },
+            new Dictionary<ModLanguage, string>
+            {
+                { ModLanguage.English, "Summon Skeleton" },
+                { ModLanguage.Japanese, "スケルトン召喚" },
+                { ModLanguage.Chinese, "召唤骷髅" },
+                { ModLanguage.German, "Skelett beschwören" },
+                { ModLanguage.Russian, "Призыв скелета" },
+            },
+            new Dictionary<ModLanguage, string>
+            {
+                { ModLanguage.English, "A summoned Skeleton fights for you.##Ends early if the Skeleton is destroyed." },
+                { ModLanguage.Japanese, "召喚したスケルトンが味方として戦う。##スケルトンが倒れると効果は終了する。" },
+                { ModLanguage.Chinese, "召唤的骷髅为你而战。##骷髅被摧毁时提前结束。" },
+                { ModLanguage.German, "Ein beschworenes Skelett kämpft für dich.##Endet vorzeitig, wenn das Skelett zerstört wird." },
+                { ModLanguage.Russian, "Призванный скелет сражается на вашей стороне.##Заканчивается раньше, если скелет уничтожен." },
+            });
     }
 
     static void PatchSchool()

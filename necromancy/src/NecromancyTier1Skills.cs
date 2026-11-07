@@ -157,7 +157,7 @@ public static class NecromancyTier1Skills
         var skeletonTimer = Msl.AddObject(
             name: "o_b_nm_skeleton_timer",
             spriteName: "s_summon_skeleton",
-            parentName: "o_buff",
+            parentName: "o_magical_buff",
             isVisible: true,
             isPersistent: false,
             isAwake: true,
@@ -209,6 +209,8 @@ public static class NecromancyTier1Skills
 
         skeletonTimer.ApplyEvent(modFiles,
             new MslEvent("gml_Object_o_b_nm_skeleton_timer_Create_0.gml", EventType.Create, 0),
+            new MslEvent("gml_Object_o_b_nm_skeleton_timer_Other_10.gml", EventType.Other, 10),
+            new MslEvent("gml_Object_o_b_nm_skeleton_timer_Alarm_2.gml", EventType.Alarm, 2),
             new MslEvent("gml_Object_o_b_nm_skeleton_timer_Destroy_0.gml", EventType.Destroy, 0));
 
         desecrationBuff.ApplyEvent(modFiles,

@@ -5,14 +5,17 @@ if ((!is_execute) && instance_exists(owner))
     yy = point_y
     is_execute = true
 
-    var _skelObj = asset_get_index("o_skeleton")
-    if (_skelObj != -1)
+    // Parent o_skeleton has no scr_param / bSTR — spawn a concrete skeleton unit.
+    var _skelObj = asset_get_index("o_skeleton_militiaman")
+    if (_skelObj == -1)
+        _skelObj = asset_get_index("o_skeleton_footman")
+
+    // Drop previous summon timer (Destroy unbinds the linked skeleton).
+    var _timer = asset_get_index("o_b_nm_skeleton_timer")
+    if (_timer != -1 && instance_exists(owner))
     {
-        with (_skelObj)
-        {
-            if (variable_instance_exists(id, "nm_summon") && nm_summon)
-                instance_destroy()
-        }
+        with (scr_instance_exists_in_list(_timer, owner.buffs))
+            instance_destroy()
     }
 
     var _wil = scr_atr("WIL")
@@ -31,19 +34,36 @@ if ((!is_execute) && instance_exists(owner))
             owner = other.owner
             can_drop_loot = false
             gain_xp *= 0.1
-            faction_key = "Servant"
-            subfaction_key = "Servant"
+            is_neutral = true
             isSummoning = true
             HP = max(1, floor((max_hp * _hpPct) * 0.01))
             MP = max(0, floor((max_mp * _mpPct) * 0.01))
             ArmorDurability = 0
+            if instance_exists(owner)
+                callerId = owner.callerId
             _skel = id
         }
     }
 
-    var _timer = asset_get_index("o_b_nm_skeleton_timer")
-    if (instance_exists(_skel) && _timer != -1)
-        scr_effect_create(_timer, _turns, _skel, owner)
+    if (instance_exists(_skel) && instance_exists(o_player))
+    {
+        with (o_player)
+        {
+            var _pos = ds_list_find_index(enemylist, _skel)
+            if (_pos >= 0)
+                ds_list_delete(enemylist, _pos)
+        }
+    }
+
+    if (instance_exists(_skel) && _timer != -1 && instance_exists(owner))
+    {
+        var _buff = scr_effect_create(_timer, _turns, owner, owner)
+        if instance_exists(_buff)
+        {
+            with (_buff)
+                nm_skel = _skel
+        }
+    }
 
     if instance_exists(o_player)
     {
