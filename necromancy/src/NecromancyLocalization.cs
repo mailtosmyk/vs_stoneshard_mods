@@ -658,178 +658,135 @@ public static class NecromancyLocalization
 
     static void PatchSpeeches()
     {
-        Msl.InjectTableDialogLocalization(new LocalizationSentence[]
+        // Cast bubbles resolve "MC_" + skill (e.g. MC_bone_ward). Bare skill ids are
+        // also registered for tooltip / non-MC speech lookups (vanilla + BW pattern).
+        Msl.InjectTableDialogLocalization(BuildSpeechSentences(
+            ("desecration", Speech(
+                en: "In Nag Zur...",
+                ja: "イン・ナグ・ズール…",
+                zh: "因纳戈祖尔……",
+                de: "In Nag Zur...",
+                ru: "In Nag Zur...")),
+            ("bone_ward", Speech(
+                en: "Ossarak Veth!",
+                ja: "オッサラク・ヴェス！",
+                zh: "奥萨拉克·维斯！",
+                de: "Ossarak Veth!",
+                ru: "Ossarak Veth!")),
+            ("summon_skeleton", Speech(
+                en: "Rattlek Narzul!",
+                ja: "ラットレク・ナルズル！",
+                zh: "拉特雷克·纳祖尔！",
+                de: "Rattlek Narzul!",
+                ru: "Rattlek Narzul!")),
+            ("withering_curse", Speech(
+                en: "Shaggrath Azud...",
+                ja: "シャグラト・アズード！",
+                zh: "沙格拉斯'阿祖得！",
+                de: "Shaggrath Azud...",
+                ru: "Shaggrath Azud...")),
+            ("essence_leech", Speech(
+                en: "En'thero!",
+                ja: "エンセロー！",
+                zh: "恩塞罗！",
+                de: "En'thero!",
+                ru: "En'thero!")),
+            ("deaths_blessing", Speech(
+                en: "Yagrak Atot!",
+                ja: "ヤグラク・アトット！",
+                zh: "亚格拉克'阿托特！",
+                de: "Yagrak Atot!",
+                ru: "Yagrak Atot!")),
+            ("resurrection", Speech(
+                en: "Lagur! Lagur! Lagur!",
+                ja: "ラグール！ ラグール！ ラグール！",
+                zh: "拉古尔！拉古尔！拉古尔！",
+                de: "Lagur! Lagur! Lagur!",
+                ru: "Lagur! Lagur! Lagur!")),
+            ("grave_blight", Speech(
+                en: "Morgath En'ther!",
+                ja: "モルガス・エンサー！",
+                zh: "莫加斯·恩瑟！",
+                de: "Morgath En'ther!",
+                ru: "Morgath En'ther!")),
+            ("death_touch", Speech(
+                en: "Korrug Namar!",
+                ja: "コールグ・ナマール！",
+                zh: "廓卢戈'纳玛尔！",
+                de: "Korrug Namar!",
+                ru: "Korrug Namar!")),
+            ("corpse_burst", Speech(
+                en: "Barath Shatterk!",
+                ja: "バラース・シャッターク！",
+                zh: "巴拉斯·沙特克！",
+                de: "Barath Shatterk!",
+                ru: "Barath Shatterk!")),
+            ("mastery_of_binding", Speech(
+                en: "Vinculum Mortis!",
+                ja: "ウィンクルム・モルティス！",
+                zh: "温库鲁姆·莫提斯！",
+                de: "Vinculum Mortis!",
+                ru: "Vinculum Mortis!")),
+            ("black_sepulchre", Speech(
+                en: "Shaggrath Namar!",
+                ja: "シャグラト・ナマール！",
+                zh: "沙格拉斯'纳玛尔！",
+                de: "Shaggrath Namar!",
+                ru: "Shaggrath Namar!")),
+            ("sealed_mind", Speech(
+                en: "Nox Mentis Seal!",
+                ja: "ノックス・メンティス・シール！",
+                zh: "诺克斯·门提斯·封印！",
+                de: "Nox Mentis Seal!",
+                ru: "Nox Mentis Seal!")),
+            ("immortality", Speech(
+                en: "Aeternum Mortis!",
+                ja: "アエテルヌム・モルティス！",
+                zh: "埃特尔努姆·莫提斯！",
+                de: "Aeternum Mortis!",
+                ru: "Aeternum Mortis!")),
+            ("blooming_madness", Speech(
+                en: "Florath Insania!",
+                ja: "フロラス・インサニア！",
+                zh: "弗洛拉斯·因萨尼亚！",
+                de: "Florath Insania!",
+                ru: "Florath Insania!")),
+            ("archtheurgy", Speech(
+                en: "Archon Theurgos!",
+                ja: "アルコン・テウルゴス！",
+                zh: "阿尔孔·特乌尔戈斯！",
+                de: "Archon Theurgos!",
+                ru: "Archon Theurgos!")),
+            ("wraith_summoning", Speech(
+                en: "Lagura mithensa!",
+                ja: "コールグ・ナマール！",
+                zh: "廓卢戈'纳玛尔！",
+                de: "Korrug Namar!",
+                ru: "Korrug Namar!"))
+        ));
+    }
+
+    static Dictionary<ModLanguage, string> Speech(
+        string en, string ja, string zh, string de, string ru) =>
+        new()
         {
-            new LocalizationSentence(
-                "desecration",
-                new Dictionary<ModLanguage, string>
-                {
-                    { ModLanguage.English, "In Nag Zur..." },
-                    { ModLanguage.Japanese, "イン・ナグ・ズール…" },
-                    { ModLanguage.Chinese, "因纳戈祖尔……" },
-                    { ModLanguage.German, "In Nag Zur..." },
-                    { ModLanguage.Russian, "In Nag Zur..." },
-                }),
-            new LocalizationSentence(
-                "bone_ward",
-                new Dictionary<ModLanguage, string>
-                {
-                    { ModLanguage.English, "Ossarak Veth!" },
-                    { ModLanguage.Japanese, "オッサラク・ヴェス！" },
-                    { ModLanguage.Chinese, "奥萨拉克·维斯！" },
-                    { ModLanguage.German, "Ossarak Veth!" },
-                    { ModLanguage.Russian, "Ossarak Veth!" },
-                }),
-            new LocalizationSentence(
-                "summon_skeleton",
-                new Dictionary<ModLanguage, string>
-                {
-                    { ModLanguage.English, "Rattlek Narzul!" },
-                    { ModLanguage.Japanese, "ラットレク・ナルズル！" },
-                    { ModLanguage.Chinese, "拉特雷克·纳祖尔！" },
-                    { ModLanguage.German, "Rattlek Narzul!" },
-                    { ModLanguage.Russian, "Rattlek Narzul!" },
-                }),
-            new LocalizationSentence(
-                "withering_curse",
-                new Dictionary<ModLanguage, string>
-                {
-                    { ModLanguage.English, "Shaggrath Azud..." },
-                    { ModLanguage.Japanese, "シャグラト・アズード！" },
-                    { ModLanguage.Chinese, "沙格拉斯'阿祖得！" },
-                    { ModLanguage.German, "Shaggrath Azud..." },
-                    { ModLanguage.Russian, "Shaggrath Azud..." },
-                }),
-            new LocalizationSentence(
-                "essence_leech",
-                new Dictionary<ModLanguage, string>
-                {
-                    { ModLanguage.English, "En'thero!" },
-                    { ModLanguage.Japanese, "エンセロー！" },
-                    { ModLanguage.Chinese, "恩塞罗！" },
-                    { ModLanguage.German, "En'thero!" },
-                    { ModLanguage.Russian, "En'thero!" },
-                }),
-            new LocalizationSentence(
-                "deaths_blessing",
-                new Dictionary<ModLanguage, string>
-                {
-                    { ModLanguage.English, "Yagrak Atot!" },
-                    { ModLanguage.Japanese, "ヤグラク・アトット！" },
-                    { ModLanguage.Chinese, "亚格拉克'阿托特！" },
-                    { ModLanguage.German, "Yagrak Atot!" },
-                    { ModLanguage.Russian, "Yagrak Atot!" },
-                }),
-            new LocalizationSentence(
-                "resurrection",
-                new Dictionary<ModLanguage, string>
-                {
-                    { ModLanguage.English, "Lagur! Lagur! Lagur!" },
-                    { ModLanguage.Japanese, "ラグール！ ラグール！ ラグール！" },
-                    { ModLanguage.Chinese, "拉古尔！拉古尔！拉古尔！" },
-                    { ModLanguage.German, "Lagur! Lagur! Lagur!" },
-                    { ModLanguage.Russian, "Lagur! Lagur! Lagur!" },
-                }),
-            new LocalizationSentence(
-                "grave_blight",
-                new Dictionary<ModLanguage, string>
-                {
-                    { ModLanguage.English, "Morgath En'ther!" },
-                    { ModLanguage.Japanese, "モルガス・エンサー！" },
-                    { ModLanguage.Chinese, "莫加斯·恩瑟！" },
-                    { ModLanguage.German, "Morgath En'ther!" },
-                    { ModLanguage.Russian, "Morgath En'ther!" },
-                }),
-            new LocalizationSentence(
-                "death_touch",
-                new Dictionary<ModLanguage, string>
-                {
-                    { ModLanguage.English, "Korrug Namar!" },
-                    { ModLanguage.Japanese, "コールグ・ナマール！" },
-                    { ModLanguage.Chinese, "廓卢戈'纳玛尔！" },
-                    { ModLanguage.German, "Korrug Namar!" },
-                    { ModLanguage.Russian, "Korrug Namar!" },
-                }),
-            new LocalizationSentence(
-                "corpse_burst",
-                new Dictionary<ModLanguage, string>
-                {
-                    { ModLanguage.English, "Barath Shatterk!" },
-                    { ModLanguage.Japanese, "バラース・シャッターク！" },
-                    { ModLanguage.Chinese, "巴拉斯·沙特克！" },
-                    { ModLanguage.German, "Barath Shatterk!" },
-                    { ModLanguage.Russian, "Barath Shatterk!" },
-                }),
-            new LocalizationSentence(
-                "mastery_of_binding",
-                new Dictionary<ModLanguage, string>
-                {
-                    { ModLanguage.English, "Vinculum Mortis!" },
-                    { ModLanguage.Japanese, "ウィンクルム・モルティス！" },
-                    { ModLanguage.Chinese, "温库鲁姆·莫提斯！" },
-                    { ModLanguage.German, "Vinculum Mortis!" },
-                    { ModLanguage.Russian, "Vinculum Mortis!" },
-                }),
-            new LocalizationSentence(
-                "black_sepulchre",
-                new Dictionary<ModLanguage, string>
-                {
-                    { ModLanguage.English, "Shaggrath Namar!" },
-                    { ModLanguage.Japanese, "シャグラト・ナマール！" },
-                    { ModLanguage.Chinese, "沙格拉斯'纳玛尔！" },
-                    { ModLanguage.German, "Shaggrath Namar!" },
-                    { ModLanguage.Russian, "Shaggrath Namar!" },
-                }),
-            new LocalizationSentence(
-                "sealed_mind",
-                new Dictionary<ModLanguage, string>
-                {
-                    { ModLanguage.English, "Nox Mentis Seal!" },
-                    { ModLanguage.Japanese, "ノックス・メンティス・シール！" },
-                    { ModLanguage.Chinese, "诺克斯·门提斯·封印！" },
-                    { ModLanguage.German, "Nox Mentis Seal!" },
-                    { ModLanguage.Russian, "Nox Mentis Seal!" },
-                }),
-            new LocalizationSentence(
-                "immortality",
-                new Dictionary<ModLanguage, string>
-                {
-                    { ModLanguage.English, "Aeternum Mortis!" },
-                    { ModLanguage.Japanese, "アエテルヌム・モルティス！" },
-                    { ModLanguage.Chinese, "埃特尔努姆·莫提斯！" },
-                    { ModLanguage.German, "Aeternum Mortis!" },
-                    { ModLanguage.Russian, "Aeternum Mortis!" },
-                }),
-            new LocalizationSentence(
-                "blooming_madness",
-                new Dictionary<ModLanguage, string>
-                {
-                    { ModLanguage.English, "Florath Insania!" },
-                    { ModLanguage.Japanese, "フロラス・インサニア！" },
-                    { ModLanguage.Chinese, "弗洛拉斯·因萨尼亚！" },
-                    { ModLanguage.German, "Florath Insania!" },
-                    { ModLanguage.Russian, "Florath Insania!" },
-                }),
-            new LocalizationSentence(
-                "archtheurgy",
-                new Dictionary<ModLanguage, string>
-                {
-                    { ModLanguage.English, "Archon Theurgos!" },
-                    { ModLanguage.Japanese, "アルコン・テウルゴス！" },
-                    { ModLanguage.Chinese, "阿尔孔·特乌尔戈斯！" },
-                    { ModLanguage.German, "Archon Theurgos!" },
-                    { ModLanguage.Russian, "Archon Theurgos!" },
-                }),
-            new LocalizationSentence(
-                "wraith_summoning",
-                new Dictionary<ModLanguage, string>
-                {
-                    { ModLanguage.English, "Lagura mithensa!" },
-                    { ModLanguage.Japanese, "コールグ・ナマール！" },
-                    { ModLanguage.Chinese, "廓卢戈'纳玛尔！" },
-                    { ModLanguage.German, "Korrug Namar!" },
-                    { ModLanguage.Russian, "Korrug Namar!" },
-                })
-        });
+            { ModLanguage.English, en },
+            { ModLanguage.Japanese, ja },
+            { ModLanguage.Chinese, zh },
+            { ModLanguage.German, de },
+            { ModLanguage.Russian, ru },
+        };
+
+    static LocalizationSentence[] BuildSpeechSentences(
+        params (string SkillId, Dictionary<ModLanguage, string> Text)[] speeches)
+    {
+        var result = new List<LocalizationSentence>(speeches.Length * 2);
+        foreach (var (skillId, text) in speeches)
+        {
+            result.Add(new LocalizationSentence(skillId, text));
+            result.Add(new LocalizationSentence("MC_" + skillId, text));
+        }
+
+        return result.ToArray();
     }
 }

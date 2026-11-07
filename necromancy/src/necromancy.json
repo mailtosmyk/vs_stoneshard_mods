@@ -14,7 +14,7 @@
       "type": "active",
       "tier": 1,
       "image": "s_desecration",
-      "description": "Shoots a bolt of dark energy (Range: ~w~6~/~), dealing ~ur~7 Unholy Damage~/~ with Accuracy.##If the spell hits the target, burns its Energy for ~lg~33%~/~ of the damage dealt and replenishes the same amount of Energy to the caster.##Grants Unholy Damage for ~w~8–10~/~ turns.##This effect doesn't stack.",
+      "description": "Shoots a bolt of dark energy, dealing ~ur~7 Unholy Damage~/~ with Accuracy.##If the spell hits the target, burns its Energy for ~lg~33%~/~ of the damage dealt and replenishes the same amount of Energy to the caster.##Grants Unholy Damage for ~w~8 turns~/~.##This effect doesn't stack.",
       "magicPhrase": "In Nag Zur...",
       "requirements": {
         "attributes": [],
