@@ -163,6 +163,15 @@ public static class NecromancyTier1Skills
             isAwake: true,
             collisionShapeFlags: CollisionShapeFlags.Circle);
 
+        var desecrationBuff = Msl.AddObject(
+            name: "o_b_nm_desecration",
+            spriteName: "s_desecration",
+            parentName: "o_magical_buff",
+            isVisible: true,
+            isPersistent: false,
+            isAwake: true,
+            collisionShapeFlags: CollisionShapeFlags.Circle);
+
         bolt.ApplyEvent(modFiles,
             new MslEvent("gml_Object_o_nm_desecration_bolt_Create_0.gml", EventType.Create, 0),
             new MslEvent("gml_Object_o_nm_desecration_bolt_Other_10.gml", EventType.Other, 10),
@@ -200,6 +209,11 @@ public static class NecromancyTier1Skills
         skeletonTimer.ApplyEvent(modFiles,
             new MslEvent("gml_Object_o_b_nm_skeleton_timer_Create_0.gml", EventType.Create, 0),
             new MslEvent("gml_Object_o_b_nm_skeleton_timer_Destroy_0.gml", EventType.Destroy, 0));
+
+        desecrationBuff.ApplyEvent(modFiles,
+            new MslEvent("gml_Object_o_b_nm_desecration_Create_0.gml", EventType.Create, 0),
+            new MslEvent("gml_Object_o_b_nm_desecration_Other_10.gml", EventType.Other, 10),
+            new MslEvent("gml_Object_o_b_nm_desecration_Alarm_2.gml", EventType.Alarm, 2));
     }
 
     /// <summary>

@@ -71,6 +71,33 @@ public static class NecromancyLocalization
                 { ModLanguage.German, "~lg~+12%~/~ physischer Widerstand#~lg~+15%~/~ Blutungswiderstand#~lg~+10%~/~ Magiewiderstand#~lg~+10%~/~ Bewegungswiderstand##Zerbricht am Ende in Knochensplitter." },
                 { ModLanguage.Russian, "~lg~+12%~/~ физ. сопротивления#~lg~+15%~/~ сопротивления кровотечению#~lg~+10%~/~ маг. сопротивления#~lg~+10%~/~ сопротивления перемещению##При окончании разлетается осколками." },
             });
+
+        Msl.InjectTableItemLocalization(
+            "o_b_nm_desecration",
+            new Dictionary<ModLanguage, string>
+            {
+                { ModLanguage.English, "Unholy Damage" },
+                { ModLanguage.Japanese, "不浄ダメージ" },
+                { ModLanguage.Chinese, "不洁伤害" },
+                { ModLanguage.German, "Unheiliger Schaden" },
+                { ModLanguage.Russian, "Нечестивый урон" },
+            },
+            new Dictionary<ModLanguage, string>
+            {
+                { ModLanguage.English, "Unholy Damage" },
+                { ModLanguage.Japanese, "不浄ダメージ" },
+                { ModLanguage.Chinese, "不洁伤害" },
+                { ModLanguage.German, "Unheiliger Schaden" },
+                { ModLanguage.Russian, "Нечестивый урон" },
+            },
+            new Dictionary<ModLanguage, string>
+            {
+                { ModLanguage.English, "~ur~+Unholy Damage~/~##Granted by ~lg~\"Desecration\"~/~. Does not stack." },
+                { ModLanguage.Japanese, "~ur~+不浄ダメージ~/~##~lg~「冒涜」~/~により付与。重複しない。" },
+                { ModLanguage.Chinese, "~ur~+不洁伤害~/~##由~lg~\"亵渎\"~/~赋予。不可叠加。" },
+                { ModLanguage.German, "~ur~+Unheiliger Schaden~/~##Durch ~lg~\"Entweihung\"~/~ gewährt. Stapelt nicht." },
+                { ModLanguage.Russian, "~ur~+нечестивого урона~/~##Даётся ~lg~\"Осквернением\"~/~. Не суммируется." },
+            });
     }
 
     static void PatchSchool()
