@@ -5,14 +5,17 @@ if ((!is_execute) && instance_exists(owner))
     yy = point_y
     is_execute = true
 
-    // Parent o_skeleton has no scr_param / bSTR — spawn a concrete skeleton unit.
-    var _skelObj = asset_get_index("o_skeleton_militiaman")
-    if (_skelObj == -1)
-        _skelObj = asset_get_index("o_skeleton_footman")
+    // o_skeleton is an abstract parent (no sprite / no scr_param → no bSTR).
+    // Spawn a concrete skeleton whose Create calls scr_param(...).
+    var _skelObj = o_skeleton_militiaman
+    if (!object_exists(_skelObj))
+        _skelObj = o_skeleton_footman
+    if (!object_exists(_skelObj))
+        _skelObj = o_skeleton_spearman
 
     // Drop previous summon timer (Destroy unbinds the linked skeleton).
     var _timer = asset_get_index("o_b_nm_skeleton_timer")
-    if (_timer != -1 && instance_exists(owner))
+    if (_timer != -1)
     {
         with (scr_instance_exists_in_list(_timer, owner.buffs))
             instance_destroy()
@@ -24,7 +27,7 @@ if ((!is_execute) && instance_exists(owner))
     var _mpPct = clamp(25 + floor(_wil / 3), 15, 80)
 
     var _skel = -4
-    if (_skelObj != -1)
+    if (object_exists(_skelObj))
     {
         with (scr_enemy_create((xx + 13), (yy + 13), _skelObj, false))
         {

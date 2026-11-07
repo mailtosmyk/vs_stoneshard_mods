@@ -248,6 +248,11 @@ public static class NecromancyTier1Skills
                     var updated = line;
                     foreach (var skill in skills)
                         updated = UpsertSkillStatsRow(updated, skill);
+                    // Belt-and-suspenders: No Target self-buffs must never keep a spellbirth Object.
+                    updated = updated.Replace(
+                        "bone_ward;o_nm_bone_ward_birth;",
+                        "bone_ward;o_b_bone_ward;",
+                        StringComparison.Ordinal);
                     yield return updated;
                     inserted = true;
                     continue;
