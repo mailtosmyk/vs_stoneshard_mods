@@ -31,14 +31,64 @@ public static class NecromancySchool
             isAwake: true,
             collisionShapeFlags: CollisionShapeFlags.Circle);
 
-        category.ApplyEvent(
-            modFiles,
-            new MslEvent("gml_Object_o_skill_category_necromancy_Create_0.gml", EventType.Create, 0),
-            new MslEvent("gml_Object_o_skill_category_necromancy_Other_24.gml", EventType.Other, 24));
+        // ApplyEvent skips existing subtypes on re-patch; always overwrite bodies from tier-1 JSON
+        // so removed skills (e.g. Withering Curse) cannot leave stale icon refs in Create/Other_24.
+        try
+        {
+            category.ApplyEvent(
+                modFiles,
+                new MslEvent("gml_Object_o_skill_category_necromancy_Create_0.gml", EventType.Create, 0),
+                new MslEvent("gml_Object_o_skill_category_necromancy_Other_24.gml", EventType.Other, 24));
+        }
+        catch (ArgumentException)
+        {
+            // Events already present — ForceReplace below refreshes them.
+        }
+
+        WriteCategoryEvents(tier1);
 
         InsertCategoryIntoSkillMenu();
         InsertTierGlobals(tier1);
         UnlockTier1OnSkillPanelInit();
+    }
+
+    /// <summary>
+    /// Tier-1 icon strip + layout derived from necromancy.json (not stale Codes/*.gml).
+    /// </summary>
+    static void WriteCategoryEvents(NecromancySkill[] tier1)
+    {
+        var icons = string.Join(", ", tier1.Select(s => s.IconObjectName));
+        WriteGml(
+            "gml_Object_o_skill_category_necromancy_Create_0",
+            "event_inherited()\n" +
+            "text = \"Necromancy\"\n" +
+            "skill = [" + icons + "]\n" +
+            "branch_sprite = s_nmancy_reworked\n" +
+            "is_execute = false\n" +
+            "owner = gml_Script_scr_GetMobParametr\n");
+
+        // Same X spacing as the old 4-icon strip; only emit slots for registered tier-1 skills.
+        var xs = new[] { 33, 81, 130, 178, 226 };
+        var layout = new System.Text.StringBuilder("event_inherited()\n");
+        for (var i = 0; i < tier1.Length; i++)
+        {
+            var x = i < xs.Length ? xs[i] : xs[^1] + (i - xs.Length + 1) * 48;
+            layout.Append("scr_guiLayoutOffsetUpdate(")
+                .Append(tier1[i].IconObjectName)
+                .Append(", ")
+                .Append(x)
+                .Append(", 55, 1)\n");
+        }
+
+        WriteGml("gml_Object_o_skill_category_necromancy_Other_24", layout.ToString());
+    }
+
+    static void WriteGml(string gmlName, string source)
+    {
+        var lines = source.Replace("\r\n", "\n", StringComparison.Ordinal).Split('\n');
+        Msl.LoadGML(gmlName)
+            .Apply(_ => lines)
+            .Save();
     }
 
     static void EnsureSpriteOrigins(IEnumerable<NecromancySkill> skills)

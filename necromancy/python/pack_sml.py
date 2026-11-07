@@ -27,6 +27,23 @@ def collect_files(root: Path, pattern: str) -> list[Path]:
     return files
 
 
+def collect_textures(root: Path) -> list[Path]:
+    """Pack only mod icon + Sprites/*.png.
+
+    Root-level debug screenshots (e.g. Screenshot_*.png) must not be imported as
+    sprites — MSL treats every packed PNG as a texture and a bad/extra sprite
+    can null out TextureEntry data and break data.win saves.
+    """
+    textures: list[Path] = []
+    icon = root / "icon.png"
+    if icon.is_file():
+        textures.append(icon)
+    sprites_dir = root / "Sprites"
+    if sprites_dir.is_dir():
+        textures.extend(sorted(p for p in sprites_dir.glob("*.png") if p.is_file()))
+    return textures
+
+
 def read_msl_version(msl_dir: Path) -> str:
     dll = msl_dir / "ModShardLauncher.dll"
     # Fallback matches the local MSL install header (MSLMv0.13.2.0).
@@ -53,7 +70,7 @@ def pack(
     mod_name: str,
     version: str,
 ) -> None:
-    textures = collect_files(root, "*.png")
+    textures = collect_textures(root)
     scripts = collect_files(root, "*.lua")
     codes = collect_files(root, "*.gml")
     assemblies = collect_files(root, "*.asm")
