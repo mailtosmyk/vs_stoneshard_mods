@@ -29,4 +29,17 @@
     <None Include="Sprites\**\*" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
+  <!-- Keep ContentBase64 in sync with src/necromancy.json on every build (IDE + CLI). -->
+  <Target Name="EmbedNecromancyJson" BeforeTargets="BeforeCompile">
+    <PropertyGroup>
+      <_EmbedPy Condition="Exists('$(MSBuildProjectDirectory)\python\embed_json.py')">$(MSBuildProjectDirectory)\python\embed_json.py</_EmbedPy>
+      <_PythonExe Condition="'$(OS)' == 'Windows_NT'">python</_PythonExe>
+      <_PythonExe Condition="'$(OS)' != 'Windows_NT'">python3</_PythonExe>
+    </PropertyGroup>
+    <Error Condition="'$(_EmbedPy)' == ''" Text="python/embed_json.py missing — cannot refresh ContentBase64 from necromancy.json." />
+    <Exec Command="$(_PythonExe) &quot;$(_EmbedPy)&quot; &quot;$(MSBuildProjectDirectory)&quot;"
+          StandardOutputImportance="high"
+          StandardErrorImportance="high" />
+  </Target>
+
 </Project>
