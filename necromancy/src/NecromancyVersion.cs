@@ -6,5 +6,5 @@ namespace Necromancy;
 /// </summary>
 internal static class NecromancyVersion
 {
-    internal const string Value = "1.21.0";
+    internal const string Value = "1.23.0";
 }

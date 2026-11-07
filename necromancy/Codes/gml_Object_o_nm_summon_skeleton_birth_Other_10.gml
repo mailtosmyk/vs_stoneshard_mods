@@ -22,9 +22,10 @@ if ((!is_execute) && instance_exists(owner))
     }
 
     var _wil = scr_atr("WIL")
-    var _turns = 5 + floor(_wil / 5)
-    var _hpPct = clamp(33 + floor(_wil / 2), 20, 90)
-    var _mpPct = clamp(25 + floor(_wil / 3), 15, 80)
+    // Use .0 literals so ReplaceGML does not resolve bare ints to asset ids.
+    var _turns = 5.0 + floor(_wil / 5.0)
+    var _hpPct = clamp(33.0 + floor(_wil / 2.0), 20.0, 90.0)
+    var _mpPct = clamp(25.0 + floor(_wil / 3.0), 15.0, 80.0)
 
     var _skel = -4
     if (object_exists(_skelObj))
@@ -37,11 +38,21 @@ if ((!is_execute) && instance_exists(owner))
             owner = other.owner
             can_drop_loot = false
             gain_xp *= 0.1
+            ArmorDurability = 0
+
+            // Vanilla ally bind (see o_summoned_entity / o_b_summoned_entity).
             is_neutral = true
-            isSummoning = true
+            is_player_enemy = false
+            target = -4
+            scr_delete_from_enemy_list("Player")
+
+            // Register under Player so hostiles that hunt the player also engage the pet.
+            scr_faction_map_remove(id)
+            subfaction_key = "Player"
+            scr_faction_map_add(id)
+
             HP = max(1, floor((max_hp * _hpPct) * 0.01))
             MP = max(0, floor((max_mp * _mpPct) * 0.01))
-            ArmorDurability = 0
             if instance_exists(owner)
                 callerId = owner.callerId
             _skel = id
@@ -57,6 +68,11 @@ if ((!is_execute) && instance_exists(owner))
                 ds_list_delete(enemylist, _pos)
         }
     }
+
+    // Servant AI buff lives on the skeleton (ticks on its turns).
+    var _servant = asset_get_index("o_b_nm_servant")
+    if (instance_exists(_skel) && _servant != -1)
+        scr_effect_create(_servant, -1, _skel, owner)
 
     if (instance_exists(_skel) && _timer != -1 && instance_exists(owner))
     {

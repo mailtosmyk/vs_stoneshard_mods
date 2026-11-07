@@ -163,6 +163,16 @@ public static class NecromancyTier1Skills
             isAwake: true,
             collisionShapeFlags: CollisionShapeFlags.Circle);
 
+        // Invisible AI binder on the summoned skeleton (follow + ally flags).
+        var skeletonServant = Msl.AddObject(
+            name: "o_b_nm_servant",
+            spriteName: "s_summon_skeleton",
+            parentName: "o_magical_buff",
+            isVisible: false,
+            isPersistent: false,
+            isAwake: true,
+            collisionShapeFlags: CollisionShapeFlags.Circle);
+
         var desecrationBuff = Msl.AddObject(
             name: "o_b_nm_desecration",
             spriteName: "s_desecration",
@@ -212,6 +222,11 @@ public static class NecromancyTier1Skills
             new MslEvent("gml_Object_o_b_nm_skeleton_timer_Other_10.gml", EventType.Other, 10),
             new MslEvent("gml_Object_o_b_nm_skeleton_timer_Alarm_2.gml", EventType.Alarm, 2),
             new MslEvent("gml_Object_o_b_nm_skeleton_timer_Destroy_0.gml", EventType.Destroy, 0));
+
+        skeletonServant.ApplyEvent(modFiles,
+            new MslEvent("gml_Object_o_b_nm_servant_Create_0.gml", EventType.Create, 0),
+            new MslEvent("gml_Object_o_b_nm_servant_Other_10.gml", EventType.Other, 10),
+            new MslEvent("gml_Object_o_b_nm_servant_Alarm_2.gml", EventType.Alarm, 2));
 
         desecrationBuff.ApplyEvent(modFiles,
             new MslEvent("gml_Object_o_b_nm_desecration_Create_0.gml", EventType.Create, 0),
