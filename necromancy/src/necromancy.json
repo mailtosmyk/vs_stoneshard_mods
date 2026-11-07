@@ -1,0 +1,622 @@
+{
+  "id": "a8c2e1f4-6b9d-4e3a-9f10-2d7c5b8a4e61",
+  "name": "Necromancy",
+  "source": "BW-s-Necromancy-main",
+  "target": "Sorcery",
+  "totalSkills": 17,
+  "activeCount": 12,
+  "passiveCount": 5,
+  "skills": [
+    {
+      "id": "59a5ba7d-bfe3-4136-8bff-3621fa584499",
+      "name": "Desecration",
+      "slug": "desecration",
+      "type": "active",
+      "tier": 1,
+      "image": "s_desecration",
+      "description": "Shoots a bolt of dark energy (Range: ~w~6~/~), dealing ~ur~7 Unholy Damage~/~ with Accuracy.##If the spell hits the target, burns its Energy for ~lg~33%~/~ of the damage dealt and replenishes the same amount of Energy to the caster.##Grants Unholy Damage for ~w~8–10~/~ turns.##This effect doesn't stack.",
+      "magicPhrase": "In Nag Zur...",
+      "requirements": {
+        "attributes": [],
+        "skills": [],
+        "skillLogic": "none"
+      },
+      "combat": {
+        "kind": "missile",
+        "target": "point",
+        "range": "6",
+        "cooldown": 3,
+        "energy": 13,
+        "reserve": 0,
+        "duration": 0,
+        "aoeLength": 0,
+        "aoeWidth": 0,
+        "isMovement": false,
+        "pattern": "normal",
+        "class": "spell",
+        "bonusRange": true,
+        "starcast": "",
+        "fumble": 6,
+        "armorPenetration": "66",
+        "isMissile": true,
+        "selfCast": false,
+        "baseDamage": 7,
+        "energyBurnRatio": 0.33,
+        "buffTurnsMin": 8,
+        "buffTurnsMax": 10
+      }
+    },
+    {
+      "id": "03f04616-3f5d-4881-82e7-3b74492777b1",
+      "name": "Bone Ward",
+      "slug": "bone_ward",
+      "type": "active",
+      "tier": 1,
+      "image": "s_bone_ward",
+      "description": "Activates ~lg~\"Bone Ward\"~/~ for ~w~4~/~ turns (~lg~+1~/~ turn if a corpse is adjacent):##~lg~+12%~/~ Physical Resistance#~lg~+15%~/~ Bleed Resistance#~lg~+10%~/~ Magic Resistance#~lg~+10%~/~ Move Resistance##When the effect expires or is activated again, bone shards deal ~ur~4 Unholy~/~ and ~w~3 Piercing Damage~/~ to all adjacent enemies, with ~w~50%~/~ chance to Stagger them.",
+      "magicPhrase": "Ossarak Veth!",
+      "requirements": {
+        "attributes": [],
+        "skills": [],
+        "skillLogic": "none"
+      },
+      "combat": {
+        "kind": "self_buff",
+        "target": "none",
+        "range": "0",
+        "cooldown": 8,
+        "energy": 14,
+        "reserve": 0,
+        "duration": 4,
+        "aoeLength": 0,
+        "aoeWidth": 0,
+        "isMovement": false,
+        "pattern": "normal",
+        "class": "spell",
+        "bonusRange": false,
+        "starcast": "",
+        "fumble": 2,
+        "armorPenetration": "x",
+        "isMissile": false,
+        "selfCast": true,
+        "buffTurns": 4,
+        "physRes": 12,
+        "bleedRes": 15,
+        "magicRes": 10,
+        "moveRes": 10,
+        "shardUnholy": 4,
+        "shardPiercing": 3,
+        "staggerChance": 50
+      }
+    },
+    {
+      "id": "6e7735a0-a0ff-4271-8ac1-00648052a83c",
+      "name": "Summon Skeleton",
+      "slug": "summon_skeleton",
+      "type": "active",
+      "tier": 1,
+      "image": "s_summon_skeleton",
+      "description": "Summons ~w~1~/~ Skeleton on the targeted tile (no corpse required).##Duration, Max Health %, and Max Energy % scale with Willpower (starts at ~w~5~/~ turns, ~lg~33%~/~ Max Health / ~lg~25%~/~ Max Energy, Armor Durability ~w~0%~/~).##Only one Skeleton can exist at a time.##Slowly decreases Sanity (no less than ~lg~70%~/~).##Risk of ~r~\"Obsession\"~/~: Low.##Can't summon Undeads higher than the skill's level cap.##Cannot be cast under ~r~\"Obsession\"~/~.",
+      "magicPhrase": "Rattlek Narzul!",
+      "requirements": {
+        "attributes": [],
+        "skills": [],
+        "skillLogic": "none"
+      },
+      "combat": {
+        "kind": "summon",
+        "target": "point",
+        "range": "6",
+        "cooldown": 12,
+        "energy": 18,
+        "reserve": 0,
+        "duration": 5,
+        "aoeLength": 0,
+        "aoeWidth": 0,
+        "isMovement": false,
+        "pattern": "normal",
+        "class": "spell",
+        "bonusRange": false,
+        "starcast": "",
+        "fumble": 8,
+        "armorPenetration": "x",
+        "isMissile": false,
+        "selfCast": false,
+        "baseTurns": 5,
+        "baseHpPct": 33,
+        "baseMpPct": 25,
+        "sanityFloor": 70
+      }
+    },
+    {
+      "id": "f36f18fd-0ea0-474c-a5fa-ebf4c0ee9fd5",
+      "name": "Withering Curse",
+      "slug": "withering_curse",
+      "type": "active",
+      "tier": 1,
+      "image": "s_withering_curse",
+      "description": "Applies the target with ~r~\"Withering Curse\"~/~ for ~w~10~/~ turns (Range: ~w~6~/~):##~r~-8%~/~ Fortitude#~r~-8%~/~ Magic Resistance#~r~-5%~/~ Max Health#~lg~+3%~/~ Damage Taken##Each turn worsens a random body part by ~r~0.25%~/~.##Hitting with ~lg~\"Desecration\"~/~ or repeating the spell on the same target refreshes the duration (does not stack at Tier 1).",
+      "magicPhrase": "Shaggrath Azud...",
+      "requirements": {
+        "attributes": [],
+        "skills": [],
+        "skillLogic": "none"
+      },
+      "combat": {
+        "kind": "debuff",
+        "target": "object",
+        "range": "6",
+        "cooldown": 9,
+        "energy": 18,
+        "reserve": 0,
+        "duration": 10,
+        "aoeLength": 0,
+        "aoeWidth": 0,
+        "isMovement": false,
+        "pattern": "normal",
+        "class": "spell",
+        "bonusRange": false,
+        "starcast": "",
+        "fumble": 9,
+        "armorPenetration": "x",
+        "isMissile": false,
+        "selfCast": false,
+        "buffTurns": 10,
+        "fortitude": -8,
+        "magicRes": -8,
+        "maxHpPct": -5,
+        "damageTaken": 3,
+        "bodypartWorsen": 0.25,
+        "maxStage": 1
+      }
+    },
+    {
+      "id": "7a73e870-bdb7-4a81-a19b-f8f118e5b0a2",
+      "name": "Essence Leech",
+      "slug": "essence_leech",
+      "type": "active",
+      "tier": 2,
+      "image": "s_essence_leech",
+      "description": "Devours a targeted corpse or steals ~lg~8%~/~ Max Health and ~lg~8%~/~ Max Energy from an allied Undead or Skeleton, transferring half of them to the caster.##Activates ~lg~\"Essence Charge\"~/~ for ~w~12–15~/~ turns:##~lg~+5%~/~ Magic Power#~r~-5%~/~ Abilities Energy Cost#~lg~+4~/~ Max Energy##Repeated use grants an extra stack (up to II) and refreshes duration.##Using Spells reduces stacks by ~r~1~/~.##No Obsession risk from Essence Charge at Tier 2.",
+      "magicPhrase": "En'thero!",
+      "requirements": {
+        "attributes": [
+          {
+            "stats": [
+              "PRC",
+              "WIL"
+            ],
+            "logic": "or",
+            "min": 6
+          }
+        ],
+        "skills": [
+          "59a5ba7d-bfe3-4136-8bff-3621fa584499"
+        ],
+        "skillLogic": "and"
+      }
+    },
+    {
+      "id": "d3bd6b8f-6f07-4c1f-8aeb-783d0afc33b0",
+      "name": "Death's Blessing",
+      "slug": "deaths_blessing",
+      "type": "active",
+      "tier": 2,
+      "image": "s_deaths_blessing",
+      "description": "Replenishes Health to the target (based on Magic Power) and improves bodypart condition by ~lg~25%~/~ of health restored.##~lg~50%~/~ more effective on allied Undeads.##Grants ~lg~\"Death's Blessing\"~/~ for ~w~8–10~/~ turns:##~lg~+6%~/~ Life Drain#~lg~+6%~/~ Energy Drain#~lg~+8%~/~ Damage Reflection.",
+      "magicPhrase": "Yagrak Atot!",
+      "requirements": {
+        "attributes": [
+          {
+            "stats": [
+              "Vitality",
+              "WIL"
+            ],
+            "logic": "or",
+            "min": 5
+          }
+        ],
+        "skills": [
+          "03f04616-3f5d-4881-82e7-3b74492777b1"
+        ],
+        "skillLogic": "and"
+      }
+    },
+    {
+      "id": "843edbb5-af68-43b7-8432-271739444e99",
+      "name": "Resurrection",
+      "slug": "resurrection",
+      "type": "active",
+      "tier": 2,
+      "image": "s_resurrection",
+      "description": "Reanimates a targeted corpse as a lasting Undead at ~lg~50–55%~/~ Max Health / ~lg~50%~/~ Max Energy and sets Armor Durability to ~w~0%~/~.##Increases morale (up to ~lg~70%~/~).##Slowly decreases Sanity but no less than ~r~60%~/~.##Risk of ~r~\"Obsession\"~/~: High.##Summoning more than one Undead instantly causes ~r~\"Obsession\"~/~.##Can't summon Undeads higher than the skill's level cap.##Prevents receiving ~ly~\"Blessing\"~/~.##Cannot be cast under ~r~\"Obsession\"~/~.",
+      "magicPhrase": "Lagur! Lagur! Lagur!",
+      "requirements": {
+        "attributes": [
+          {
+            "stats": [
+              "PRC",
+              "Vitality",
+              "WIL"
+            ],
+            "logic": "or",
+            "min": 6
+          }
+        ],
+        "skills": [
+          "03f04616-3f5d-4881-82e7-3b74492777b1"
+        ],
+        "skillLogic": "and"
+      }
+    },
+    {
+      "id": "158f368c-1e91-424c-b48a-1721b4013738",
+      "name": "Grave Blight",
+      "slug": "grave_blight",
+      "type": "active",
+      "tier": 2,
+      "image": "s_grave_blight",
+      "description": "Creates a blighted 3x3 area on the targeted tile (Range: ~w~5–6~/~) for ~w~4~/~ turns.##Enemies remaining in the area take ~ur~2 Unholy Damage~/~ per turn and gain ~r~-4%~/~ Magic Resistance (stacks up to ~w~3~/~ while inside).##Also allows ~r~\"Withering Curse\"~/~ to stack up to II; hitting with ~lg~\"Desecration\"~/~ or repeating the curse adds a stack.##Bodypart worsen becomes ~r~0.35%~/~ per turn per stack.",
+      "magicPhrase": "Morgath En'ther!",
+      "requirements": {
+        "attributes": [
+          {
+            "stats": [
+              "PRC",
+              "WIL"
+            ],
+            "logic": "or",
+            "min": 6
+          }
+        ],
+        "skills": [
+          "f36f18fd-0ea0-474c-a5fa-ebf4c0ee9fd5"
+        ],
+        "skillLogic": "and"
+      }
+    },
+    {
+      "id": "aa19f19a-7398-48b3-a7d6-1bd464fd6bdf",
+      "name": "Death Touch",
+      "slug": "death_touch",
+      "type": "active",
+      "tier": 3,
+      "image": "s_death_touch",
+      "description": "Deals ~ur~10–12 Unholy Damage~/~ (Range: ~w~4–5~/~) with Immobilization Chance.##Replenishes Health to all allies within Vision for ~lg~40–50%~/~ of the damage dealt.##If the target has ~r~\"Withering Curse\"~/~: ~lg~+25%~/~ damage and adds ~w~1~/~ curse stack.##Consuming ~w~1~/~ ~lg~\"Essence Charge\"~/~ grants ~lg~+15%~/~ Magic Power for this cast only.",
+      "magicPhrase": "Korrug Namar!",
+      "requirements": {
+        "attributes": [
+          {
+            "stats": [
+              "PRC",
+              "WIL"
+            ],
+            "logic": "or",
+            "min": 9
+          }
+        ],
+        "skills": [
+          "7a73e870-bdb7-4a81-a19b-f8f118e5b0a2",
+          "158f368c-1e91-424c-b48a-1721b4013738"
+        ],
+        "skillLogic": "and"
+      }
+    },
+    {
+      "id": "7e983a82-ab7c-48bc-830e-37d05c68fe83",
+      "name": "Corpse Burst",
+      "slug": "corpse_burst",
+      "type": "active",
+      "tier": 3,
+      "image": "s_corpse_burst",
+      "description": "Targets a corpse or allied Undead/Skeleton and makes it explode, destroying it.##Deals Unholy and Piercing Damage in a base 3x3 area around the target and has a chance to apply Bleeding to affected enemies.##Damage, Bleeding chance, and area size scale with Willpower (area grows from 3x3 toward 5x5 / 7x7).##Exploding an ally causes a small Sanity loss.",
+      "magicPhrase": "Barath Shatterk!",
+      "requirements": {
+        "attributes": [
+          {
+            "stats": [
+              "WIL"
+            ],
+            "logic": "and",
+            "min": 8
+          }
+        ],
+        "skills": [
+          "d3bd6b8f-6f07-4c1f-8aeb-783d0afc33b0"
+        ],
+        "skillLogic": "and"
+      }
+    },
+    {
+      "id": "ed75d3c9-c735-438a-b430-205ad8478419",
+      "name": "Mastery of Binding",
+      "slug": "mastery_of_binding",
+      "type": "passive",
+      "tier": 3,
+      "image": "s_mastery_of_binding",
+      "description": "Unbinding allies doesn't take a turn and replenishes Energy equal to ~lg~10%~/~ of your Magic Power.##Increases the level of summoning abilities by ~lg~1~/~.##Summon Skeleton: ~lg~+2~/~ turns base duration and ~lg~+10%~/~ Max Health / Max Energy.##Resurrection thralls start at ~lg~60%~/~ Max Health.##Still limited to one safe Undead at a time unless a higher-tier skill allows more.",
+      "magicPhrase": "Vinculum Mortis!",
+      "requirements": {
+        "attributes": [
+          {
+            "stats": [
+              "PRC",
+              "WIL"
+            ],
+            "logic": "or",
+            "min": 8
+          }
+        ],
+        "skills": [
+          "843edbb5-af68-43b7-8432-271739444e99",
+          "6e7735a0-a0ff-4271-8ac1-00648052a83c"
+        ],
+        "skillLogic": "or"
+      }
+    },
+    {
+      "id": "8a3778f9-eff9-4619-8114-baad567f0728",
+      "name": "Black Sepulchre",
+      "slug": "black_sepulchre",
+      "type": "active",
+      "tier": 3,
+      "image": "s_black_sepulchre",
+      "description": "Detonates ~r~\"Withering Curse\"~/~ on the target (Range: ~w~5–6~/~), or on the strongest cursed enemy in a 3x3 if cast on a tile: removes stacks, deals ~ur~6 Unholy Damage~/~ × stacks to the target and ~ur~3 Unholy Damage~/~ × stacks to adjacent enemies.##Allows ~r~\"Withering Curse\"~/~ to stack up to III.##Bodypart worsen becomes ~r~0.5%~/~ per turn per stack while at III.",
+      "magicPhrase": "Shaggrath Namar!",
+      "requirements": {
+        "attributes": [
+          {
+            "stats": [
+              "PRC",
+              "WIL"
+            ],
+            "logic": "or",
+            "min": 9
+          }
+        ],
+        "skills": [
+          "158f368c-1e91-424c-b48a-1721b4013738"
+        ],
+        "skillLogic": "and"
+      }
+    },
+    {
+      "id": "e25dc91d-b782-4565-aa0b-c8a1b1d9c21e",
+      "name": "Sealed Mind",
+      "slug": "sealed_mind",
+      "type": "passive",
+      "tier": 3,
+      "image": "s_sealed_mind",
+      "description": "Halves sanity loss of Occultism abilities and partially decreases penalties of ~r~\"Obsession\"~/~.##Grants ~lg~33%~/~ Unholy Resistance.",
+      "magicPhrase": "Nox Mentis Seal!",
+      "requirements": {
+        "attributes": [
+          {
+            "stats": [
+              "WIL"
+            ],
+            "logic": "and",
+            "min": 8
+          }
+        ],
+        "skills": [
+          "d3bd6b8f-6f07-4c1f-8aeb-783d0afc33b0",
+          "843edbb5-af68-43b7-8432-271739444e99"
+        ],
+        "skillLogic": "or"
+      }
+    },
+    {
+      "id": "f0f37fa5-3038-4c76-9617-3bf848cfb632",
+      "name": "Immortality",
+      "slug": "immortality",
+      "type": "passive",
+      "tier": 4,
+      "image": "s_immortality",
+      "description": "Prevents dying from lethal hits as long as Max Health and Morale are both higher than ~lg~50%~/~.##When Health drops below ~w~2~/~, replenishes ~lg~33%~/~ of Max Health and Max Energy, and applies:##~r~-10%~/~ Morale#~lg~+2%~/~ Fatigue##Prevents death from starvation or dehydration.",
+      "magicPhrase": "Aeternum Mortis!",
+      "requirements": {
+        "attributes": [
+          {
+            "stats": [
+              "Vitality",
+              "WIL",
+              "STR"
+            ],
+            "logic": "or",
+            "min": 11
+          }
+        ],
+        "skills": [
+          "7e983a82-ab7c-48bc-830e-37d05c68fe83"
+        ],
+        "skillLogic": "and"
+      }
+    },
+    {
+      "id": "0186d94e-304b-4434-803f-9a03b9106770",
+      "name": "Blooming Madness",
+      "slug": "blooming_madness",
+      "type": "passive",
+      "tier": 4,
+      "image": "s_blooming_madness",
+      "description": "Successfully raising the dead allows you to learn one of their active abilities at a time (while available via skill menu; lost when the thrall dies).##Increases Experience Gain of Undead kills by ~lg~100%~/~.",
+      "magicPhrase": "Florath Insania!",
+      "requirements": {
+        "attributes": [
+          {
+            "stats": [
+              "PRC",
+              "WIL"
+            ],
+            "logic": "or",
+            "min": 12
+          }
+        ],
+        "skills": [
+          "ed75d3c9-c735-438a-b430-205ad8478419"
+        ],
+        "skillLogic": "and"
+      }
+    },
+    {
+      "id": "9d160a5a-2bf1-46c1-807a-b9e9e8e75c29",
+      "name": "Archtheurgy",
+      "slug": "archtheurgy",
+      "type": "passive",
+      "tier": 4,
+      "image": "s_archtheurgy",
+      "description": "Casting Spells deals Unholy Damage to all enemies within vision (based on ~lg~3.33%~/~ of Magic Power).##Raising the dead, summoning wraiths, Stealing Essence, or receiving ~lg~\"Death's Blessing\"~/~ has ~lg~33%~/~ chance to activate ~lg~\"Ascension\"~/~ for ~w~6~/~ turns:##~lg~+33%~/~ Unholy Resistance#~lg~+66%~/~ Miracle Potency#Converts Unholy Damage into Sacred Damage.",
+      "magicPhrase": "Archon Theurgos!",
+      "requirements": {
+        "attributes": [
+          {
+            "stats": [
+              "WIL"
+            ],
+            "logic": "and",
+            "min": 15
+          }
+        ],
+        "skills": [
+          "aa19f19a-7398-48b3-a7d6-1bd464fd6bdf"
+        ],
+        "skillLogic": "and"
+      }
+    },
+    {
+      "id": "9b1a51b6-daa2-40b3-a236-505eca5fe5f8",
+      "name": "Wraith Summoning",
+      "slug": "wraith_summoning",
+      "type": "active",
+      "tier": 4,
+      "image": "s_wraith_summoning",
+      "description": "Summons a Wraith on the targeted tile; power depends on ~lg~\"Essence Charge\"~/~ stacks.##Removes ~lg~\"Essence Charge\"~/~.##If no weapon equipped: ~r~-50%~/~ Cooldown Duration and Halves Miscast Chance.##Risk of ~r~\"Obsession\"~/~: Extremely High.##Summoning more than one Wraith instantly causes ~r~\"Obsession\"~/~.##Can't summon Wraiths higher than the skill's level cap.##Cannot cast under ~r~\"Obsession\"~/~.",
+      "magicPhrase": "Lagura mithensa!",
+      "requirements": {
+        "attributes": [
+          {
+            "stats": [
+              "AGL",
+              "WIL",
+              "PRC"
+            ],
+            "logic": "or",
+            "min": 12
+          }
+        ],
+        "skills": [
+          "ed75d3c9-c735-438a-b430-205ad8478419"
+        ],
+        "skillLogic": "and"
+      }
+    }
+  ],
+  "tree": {
+    "tiers": [
+      {
+        "tier": 1,
+        "skills": [
+          "59a5ba7d-bfe3-4136-8bff-3621fa584499",
+          "03f04616-3f5d-4881-82e7-3b74492777b1",
+          "6e7735a0-a0ff-4271-8ac1-00648052a83c",
+          "f36f18fd-0ea0-474c-a5fa-ebf4c0ee9fd5"
+        ]
+      },
+      {
+        "tier": 2,
+        "skills": [
+          "7a73e870-bdb7-4a81-a19b-f8f118e5b0a2",
+          "d3bd6b8f-6f07-4c1f-8aeb-783d0afc33b0",
+          "843edbb5-af68-43b7-8432-271739444e99",
+          "158f368c-1e91-424c-b48a-1721b4013738"
+        ]
+      },
+      {
+        "tier": 3,
+        "skills": [
+          "aa19f19a-7398-48b3-a7d6-1bd464fd6bdf",
+          "7e983a82-ab7c-48bc-830e-37d05c68fe83",
+          "ed75d3c9-c735-438a-b430-205ad8478419",
+          "8a3778f9-eff9-4619-8114-baad567f0728",
+          "e25dc91d-b782-4565-aa0b-c8a1b1d9c21e"
+        ]
+      },
+      {
+        "tier": 4,
+        "skills": [
+          "f0f37fa5-3038-4c76-9617-3bf848cfb632",
+          "0186d94e-304b-4434-803f-9a03b9106770",
+          "9d160a5a-2bf1-46c1-807a-b9e9e8e75c29",
+          "9b1a51b6-daa2-40b3-a236-505eca5fe5f8"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "59a5ba7d-bfe3-4136-8bff-3621fa584499",
+        "to": "7a73e870-bdb7-4a81-a19b-f8f118e5b0a2"
+      },
+      {
+        "from": "03f04616-3f5d-4881-82e7-3b74492777b1",
+        "to": "d3bd6b8f-6f07-4c1f-8aeb-783d0afc33b0"
+      },
+      {
+        "from": "03f04616-3f5d-4881-82e7-3b74492777b1",
+        "to": "843edbb5-af68-43b7-8432-271739444e99"
+      },
+      {
+        "from": "f36f18fd-0ea0-474c-a5fa-ebf4c0ee9fd5",
+        "to": "158f368c-1e91-424c-b48a-1721b4013738"
+      },
+      {
+        "from": "7a73e870-bdb7-4a81-a19b-f8f118e5b0a2",
+        "to": "aa19f19a-7398-48b3-a7d6-1bd464fd6bdf"
+      },
+      {
+        "from": "158f368c-1e91-424c-b48a-1721b4013738",
+        "to": "aa19f19a-7398-48b3-a7d6-1bd464fd6bdf"
+      },
+      {
+        "from": "d3bd6b8f-6f07-4c1f-8aeb-783d0afc33b0",
+        "to": "7e983a82-ab7c-48bc-830e-37d05c68fe83"
+      },
+      {
+        "from": "843edbb5-af68-43b7-8432-271739444e99",
+        "to": "ed75d3c9-c735-438a-b430-205ad8478419"
+      },
+      {
+        "from": "6e7735a0-a0ff-4271-8ac1-00648052a83c",
+        "to": "ed75d3c9-c735-438a-b430-205ad8478419"
+      },
+      {
+        "from": "158f368c-1e91-424c-b48a-1721b4013738",
+        "to": "8a3778f9-eff9-4619-8114-baad567f0728"
+      },
+      {
+        "from": "d3bd6b8f-6f07-4c1f-8aeb-783d0afc33b0",
+        "to": "e25dc91d-b782-4565-aa0b-c8a1b1d9c21e"
+      },
+      {
+        "from": "843edbb5-af68-43b7-8432-271739444e99",
+        "to": "e25dc91d-b782-4565-aa0b-c8a1b1d9c21e"
+      },
+      {
+        "from": "7e983a82-ab7c-48bc-830e-37d05c68fe83",
+        "to": "f0f37fa5-3038-4c76-9617-3bf848cfb632"
+      },
+      {
+        "from": "ed75d3c9-c735-438a-b430-205ad8478419",
+        "to": "0186d94e-304b-4434-803f-9a03b9106770"
+      },
+      {
+        "from": "aa19f19a-7398-48b3-a7d6-1bd464fd6bdf",
+        "to": "9d160a5a-2bf1-46c1-807a-b9e9e8e75c29"
+      },
+      {
+        "from": "ed75d3c9-c735-438a-b430-205ad8478419",
+        "to": "9b1a51b6-daa2-40b3-a236-505eca5fe5f8"
+      }
+    ]
+  }
+}
