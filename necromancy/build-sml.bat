@@ -39,15 +39,15 @@ if not exist "%MSL_DIR%\ModShardLauncher.dll" (
   exit /b 1
 )
 
-if not exist "%ROOT%\necromancy.json" (
-  echo error: necromancy.json missing in %ROOT%
+if not exist "%ROOT%\src\necromancy.json" (
+  echo error: necromancy.json missing in %ROOT%\src
   exit /b 1
 )
 
 if not exist "%OUT_DIR%" mkdir "%OUT_DIR%"
 
 rem Bump first so the packed DLL and build.txt share the same version.
-%PYTHON% "%ROOT%\bump_build_version.py" "%ROOT%\build.txt"
+%PYTHON% "%ROOT%\python\bump_build_version.py" "%ROOT%\build.txt"
 if errorlevel 1 exit /b 1
 
 echo Embedding build.txt version + necromancy.json
@@ -66,7 +66,7 @@ if not exist "%DLL%" (
 
 set "SML=%OUT_DIR%\%MOD_NAME%.sml"
 echo Packing %SML%...
-%PYTHON% "%ROOT%\pack_sml.py" --root "%ROOT%" --dll "%DLL%" --out "%SML%" --name "%MOD_NAME%" --msl "%MSL_DIR%"
+%PYTHON% "%ROOT%\python\pack_sml.py" --root "%ROOT%" --dll "%DLL%" --out "%SML%" --name "%MOD_NAME%" --msl "%MSL_DIR%"
 if errorlevel 1 exit /b 1
 
 copy /Y "%DLL%" "%OUT_DIR%\%MOD_NAME%.dll" >nul

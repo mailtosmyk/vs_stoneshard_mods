@@ -3,7 +3,7 @@ param(
     [string] $Root
 )
 
-$jsonPath = Join-Path $Root "necromancy.json"
+$jsonPath = Join-Path $Root "src\necromancy.json"
 $outPath = Join-Path $Root "src\NecromancyJsonResource.cs"
 $versionPath = Join-Path $Root "build.txt"
 $versionOutPath = Join-Path $Root "src\NecromancyVersion.cs"

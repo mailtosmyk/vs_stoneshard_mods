@@ -22,9 +22,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="necromancy.json" />
-    <None Include="necromancy.json" CopyToOutputDirectory="PreserveNewest" />
-    <None Include="localization.json" CopyToOutputDirectory="PreserveNewest" />
+    <EmbeddedResource Include="src\necromancy.json" LogicalName="necromancy.json" />
+    <None Include="src\necromancy.json" Link="necromancy.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="src\localization.json" Link="localization.json" CopyToOutputDirectory="PreserveNewest" />
     <None Include="icon.png" Condition="Exists('icon.png')" CopyToOutputDirectory="PreserveNewest" />
     <None Include="Sprites\**\*" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>

@@ -33,14 +33,14 @@ if [[ ! -f "$MSL_DIR/ModShardLauncher.dll" ]]; then
   exit 1
 fi
 
-if [[ ! -f "$ROOT/necromancy.json" ]]; then
-  echo "error: necromancy.json missing in $ROOT" >&2
+if [[ ! -f "$ROOT/src/necromancy.json" ]]; then
+  echo "error: necromancy.json missing in $ROOT/src" >&2
   exit 1
 fi
 
 # Embed JSON so the packed DLL works even if EmbeddedResource is stripped.
 embed_json() {
-  local json="$ROOT/necromancy.json"
+  local json="$ROOT/src/necromancy.json"
   local out="$ROOT/src/NecromancyJsonResource.cs"
   local b64
   b64="$(base64 -w0 "$json" 2>/dev/null || base64 "$json" | tr -d '\n')"
@@ -97,7 +97,7 @@ EOF
 mkdir -p "$OUT_DIR"
 
 # Bump first so the packed DLL and build.txt share the same version.
-python3 "$ROOT/bump_build_version.py" "$ROOT/build.txt"
+python3 "$ROOT/python/bump_build_version.py" "$ROOT/build.txt"
 embed_version
 embed_json
 
@@ -112,7 +112,7 @@ fi
 
 SML="$OUT_DIR/$MOD_NAME.sml"
 echo "Packing $SML..."
-python3 "$ROOT/pack_sml.py" \
+python3 "$ROOT/python/pack_sml.py" \
   --root "$ROOT" \
   --dll "$DLL" \
   --out "$SML" \

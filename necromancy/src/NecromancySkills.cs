@@ -64,8 +64,8 @@ public static class NecromancySkills
             if (File.Exists(besideAssembly))
                 return File.OpenRead(besideAssembly);
 
-            // bin/Release/net6.0 -> project root
-            var projectJson = Path.GetFullPath(Path.Combine(dir, "..", "..", "..", "necromancy.json"));
+            // bin/Release/net6.0 -> src/necromancy.json
+            var projectJson = Path.GetFullPath(Path.Combine(dir, "..", "..", "..", "src", "necromancy.json"));
             if (File.Exists(projectJson))
                 return File.OpenRead(projectJson);
         }
