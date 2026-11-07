@@ -77,14 +77,15 @@ public static class NecromancyTier1Skills
             new MslEvent($"gml_Object_{skill.SkillObjectName}_Create_0.gml", EventType.Create, 0),
             new MslEvent($"gml_Object_{skill.SkillObjectName}_Other_17.gml", EventType.Other, 17));
 
-        birth.ApplyEvent(modFiles,
-            new MslEvent($"gml_Object_{skill.BirthObjectName}_Create_0.gml", EventType.Create, 0),
-            new MslEvent($"gml_Object_{skill.BirthObjectName}_Other_10.gml", EventType.Other, 10));
+        // Force-replace birth bodies on re-patch (ApplyEvent skips existing subtypes).
+        ApplyEventAndReplace(birth, modFiles,
+            $"gml_Object_{skill.BirthObjectName}_Create_0.gml",
+            $"gml_Object_{skill.BirthObjectName}_Other_10.gml");
 
         if (skill.Combat.IsMissile)
         {
-            birth.ApplyEvent(modFiles,
-                new MslEvent($"gml_Object_{skill.BirthObjectName}_Other_17.gml", EventType.Other, 17));
+            ApplyEventAndReplace(birth, modFiles,
+                $"gml_Object_{skill.BirthObjectName}_Other_17.gml");
         }
     }
 

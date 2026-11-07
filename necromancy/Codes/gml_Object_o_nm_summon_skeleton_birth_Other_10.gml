@@ -51,6 +51,28 @@ if ((!is_execute) && instance_exists(owner))
             subfaction_key = "Player"
             scr_faction_map_add(id)
 
+            // scr_param baked Undead combat_array (includes Player). Strip Player so the
+            // new FSM targets brigands/etc. instead of locking onto the caster.
+            var _ca = []
+            var _i = 0.0
+            while (_i < array_length(combat_array))
+            {
+                if (combat_array[_i] != "Player")
+                    _ca[array_length(_ca)] = combat_array[_i]
+                _i += 1.0
+            }
+            combat_array = _ca
+
+            var _ta = []
+            _i = 0.0
+            while (_i < array_length(threat_array))
+            {
+                if (threat_array[_i] != "Player")
+                    _ta[array_length(_ta)] = threat_array[_i]
+                _i += 1.0
+            }
+            threat_array = _ta
+
             HP = max(1, floor((max_hp * _hpPct) * 0.01))
             MP = max(0, floor((max_mp * _mpPct) * 0.01))
             if instance_exists(owner)

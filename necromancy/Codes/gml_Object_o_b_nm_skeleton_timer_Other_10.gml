@@ -20,6 +20,16 @@ with (nm_skel)
     owner = other.owner
     is_neutral = true
     is_player_enemy = false
+
+    var _ca = []
+    var _i = 0.0
+    while (_i < array_length(combat_array))
+    {
+        if (combat_array[_i] != "Player")
+            _ca[array_length(_ca)] = combat_array[_i]
+        _i += 1.0
+    }
+    combat_array = _ca
 }
 
 var _servant = asset_get_index("o_b_nm_servant")
@@ -60,6 +70,8 @@ if (instance_exists(_best))
     {
         target = _best
         state = "npc combat"
+        if (ds_list_empty(lock_turn) && scr_tile_distance(id, _best) > 1)
+            scr_enemy_priority_path_target(_best.x, _best.y)
     }
 }
 else
