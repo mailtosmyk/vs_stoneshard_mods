@@ -168,5 +168,13 @@ public sealed class NecromancySkill
     public string SkillObjectName => $"o_nm_{Slug}";
     public string IconObjectName => $"o_nm_{Slug}_ico";
     public string BirthObjectName => $"o_nm_{Slug}_birth";
+    public string BuffObjectName => $"o_b_{Slug}";
     public string SpriteName => string.IsNullOrWhiteSpace(Image) ? $"s_{Slug}" : Image;
+
+    /// <summary>
+    /// skills_stats Object column. No Target self-buffs must point at the buff
+    /// (guiInteractive) — birth objects make scr_guiCreateInteractive GUI ERROR.
+    /// </summary>
+    public string StatsObjectName =>
+        Combat?.Kind == SkillCombatKind.SelfBuff ? BuffObjectName : BirthObjectName;
 }

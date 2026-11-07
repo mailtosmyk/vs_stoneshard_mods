@@ -193,6 +193,7 @@ public static class NecromancyTier1Skills
 
         wardImpact.ApplyEvent(modFiles,
             new MslEvent("gml_Object_o_nm_bone_ward_impact_Create_0.gml", EventType.Create, 0),
+            new MslEvent("gml_Object_o_nm_bone_ward_impact_Alarm_0.gml", EventType.Alarm, 0),
             new MslEvent("gml_Object_o_nm_bone_ward_impact_Other_7.gml", EventType.Other, 7),
             new MslEvent("gml_Object_o_nm_bone_ward_impact_Draw_0.gml", EventType.Draw, 0));
 
@@ -223,24 +224,29 @@ public static class NecromancyTier1Skills
     /// </summary>
     static void InjectSkillsStatsRows(IReadOnlyList<NecromancySkill> skills)
     {
-        var rows = string.Concat(skills.Select(FormatSkillsStatsRow));
         Msl.LoadGML("gml_GlobalScript_table_skills_stats")
-            .Apply(lines => InsertAfterUndeadMarker(lines, rows))
+            .Apply(lines => InsertAfterUndeadMarker(lines, skills))
             .Save();
     }
 
-    static IEnumerable<string> InsertAfterUndeadMarker(IEnumerable<string> lines, string rows)
+    static IEnumerable<string> InsertAfterUndeadMarker(
+        IEnumerable<string> lines,
+        IReadOnlyList<NecromancySkill> skills)
     {
         const string markerPrefix = "\"// UNDEAD;";
+        var rows = string.Concat(skills.Select(FormatSkillsStatsRow));
         var inserted = false;
         foreach (var line in lines)
         {
             if (!inserted && line.Contains(markerPrefix, StringComparison.Ordinal))
             {
-                // Idempotent across re-patches of an already-modded data.win.
+                // Already patched: refresh each necromancy row so Object/column fixes apply.
                 if (line.Contains("desecration;", StringComparison.Ordinal))
                 {
-                    yield return line;
+                    var updated = line;
+                    foreach (var skill in skills)
+                        updated = UpsertSkillStatsRow(updated, skill);
+                    yield return updated;
                     inserted = true;
                     continue;
                 }
@@ -261,6 +267,22 @@ public static class NecromancyTier1Skills
 
         if (!inserted)
             throw new InvalidOperationException("Could not find // UNDEAD marker in table_skills_stats.");
+    }
+
+    static string UpsertSkillStatsRow(string line, NecromancySkill skill)
+    {
+        var newRow = FormatSkillsStatsRow(skill);
+        var needle = "\"" + skill.Slug + ";";
+        var start = line.IndexOf(needle, StringComparison.Ordinal);
+        if (start < 0)
+            return line;
+
+        var end = line.IndexOf("\",", start, StringComparison.Ordinal);
+        if (end < 0)
+            return line;
+
+        // FormatSkillsStatsRow already includes trailing comma after the CSV quote.
+        return line.Substring(0, start) + newRow + line.Substring(end + 2);
     }
 
     static string FormatSkillsStatsRow(NecromancySkill skill)
@@ -284,8 +306,9 @@ public static class NecromancyTier1Skills
             : string.Empty;
 
         // Keep validators empty (;; between Pattern and Class) — required by current game CSV.
+        // Self-buffs use the buff object (Stone_Armor → o_b_stone_armor), not spellbirth.
         return
-            $"\"{skill.Slug};{skill.BirthObjectName};{target};{combat.Range};{combat.Cooldown};{combat.Energy};" +
+            $"\"{skill.Slug};{skill.StatsObjectName};{target};{combat.Range};{combat.Cooldown};{combat.Energy};" +
             $"{combat.Reserve};{combat.Duration};{combat.AoeLength};{combat.AoeWidth};{(combat.IsMovement ? "1" : "0")};" +
             $"{pattern};;{cls};{(combat.BonusRange ? "1" : "0")};{starcast};necromancy;0;1;sorcery;" +
             $"{combat.Fumble};{combat.ArmorPenetration};;;;;1;{tags};\",";

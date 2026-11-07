@@ -18,4 +18,28 @@ if (!is_execute)
         name = other.name
         turns = _turns
     }
+    var _buff = asset_get_index("o_b_bone_ward")
+    if ((_buff != -1) && instance_exists(owner))
+    {
+        if scr_instance_exists_in_list(_buff, owner.buffs)
+        {
+            with (_buff)
+            {
+                if (target == other.owner)
+                {
+                    nm_force_shatter = 1
+                    instance_destroy()
+                }
+            }
+        }
+        scr_effect_create(_buff, _turns, owner, owner)
+    }
+    if instance_exists(owner)
+    {
+        if is_player(owner)
+        {
+            scr_psy_change("Sanity", -0.1)
+            scr_allturn()
+        }
+    }
 }

@@ -5,3 +5,4 @@ turns = 4
 dx = 13
 dy = 13
 scr_audio_play_at(snd_dark_blessing_buff_impact)
+alarm[0] = 12
