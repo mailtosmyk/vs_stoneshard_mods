@@ -96,7 +96,7 @@
       "type": "active",
       "tier": 1,
       "image": "s_summon_skeleton",
-      "description": "Summons ~w~1~/~ Skeleton on the targeted tile (no corpse required).##Duration, Max Health %, and Max Energy % scale with Willpower (starts at ~w~10~/~ turns, ~lg~33%~/~ Max Health / ~lg~25%~/~ Max Energy, Armor Durability ~w~0%~/~).##Only one Skeleton can exist at a time.##Slowly decreases Sanity (no less than ~lg~70%~/~).",
+      "description": "Summons ~w~1~/~ Skeleton on the targeted tile (no corpse required).##Duration, Max Health %, and Max Energy % scale with Willpower (starts at ~w~10~/~ turns, ~lg~33%~/~ Max Health / ~lg~25%~/~ Max Energy, Armor Durability ~w~0%~/~).##Only one Skeleton can exist at a time.",
       "magicPhrase": "Rattlek Narzul!",
       "requirements": {
         "attributes": [],
@@ -161,7 +161,7 @@
       "type": "active",
       "tier": 2,
       "image": "s_deaths_blessing",
-      "description": "Replenishes Health to the target (based on Magic Power) and improves bodypart condition by ~lg~25%~/~ of health restored.##~lg~50%~/~ more effective on allied Undeads.##Grants ~lg~\"Death's Blessing\"~/~ for ~w~8–10~/~ turns:##~lg~+6%~/~ Life Drain#~lg~+6%~/~ Energy Drain#~lg~+8%~/~ Damage Reflection.",
+      "description": "Replenishes Health to the target (based on Magic Power) and improves body part condition by ~lg~25%~/~ of health restored.##~lg~50%~/~ more effective on allied Undead.##Grants ~lg~\"Death's Blessing\"~/~ for ~w~8~/~ turns:##~lg~+6%~/~ Life Drain#~lg~+6%~/~ Energy Drain#~lg~+8%~/~ Damage Reflection.",
       "magicPhrase": "Yagrak Atot!",
       "requirements": {
         "attributes": [

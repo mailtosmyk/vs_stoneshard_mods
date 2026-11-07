@@ -18,16 +18,12 @@ public static class NecromancyLocalization
 
     static void PatchBuffs()
     {
-        Msl.InjectTableItemLocalization(
+        PendingBuffLocs.Clear();
+
+        // Buff bar titles use global.buff_name_text from table_effects (scr_buff_atr),
+        // not table_items — InjectTableItemLocalization alone shows "o_b_bone_ward".
+        RegisterBuffLocalization(
             "o_db_withering_curse",
-            new Dictionary<ModLanguage, string>
-            {
-                { ModLanguage.English, "Withering Curse" },
-                { ModLanguage.Japanese, "枯死の呪い" },
-                { ModLanguage.Chinese, "凋零诅咒" },
-                { ModLanguage.German, "Verdorrender Fluch" },
-                { ModLanguage.Russian, "Иссушающее проклятие" },
-            },
             new Dictionary<ModLanguage, string>
             {
                 { ModLanguage.English, "Withering Curse" },
@@ -45,16 +41,8 @@ public static class NecromancyLocalization
                 { ModLanguage.Russian, "~r~-8%~/~ стойкости#~r~-8%~/~ маг. сопротивления#~r~-5%~/~ макс. здоровья#~lg~+3%~/~ получаемого урона##Каждый ход ухудшает часть тела." },
             });
 
-        Msl.InjectTableItemLocalization(
+        RegisterBuffLocalization(
             "o_b_bone_ward",
-            new Dictionary<ModLanguage, string>
-            {
-                { ModLanguage.English, "Bone Ward" },
-                { ModLanguage.Japanese, "骨の守護" },
-                { ModLanguage.Chinese, "骸骨结界" },
-                { ModLanguage.German, "Knochenwächter" },
-                { ModLanguage.Russian, "Костяной щит" },
-            },
             new Dictionary<ModLanguage, string>
             {
                 { ModLanguage.English, "Bone Ward" },
@@ -72,16 +60,8 @@ public static class NecromancyLocalization
                 { ModLanguage.Russian, "~lg~+12%~/~ физ. сопротивления#~lg~+15%~/~ сопротивления кровотечению#~lg~+10%~/~ маг. сопротивления#~lg~+10%~/~ сопротивления перемещению##При окончании разлетается осколками." },
             });
 
-        Msl.InjectTableItemLocalization(
+        RegisterBuffLocalization(
             "o_b_nm_desecration",
-            new Dictionary<ModLanguage, string>
-            {
-                { ModLanguage.English, "Unholy Damage" },
-                { ModLanguage.Japanese, "不浄ダメージ" },
-                { ModLanguage.Chinese, "不洁伤害" },
-                { ModLanguage.German, "Unheiliger Schaden" },
-                { ModLanguage.Russian, "Нечестивый урон" },
-            },
             new Dictionary<ModLanguage, string>
             {
                 { ModLanguage.English, "Unholy Damage" },
@@ -99,16 +79,8 @@ public static class NecromancyLocalization
                 { ModLanguage.Russian, "~ur~+нечестивого урона~/~##Даётся ~lg~\"Осквернением\"~/~. Не суммируется." },
             });
 
-        Msl.InjectTableItemLocalization(
+        RegisterBuffLocalization(
             "o_b_nm_skeleton_timer",
-            new Dictionary<ModLanguage, string>
-            {
-                { ModLanguage.English, "Summon Skeleton" },
-                { ModLanguage.Japanese, "スケルトン召喚" },
-                { ModLanguage.Chinese, "召唤骷髅" },
-                { ModLanguage.German, "Skelett beschwören" },
-                { ModLanguage.Russian, "Призыв скелета" },
-            },
             new Dictionary<ModLanguage, string>
             {
                 { ModLanguage.English, "Summon Skeleton" },
@@ -125,6 +97,102 @@ public static class NecromancyLocalization
                 { ModLanguage.German, "Ein beschworenes Skelett kämpft für dich.##Endet vorzeitig, wenn das Skelett zerstört wird." },
                 { ModLanguage.Russian, "Призванный скелет сражается на вашей стороне.##Заканчивается раньше, если скелет уничтожен." },
             });
+
+        Msl.LoadGML("gml_GlobalScript_table_effects")
+            .Apply(InjectNecromancyTableEffectsRows)
+            .Save();
+    }
+
+    static readonly List<(string Id, Dictionary<ModLanguage, string> Name, Dictionary<ModLanguage, string> Desc)> PendingBuffLocs = new();
+
+    static void RegisterBuffLocalization(
+        string id,
+        Dictionary<ModLanguage, string> name,
+        Dictionary<ModLanguage, string> description)
+    {
+        PendingBuffLocs.Add((id, name, description));
+    }
+
+    static IEnumerable<string> InjectNecromancyTableEffectsRows(IEnumerable<string> lines)
+    {
+        const string nameMarker = "\";buff_name_end;";
+        const string descMarker = "\";buff_desc_end;";
+
+        var nameInsert = new System.Text.StringBuilder();
+        var descInsert = new System.Text.StringBuilder();
+        foreach (var entry in PendingBuffLocs)
+        {
+            nameInsert.Append(SkillCsvRow(entry.Id, entry.Name));
+            descInsert.Append(SkillCsvRow(entry.Id, entry.Desc));
+        }
+
+        var nameText = nameInsert.ToString();
+        var descText = descInsert.ToString();
+        const string nameGuard = "\"o_b_bone_ward;";
+
+        foreach (var line in lines)
+        {
+            var result = line;
+            if (result.Contains(nameMarker, StringComparison.Ordinal))
+            {
+                if (result.Contains(nameGuard, StringComparison.Ordinal))
+                {
+                    foreach (var entry in PendingBuffLocs)
+                        result = UpsertEffectsCsvRow(result, entry.Id, entry.Name, nameMarker);
+                }
+                else
+                {
+                    result = result.Replace(nameMarker, nameText + nameMarker, StringComparison.Ordinal);
+                }
+            }
+
+            if (result.Contains(descMarker, StringComparison.Ordinal))
+            {
+                // After names are present (same giant return line), upsert/insert descs too.
+                if (result.Contains(nameGuard, StringComparison.Ordinal))
+                {
+                    foreach (var entry in PendingBuffLocs)
+                        result = UpsertEffectsCsvRow(result, entry.Id, entry.Desc, descMarker);
+                }
+                else
+                {
+                    result = result.Replace(descMarker, descText + descMarker, StringComparison.Ordinal);
+                }
+            }
+
+            yield return result;
+        }
+    }
+
+    static string UpsertEffectsCsvRow(
+        string line,
+        string id,
+        Dictionary<ModLanguage, string> texts,
+        string sectionEndMarker)
+    {
+        var newRow = SkillCsvRow(id, texts);
+        var sectionEnd = line.IndexOf(sectionEndMarker, StringComparison.Ordinal);
+        if (sectionEnd < 0)
+            return line;
+
+        // Name and desc share one giant return line — only touch the matching section.
+        var sectionStartMarker = sectionEndMarker.Contains("buff_name", StringComparison.Ordinal)
+            ? "\";buff_name;"
+            : "\";buff_desc;";
+        var sectionStart = line.LastIndexOf(sectionStartMarker, sectionEnd, StringComparison.Ordinal);
+        if (sectionStart < 0)
+            sectionStart = 0;
+
+        var needle = "\"" + id + ";";
+        var start = line.IndexOf(needle, sectionStart, StringComparison.Ordinal);
+        if (start >= 0 && start < sectionEnd)
+        {
+            var end = line.IndexOf("\",", start, StringComparison.Ordinal);
+            if (end >= 0 && end < sectionEnd)
+                return line.Substring(0, start) + newRow + line.Substring(end + 2);
+        }
+
+        return line.Substring(0, sectionEnd) + newRow + line.Substring(sectionEnd);
     }
 
     static void PatchSchool()
