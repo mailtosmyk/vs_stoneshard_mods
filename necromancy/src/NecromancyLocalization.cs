@@ -277,11 +277,11 @@ public static class NecromancyLocalization
             },
             new Dictionary<ModLanguage, string>
             {
-                { ModLanguage.English, "Shoots a bolt of dark energy (Range: ~w~6~/~), dealing ~ur~7 Unholy Damage~/~ with Accuracy.##If the spell hits the target, burns its Energy for ~lg~33%~/~ of the damage dealt and replenishes the same amount of Energy to the caster.##Grants Unholy Damage for ~w~8–10~/~ turns.##This effect doesn't stack." },
-                { ModLanguage.Japanese, "暗黒エネルギーのボルトを放つ（射程: ~w~6~/~）。命中時に~ur~7の不浄ダメージ~/~を与える。##命中すると、与ダメージの~lg~33%~/~分のエネルギーを焼き、同量を術者に回復する。##~w~8〜10~/~ターンの間、不浄ダメージを付与する。##この効果は重複しない。" },
-                { ModLanguage.Chinese, "射出一道黑暗能量箭（射程：~w~6~/~），造成~ur~7点邪秽伤害~/~（需命中）。##若命中目标，按其受到伤害的~lg~33%~/~燃烧能量，并将等量能量回复给施法者。##赋予邪秽伤害，持续~w~8–10~/~回合。##此效果不叠加。" },
-                { ModLanguage.German, "Schießt einen Blitz dunkler Energie (Reichweite: ~w~6~/~), der ~ur~7 Unheiligen Schaden~/~ mit Treffergenauigkeit verursacht.##Bei einem Treffer verbrennt der Zauber ~lg~33%~/~ des verursachten Schadens als Energie und stellt dem Wirker denselben Betrag wieder her.##Gewährt Unheiligen Schaden für ~w~8–10~/~ Züge.##Dieser Effekt stapelt nicht." },
-                { ModLanguage.Russian, "Выпускает заряд тёмной энергии (дальность: ~w~6~/~), наносящий ~ur~7 урона нечестием~/~ с учётом точности.##При попадании сжигает энергию цели в размере ~lg~33%~/~ от нанесённого урона и восстанавливает столько же энергии заклинателю.##Даёт урон нечестием на ~w~8–10~/~ ходов.##Эффект не стакается." },
+                { ModLanguage.English, "Shoots a bolt of dark energy, dealing ~ur~7 Unholy Damage~/~ with Accuracy.##If the spell hits the target, burns its Energy for ~lg~33%~/~ of the damage dealt and replenishes the same amount of Energy to the caster.##Grants Unholy Damage for ~w~8 turns~/~.##This effect doesn't stack." },
+                { ModLanguage.Japanese, "暗黒エネルギーのボルトを放ち、命中時に~ur~7の不浄ダメージ~/~を与える。##命中すると、与ダメージの~lg~33%~/~分のエネルギーを焼き、同量を術者に回復する。##~w~8ターン~/~の間、不浄ダメージを付与する。##この効果は重複しない。" },
+                { ModLanguage.Chinese, "射出一道黑暗能量箭，造成~ur~7点邪秽伤害~/~（需命中）。##若命中目标，按其受到伤害的~lg~33%~/~燃烧能量，并将等量能量回复给施法者。##赋予邪秽伤害，持续~w~8回合~/~。##此效果不叠加。" },
+                { ModLanguage.German, "Schießt einen Blitz dunkler Energie, der ~ur~7 Unheiligen Schaden~/~ mit Treffergenauigkeit verursacht.##Bei einem Treffer verbrennt der Zauber ~lg~33%~/~ des verursachten Schadens als Energie und stellt dem Wirker denselben Betrag wieder her.##Gewährt Unheiligen Schaden für ~w~8 Züge~/~.##Dieser Effekt stapelt nicht." },
+                { ModLanguage.Russian, "Выпускает заряд тёмной энергии, наносящий ~ur~7 урона нечестием~/~ с учётом точности.##При попадании сжигает энергию цели в размере ~lg~33%~/~ от нанесённого урона и восстанавливает столько же энергии заклинателю.##Даёт урон нечестием на ~w~8 ходов~/~.##Эффект не стакается." },
             });
         RegisterSkillLocalization(
             "bone_ward",
@@ -329,11 +329,11 @@ public static class NecromancyLocalization
             },
             new Dictionary<ModLanguage, string>
             {
-                { ModLanguage.English, "Summons ~w~1~/~ Skeleton on the targeted tile (no corpse required).##Duration, Max Health %, and Max Energy % scale with Willpower (starts at ~w~5~/~ turns, ~lg~33%~/~ Max Health / ~lg~25%~/~ Max Energy, Armor Durability ~w~0%~/~).##Only one Skeleton can exist at a time.##Slowly decreases Sanity (no less than ~lg~70%~/~).##Risk of ~r~\"Obsession\"~/~: Low.##Can't summon Undeads higher than the skill's level cap.##Cannot be cast under ~r~\"Obsession\"~/~." },
-                { ModLanguage.Japanese, "対象タイルにスケルトン~w~1~/~体を召喚する（死体不要）。##持続時間・最大体力%・最大エネルギー%は意志力に比例する（初期: ~w~5~/~ターン、最大体力~lg~33%~/~ / 最大エネルギー~lg~25%~/~、防具耐久~w~0%~/~）。##同時に存在できるスケルトンは1体のみ。##正気を徐々に減少させる（最低~lg~70%~/~）。##~r~「執着」~/~のリスク: 低。##スキルのレベル上限を超えるアンデッドは召喚できない。##~r~「執着」~/~中は詠唱不可。" },
-                { ModLanguage.Chinese, "在目标格子召唤~w~1~/~具骷髅（无需尸体）。##持续时间、最大生命%与最大能量%随意志力提升（起始：~w~5~/~回合，~lg~33%~/~最大生命 / ~lg~25%~/~最大能量，护甲耐久~w~0%~/~）。##同时仅可存在一具骷髅。##缓慢降低理智（不低于~lg~70%~/~）。##~r~“执念”~/~风险：低。##无法召唤高于技能等级上限的亡灵。##~r~“执念”~/~状态下无法施放。" },
-                { ModLanguage.German, "Beschwört ~w~1~/~ Skelett auf dem Ziel-Feld (keine Leiche nötig).##Dauer, max. Gesundheit % und max. Energie % skalieren mit Willenskraft (Start: ~w~5~/~ Züge, ~lg~33%~/~ max. Gesundheit / ~lg~25%~/~ max. Energie, Rüstungshalbarkeit ~w~0%~/~).##Nur ein Skelett gleichzeitig.##Senkt langsam den Verstand (nicht unter ~lg~70%~/~).##Risiko von ~r~„Besessenheit“~/~: Gering.##Kann keine Untoten über dem Level-Limit der Fähigkeit beschwören.##Nicht unter ~r~„Besessenheit“~/~ wirkbar." },
-                { ModLanguage.Russian, "Призывает ~w~1~/~ скелета на выбранную клетку (труп не нужен).##Длительность, % макс. здоровья и % макс. энергии зависят от Воли (старт: ~w~5~/~ ходов, ~lg~33%~/~ макс. здоровья / ~lg~25%~/~ макс. энергии, прочность брони ~w~0%~/~).##Одновременно может существовать только один скелет.##Медленно снижает рассудок (не ниже ~lg~70%~/~).##Риск ~r~«Одержимости»~/~: низкий.##Нельзя призвать нежить выше уровня навыка.##Нельзя использовать под ~r~«Одержимостью»~/~." },
+                { ModLanguage.English, "Summon skeleton on the targeted tile (no corpse required).##Duration, Max Health %, and Max Energy % scale with Willpower (starts at ~w~10~/~ turns, ~lg~33%~/~ Max Health / ~lg~25%~/~ Max Energy, Armor Durability ~w~0%~/~).##Only one Skeleton can exist at a time." },
+                { ModLanguage.Japanese, "対象タイルにスケルトンを召喚する（死体不要）。##持続時間・最大体力%・最大エネルギー%は意志力に比例する（初期: ~w~10~/~ターン、最大体力~lg~33%~/~ / 最大エネルギー~lg~25%~/~、防具耐久~w~0%~/~）。##同時に存在できるスケルトンは1体のみ。" },
+                { ModLanguage.Chinese, "在目标格子召唤骷髅（无需尸体）。##持续时间、最大生命%与最大能量%随意志力提升（起始：~w~10~/~回合，~lg~33%~/~最大生命 / ~lg~25%~/~最大能量，护甲耐久~w~0%~/~）。##同时仅可存在一具骷髅。" },
+                { ModLanguage.German, "Beschwört ein Skelett auf dem Ziel-Feld (keine Leiche nötig).##Dauer, max. Gesundheit % und max. Energie % skalieren mit Willenskraft (Start: ~w~10~/~ Züge, ~lg~33%~/~ max. Gesundheit / ~lg~25%~/~ max. Energie, Rüstungshalbarkeit ~w~0%~/~).##Nur ein Skelett gleichzeitig." },
+                { ModLanguage.Russian, "Призывает скелета на выбранную клетку (труп не нужен).##Длительность, % макс. здоровья и % макс. энергии зависят от Воли (старт: ~w~10~/~ ходов, ~lg~33%~/~ макс. здоровья / ~lg~25%~/~ макс. энергии, прочность брони ~w~0%~/~).##Одновременно может существовать только один скелет." },
             });
         RegisterSkillLocalization(
             "withering_curse",
@@ -407,11 +407,11 @@ public static class NecromancyLocalization
             },
             new Dictionary<ModLanguage, string>
             {
-                { ModLanguage.English, "Replenishes Health to the target (based on Magic Power) and improves bodypart condition by ~lg~25%~/~ of health restored.##~lg~50%~/~ more effective on allied Undeads.##Grants ~lg~\"Death's Blessing\"~/~ for ~w~8–10~/~ turns:##~lg~+6%~/~ Life Drain#~lg~+6%~/~ Energy Drain#~lg~+8%~/~ Damage Reflection." },
-                { ModLanguage.Japanese, "対象の体力を回復し（魔力依存）、回復量の~lg~25%~/~分だけ部位状態を改善する。##味方アンデッドには~lg~50%~/~効果上昇。##~lg~「死の祝福」~/~を~w~8〜10~/~ターン付与：##~lg~+6%~/~生命吸収#~lg~+6%~/~エネルギー吸収#~lg~+8%~/~ダメージ反射。" },
-                { ModLanguage.Chinese, "恢复目标生命（基于魔法强度），并按恢复量的~lg~25%~/~改善部位状态。##对友方亡灵效果提升~lg~50%~/~。##赋予~lg~“死亡赐福”~/~，持续~w~8–10~/~回合：##~lg~+6%~/~生命汲取#~lg~+6%~/~能量汲取#~lg~+8%~/~伤害反射。" },
-                { ModLanguage.German, "Stellt Gesundheit des Ziels wieder her (basiert auf Magiekraft) und verbessert den Zustand der Körperteile um ~lg~25%~/~ der geheilten Menge.##~lg~50%~/~ wirksamer bei verbündeten Untoten.##Gewährt ~lg~„Segen des Todes“~/~ für ~w~8–10~/~ Züge:##~lg~+6%~/~ Lebensraub#~lg~+6%~/~ Energieraub#~lg~+8%~/~ Schadensreflexion." },
-                { ModLanguage.Russian, "Восстанавливает здоровье цели (зависит от силы магии) и улучшает состояние частей тела на ~lg~25%~/~ от восстановленного здоровья.##На ~lg~50%~/~ эффективнее на союзной нежити.##Даёт ~lg~«Благословение смерти»~/~ на ~w~8–10~/~ ходов:##~lg~+6%~/~ вампиризма#~lg~+6%~/~ кражи энергии#~lg~+8%~/~ отражения урона." },
+                { ModLanguage.English, "Replenishes Health to the target (based on Magic Power) and improves body part condition by ~lg~25%~/~ of health restored.##~lg~50%~/~ more effective on allied Undead.##Grants ~lg~\"Death's Blessing\"~/~ for ~w~8~/~ turns:##~lg~+6%~/~ Life Drain#~lg~+6%~/~ Energy Drain#~lg~+8%~/~ Damage Reflection." },
+                { ModLanguage.Japanese, "対象の体力を回復し（魔力依存）、回復量の~lg~25%~/~分だけ部位状態を改善する。##味方アンデッドには~lg~50%~/~効果上昇。##~lg~「死の祝福」~/~を~w~8~/~ターン付与：##~lg~+6%~/~生命吸収#~lg~+6%~/~エネルギー吸収#~lg~+8%~/~ダメージ反射。" },
+                { ModLanguage.Chinese, "恢复目标生命（基于魔法强度），并按恢复量的~lg~25%~/~改善部位状态。##对友方亡灵效果提升~lg~50%~/~。##赋予~lg~“死亡赐福”~/~，持续~w~8~/~回合：##~lg~+6%~/~生命汲取#~lg~+6%~/~能量汲取#~lg~+8%~/~伤害反射。" },
+                { ModLanguage.German, "Stellt Gesundheit des Ziels wieder her (basiert auf Magiekraft) und verbessert den Zustand der Körperteile um ~lg~25%~/~ der geheilten Menge.##~lg~50%~/~ wirksamer bei verbündeten Untoten.##Gewährt ~lg~„Segen des Todes“~/~ für ~w~8~/~ Züge:##~lg~+6%~/~ Lebensraub#~lg~+6%~/~ Energieraub#~lg~+8%~/~ Schadensreflexion." },
+                { ModLanguage.Russian, "Восстанавливает здоровье цели (зависит от силы магии) и улучшает состояние частей тела на ~lg~25%~/~ от восстановленного здоровья.##На ~lg~50%~/~ эффективнее на союзной нежити.##Даёт ~lg~«Благословение смерти»~/~ на ~w~8~/~ ходов:##~lg~+6%~/~ вампиризма#~lg~+6%~/~ кражи энергии#~lg~+8%~/~ отражения урона." },
             });
         RegisterSkillLocalization(
             "resurrection",

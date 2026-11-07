@@ -1,7 +1,7 @@
 event_inherited()
 duration = min(duration, max_duration)
 
-if (nm_skel == -4 || (!instance_exists(nm_skel)) || (!instance_exists(o_player)))
+if ((!variable_instance_exists(id, "nm_skel")) || nm_skel == -4 || (!instance_exists(nm_skel)) || (!instance_exists(o_player)))
     return;
 
 // Keep ally bind sticky, and drive follow/combat when the servant buff is absent.

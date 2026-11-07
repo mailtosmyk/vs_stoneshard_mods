@@ -106,7 +106,7 @@
       "combat": {
         "kind": "summon",
         "target": "point",
-        "range": "3",
+        "range": "4",
         "cooldown": 12,
         "energy": 18,
         "reserve": 0,
