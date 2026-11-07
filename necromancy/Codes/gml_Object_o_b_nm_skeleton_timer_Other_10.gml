@@ -1,7 +1,17 @@
 event_inherited()
 duration = min(duration, max_duration)
 
-if ((!variable_instance_exists(id, "nm_skel")) || nm_skel == -4 || (!instance_exists(nm_skel)) || (!instance_exists(o_player)))
+// Nested checks: GML may evaluate both sides of || / &&.
+if (!variable_instance_exists(id, "nm_skel"))
+    return;
+if (nm_skel == -4)
+    return;
+if (!instance_exists(nm_skel))
+{
+    instance_destroy()
+    return;
+}
+if (!instance_exists(o_player))
     return;
 
 // Keep ally bind sticky, and drive follow/combat when the servant buff is absent.

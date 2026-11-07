@@ -1,4 +1,4 @@
-// Must init before event_inherited/scr_buff_atr — Alarm 2 can fire during create.
+// Init before event_inherited/scr_buff_atr — parent create can chain into Alarm 2.
 nm_skel = -4
 event_inherited()
 scr_buff_atr()

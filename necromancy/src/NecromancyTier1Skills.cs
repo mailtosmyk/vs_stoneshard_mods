@@ -217,21 +217,86 @@ public static class NecromancyTier1Skills
             new MslEvent("gml_Object_o_nm_bone_shard_hit_Create_0.gml", EventType.Create, 0),
             new MslEvent("gml_Object_o_nm_bone_shard_hit_Alarm_1.gml", EventType.Alarm, 1));
 
-        skeletonTimer.ApplyEvent(modFiles,
-            new MslEvent("gml_Object_o_b_nm_skeleton_timer_Create_0.gml", EventType.Create, 0),
-            new MslEvent("gml_Object_o_b_nm_skeleton_timer_Other_10.gml", EventType.Other, 10),
-            new MslEvent("gml_Object_o_b_nm_skeleton_timer_Alarm_2.gml", EventType.Alarm, 2),
-            new MslEvent("gml_Object_o_b_nm_skeleton_timer_Destroy_0.gml", EventType.Destroy, 0));
+        // ApplyEvent/AddNewEvent skips when the event already exists, so re-patches
+        // leave stale GML in data.win. Force-replace after add so fixes actually apply.
+        ApplyEventAndReplace(skeletonTimer, modFiles,
+            "gml_Object_o_b_nm_skeleton_timer_Create_0.gml",
+            "gml_Object_o_b_nm_skeleton_timer_Other_10.gml",
+            "gml_Object_o_b_nm_skeleton_timer_Alarm_2.gml",
+            "gml_Object_o_b_nm_skeleton_timer_Destroy_0.gml");
 
-        skeletonServant.ApplyEvent(modFiles,
-            new MslEvent("gml_Object_o_b_nm_servant_Create_0.gml", EventType.Create, 0),
-            new MslEvent("gml_Object_o_b_nm_servant_Other_10.gml", EventType.Other, 10),
-            new MslEvent("gml_Object_o_b_nm_servant_Alarm_2.gml", EventType.Alarm, 2));
+        ApplyEventAndReplace(skeletonServant, modFiles,
+            "gml_Object_o_b_nm_servant_Create_0.gml",
+            "gml_Object_o_b_nm_servant_Other_10.gml",
+            "gml_Object_o_b_nm_servant_Alarm_2.gml");
 
         desecrationBuff.ApplyEvent(modFiles,
             new MslEvent("gml_Object_o_b_nm_desecration_Create_0.gml", EventType.Create, 0),
             new MslEvent("gml_Object_o_b_nm_desecration_Other_10.gml", EventType.Other, 10),
             new MslEvent("gml_Object_o_b_nm_desecration_Alarm_2.gml", EventType.Alarm, 2));
+    }
+
+    /// <summary>
+    /// Add events on first install, then always overwrite code bodies from ModFiles.
+    /// Needed because Msl.AddNewEvent refuses to replace an existing event subtype.
+    /// </summary>
+    static void ApplyEventAndReplace(
+        UndertaleGameObject gameObject,
+        ModFile modFiles,
+        params string[] codeFiles)
+    {
+        var events = codeFiles.Select(ParseMslEvent).ToArray();
+        try
+        {
+            gameObject.ApplyEvent(modFiles, events);
+        }
+        catch (ArgumentException)
+        {
+            // Event already present from a previous patch — ForceReplaceCode below refreshes it.
+        }
+
+        foreach (var codeFile in codeFiles)
+            ForceReplaceCode(modFiles, codeFile);
+    }
+
+    static MslEvent ParseMslEvent(string codeFile)
+    {
+        // gml_Object_<name>_<Event>_<subtype>.gml  (Other_10, Alarm_2, Create_0, Destroy_0, ...)
+        var baseName = codeFile.EndsWith(".gml", StringComparison.OrdinalIgnoreCase)
+            ? codeFile[..^4]
+            : codeFile;
+        var parts = baseName.Split('_');
+        if (parts.Length < 2 || !uint.TryParse(parts[^1], out var subtype))
+            throw new InvalidOperationException($"Cannot parse event subtype from '{codeFile}'.");
+
+        var eventToken = parts[^2];
+        var eventType = eventToken switch
+        {
+            "Create" => EventType.Create,
+            "Destroy" => EventType.Destroy,
+            "Alarm" => EventType.Alarm,
+            "Step" => EventType.Step,
+            "Other" => EventType.Other,
+            "Draw" => EventType.Draw,
+            _ => throw new InvalidOperationException($"Unknown event type '{eventToken}' in '{codeFile}'.")
+        };
+
+        return new MslEvent(codeFile, eventType, subtype);
+    }
+
+    static void ForceReplaceCode(ModFile modFiles, string codeFile)
+    {
+        var gmlName = codeFile.EndsWith(".gml", StringComparison.OrdinalIgnoreCase)
+            ? codeFile[..^4]
+            : codeFile;
+        var raw = modFiles.GetCode(codeFile);
+        if (string.IsNullOrEmpty(raw))
+            throw new InvalidOperationException($"Missing code in mod package: {codeFile}");
+
+        var lines = raw.Replace("\r\n", "\n", StringComparison.Ordinal).Split('\n');
+        Msl.LoadGML(gmlName)
+            .Apply(_ => lines)
+            .Save();
     }
 
     /// <summary>
