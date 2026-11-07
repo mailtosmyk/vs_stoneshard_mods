@@ -1,18 +1,21 @@
 if (instance_exists(target) && instance_exists(owner))
 {
-    // Refresh: shatter previous ward first.
-    if scr_instance_exists_in_list(o_b_bone_ward, target.buffs)
+    var _buff = asset_get_index("o_b_bone_ward")
+    if (_buff != -1)
     {
-        with (o_b_bone_ward)
+        if scr_instance_exists_in_list(_buff, target.buffs)
         {
-            if (target == other.target)
+            with (_buff)
             {
-                nm_force_shatter = 1
-                instance_destroy()
+                if (target == other.target)
+                {
+                    nm_force_shatter = 1
+                    instance_destroy()
+                }
             }
         }
+        scr_effect_create(_buff, turns, target, owner)
     }
-    scr_effect_create(o_b_bone_ward, turns, target, owner)
 }
 event_inherited()
 if instance_exists(owner)

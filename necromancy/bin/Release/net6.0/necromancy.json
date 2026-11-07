@@ -62,7 +62,7 @@
       },
       "combat": {
         "kind": "self_buff",
-        "target": "ally",
+        "target": "none",
         "range": "0",
         "cooldown": 8,
         "energy": 14,
