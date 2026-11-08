@@ -6,7 +6,11 @@ if ((!instance_exists(target)) || (!instance_exists(o_player)))
 // (Syndicate retinue pattern: unit Other_10 + event_inherited / scr_turn).
 with (target)
 {
-    owner = other.owner
+    // Prefer live player id so kill XP attribution stays valid even if buff.owner drifts.
+    if (instance_exists(o_player))
+        owner = o_player.id
+    else
+        owner = other.owner
     faction_key = "Player"
     subfaction_key = "Player"
     faction = "Player"
@@ -17,6 +21,7 @@ with (target)
     is_follower = true
     ai_is_on = true
     can_drop_loot = false
+    nm_summon = true
 
     if (target == o_player.id)
         target = -4

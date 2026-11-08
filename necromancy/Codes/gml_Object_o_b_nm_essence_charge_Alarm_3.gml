@@ -1,0 +1,5 @@
+ds_map_clear(data)
+ds_map_add(data, "Magic_Power", (5 * stage))
+ds_map_add(data, "Spells_Energy_Cost", (-5 * stage))
+ds_map_add(data, "Skills_Energy_Cost", (-5 * stage))
+ds_map_add(data, "MP", (4 * stage))

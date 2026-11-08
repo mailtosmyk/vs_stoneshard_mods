@@ -3,6 +3,10 @@
 // This event only runs when we remain on o_player.enemylist (scr_unitTurnEvents).
 
 // Sticky Player-faction bind (vanilla AI can flip these).
+// Keep owner = player so o_enemy Destroy credits summon kills for XP
+// (vanilla path only auto-credits o_summoned_entity; we patch nm_summon + owner).
+if (instance_exists(o_player))
+    owner = o_player.id
 faction_key = "Player"
 subfaction_key = "Player"
 faction = "Player"

@@ -1,0 +1,5 @@
+event_inherited()
+ds_map_clear(data)
+ds_map_add(data, "Lifesteal", 6)
+ds_map_add(data, "Manasteal", 6)
+ds_map_add(data, "Damage_Returned", 8)

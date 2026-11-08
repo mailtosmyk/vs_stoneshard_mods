@@ -13,14 +13,16 @@ public static class NecromancySchool
 {
     public const string CategoryObjectName = "o_skill_category_necromancy";
     public const string Tier1Global = "global.necromancy_tier1";
+    public const string Tier2Global = "global.necromancy_tier2";
 
     public static void Patch(ModFile modFiles)
     {
         var tier1 = NecromancySkills.ByTier(1).ToArray();
+        var tier2 = NecromancySkills.ByTier(2).ToArray();
         if (tier1.Length == 0)
             throw new InvalidOperationException("necromancy.json has no tier 1 skills.");
 
-        EnsureSpriteOrigins(tier1);
+        EnsureSpriteOrigins(tier1.Concat(tier2));
 
         var category = Msl.AddObject(
             name: CategoryObjectName,
@@ -31,8 +33,8 @@ public static class NecromancySchool
             isAwake: true,
             collisionShapeFlags: CollisionShapeFlags.Circle);
 
-        // ApplyEvent skips existing subtypes on re-patch; always overwrite bodies from tier-1 JSON
-        // so removed skills (e.g. Withering Curse) cannot leave stale icon refs in Create/Other_24.
+        // ApplyEvent skips existing subtypes on re-patch; always overwrite bodies from JSON
+        // so removed skills cannot leave stale icon refs in Create/Other_24.
         try
         {
             category.ApplyEvent(
@@ -45,19 +47,20 @@ public static class NecromancySchool
             // Events already present — ForceReplace below refreshes them.
         }
 
-        WriteCategoryEvents(tier1);
+        WriteCategoryEvents(tier1, tier2);
 
         InsertCategoryIntoSkillMenu();
-        InsertTierGlobals(tier1);
+        InsertTierGlobals(tier1, tier2);
         UnlockTier1OnSkillPanelInit();
     }
 
     /// <summary>
-    /// Tier-1 icon strip + layout derived from necromancy.json (not stale Codes/*.gml).
+    /// Icon strip + layout derived from necromancy.json (not stale Codes/*.gml).
+    /// Tier 1 at Y=55, Tier 2 at Y=118.
     /// </summary>
-    static void WriteCategoryEvents(NecromancySkill[] tier1)
+    static void WriteCategoryEvents(NecromancySkill[] tier1, NecromancySkill[] tier2)
     {
-        var icons = string.Join(", ", tier1.Select(s => s.IconObjectName));
+        var icons = string.Join(", ", tier1.Concat(tier2).Select(s => s.IconObjectName));
         WriteGml(
             "gml_Object_o_skill_category_necromancy_Create_0",
             "event_inherited()\n" +
@@ -67,17 +70,38 @@ public static class NecromancySchool
             "is_execute = false\n" +
             "owner = gml_Script_scr_GetMobParametr\n");
 
-        // Same X spacing as the old 4-icon strip; only emit slots for registered tier-1 skills.
-        var xs = new[] { 33, 81, 130, 178, 226 };
+        // Tree-ish X placement: T1 evenly spaced; T2 under parents where possible.
         var layout = new System.Text.StringBuilder("event_inherited()\n");
+        var t1Xs = new[] { 33, 81, 130, 178, 226 };
         for (var i = 0; i < tier1.Length; i++)
         {
-            var x = i < xs.Length ? xs[i] : xs[^1] + (i - xs.Length + 1) * 48;
+            var x = i < t1Xs.Length ? t1Xs[i] : t1Xs[^1] + (i - t1Xs.Length + 1) * 48;
             layout.Append("scr_guiLayoutOffsetUpdate(")
                 .Append(tier1[i].IconObjectName)
                 .Append(", ")
                 .Append(x)
                 .Append(", 55, 1)\n");
+        }
+
+        // Essence Leech / Grave Blight under Desecration; Blessing / Resurrection under Bone Ward.
+        var t2X = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase)
+        {
+            ["essence_leech"] = 24,
+            ["grave_blight"] = 52,
+            ["deaths_blessing"] = 100,
+            ["resurrection"] = 138,
+        };
+        var fallbackXs = new[] { 24, 62, 100, 138, 176 };
+        for (var i = 0; i < tier2.Length; i++)
+        {
+            var x = t2X.TryGetValue(tier2[i].Slug, out var mapped)
+                ? mapped
+                : (i < fallbackXs.Length ? fallbackXs[i] : fallbackXs[^1] + (i - fallbackXs.Length + 1) * 38);
+            layout.Append("scr_guiLayoutOffsetUpdate(")
+                .Append(tier2[i].IconObjectName)
+                .Append(", ")
+                .Append(x)
+                .Append(", 118, 1)\n");
         }
 
         WriteGml("gml_Object_o_skill_category_necromancy_Other_24", layout.ToString());
@@ -162,10 +186,15 @@ public static class NecromancySchool
             .Save();
     }
 
-    static void InsertTierGlobals(NecromancySkill[] tier1)
+    static void InsertTierGlobals(NecromancySkill[] tier1, NecromancySkill[] tier2)
     {
-        var icons = string.Join(", ", tier1.Select(s => s.IconObjectName));
-        var gml = "\n" + Tier1Global + " = [\"" + NecromancySkills.SchoolName + "\", " + icons + "]\n";
+        var t1Icons = string.Join(", ", tier1.Select(s => s.IconObjectName));
+        var gml = "\n" + Tier1Global + " = [\"" + NecromancySkills.SchoolName + "\", " + t1Icons + "]\n";
+        if (tier2.Length > 0)
+        {
+            var t2Icons = string.Join(", ", tier2.Select(s => s.IconObjectName));
+            gml += Tier2Global + " = [\"" + NecromancySkills.SchoolName + "\", " + t2Icons + "]\n";
+        }
 
         Msl.LoadGML("gml_GlobalScript_scr_skill_tier_init")
             .MatchFrom("}")
@@ -177,6 +206,7 @@ public static class NecromancySchool
     /// o_skill_fast_panel Alarm_0 locks every skill in every category, then unlocks
     /// class starting tiers via scr_skill_open_from_array1d. Without that unlock,
     /// necromancy tier-1 stays locked and shows "Read the corresponding treatise...".
+    /// Tier 2 stays gated by attributes + prerequisite skill Step_2 checks.
     /// </summary>
     static void UnlockTier1OnSkillPanelInit()
     {

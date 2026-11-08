@@ -152,6 +152,34 @@
           "59a5ba7d-bfe3-4136-8bff-3621fa584499"
         ],
         "skillLogic": "and"
+      },
+      "combat": {
+        "kind": "debuff",
+        "target": "object",
+        "range": "5",
+        "cooldown": 5,
+        "energy": 13,
+        "reserve": 0,
+        "duration": 14,
+        "aoeLength": 0,
+        "aoeWidth": 0,
+        "isMovement": false,
+        "pattern": "normal",
+        "class": "spell",
+        "bonusRange": false,
+        "starcast": "",
+        "fumble": 4,
+        "armorPenetration": "x",
+        "isMissile": false,
+        "selfCast": false,
+        "stealHpPct": 8,
+        "stealMpPct": 8,
+        "buffTurnsMin": 12,
+        "buffTurnsMax": 15,
+        "magicPower": 5,
+        "energyCost": -5,
+        "maxEnergy": 4,
+        "maxStage": 2
       }
     },
     {
@@ -178,6 +206,32 @@
           "03f04616-3f5d-4881-82e7-3b74492777b1"
         ],
         "skillLogic": "and"
+      },
+      "combat": {
+        "kind": "debuff",
+        "target": "object",
+        "range": "vis",
+        "cooldown": 14,
+        "energy": 22,
+        "reserve": 0,
+        "duration": 8,
+        "aoeLength": 0,
+        "aoeWidth": 0,
+        "isMovement": false,
+        "pattern": "normal",
+        "class": "spell",
+        "bonusRange": false,
+        "starcast": "",
+        "fumble": 2,
+        "armorPenetration": "x",
+        "isMissile": false,
+        "selfCast": true,
+        "buffTurns": 8,
+        "lifeDrain": 6,
+        "energyDrain": 6,
+        "damageReflect": 8,
+        "undeadMult": 1.5,
+        "bodypartRatio": 0.25
       }
     },
     {
@@ -205,6 +259,32 @@
           "03f04616-3f5d-4881-82e7-3b74492777b1"
         ],
         "skillLogic": "and"
+      },
+      "combat": {
+        "kind": "summon",
+        "target": "object",
+        "range": "6",
+        "cooldown": 26,
+        "energy": 33,
+        "reserve": 0,
+        "duration": 0,
+        "aoeLength": 0,
+        "aoeWidth": 0,
+        "isMovement": false,
+        "pattern": "normal",
+        "class": "spell",
+        "bonusRange": false,
+        "starcast": "",
+        "fumble": 8,
+        "armorPenetration": "x",
+        "isMissile": false,
+        "selfCast": false,
+        "baseHpPct": 50,
+        "baseMpPct": 50,
+        "hpPctBonus": 5,
+        "sanityFloor": 60,
+        "moraleCap": 70,
+        "levelCapBonus": 3
       }
     },
     {
@@ -231,6 +311,32 @@
           "59a5ba7d-bfe3-4136-8bff-3621fa584499"
         ],
         "skillLogic": "and"
+      },
+      "combat": {
+        "kind": "debuff",
+        "target": "point",
+        "range": "6",
+        "cooldown": 10,
+        "energy": 18,
+        "reserve": 0,
+        "duration": 4,
+        "aoeLength": 3,
+        "aoeWidth": 3,
+        "isMovement": false,
+        "pattern": "normal",
+        "class": "spell",
+        "bonusRange": true,
+        "starcast": "",
+        "fumble": 6,
+        "armorPenetration": "x",
+        "isMissile": false,
+        "selfCast": false,
+        "buffTurns": 4,
+        "unholyPerTurn": 2,
+        "magicRes": -4,
+        "maxStage": 3,
+        "curseMaxStage": 2,
+        "bodypartWorsen": 0.35
       }
     },
     {

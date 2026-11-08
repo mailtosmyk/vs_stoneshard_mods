@@ -96,7 +96,7 @@
       "type": "active",
       "tier": 1,
       "image": "s_summon_skeleton",
-      "description": "Summon skeleton on the targeted tile (no corpse required).##Duration, Max Health %, and Max Energy % scale with Willpower (starts at ~w~10~/~ turns, ~lg~33%~/~ Max Health / ~lg~25%~/~ Max Energy, Armor Durability ~w~0%~/~).##Only one Skeleton can exist at a time.",
+      "description": "Summon skeleton on the targeted tile (no corpse required).##Duration, Max Health %, and Max Energy % scale with Willpower (starts at ~w~20~/~ turns, ~lg~33%~/~ Max Health / ~lg~25%~/~ Max Energy, Armor Durability ~w~0%~/~).##Only one Skeleton can exist at a time.",
       "magicPhrase": "Rattlek Narzul!",
       "requirements": {
         "attributes": [],
@@ -110,7 +110,7 @@
         "cooldown": 12,
         "energy": 18,
         "reserve": 0,
-        "duration": 5,
+        "duration": 10,
         "aoeLength": 0,
         "aoeWidth": 0,
         "isMovement": false,
@@ -122,7 +122,7 @@
         "armorPenetration": "x",
         "isMissile": false,
         "selfCast": false,
-        "baseTurns": 10,
+        "baseTurns": 20,
         "baseHpPct": 33,
         "baseMpPct": 25,
         "sanityFloor": 70
@@ -135,7 +135,7 @@
       "type": "active",
       "tier": 2,
       "image": "s_essence_leech",
-      "description": "Devours a targeted corpse or steals ~lg~8%~/~ Max Health and ~lg~8%~/~ Max Energy from an allied Undead or Skeleton, transferring half of them to the caster.##Activates ~lg~\"Essence Charge\"~/~ for ~w~12–15~/~ turns:##~lg~+5%~/~ Magic Power#~r~-5%~/~ Abilities Energy Cost#~lg~+4~/~ Max Energy##Repeated use grants an extra stack (up to II) and refreshes duration.##Using Spells reduces stacks by ~r~1~/~.##No Obsession risk from Essence Charge at Tier 2.",
+      "description": "Devours a targeted corpse or steals ~lg~8%~/~ Max Health and ~lg~8%~/~ Max Energy from an allied Undead or Skeleton, transferring half of them to the caster.##Activates ~lg~\"Essence Charge\"~/~ for ~w~12–15~/~ turns:##~lg~+5%~/~ Magic Power#~r~-5%~/~ Abilities Energy Cost#~lg~+4~/~ Max Energy##Repeated use grants an extra stack (up to II) and refreshes duration.##Using Spells reduces stacks by ~r~1~/~.",
       "magicPhrase": "En'thero!",
       "requirements": {
         "attributes": [
@@ -152,6 +152,34 @@
           "59a5ba7d-bfe3-4136-8bff-3621fa584499"
         ],
         "skillLogic": "and"
+      },
+      "combat": {
+        "kind": "debuff",
+        "target": "object",
+        "range": "5",
+        "cooldown": 5,
+        "energy": 13,
+        "reserve": 0,
+        "duration": 14,
+        "aoeLength": 0,
+        "aoeWidth": 0,
+        "isMovement": false,
+        "pattern": "normal",
+        "class": "spell",
+        "bonusRange": false,
+        "starcast": "",
+        "fumble": 4,
+        "armorPenetration": "x",
+        "isMissile": false,
+        "selfCast": false,
+        "stealHpPct": 8,
+        "stealMpPct": 8,
+        "buffTurnsMin": 12,
+        "buffTurnsMax": 15,
+        "magicPower": 5,
+        "energyCost": -5,
+        "maxEnergy": 4,
+        "maxStage": 2
       }
     },
     {
@@ -178,6 +206,32 @@
           "03f04616-3f5d-4881-82e7-3b74492777b1"
         ],
         "skillLogic": "and"
+      },
+      "combat": {
+        "kind": "debuff",
+        "target": "object",
+        "range": "vis",
+        "cooldown": 14,
+        "energy": 22,
+        "reserve": 0,
+        "duration": 8,
+        "aoeLength": 0,
+        "aoeWidth": 0,
+        "isMovement": false,
+        "pattern": "normal",
+        "class": "spell",
+        "bonusRange": false,
+        "starcast": "",
+        "fumble": 2,
+        "armorPenetration": "x",
+        "isMissile": false,
+        "selfCast": true,
+        "buffTurns": 8,
+        "lifeDrain": 6,
+        "energyDrain": 6,
+        "damageReflect": 8,
+        "undeadMult": 1.5,
+        "bodypartRatio": 0.25
       }
     },
     {
@@ -187,7 +241,7 @@
       "type": "active",
       "tier": 2,
       "image": "s_resurrection",
-      "description": "Reanimates a targeted corpse as a lasting Undead at ~lg~50–55%~/~ Max Health / ~lg~50%~/~ Max Energy and sets Armor Durability to ~w~0%~/~.##Increases morale (up to ~lg~70%~/~).##Slowly decreases Sanity but no less than ~r~60%~/~.##Risk of ~r~\"Obsession\"~/~: High.##Summoning more than one Undead instantly causes ~r~\"Obsession\"~/~.##Can't summon Undeads higher than the skill's level cap.##Prevents receiving ~ly~\"Blessing\"~/~.##Cannot be cast under ~r~\"Obsession\"~/~.",
+      "description": "Reanimates a targeted corpse as a lasting Undead at ~lg~50–55%~/~ Max Health / ~lg~50%~/~ Max Energy and sets Armor Durability to ~w~0%~/~.##Increases morale (up to ~lg~70%~/~).##Slowly decreases Sanity but no less than ~r~60%~/~.##Can't summon Undead higher than the skill's level cap.##Prevents receiving ~ly~\"Blessing\"~/~.",
       "magicPhrase": "Lagur! Lagur! Lagur!",
       "requirements": {
         "attributes": [
@@ -205,6 +259,32 @@
           "03f04616-3f5d-4881-82e7-3b74492777b1"
         ],
         "skillLogic": "and"
+      },
+      "combat": {
+        "kind": "summon",
+        "target": "object",
+        "range": "6",
+        "cooldown": 26,
+        "energy": 33,
+        "reserve": 0,
+        "duration": 0,
+        "aoeLength": 0,
+        "aoeWidth": 0,
+        "isMovement": false,
+        "pattern": "normal",
+        "class": "spell",
+        "bonusRange": false,
+        "starcast": "",
+        "fumble": 8,
+        "armorPenetration": "x",
+        "isMissile": false,
+        "selfCast": false,
+        "baseHpPct": 50,
+        "baseMpPct": 50,
+        "hpPctBonus": 5,
+        "sanityFloor": 60,
+        "moraleCap": 70,
+        "levelCapBonus": 3
       }
     },
     {
@@ -231,6 +311,32 @@
           "59a5ba7d-bfe3-4136-8bff-3621fa584499"
         ],
         "skillLogic": "and"
+      },
+      "combat": {
+        "kind": "debuff",
+        "target": "point",
+        "range": "6",
+        "cooldown": 10,
+        "energy": 18,
+        "reserve": 0,
+        "duration": 4,
+        "aoeLength": 3,
+        "aoeWidth": 3,
+        "isMovement": false,
+        "pattern": "normal",
+        "class": "spell",
+        "bonusRange": true,
+        "starcast": "",
+        "fumble": 6,
+        "armorPenetration": "x",
+        "isMissile": false,
+        "selfCast": false,
+        "buffTurns": 4,
+        "unholyPerTurn": 2,
+        "magicRes": -4,
+        "maxStage": 3,
+        "curseMaxStage": 2,
+        "bodypartWorsen": 0.35
       }
     },
     {
@@ -292,7 +398,7 @@
       "type": "passive",
       "tier": 3,
       "image": "s_mastery_of_binding",
-      "description": "Unbinding allies doesn't take a turn and replenishes Energy equal to ~lg~10%~/~ of your Magic Power.##Increases the level of summoning abilities by ~lg~1~/~.##Summon Skeleton: ~lg~+2~/~ turns base duration and ~lg~+10%~/~ Max Health / Max Energy.##Resurrection thralls start at ~lg~60%~/~ Max Health.##Still limited to one safe Undead at a time unless a higher-tier skill allows more.",
+      "description": "Unbinding allies doesn't take a turn and replenishes Energy equal to ~lg~10%~/~ of your Magic Power.##Increases the level of summoning abilities by ~lg~1~/~.##Summon Skeleton: ~lg~+4~/~ turns base duration and ~lg~+10%~/~ Max Health / Max Energy.##Resurrection thralls start at ~lg~60%~/~ Max Health.##Still limited to one safe Undead at a time unless a higher-tier skill allows more.",
       "magicPhrase": "Vinculum Mortis!",
       "requirements": {
         "attributes": [
@@ -336,32 +442,6 @@
           "158f368c-1e91-424c-b48a-1721b4013738"
         ],
         "skillLogic": "and"
-      }
-    },
-    {
-      "id": "e25dc91d-b782-4565-aa0b-c8a1b1d9c21e",
-      "name": "Sealed Mind",
-      "slug": "sealed_mind",
-      "type": "passive",
-      "tier": 3,
-      "image": "s_sealed_mind",
-      "description": "Halves sanity loss of Occultism abilities and partially decreases penalties of ~r~\"Obsession\"~/~.##Grants ~lg~33%~/~ Unholy Resistance.",
-      "magicPhrase": "Nox Mentis Seal!",
-      "requirements": {
-        "attributes": [
-          {
-            "stats": [
-              "WIL"
-            ],
-            "logic": "and",
-            "min": 8
-          }
-        ],
-        "skills": [
-          "d3bd6b8f-6f07-4c1f-8aeb-783d0afc33b0",
-          "843edbb5-af68-43b7-8432-271739444e99"
-        ],
-        "skillLogic": "or"
       }
     },
     {
@@ -449,7 +529,7 @@
       "type": "active",
       "tier": 4,
       "image": "s_wraith_summoning",
-      "description": "Summons a Wraith on the targeted tile; power depends on ~lg~\"Essence Charge\"~/~ stacks.##Removes ~lg~\"Essence Charge\"~/~.##If no weapon equipped: ~r~-50%~/~ Cooldown Duration and Halves Miscast Chance.##Risk of ~r~\"Obsession\"~/~: Extremely High.##Summoning more than one Wraith instantly causes ~r~\"Obsession\"~/~.##Can't summon Wraiths higher than the skill's level cap.##Cannot cast under ~r~\"Obsession\"~/~.",
+      "description": "Summons a Wraith on the targeted tile; power depends on ~lg~\"Essence Charge\"~/~ stacks.##Removes ~lg~\"Essence Charge\"~/~.##If no weapon equipped: ~r~-50%~/~ Cooldown Duration and Halves Miscast Chance.##Can't summon Wraiths higher than the skill's level cap.",
       "magicPhrase": "Lagura mithensa!",
       "requirements": {
         "attributes": [

@@ -98,6 +98,82 @@ public static class NecromancyLocalization
                 { ModLanguage.Russian, "Призванный скелет сражается на вашей стороне.##Заканчивается раньше, если скелет уничтожен." },
             });
 
+        RegisterBuffLocalization(
+            "o_b_nm_essence_charge",
+            new Dictionary<ModLanguage, string>
+            {
+                { ModLanguage.English, "Essence Charge" },
+                { ModLanguage.Japanese, "本質充填" },
+                { ModLanguage.Chinese, "精华充能" },
+                { ModLanguage.German, "Essenzladung" },
+                { ModLanguage.Russian, "Заряд сущности" },
+            },
+            new Dictionary<ModLanguage, string>
+            {
+                { ModLanguage.English, "~lg~+5%~/~ Magic Power#~r~-5%~/~ Abilities Energy Cost#~lg~+4~/~ Max Energy##Stacks up to II. Spells consume 1 stack." },
+                { ModLanguage.Japanese, "~lg~+5%~/~魔力#~r~-5%~/~能力のエネルギー消費#~lg~+4~/~最大エネルギー##最大IIまで重複。呪文使用で1減少。" },
+                { ModLanguage.Chinese, "~lg~+5%~/~魔法强度#~r~-5%~/~技能能量消耗#~lg~+4~/~最大能量##最多叠至II。施放法术消耗1层。" },
+                { ModLanguage.German, "~lg~+5%~/~ Magiekraft#~r~-5%~/~ Energiekosten von Fähigkeiten#~lg~+4~/~ max. Energie##Stapelt bis II. Zauber verbrauchen 1 Stapel." },
+                { ModLanguage.Russian, "~lg~+5%~/~ силы магии#~r~-5%~/~ стоимости энергии способностей#~lg~+4~/~ макс. энергии##До II стаков. Заклинания снимают 1 стак." },
+            });
+
+        RegisterBuffLocalization(
+            "o_b_nm_deaths_blessing",
+            new Dictionary<ModLanguage, string>
+            {
+                { ModLanguage.English, "Death's Blessing" },
+                { ModLanguage.Japanese, "死の祝福" },
+                { ModLanguage.Chinese, "死亡赐福" },
+                { ModLanguage.German, "Segen des Todes" },
+                { ModLanguage.Russian, "Благословение смерти" },
+            },
+            new Dictionary<ModLanguage, string>
+            {
+                { ModLanguage.English, "~lg~+6%~/~ Life Drain#~lg~+6%~/~ Energy Drain#~lg~+8%~/~ Damage Reflection" },
+                { ModLanguage.Japanese, "~lg~+6%~/~生命吸収#~lg~+6%~/~エネルギー吸収#~lg~+8%~/~ダメージ反射" },
+                { ModLanguage.Chinese, "~lg~+6%~/~生命汲取#~lg~+6%~/~能量汲取#~lg~+8%~/~伤害反射" },
+                { ModLanguage.German, "~lg~+6%~/~ Lebensraub#~lg~+6%~/~ Energieraub#~lg~+8%~/~ Schadensreflexion" },
+                { ModLanguage.Russian, "~lg~+6%~/~ вампиризма#~lg~+6%~/~ кражи энергии#~lg~+8%~/~ отражения урона" },
+            });
+
+        RegisterBuffLocalization(
+            "o_b_nm_grave_blight",
+            new Dictionary<ModLanguage, string>
+            {
+                { ModLanguage.English, "Grave Blight" },
+                { ModLanguage.Japanese, "墓の疫病" },
+                { ModLanguage.Chinese, "坟场疫病" },
+                { ModLanguage.German, "Grabfäule" },
+                { ModLanguage.Russian, "Могильная порча" },
+            },
+            new Dictionary<ModLanguage, string>
+            {
+                { ModLanguage.English, "A blighted 3x3 zone.##Enemies inside take ~ur~2 Unholy Damage~/~ per turn and ~r~-4%~/~ Magic Resistance (stacks up to 3)." },
+                { ModLanguage.Japanese, "3x3の疫病地帯。##内部の敵は毎ターン~ur~不浄ダメージ2~/~と魔法耐性~r~-4%~/~（最大3スタック）。" },
+                { ModLanguage.Chinese, "3x3疫病区域。##区域内敌人每回合受到~ur~2点邪秽伤害~/~，并获得~r~-4%~/~魔法抗性（最多3层）。" },
+                { ModLanguage.German, "Verdorbenes 3x3-Gebiet.##Feinde darin erleiden ~ur~2 Unheiligen Schaden~/~ pro Zug und ~r~-4%~/~ Magiewiderstand (bis 3 Stapel)." },
+                { ModLanguage.Russian, "Заражённая зона 3x3.##Враги внутри получают ~ur~2 урона нечестием~/~ за ход и ~r~-4%~/~ маг. сопротивления (до 3 стаков)." },
+            });
+
+        RegisterBuffLocalization(
+            "o_db_nm_grave_blight",
+            new Dictionary<ModLanguage, string>
+            {
+                { ModLanguage.English, "Grave Blight" },
+                { ModLanguage.Japanese, "墓の疫病" },
+                { ModLanguage.Chinese, "坟场疫病" },
+                { ModLanguage.German, "Grabfäule" },
+                { ModLanguage.Russian, "Могильная порча" },
+            },
+            new Dictionary<ModLanguage, string>
+            {
+                { ModLanguage.English, "~r~-4%~/~ Magic Resistance per stack (up to III) while inside the blight." },
+                { ModLanguage.Japanese, "疫病内でスタックごとに魔法耐性~r~-4%~/~（最大III）。" },
+                { ModLanguage.Chinese, "处于疫病中时每层~r~-4%~/~魔法抗性（最高III）。" },
+                { ModLanguage.German, "~r~-4%~/~ Magiewiderstand pro Stapel (bis III) in der Fäule." },
+                { ModLanguage.Russian, "~r~-4%~/~ маг. сопротивления за стак (до III), пока в порче." },
+            });
+
         Msl.LoadGML("gml_GlobalScript_table_effects")
             .Apply(InjectNecromancyTableEffectsRows)
             .Save();

@@ -1,0 +1,6 @@
+1 re arrange skills
+
+2 some skills out of place
+3 summoned skeleton (ally) kill don't add experience — fixed: patch o_enemy Destroy for nm_summon + sticky owner
+4 some translation point to rus
+5 some translation show incorrect numbers 50-55%

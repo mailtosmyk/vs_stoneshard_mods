@@ -30,6 +30,28 @@ public static class NecromancyTier1Skills
         // current Stoneshard builds (rows never appear in table_skills_stats). Splice like
         // BW-s-Necromancy Bw_Bolt so Target Point / Object actually resolve at cast time.
         InjectSkillsStatsRows(tier1);
+
+        // Vanilla only credits summon kills when last_attacker is o_summoned_entity.
+        // Our skeleton/thralls are regular enemies tagged nm_summon — extend that check.
+        PatchSummonKillExperience();
+    }
+
+    /// <summary>
+    /// Credit player XP when a necromancy summon (nm_summon + player owner) lands the kill.
+    /// Mirrors vanilla o_summoned_entity handling in o_enemy Destroy.
+    /// </summary>
+    static void PatchSummonKillExperience()
+    {
+        Msl.LoadGML("gml_Object_o_enemy_Destroy_0")
+            .MatchFromUntil(
+                "if (instance_is(last_attacker, o_summoned_entity) && is_player(last_attacker.owner))",
+                "_is_player_attacker = true")
+            .ReplaceBy(
+                "if (instance_is(last_attacker, o_summoned_entity) && is_player(last_attacker.owner))\n" +
+                "                _is_player_attacker = true\n" +
+                "            else if (instance_exists(last_attacker) && variable_instance_exists(last_attacker, \"nm_summon\") && last_attacker.nm_summon && variable_instance_exists(last_attacker, \"owner\") && is_player(last_attacker.owner))\n" +
+                "                _is_player_attacker = true")
+            .Save();
     }
 
     static void CreateSkillObjects(NecromancySkill skill, ModFile modFiles)
@@ -203,24 +225,24 @@ public static class NecromancyTier1Skills
             isAwake: true,
             collisionShapeFlags: CollisionShapeFlags.Circle);
 
-        bolt.ApplyEvent(modFiles,
-            new MslEvent("gml_Object_o_nm_desecration_bolt_Create_0.gml", EventType.Create, 0),
-            new MslEvent("gml_Object_o_nm_desecration_bolt_Other_10.gml", EventType.Other, 10),
-            new MslEvent("gml_Object_o_nm_desecration_bolt_Other_11.gml", EventType.Other, 11),
-            new MslEvent("gml_Object_o_nm_desecration_bolt_Destroy_0.gml", EventType.Destroy, 0));
+        ApplyEventAndReplace(bolt, modFiles,
+            "gml_Object_o_nm_desecration_bolt_Create_0.gml",
+            "gml_Object_o_nm_desecration_bolt_Other_10.gml",
+            "gml_Object_o_nm_desecration_bolt_Other_11.gml",
+            "gml_Object_o_nm_desecration_bolt_Destroy_0.gml");
 
-        curseImpact.ApplyEvent(modFiles,
-            new MslEvent("gml_Object_o_nm_withering_curse_impact_Create_0.gml", EventType.Create, 0),
-            new MslEvent("gml_Object_o_nm_withering_curse_impact_Other_7.gml", EventType.Other, 7),
-            new MslEvent("gml_Object_o_nm_withering_curse_impact_Draw_0.gml", EventType.Draw, 0));
+        ApplyEventAndReplace(curseImpact, modFiles,
+            "gml_Object_o_nm_withering_curse_impact_Create_0.gml",
+            "gml_Object_o_nm_withering_curse_impact_Other_7.gml",
+            "gml_Object_o_nm_withering_curse_impact_Draw_0.gml");
 
-        curseBuff.ApplyEvent(modFiles,
-            new MslEvent("gml_Object_o_db_withering_curse_Create_0.gml", EventType.Create, 0),
-            new MslEvent("gml_Object_o_db_withering_curse_Other_10.gml", EventType.Other, 10),
-            new MslEvent("gml_Object_o_db_withering_curse_Other_15.gml", EventType.Other, 15),
-            new MslEvent("gml_Object_o_db_withering_curse_Alarm_2.gml", EventType.Alarm, 2),
-            new MslEvent("gml_Object_o_db_withering_curse_Destroy_0.gml", EventType.Destroy, 0),
-            new MslEvent("gml_Object_o_db_withering_curse_Step_0.gml", EventType.Step, 0));
+        ApplyEventAndReplace(curseBuff, modFiles,
+            "gml_Object_o_db_withering_curse_Create_0.gml",
+            "gml_Object_o_db_withering_curse_Other_10.gml",
+            "gml_Object_o_db_withering_curse_Other_15.gml",
+            "gml_Object_o_db_withering_curse_Alarm_2.gml",
+            "gml_Object_o_db_withering_curse_Destroy_0.gml",
+            "gml_Object_o_db_withering_curse_Step_0.gml");
 
         wardImpact.ApplyEvent(modFiles,
             new MslEvent("gml_Object_o_nm_bone_ward_impact_Create_0.gml", EventType.Create, 0),
@@ -264,7 +286,7 @@ public static class NecromancyTier1Skills
     /// Add events on first install, then always overwrite code bodies from ModFiles.
     /// Needed because Msl.AddNewEvent refuses to replace an existing event subtype.
     /// </summary>
-    static void ApplyEventAndReplace(
+    internal static void ApplyEventAndReplace(
         UndertaleGameObject gameObject,
         ModFile modFiles,
         params string[] codeFiles)
@@ -283,7 +305,7 @@ public static class NecromancyTier1Skills
             ForceReplaceCode(modFiles, codeFile);
     }
 
-    static MslEvent ParseMslEvent(string codeFile)
+    internal static MslEvent ParseMslEvent(string codeFile)
     {
         // gml_Object_<name>_<Event>_<subtype>.gml  (Other_10, Alarm_2, Create_0, Destroy_0, ...)
         var baseName = codeFile.EndsWith(".gml", StringComparison.OrdinalIgnoreCase)
@@ -308,7 +330,7 @@ public static class NecromancyTier1Skills
         return new MslEvent(codeFile, eventType, subtype);
     }
 
-    static void ForceReplaceCode(ModFile modFiles, string codeFile)
+    internal static void ForceReplaceCode(ModFile modFiles, string codeFile)
     {
         var gmlName = codeFile.EndsWith(".gml", StringComparison.OrdinalIgnoreCase)
             ? codeFile[..^4]
@@ -328,14 +350,14 @@ public static class NecromancyTier1Skills
     /// id;Object;Target;Range;KD;MP;is_moving_zone;Duration;AOE_*;is_movement;Pattern;Validators;Class;...
     /// JSON <c>reserve</c> maps to <c>is_moving_zone</c> (not energy reserve).
     /// </summary>
-    static void InjectSkillsStatsRows(IReadOnlyList<NecromancySkill> skills)
+    internal static void InjectSkillsStatsRows(IReadOnlyList<NecromancySkill> skills)
     {
         Msl.LoadGML("gml_GlobalScript_table_skills_stats")
             .Apply(lines => InsertAfterUndeadMarker(lines, skills))
             .Save();
     }
 
-    static IEnumerable<string> InsertAfterUndeadMarker(
+    internal static IEnumerable<string> InsertAfterUndeadMarker(
         IEnumerable<string> lines,
         IReadOnlyList<NecromancySkill> skills)
     {
@@ -380,13 +402,25 @@ public static class NecromancyTier1Skills
             throw new InvalidOperationException("Could not find // UNDEAD marker in table_skills_stats.");
     }
 
-    static string UpsertSkillStatsRow(string line, NecromancySkill skill)
+    internal static string UpsertSkillStatsRow(string line, NecromancySkill skill)
     {
         var newRow = FormatSkillsStatsRow(skill);
         var needle = "\"" + skill.Slug + ";";
         var start = line.IndexOf(needle, StringComparison.Ordinal);
         if (start < 0)
-            return line;
+        {
+            // New skill: insert after an existing necromancy row (desecration is always first).
+            const string anchor = "\"desecration;";
+            var anchorStart = line.IndexOf(anchor, StringComparison.Ordinal);
+            if (anchorStart < 0)
+                return line;
+
+            var anchorEnd = line.IndexOf("\",", anchorStart, StringComparison.Ordinal);
+            if (anchorEnd < 0)
+                return line;
+
+            return line.Substring(0, anchorEnd + 2) + newRow + line.Substring(anchorEnd + 2);
+        }
 
         var end = line.IndexOf("\",", start, StringComparison.Ordinal);
         if (end < 0)
@@ -396,7 +430,7 @@ public static class NecromancyTier1Skills
         return line.Substring(0, start) + newRow + line.Substring(end + 2);
     }
 
-    static string FormatSkillsStatsRow(NecromancySkill skill)
+    internal static string FormatSkillsStatsRow(NecromancySkill skill)
     {
         var combat = skill.Combat!;
         var target = combat.Target switch

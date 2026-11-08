@@ -50,7 +50,7 @@ Type: Active
 Level: 2
 Requirements: Attributes: Vitality or WIL >= 5; Skills: Bone Ward
 Image: s_deaths_blessing
-Description: Replenishes Health to the target (based on Magic Power) and improves bodypart condition by 25% of health restored. 50% more effective on allied Undeads. Grants "Death's Blessing" for 8–10 turns: +6% Life Drain, +6% Energy Drain, +8% Damage Reflection.
+Description: Replenishes Health to the target (based on Magic Power) and improves bodypart condition by 25% of health restored. 50% more effective on allied Undeads. Grants "Death's Blessing" for 8 turns: +6% Life Drain, +6% Energy Drain, +8% Damage Reflection.
 
 Name: Resurrection
 Type: Active
@@ -62,9 +62,9 @@ Description: Reanimates a targeted corpse as a lasting Undead at 50–55% Max He
 Name: Grave Blight
 Type: Active
 Level: 2
-Requirements: Attributes: PRC or WIL >= 6; Skills: Withering Curse
+Requirements: Attributes: PRC or WIL >= 6; Skills: Desecration
 Image: s_grave_blight
-Description: Creates a blighted 3x3 area on the targeted tile (Range: 5–6) for 4 turns. Enemies remaining in the area take 2 Unholy Damage per turn and gain -4% Magic Resistance (stacks up to 3 while inside). Also allows "Withering Curse" to stack up to II; hitting with "Desecration" or repeating the curse adds a stack. Bodypart worsen becomes 0.35% per turn per stack.
+Description: Creates a blighted 3x3 area on the targeted tile (Range: 5–6) for 4 turns. Enemies remaining in the area take 2 Unholy Damage per turn and gain -4% Magic Resistance (stacks up to 3 while inside). Also allows "Withering Curse" (applied by Desecration) to stack up to II; hitting with "Desecration" adds a stack. Bodypart worsen becomes 0.35% per turn per stack.
 
 ================================================================================
 TIER 3

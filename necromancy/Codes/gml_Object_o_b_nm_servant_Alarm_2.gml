@@ -1,7 +1,11 @@
 event_inherited()
 with (target)
 {
-    owner = other.owner
+    if (instance_exists(o_player))
+        owner = o_player.id
+    else
+        owner = other.owner
+    nm_summon = true
     scr_faction_map_remove(id)
     faction_key = "Player"
     subfaction_key = "Player"

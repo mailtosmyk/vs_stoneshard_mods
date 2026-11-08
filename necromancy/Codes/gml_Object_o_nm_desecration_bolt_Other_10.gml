@@ -15,10 +15,34 @@ if (damage_done > 0)
             with (owner)
                 scr_restore_mp(id, _burn, _name)
         }
-        with (o_db_withering_curse)
+        // Apply / refresh Withering Curse. Grave Blight unlocks stacking up to II.
+        var _curse = asset_get_index("o_db_withering_curse")
+        if (_curse != -1 && object_is_ancestor(target.object_index, o_unit))
         {
-            if (target == other.target)
-                duration = max(duration, 10)
+            var _maxStage = 1
+            if (instance_exists(o_nm_grave_blight_ico) && o_nm_grave_blight_ico.is_open)
+                _maxStage = 2
+            var _existing = scr_instance_exists_in_list(_curse, target.buffs)
+            if (!_existing)
+            {
+                with (scr_effect_create(_curse, 10, target, owner))
+                {
+                    stage = 1
+                    max_stage = _maxStage
+                    have_stages = (_maxStage > 1)
+                }
+            }
+            else
+            {
+                with (_existing)
+                {
+                    duration = max(duration, 10)
+                    max_stage = max(max_stage, _maxStage)
+                    have_stages = (max_stage > 1)
+                    if (max_stage > 1 && stage < max_stage)
+                        stage += 1
+                }
+            }
         }
     }
 }
