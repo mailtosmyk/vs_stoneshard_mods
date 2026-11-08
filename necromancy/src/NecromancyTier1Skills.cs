@@ -155,6 +155,20 @@ public static class NecromancyTier1Skills
             isAwake: true,
             collisionShapeFlags: CollisionShapeFlags.Circle);
 
+        // Concrete ally skeleton: inherits militiaman Create/scr_param, overrides Other_10
+        // with Syndicate-style retinue AI (event_inherited combat / scr_turn follow).
+        var skeletonAlly = Msl.AddObject(
+            name: "o_nm_skeleton_ally",
+            spriteName: "s_skeleton_militiaman",
+            parentName: "o_skeleton_militiaman",
+            isVisible: true,
+            isPersistent: false,
+            isAwake: true,
+            collisionShapeFlags: CollisionShapeFlags.Circle);
+        var militiaman = Msl.GetObject("o_skeleton_militiaman");
+        if (militiaman != null)
+            skeletonAlly.ParentId = militiaman;
+
         var skeletonTimer = Msl.AddObject(
             name: "o_b_nm_skeleton_timer",
             spriteName: "s_summon_skeleton",
@@ -164,15 +178,21 @@ public static class NecromancyTier1Skills
             isAwake: true,
             collisionShapeFlags: CollisionShapeFlags.Circle);
 
-        // Invisible AI binder on the summoned skeleton (follow + ally flags).
+        // Invisible marker + sticky ally flags on the summoned skeleton.
+        // Parent o_invisible_buff like vanilla o_b_summoned_entity so Effect_Immunity
+        // and summoned-entity effect blocks cannot strip the bind buff.
         var skeletonServant = Msl.AddObject(
             name: "o_b_nm_servant",
             spriteName: "s_summon_skeleton",
-            parentName: "o_magical_buff",
+            parentName: "o_invisible_buff",
             isVisible: false,
             isPersistent: false,
             isAwake: true,
             collisionShapeFlags: CollisionShapeFlags.Circle);
+        // AddObject may leave an older parent on re-patch — force invisible_buff.
+        var invisibleBuff = Msl.GetObject("o_invisible_buff");
+        if (invisibleBuff != null)
+            skeletonServant.ParentId = invisibleBuff;
 
         var desecrationBuff = Msl.AddObject(
             name: "o_b_nm_desecration",
@@ -220,6 +240,9 @@ public static class NecromancyTier1Skills
 
         // ApplyEvent/AddNewEvent skips when the event already exists, so re-patches
         // leave stale GML in data.win. Force-replace after add so fixes actually apply.
+        ApplyEventAndReplace(skeletonAlly, modFiles,
+            "gml_Object_o_nm_skeleton_ally_Other_10.gml");
+
         ApplyEventAndReplace(skeletonTimer, modFiles,
             "gml_Object_o_b_nm_skeleton_timer_Create_0.gml",
             "gml_Object_o_b_nm_skeleton_timer_Other_10.gml",

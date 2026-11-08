@@ -5,9 +5,11 @@ if ((!is_execute) && instance_exists(owner))
     yy = point_y
     is_execute = true
 
-    // o_skeleton is an abstract parent (no sprite / no scr_param → no bSTR).
-    // Spawn a concrete skeleton whose Create calls scr_param(...).
-    var _skelObj = o_skeleton_militiaman
+    // Custom ally object (Syndicate-style Other_10). Falls back to a concrete skeleton
+    // if the ally object failed to register.
+    var _skelObj = asset_get_index("o_nm_skeleton_ally")
+    if (_skelObj == -1 || (!object_exists(_skelObj)))
+        _skelObj = o_skeleton_militiaman
     if (!object_exists(_skelObj))
         _skelObj = o_skeleton_footman
     if (!object_exists(_skelObj))
@@ -37,41 +39,34 @@ if ((!is_execute) && instance_exists(owner))
             creating_unit = _skelObj
             owner = other.owner
             can_drop_loot = false
+            loot_script = -4
             gain_xp *= 0.1
             ArmorDurability = 0
 
-            // Vanilla ally bind (see o_summoned_entity / o_b_summoned_entity).
-            is_neutral = true
-            is_player_enemy = false
-            target = -4
-            scr_delete_from_enemy_list("Player")
-
-            // Register under Player so hostiles that hunt the player also engage the pet.
+            // Syndicate-style Player retinue bind.
             scr_faction_map_remove(id)
+            faction_key = "Player"
             subfaction_key = "Player"
+            faction = "Player"
             scr_faction_map_add(id)
-
-            // scr_param baked Undead combat_array (includes Player). Strip Player so the
-            // new FSM targets brigands/etc. instead of locking onto the caster.
-            var _ca = []
-            var _i = 0.0
-            while (_i < array_length(combat_array))
-            {
-                if (combat_array[_i] != "Player")
-                    _ca[array_length(_ca)] = combat_array[_i]
-                _i += 1.0
-            }
-            combat_array = _ca
-
-            var _ta = []
-            _i = 0.0
-            while (_i < array_length(threat_array))
-            {
-                if (threat_array[_i] != "Player")
-                    _ta[array_length(_ta)] = threat_array[_i]
-                _i += 1.0
-            }
-            threat_array = _ta
+            combat_array = ["Brigand", "Undead", "Vampire", "Rockeaters", "Crawlers", "Crawler", "Dogs", "Wolves", "Bears", "Gulons", "Trolls", "Bat Flock", "Snake", "Spiderling", "Harpy", "carnivore", "omnivore", "herbivore", "Hive"]
+            threat_array = []
+            flee_array = []
+            is_player_enemy = false
+            is_neutral = true
+            is_hostile = false
+            havePenaltyAttack = false
+            is_follower = true
+            // Must stay true: o_player Alarm_4 only runs event_user(0)/Other_10 for
+            // instances on enemylist (see scr_enemy_create + scr_unitTurnEvents).
+            ai_is_on = true
+            target = -4
+            last_attacker = -4
+            is_damage_taken = false
+            state = "idle"
+            alarmPercent = 0
+            threat_time = 0
+            scr_delete_from_enemy_list("Player")
 
             HP = max(1, floor((max_hp * _hpPct) * 0.01))
             MP = max(0, floor((max_mp * _mpPct) * 0.01))
@@ -81,17 +76,11 @@ if ((!is_execute) && instance_exists(owner))
         }
     }
 
-    if (instance_exists(_skel) && instance_exists(o_player))
-    {
-        with (o_player)
-        {
-            var _pos = ds_list_find_index(enemylist, _skel)
-            if (_pos >= 0)
-                ds_list_delete(enemylist, _pos)
-        }
-    }
+    // Do NOT remove from o_player.enemylist. scr_enemy_create adds the unit there, and
+    // that list is the only turn queue for enemy AI. Syndicate retinue stays on it too;
+    // is_player_enemy/is_neutral keep the pet from counting as a hostile.
 
-    // Servant AI buff lives on the skeleton (ticks on its turns).
+    // Marker buff on the skeleton (sticky ally flags; AI lives on o_nm_skeleton_ally).
     var _servant = asset_get_index("o_b_nm_servant")
     if (instance_exists(_skel) && _servant != -1)
         scr_effect_create(_servant, -1, _skel, owner)

@@ -2,30 +2,25 @@ event_inherited()
 with (target)
 {
     owner = other.owner
+    scr_faction_map_remove(id)
+    faction_key = "Player"
+    subfaction_key = "Player"
+    faction = "Player"
+    scr_faction_map_add(id)
     is_neutral = true
     is_player_enemy = false
-    scr_delete_from_enemy_list("Player")
+    is_hostile = false
+    havePenaltyAttack = false
+    is_follower = true
+    ai_is_on = true
     can_drop_loot = false
     loot_script = -4
+    scr_delete_from_enemy_list("Player")
 
-    // Keep Player out of combat attitudes (enemy AI can refresh arrays).
-    var _ca = []
-    var _i = 0.0
-    while (_i < array_length(combat_array))
-    {
-        if (combat_array[_i] != "Player")
-            _ca[array_length(_ca)] = combat_array[_i]
-        _i += 1.0
-    }
-    combat_array = _ca
+    combat_array = ["Brigand", "Undead", "Vampire", "Rockeaters", "Crawlers", "Crawler", "Dogs", "Wolves", "Bears", "Gulons", "Trolls", "Bat Flock", "Snake", "Spiderling", "Harpy", "carnivore", "omnivore", "herbivore", "Hive"]
+    threat_array = []
+    flee_array = []
 
-    var _ta = []
-    _i = 0.0
-    while (_i < array_length(threat_array))
-    {
-        if (threat_array[_i] != "Player")
-            _ta[array_length(_ta)] = threat_array[_i]
-        _i += 1.0
-    }
-    threat_array = _ta
+    if (instance_exists(o_player) && ds_list_find_index(o_player.enemylist, id) < 0)
+        ds_list_add(o_player.enemylist, id)
 }
