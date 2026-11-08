@@ -329,11 +329,11 @@ public static class NecromancyLocalization
             },
             new Dictionary<ModLanguage, string>
             {
-                { ModLanguage.English, "Summon skeleton on the targeted tile (no corpse required).##Duration, Max Health %, and Max Energy % scale with Willpower (starts at ~w~10~/~ turns, ~lg~33%~/~ Max Health / ~lg~25%~/~ Max Energy, Armor Durability ~w~0%~/~).##Only one Skeleton can exist at a time." },
-                { ModLanguage.Japanese, "対象タイルにスケルトンを召喚する（死体不要）。##持続時間・最大体力%・最大エネルギー%は意志力に比例する（初期: ~w~10~/~ターン、最大体力~lg~33%~/~ / 最大エネルギー~lg~25%~/~、防具耐久~w~0%~/~）。##同時に存在できるスケルトンは1体のみ。" },
-                { ModLanguage.Chinese, "在目标格子召唤骷髅（无需尸体）。##持续时间、最大生命%与最大能量%随意志力提升（起始：~w~10~/~回合，~lg~33%~/~最大生命 / ~lg~25%~/~最大能量，护甲耐久~w~0%~/~）。##同时仅可存在一具骷髅。" },
-                { ModLanguage.German, "Beschwört ein Skelett auf dem Ziel-Feld (keine Leiche nötig).##Dauer, max. Gesundheit % und max. Energie % skalieren mit Willenskraft (Start: ~w~10~/~ Züge, ~lg~33%~/~ max. Gesundheit / ~lg~25%~/~ max. Energie, Rüstungshalbarkeit ~w~0%~/~).##Nur ein Skelett gleichzeitig." },
-                { ModLanguage.Russian, "Призывает скелета на выбранную клетку (труп не нужен).##Длительность, % макс. здоровья и % макс. энергии зависят от Воли (старт: ~w~10~/~ ходов, ~lg~33%~/~ макс. здоровья / ~lg~25%~/~ макс. энергии, прочность брони ~w~0%~/~).##Одновременно может существовать только один скелет." },
+                { ModLanguage.English, "Summon skeleton on the targeted tile (no corpse required).##Duration, Max Health %, and Max Energy % scale with Willpower (starts at ~w~20~/~ turns, ~lg~33%~/~ Max Health / ~lg~25%~/~ Max Energy, Armor Durability ~w~0%~/~).##Only one Skeleton can exist at a time." },
+                { ModLanguage.Japanese, "対象タイルにスケルトンを召喚する（死体不要）。##持続時間・最大体力%・最大エネルギー%は意志力に比例する（初期: ~w~20~/~ターン、最大体力~lg~33%~/~ / 最大エネルギー~lg~25%~/~、防具耐久~w~0%~/~）。##同時に存在できるスケルトンは1体のみ。" },
+                { ModLanguage.Chinese, "在目标格子召唤骷髅（无需尸体）。##持续时间、最大生命%与最大能量%随意志力提升（起始：~w~20~/~回合，~lg~33%~/~最大生命 / ~lg~25%~/~最大能量，护甲耐久~w~0%~/~）。##同时仅可存在一具骷髅。" },
+                { ModLanguage.German, "Beschwört ein Skelett auf dem Ziel-Feld (keine Leiche nötig).##Dauer, max. Gesundheit % und max. Energie % skalieren mit Willenskraft (Start: ~w~20~/~ Züge, ~lg~33%~/~ max. Gesundheit / ~lg~25%~/~ max. Energie, Rüstungshalbarkeit ~w~0%~/~).##Nur ein Skelett gleichzeitig." },
+                { ModLanguage.Russian, "Призывает скелета на выбранную клетку (труп не нужен).##Длительность, % макс. здоровья и % макс. энергии зависят от Воли (старт: ~w~20~/~ ходов, ~lg~33%~/~ макс. здоровья / ~lg~25%~/~ макс. энергии, прочность брони ~w~0%~/~).##Одновременно может существовать только один скелет." },
             });
         RegisterSkillLocalization(
             "withering_curse",
@@ -381,11 +381,11 @@ public static class NecromancyLocalization
             },
             new Dictionary<ModLanguage, string>
             {
-                { ModLanguage.English, "Devours a targeted corpse or steals ~lg~8%~/~ Max Health and ~lg~8%~/~ Max Energy from an allied Undead or Skeleton, transferring half of them to the caster.##Activates ~lg~\"Essence Charge\"~/~ for ~w~12–15~/~ turns:##~lg~+5%~/~ Magic Power#~r~-5%~/~ Abilities Energy Cost#~lg~+4~/~ Max Energy##Repeated use grants an extra stack (up to II) and refreshes duration.##Using Spells reduces stacks by ~r~1~/~.##No Obsession risk from Essence Charge at Tier 2." },
-                { ModLanguage.Japanese, "対象の死体を喰らうか、味方のアンデッド/スケルトンから最大体力~lg~8%~/~と最大エネルギー~lg~8%~/~を奪い、半分を術者へ移す。##~lg~「本質充填」~/~を~w~12〜15~/~ターン発動：##~lg~+5%~/~魔力#~r~-5%~/~能力のエネルギー消費#~lg~+4~/~最大エネルギー##再使用で追加スタック（最大II）と持続更新。##呪文使用でスタックが~r~1~/~減少。##ティア2の本質充填に執着リスクなし。" },
-                { ModLanguage.Chinese, "吞噬目标尸体，或从友方亡灵/骷髅窃取~lg~8%~/~最大生命与~lg~8%~/~最大能量，并将一半转移给施法者。##激活~lg~“精华充能”~/~，持续~w~12–15~/~回合：##~lg~+5%~/~魔法强度#~r~-5%~/~技能能量消耗#~lg~+4~/~最大能量##重复使用额外叠加（最高II）并刷新持续时间。##施放法术会使层数减~r~1~/~。##第2阶的精华充能无执念风险。" },
-                { ModLanguage.German, "Verschlingt eine gezielte Leiche oder stiehlt ~lg~8%~/~ max. Gesundheit und ~lg~8%~/~ max. Energie von einem verbündeten Untoten oder Skelett und überträgt die Hälfte auf den Wirker.##Aktiviert ~lg~„Essenzladung“~/~ für ~w~12–15~/~ Züge:##~lg~+5%~/~ Magiekraft#~r~-5%~/~ Energiekosten von Fähigkeiten#~lg~+4~/~ max. Energie##Wiederholte Nutzung gibt einen Extra-Stapel (bis II) und erneuert die Dauer.##Zauber verringern Stapel um ~r~1~/~.##Kein Besessenheitsrisiko durch Essenzladung auf Stufe 2." },
-                { ModLanguage.Russian, "Пожирает выбранный труп или крадёт ~lg~8%~/~ макс. здоровья и ~lg~8%~/~ макс. энергии у союзной нежити/скелета, передавая половину заклинателю.##Активирует ~lg~«Заряд сущности»~/~ на ~w~12–15~/~ ходов:##~lg~+5%~/~ силы магии#~r~-5%~/~ стоимости энергии способностей#~lg~+4~/~ макс. энергии##Повторное применение даёт доп. стак (до II) и обновляет длительность.##Заклинания уменьшают стаки на ~r~1~/~.##На 2-м ярусе «Заряд сущности» не даёт риска одержимости." },
+                { ModLanguage.English, "Devours a targeted corpse or steals ~lg~8%~/~ Max Health and ~lg~8%~/~ Max Energy from an allied Undead or Skeleton, transferring half of them to the caster.##Activates ~lg~\"Essence Charge\"~/~ for ~w~12–15~/~ turns:##~lg~+5%~/~ Magic Power#~r~-5%~/~ Abilities Energy Cost#~lg~+4~/~ Max Energy##Repeated use grants an extra stack (up to II) and refreshes duration.##Using Spells reduces stacks by ~r~1~/~." },
+                { ModLanguage.Japanese, "対象の死体を喰らうか、味方のアンデッド/スケルトンから最大体力~lg~8%~/~と最大エネルギー~lg~8%~/~を奪い、半分を術者へ移す。##~lg~「本質充填」~/~を~w~12〜15~/~ターン発動：##~lg~+5%~/~魔力#~r~-5%~/~能力のエネルギー消費#~lg~+4~/~最大エネルギー##再使用で追加スタック（最大II）と持続更新。##呪文使用でスタックが~r~1~/~減少。" },
+                { ModLanguage.Chinese, "吞噬目标尸体，或从友方亡灵/骷髅窃取~lg~8%~/~最大生命与~lg~8%~/~最大能量，并将一半转移给施法者。##激活~lg~“精华充能”~/~，持续~w~12–15~/~回合：##~lg~+5%~/~魔法强度#~r~-5%~/~技能能量消耗#~lg~+4~/~最大能量##重复使用额外叠加（最高II）并刷新持续时间。##施放法术会使层数减~r~1~/~。" },
+                { ModLanguage.German, "Verschlingt eine gezielte Leiche oder stiehlt ~lg~8%~/~ max. Gesundheit und ~lg~8%~/~ max. Energie von einem verbündeten Untoten oder Skelett und überträgt die Hälfte auf den Wirker.##Aktiviert ~lg~„Essenzladung“~/~ für ~w~12–15~/~ Züge:##~lg~+5%~/~ Magiekraft#~r~-5%~/~ Energiekosten von Fähigkeiten#~lg~+4~/~ max. Energie##Wiederholte Nutzung gibt einen Extra-Stapel (bis II) und erneuert die Dauer.##Zauber verringern Stapel um ~r~1~/~." },
+                { ModLanguage.Russian, "Пожирает выбранный труп или крадёт ~lg~8%~/~ макс. здоровья и ~lg~8%~/~ макс. энергии у союзной нежити/скелета, передавая половину заклинателю.##Активирует ~lg~«Заряд сущности»~/~ на ~w~12–15~/~ ходов:##~lg~+5%~/~ силы магии#~r~-5%~/~ стоимости энергии способностей#~lg~+4~/~ макс. энергии##Повторное применение даёт доп. стак (до II) и обновляет длительность.##Заклинания уменьшают стаки на ~r~1~/~." },
             });
         RegisterSkillLocalization(
             "deaths_blessing",
@@ -433,11 +433,11 @@ public static class NecromancyLocalization
             },
             new Dictionary<ModLanguage, string>
             {
-                { ModLanguage.English, "Reanimates a targeted corpse as a lasting Undead at ~lg~50–55%~/~ Max Health / ~lg~50%~/~ Max Energy and sets Armor Durability to ~w~0%~/~.##Increases morale (up to ~lg~70%~/~).##Slowly decreases Sanity but no less than ~r~60%~/~.##Risk of ~r~\"Obsession\"~/~: High.##Summoning more than one Undead instantly causes ~r~\"Obsession\"~/~.##Can't summon Undeads higher than the skill's level cap.##Prevents receiving ~ly~\"Blessing\"~/~.##Cannot be cast under ~r~\"Obsession\"~/~." },
-                { ModLanguage.Japanese, "対象の死体を永続アンデッドとして蘇生する（最大体力~lg~50〜55%~/~ / 最大エネルギー~lg~50%~/~、防具耐久~w~0%~/~）。##士気を上昇（最大~lg~70%~/~）。##正気を徐々に減少させるが~r~60%~/~未満にはならない。##~r~「執着」~/~のリスク: 高。##2体以上のアンデッド召喚で即座に~r~「執着」~/~。##スキルのレベル上限を超えるアンデッドは召喚不可。##「祝福」を受けられない。##~r~「執着」~/~中は詠唱不可。" },
-                { ModLanguage.Chinese, "将目标尸体复活为持久亡灵（~lg~50–55%~/~最大生命 / ~lg~50%~/~最大能量，护甲耐久设为~w~0%~/~）。##提升士气（最高~lg~70%~/~）。##缓慢降低理智但不低于~r~60%~/~。##~r~“执念”~/~风险：高。##召唤超过一个亡灵会立刻导致~r~“执念”~/~。##无法召唤高于技能等级上限的亡灵。##无法获得“祝福”。##~r~“执念”~/~状态下无法施放。" },
-                { ModLanguage.German, "Belebt eine gezielte Leiche als dauerhaften Untoten mit ~lg~50–55%~/~ max. Gesundheit / ~lg~50%~/~ max. Energie und setzt die Rüstungshalbarkeit auf ~w~0%~/~.##Erhöht die Moral (bis ~lg~70%~/~).##Senkt langsam den Verstand, aber nicht unter ~r~60%~/~.##Risiko von ~r~„Besessenheit“~/~: Hoch.##Mehr als ein Untoter verursacht sofort ~r~„Besessenheit“~/~.##Keine Untoten über dem Level-Limit.##Verhindert „Segen“.##Nicht unter ~r~„Besessenheit“~/~ wirkbar." },
-                { ModLanguage.Russian, "Оживляет выбранный труп как постоянную нежить при ~lg~50–55%~/~ макс. здоровья / ~lg~50%~/~ макс. энергии и ставит прочность брони на ~w~0%~/~.##Повышает мораль (до ~lg~70%~/~).##Медленно снижает рассудок, но не ниже ~r~60%~/~.##Риск ~r~«Одержимости»~/~: высокий.##Призыв более одной нежити мгновенно вызывает ~r~«Одержимость»~/~.##Нельзя призвать нежить выше уровня навыка.##Запрещает получение «Благословения».##Нельзя использовать под ~r~«Одержимостью»~/~." },
+                { ModLanguage.English, "Reanimates a targeted corpse as a lasting Undead at ~lg~50–55%~/~ Max Health / ~lg~50%~/~ Max Energy and sets Armor Durability to ~w~0%~/~.##Increases morale (up to ~lg~70%~/~).##Slowly decreases Sanity but no less than ~r~60%~/~.##Can't summon Undead higher than the skill's level cap.##Prevents receiving ~ly~\"Blessing\"~/~." },
+                { ModLanguage.Japanese, "対象の死体を永続アンデッドとして蘇生する（最大体力~lg~50〜55%~/~ / 最大エネルギー~lg~50%~/~、防具耐久~w~0%~/~）。##士気を上昇（最大~lg~70%~/~）。##正気を徐々に減少させるが~r~60%~/~未満にはならない。##スキルのレベル上限を超えるアンデッドは召喚不可。##「祝福」を受けられない。" },
+                { ModLanguage.Chinese, "将目标尸体复活为持久亡灵（~lg~50–55%~/~最大生命 / ~lg~50%~/~最大能量，护甲耐久设为~w~0%~/~）。##提升士气（最高~lg~70%~/~）。##缓慢降低理智但不低于~r~60%~/~。##无法召唤高于技能等级上限的亡灵。##无法获得“祝福”。" },
+                { ModLanguage.German, "Belebt eine gezielte Leiche als dauerhaften Untoten mit ~lg~50–55%~/~ max. Gesundheit / ~lg~50%~/~ max. Energie und setzt die Rüstungshalbarkeit auf ~w~0%~/~.##Erhöht die Moral (bis ~lg~70%~/~).##Senkt langsam den Verstand, aber nicht unter ~r~60%~/~.##Keine Untoten über dem Level-Limit.##Verhindert „Segen“." },
+                { ModLanguage.Russian, "Оживляет выбранный труп как постоянную нежить при ~lg~50–55%~/~ макс. здоровья / ~lg~50%~/~ макс. энергии и ставит прочность брони на ~w~0%~/~.##Повышает мораль (до ~lg~70%~/~).##Медленно снижает рассудок, но не ниже ~r~60%~/~.##Нельзя призвать нежить выше уровня навыка.##Запрещает получение «Благословения»." },
             });
         RegisterSkillLocalization(
             "grave_blight",
@@ -537,11 +537,11 @@ public static class NecromancyLocalization
             },
             new Dictionary<ModLanguage, string>
             {
-                { ModLanguage.English, "Unbinding allies doesn't take a turn and replenishes Energy equal to ~lg~10%~/~ of your Magic Power.##Increases the level of summoning abilities by ~lg~1~/~.##Summon Skeleton: ~lg~+2~/~ turns base duration and ~lg~+10%~/~ Max Health / Max Energy.##Resurrection thralls start at ~lg~60%~/~ Max Health.##Still limited to one safe Undead at a time unless a higher-tier skill allows more." },
-                { ModLanguage.Japanese, "味方の束縛解除はターンを消費せず、魔力の~lg~10%~/~相当のエネルギーを回復する。##召喚系能力のレベル~lg~+1~/~。##スケルトン召喚：基本持続~lg~+2~/~ターン、最大体力/最大エネルギー~lg~+10%~/~。##復活の下僕は最大体力~lg~60%~/~で開始。##上位スキルがない限り、安全なアンデッドは同時に1体まで。" },
-                { ModLanguage.Chinese, "解除盟友束缚不消耗回合，并回复相当于魔法强度~lg~10%~/~的能量。##召唤类技能等级~lg~+1~/~。##召唤骷髅：基础持续时间~lg~+2~/~回合，最大生命/最大能量~lg~+10%~/~。##复活仆从以~lg~60%~/~最大生命起步。##除非更高阶技能允许，否则同时仅可安全控制一个亡灵。" },
-                { ModLanguage.German, "Lösen von Verbündeten kostet keinen Zug und stellt Energie in Höhe von ~lg~10%~/~ eurer Magiekraft wieder her.##Erhöht das Level von Beschwörungsfähigkeiten um ~lg~1~/~.##Skelett beschwören: ~lg~+2~/~ Züge Basisdauer und ~lg~+10%~/~ max. Gesundheit / max. Energie.##Auferstehungsdiener starten mit ~lg~60%~/~ max. Gesundheit.##Weiterhin auf einen sicheren Untoten gleichzeitig begrenzt, sofern keine höhere Fähigkeit mehr erlaubt." },
-                { ModLanguage.Russian, "Освобождение союзников не тратит ход и восстанавливает энергию, равную ~lg~10%~/~ вашей силы магии.##Повышает уровень способностей призыва на ~lg~1~/~.##Призыв скелета: ~lg~+2~/~ хода базовой длительности и ~lg~+10%~/~ макс. здоровья / макс. энергии.##Слуги воскрешения начинают с ~lg~60%~/~ макс. здоровья.##По-прежнему не более одной безопасной нежити одновременно, если более высокий навык не позволяет больше." },
+                { ModLanguage.English, "Unbinding allies doesn't take a turn and replenishes Energy equal to ~lg~10%~/~ of your Magic Power.##Increases the level of summoning abilities by ~lg~1~/~.##Summon Skeleton: ~lg~+4~/~ turns base duration and ~lg~+10%~/~ Max Health / Max Energy.##Resurrection thralls start at ~lg~60%~/~ Max Health.##Still limited to one safe Undead at a time unless a higher-tier skill allows more." },
+                { ModLanguage.Japanese, "味方の束縛解除はターンを消費せず、魔力の~lg~10%~/~相当のエネルギーを回復する。##召喚系能力のレベル~lg~+1~/~。##スケルトン召喚：基本持続~lg~+4~/~ターン、最大体力/最大エネルギー~lg~+10%~/~。##復活の下僕は最大体力~lg~60%~/~で開始。##上位スキルがない限り、安全なアンデッドは同時に1体まで。" },
+                { ModLanguage.Chinese, "解除盟友束缚不消耗回合，并回复相当于魔法强度~lg~10%~/~的能量。##召唤类技能等级~lg~+1~/~。##召唤骷髅：基础持续时间~lg~+4~/~回合，最大生命/最大能量~lg~+10%~/~。##复活仆从以~lg~60%~/~最大生命起步。##除非更高阶技能允许，否则同时仅可安全控制一个亡灵。" },
+                { ModLanguage.German, "Lösen von Verbündeten kostet keinen Zug und stellt Energie in Höhe von ~lg~10%~/~ eurer Magiekraft wieder her.##Erhöht das Level von Beschwörungsfähigkeiten um ~lg~1~/~.##Skelett beschwören: ~lg~+4~/~ Züge Basisdauer und ~lg~+10%~/~ max. Gesundheit / max. Energie.##Auferstehungsdiener starten mit ~lg~60%~/~ max. Gesundheit.##Weiterhin auf einen sicheren Untoten gleichzeitig begrenzt, sofern keine höhere Fähigkeit mehr erlaubt." },
+                { ModLanguage.Russian, "Освобождение союзников не тратит ход и восстанавливает энергию, равную ~lg~10%~/~ вашей силы магии.##Повышает уровень способностей призыва на ~lg~1~/~.##Призыв скелета: ~lg~+4~/~ хода базовой длительности и ~lg~+10%~/~ макс. здоровья / макс. энергии.##Слуги воскрешения начинают с ~lg~60%~/~ макс. здоровья.##По-прежнему не более одной безопасной нежити одновременно, если более высокий навык не позволяет больше." },
             });
         RegisterSkillLocalization(
             "black_sepulchre",
@@ -589,11 +589,11 @@ public static class NecromancyLocalization
             },
             new Dictionary<ModLanguage, string>
             {
-                { ModLanguage.English, "Halves sanity loss of Occultism abilities and partially decreases penalties of ~r~\"Obsession\"~/~.##Grants ~lg~33%~/~ Unholy Resistance." },
-                { ModLanguage.Japanese, "神秘学能力の正気減少を半減し、~r~「執着」~/~のペナルティを部分的に軽減する。##不浄耐性~lg~33%~/~を付与する。" },
-                { ModLanguage.Chinese, "使神秘学技能的理智损失减半，并部分降低~r~“执念”~/~惩罚。##赋予~lg~33%~/~邪秽抗性。" },
-                { ModLanguage.German, "Halbiert den Verstandverlust von Okkultismus-Fähigkeiten und verringert teilweise die Nachteile von ~r~„Besessenheit“~/~.##Gewährt ~lg~33%~/~ Unheiligen Widerstand." },
-                { ModLanguage.Russian, "Вдвое снижает потерю рассудка от способностей оккультизма и частично уменьшает штрафы ~r~«Одержимости»~/~.##Даёт ~lg~33%~/~ сопротивления нечестию." },
+                { ModLanguage.English, "Halves sanity loss of Occultism abilities.##Grants ~lg~33%~/~ Unholy Resistance." },
+                { ModLanguage.Japanese, "神秘学能力の正気減少を半減する。##不浄耐性~lg~33%~/~を付与する。" },
+                { ModLanguage.Chinese, "使神秘学技能的理智损失减半。##赋予~lg~33%~/~邪秽抗性。" },
+                { ModLanguage.German, "Halbiert den Verstandverlust von Okkultismus-Fähigkeiten.##Gewährt ~lg~33%~/~ Unheiligen Widerstand." },
+                { ModLanguage.Russian, "Вдвое снижает потерю рассудка от способностей оккультизма.##Даёт ~lg~33%~/~ сопротивления нечестию." },
             });
         RegisterSkillLocalization(
             "immortality",
@@ -693,11 +693,11 @@ public static class NecromancyLocalization
             },
             new Dictionary<ModLanguage, string>
             {
-                { ModLanguage.English, "Summons a Wraith on the targeted tile; power depends on ~lg~\"Essence Charge\"~/~ stacks.##Removes ~lg~\"Essence Charge\"~/~.##If no weapon equipped: ~r~-50%~/~ Cooldown Duration and Halves Miscast Chance.##Risk of ~r~\"Obsession\"~/~: Extremely High.##Summoning more than one Wraith instantly causes ~r~\"Obsession\"~/~.##Can't summon Wraiths higher than the skill's level cap.##Cannot cast under ~r~\"Obsession\"~/~." },
-                { ModLanguage.Japanese, "対象タイルにレイスを召喚する。強さは~lg~「本質充填」~/~のスタックに依存。##~lg~「本質充填」~/~を除去。##武器未装備時：クールダウン~r~-50%~/~、詠唱失敗率半減。##~r~「執着」~/~のリスク: 極めて高い。##レイス2体以上で即座に~r~「執着」~/~。##スキルのレベル上限を超えるレイスは召喚不可。##~r~「執着」~/~中は詠唱不可。" },
-                { ModLanguage.Chinese, "在目标格子召唤怨灵；强度取决于~lg~“精华充能”~/~层数。##移除~lg~“精华充能”~/~。##未装备武器时：冷却时间~r~-50%~/~，施法失败几率减半。##~r~“执念”~/~风险：极高。##召唤超过一个怨灵会立刻导致~r~“执念”~/~。##无法召唤高于技能等级上限的怨灵。##~r~“执念”~/~状态下无法施放。" },
-                { ModLanguage.German, "Beschwört einen Geist auf dem Zielfeld; Stärke hängt von ~lg~„Essenzladung“~/~-Stapeln ab.##Entfernt ~lg~„Essenzladung“~/~.##Ohne Waffe: ~r~-50%~/~ Abklingzeit und halbe Fehlschlagchance.##Risiko von ~r~„Besessenheit“~/~: Extrem hoch.##Mehr als ein Geist verursacht sofort ~r~„Besessenheit“~/~.##Keine Geister über dem Level-Limit.##Nicht unter ~r~„Besessenheit“~/~ wirkbar." },
-                { ModLanguage.Russian, "Призывает умертвие на выбранную клетку; сила зависит от стаков ~lg~«Заряда сущности»~/~.##Снимает ~lg~«Заряд сущности»~/~.##Без оружия: ~r~-50%~/~ длительности перезарядки и вдвое меньший шанс сбоя.##Риск ~r~«Одержимости»~/~: крайне высокий.##Призыв более одного умертвия мгновенно вызывает ~r~«Одержимость»~/~.##Нельзя призвать умертвия выше уровня навыка.##Нельзя использовать под ~r~«Одержимостью»~/~." },
+                { ModLanguage.English, "Summons a Wraith on the targeted tile; power depends on ~lg~\"Essence Charge\"~/~ stacks.##Removes ~lg~\"Essence Charge\"~/~.##If no weapon equipped: ~r~-50%~/~ Cooldown Duration and Halves Miscast Chance.##Can't summon Wraiths higher than the skill's level cap." },
+                { ModLanguage.Japanese, "対象タイルにレイスを召喚する。強さは~lg~「本質充填」~/~のスタックに依存。##~lg~「本質充填」~/~を除去。##武器未装備時：クールダウン~r~-50%~/~、詠唱失敗率半減。##スキルのレベル上限を超えるレイスは召喚不可。" },
+                { ModLanguage.Chinese, "在目标格子召唤怨灵；强度取决于~lg~“精华充能”~/~层数。##移除~lg~“精华充能”~/~。##未装备武器时：冷却时间~r~-50%~/~，施法失败几率减半。##无法召唤高于技能等级上限的怨灵。" },
+                { ModLanguage.German, "Beschwört einen Geist auf dem Zielfeld; Stärke hängt von ~lg~„Essenzladung“~/~-Stapeln ab.##Entfernt ~lg~„Essenzladung“~/~.##Ohne Waffe: ~r~-50%~/~ Abklingzeit und halbe Fehlschlagchance.##Keine Geister über dem Level-Limit." },
+                { ModLanguage.Russian, "Призывает умертвие на выбранную клетку; сила зависит от стаков ~lg~«Заряда сущности»~/~.##Снимает ~lg~«Заряд сущности»~/~.##Без оружия: ~r~-50%~/~ длительности перезарядки и вдвое меньший шанс сбоя.##Нельзя призвать умертвия выше уровня навыка." },
             });
         // Skill tooltips resolve via global.skill_name_text / global.skill_desc from
         // table_skills (scr_skill_atr). InjectTableItemLocalization only feeds table_items.

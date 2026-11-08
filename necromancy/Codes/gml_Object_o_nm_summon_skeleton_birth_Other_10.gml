@@ -25,7 +25,7 @@ if ((!is_execute) && instance_exists(owner))
 
     var _wil = scr_atr("WIL")
     // Use .0 literals so ReplaceGML does not resolve bare ints to asset ids.
-    var _turns = 5.0 + floor(_wil / 5.0)
+    var _turns = 2.0 * (10.0 + floor(_wil / 5.0))
     var _hpPct = clamp(33.0 + floor(_wil / 2.0), 20.0, 90.0)
     var _mpPct = clamp(25.0 + floor(_wil / 3.0), 15.0, 80.0)
 

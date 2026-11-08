@@ -25,7 +25,7 @@ Type: Active
 Level: 1
 Requirements: None (entry skill)
 Image: s_summon_skeleton
-Description: Summons 1 Skeleton on the targeted tile (no corpse required). Duration, Max Health %, and Max Energy % scale with Willpower (starts at 5 turns, 33% Max Health / 25% Max Energy, Armor Durability 0%). Only one Skeleton can exist at a time. Slowly decreases Sanity (no less than 70%). Risk of "Obsession": Low. Can't summon Undeads higher than the skill's level cap. Cannot be cast under "Obsession".
+Description: Summons 1 Skeleton on the targeted tile (no corpse required). Duration, Max Health %, and Max Energy % scale with Willpower (starts at 20 turns, 33% Max Health / 25% Max Energy, Armor Durability 0%). Only one Skeleton can exist at a time.
 
 Name: Withering Curse
 Type: Active
@@ -43,7 +43,7 @@ Type: Active
 Level: 2
 Requirements: Attributes: PRC or WIL >= 6; Skills: Desecration
 Image: s_essence_leech
-Description: Devours a targeted corpse or steals 8% Max Health and 8% Max Energy from an allied Undead or Skeleton, transferring half of them to the caster. Activates "Essence Charge" for 12–15 turns: +5% Magic Power, -5% Abilities Energy Cost, +4 Max Energy. Repeated use grants an extra stack (up to II) and refreshes duration. Using Spells reduces stacks by 1. No Obsession risk from Essence Charge at Tier 2.
+Description: Devours a targeted corpse or steals 8% Max Health and 8% Max Energy from an allied Undead or Skeleton, transferring half of them to the caster. Activates "Essence Charge" for 12–15 turns: +5% Magic Power, -5% Abilities Energy Cost, +4 Max Energy. Repeated use grants an extra stack (up to II) and refreshes duration. Using Spells reduces stacks by 1.
 
 Name: Death's Blessing
 Type: Active
@@ -57,7 +57,7 @@ Type: Active
 Level: 2
 Requirements: Attributes: PRC or Vitality or WIL >= 6; Skills: Bone Ward
 Image: s_resurrection
-Description: Reanimates a targeted corpse as a lasting Undead at 50–55% Max Health / 50% Max Energy and sets Armor Durability to 0% for 50 turns. Increases morale (up to 70%). Slowly decreases Sanity but no less than 60%. Risk of "Obsession": High. Summoning more than one Undead instantly causes "Obsession". Can't summon Undeads higher than the skill's level cap. Prevents receiving "Blessing". Cannot be cast under "Obsession".
+Description: Reanimates a targeted corpse as a lasting Undead at 50–55% Max Health / 50% Max Energy and sets Armor Durability to 0%. Increases morale (up to 70%). Slowly decreases Sanity but no less than 60%. Can't summon Undead higher than the skill's level cap. Prevents receiving "Blessing".
 
 Name: Grave Blight
 Type: Active
@@ -89,7 +89,7 @@ Type: Passive
 Level: 3
 Requirements: Attributes: PRC or WIL >= 8; Skills: Resurrection or Summon Skeleton
 Image: s_mastery_of_binding
-Description: Unbinding allies doesn't take a turn and replenishes Energy equal to 10% of your Magic Power. Increases the level of summoning abilities by 1. Summon Skeleton: +2 turns base duration and +10% Max Health / Max Energy. Resurrection thralls start at 60% Max Health. Still limited to one safe Undead at a time unless a higher-tier skill allows more.
+Description: Unbinding allies doesn't take a turn and replenishes Energy equal to 10% of your Magic Power. Increases the level of summoning abilities by 1. Summon Skeleton: +4 turns base duration and +10% Max Health / Max Energy. Resurrection thralls start at 60% Max Health. Still limited to one safe Undead at a time unless a higher-tier skill allows more.
 
 Name: Black Sepulchre
 Type: Active
@@ -103,7 +103,7 @@ Type: Passive
 Level: 3
 Requirements: Attributes: WIL >= 8; Skills: Death's Blessing or Resurrection
 Image: s_sealed_mind
-Description: Halves sanity loss of Occultism abilities and partially decreases penalties of "Obsession". Grants 33% Unholy Resistance.
+Description: Halves sanity loss of Occultism abilities. Grants 33% Unholy Resistance.
 
 ================================================================================
 TIER 4
@@ -135,4 +135,4 @@ Type: Active
 Level: 4
 Requirements: Attributes: AGL or WIL or PRC >= 12; Skills: Mastery of Binding
 Image: s_wraith_summoning
-Description: Summons a Wraith on the targeted tile for 50 turns; power depends on "Essence Charge" stacks. Removes "Essence Charge". If no weapon equipped: -50% Cooldown Duration and Halves Miscast Chance. Risk of "Obsession": Extremely High. Summoning more than one Wraith instantly causes "Obsession". Can't summon Wraiths higher than the skill's level cap. Cannot cast under "Obsession".
+Description: Summons a Wraith on the targeted tile; power depends on "Essence Charge" stacks. Removes "Essence Charge". If no weapon equipped: -50% Cooldown Duration and Halves Miscast Chance. Can't summon Wraiths higher than the skill's level cap.

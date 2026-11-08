@@ -77,11 +77,11 @@
         "Russian": "Призыв скелета"
       },
       "description": {
-        "English": "Summon skeleton on the targeted tile (no corpse required). Duration, Max Health %, and Max Energy % scale with Willpower (starts at 10 turns, 33% Max Health / 25% Max Energy, Armor Durability 0%). Only one Skeleton can exist at a time.",
-        "Japanese": "対象タイルにスケルトンを召喚する（死体不要）。持続時間・最大体力%・最大エネルギー%は意志力に比例する（初期: 10ターン、最大体力33% / 最大エネルギー25%、防具耐久0%）。同時に存在できるスケルトンは1体のみ。",
-        "Chinese": "在目标格子召唤骷髅（无需尸体）。持续时间、最大生命%与最大能量%随意志力提升（起始：10回合，33%最大生命 / 25%最大能量，护甲耐久0%）。同时仅可存在一具骷髅。",
-        "German": "Beschwört ein Skelett auf dem Ziel-Feld (keine Leiche nötig). Dauer, max. Gesundheit % und max. Energie % skalieren mit Willenskraft (Start: 10 Züge, 33% max. Gesundheit / 25% max. Energie, Rüstungshalbarkeit 0%). Nur ein Skelett gleichzeitig.",
-        "Russian": "Призывает скелета на выбранную клетку (труп не нужен). Длительность, % макс. здоровья и % макс. энергии зависят от Воли (старт: 10 ходов, 33% макс. здоровья / 25% макс. энергии, прочность брони 0%). Одновременно может существовать только один скелет."
+        "English": "Summon skeleton on the targeted tile (no corpse required). Duration, Max Health %, and Max Energy % scale with Willpower (starts at 20 turns, 33% Max Health / 25% Max Energy, Armor Durability 0%). Only one Skeleton can exist at a time.",
+        "Japanese": "対象タイルにスケルトンを召喚する（死体不要）。持続時間・最大体力%・最大エネルギー%は意志力に比例する（初期: 20ターン、最大体力33% / 最大エネルギー25%、防具耐久0%）。同時に存在できるスケルトンは1体のみ。",
+        "Chinese": "在目标格子召唤骷髅（无需尸体）。持续时间、最大生命%与最大能量%随意志力提升（起始：20回合，33%最大生命 / 25%最大能量，护甲耐久0%）。同时仅可存在一具骷髅。",
+        "German": "Beschwört ein Skelett auf dem Ziel-Feld (keine Leiche nötig). Dauer, max. Gesundheit % und max. Energie % skalieren mit Willenskraft (Start: 20 Züge, 33% max. Gesundheit / 25% max. Energie, Rüstungshalbarkeit 0%). Nur ein Skelett gleichzeitig.",
+        "Russian": "Призывает скелета на выбранную клетку (труп не нужен). Длительность, % макс. здоровья и % макс. энергии зависят от Воли (старт: 20 ходов, 33% макс. здоровья / 25% макс. энергии, прочность брони 0%). Одновременно может существовать только один скелет."
       },
       "magicPhrase": {
         "English": "Rattlek Narzul!",
@@ -127,11 +127,11 @@
         "Russian": "Поглощение сущности"
       },
       "description": {
-        "English": "Devours a targeted corpse or steals 8% Max Health and 8% Max Energy from an allied Undead or Skeleton, transferring half of them to the caster. Activates \"Essence Charge\" for 12–15 turns: +5% Magic Power, -5% Abilities Energy Cost, +4 Max Energy. Repeated use grants an extra stack (up to II) and refreshes duration. Using Spells reduces stacks by 1. No Obsession risk from Essence Charge at Tier 2.",
-        "Japanese": "対象の死体を喰らうか、味方のアンデッド/スケルトンから最大体力8%と最大エネルギー8%を奪い、半分を術者へ移す。「本質充填」を12〜15ターン発動：魔力+5%、能力のエネルギー消費-5%、最大エネルギー+4。再使用で追加スタック（最大II）と持続更新。呪文使用でスタックが1減少。ティア2の本質充填に執着リスクなし。",
-        "Chinese": "吞噬目标尸体，或从友方亡灵/骷髅窃取8%最大生命与8%最大能量，并将一半转移给施法者。激活“精华充能”，持续12–15回合：+5%魔法强度、-5%技能能量消耗、+4最大能量。重复使用额外叠加（最高II）并刷新持续时间。施放法术会使层数减1。第2阶的精华充能无执念风险。",
-        "German": "Verschlingt eine gezielte Leiche oder stiehlt 8% max. Gesundheit und 8% max. Energie von einem verbündeten Untoten oder Skelett und überträgt die Hälfte auf den Wirker. Aktiviert „Essenzladung“ für 12–15 Züge: +5% Magiekraft, -5% Energiekosten von Fähigkeiten, +4 max. Energie. Wiederholte Nutzung gibt einen Extra-Stapel (bis II) und erneuert die Dauer. Zauber verringern Stapel um 1. Kein Besessenheitsrisiko durch Essenzladung auf Stufe 2.",
-        "Russian": "Пожирает выбранный труп или крадёт 8% макс. здоровья и 8% макс. энергии у союзной нежити/скелета, передавая половину заклинателю. Активирует «Заряд сущности» на 12–15 ходов: +5% силы магии, -5% стоимости энергии способностей, +4 макс. энергии. Повторное применение даёт доп. стак (до II) и обновляет длительность. Заклинания уменьшают стаки на 1. На 2-м ярусе «Заряд сущности» не даёт риска одержимости."
+        "English": "Devours a targeted corpse or steals 8% Max Health and 8% Max Energy from an allied Undead or Skeleton, transferring half of them to the caster. Activates \"Essence Charge\" for 12–15 turns: +5% Magic Power, -5% Abilities Energy Cost, +4 Max Energy. Repeated use grants an extra stack (up to II) and refreshes duration. Using Spells reduces stacks by 1.",
+        "Japanese": "対象の死体を喰らうか、味方のアンデッド/スケルトンから最大体力8%と最大エネルギー8%を奪い、半分を術者へ移す。「本質充填」を12〜15ターン発動：魔力+5%、能力のエネルギー消費-5%、最大エネルギー+4。再使用で追加スタック（最大II）と持続更新。呪文使用でスタックが1減少。",
+        "Chinese": "吞噬目标尸体，或从友方亡灵/骷髅窃取8%最大生命与8%最大能量，并将一半转移给施法者。激活“精华充能”，持续12–15回合：+5%魔法强度、-5%技能能量消耗、+4最大能量。重复使用额外叠加（最高II）并刷新持续时间。施放法术会使层数减1。",
+        "German": "Verschlingt eine gezielte Leiche oder stiehlt 8% max. Gesundheit und 8% max. Energie von einem verbündeten Untoten oder Skelett und überträgt die Hälfte auf den Wirker. Aktiviert „Essenzladung“ für 12–15 Züge: +5% Magiekraft, -5% Energiekosten von Fähigkeiten, +4 max. Energie. Wiederholte Nutzung gibt einen Extra-Stapel (bis II) und erneuert die Dauer. Zauber verringern Stapel um 1.",
+        "Russian": "Пожирает выбранный труп или крадёт 8% макс. здоровья и 8% макс. энергии у союзной нежити/скелета, передавая половину заклинателю. Активирует «Заряд сущности» на 12–15 ходов: +5% силы магии, -5% стоимости энергии способностей, +4 макс. энергии. Повторное применение даёт доп. стак (до II) и обновляет длительность. Заклинания уменьшают стаки на 1."
       },
       "magicPhrase": {
         "English": "En'thero!",
@@ -177,11 +177,11 @@
         "Russian": "Воскрешение"
       },
       "description": {
-        "English": "Reanimates a targeted corpse as a lasting Undead at 50–55% Max Health / 50% Max Energy and sets Armor Durability to 0%. Increases morale (up to 70%). Slowly decreases Sanity but no less than 60%. Risk of \"Obsession\": High. Summoning more than one Undead instantly causes \"Obsession\". Can't summon Undeads higher than the skill's level cap. Prevents receiving \"Blessing\". Cannot be cast under \"Obsession\".",
-        "Japanese": "対象の死体を永続アンデッドとして蘇生する（最大体力50〜55% / 最大エネルギー50%、防具耐久0%）。士気を上昇（最大70%）。正気を徐々に減少させるが60%未満にはならない。「執着」のリスク: 高。2体以上のアンデッド召喚で即座に「執着」。スキルのレベル上限を超えるアンデッドは召喚不可。「祝福」を受けられない。「執着」中は詠唱不可。",
-        "Chinese": "将目标尸体复活为持久亡灵（50–55%最大生命 / 50%最大能量，护甲耐久设为0%）。提升士气（最高70%）。缓慢降低理智但不低于60%。“执念”风险：高。召唤超过一个亡灵会立刻导致“执念”。无法召唤高于技能等级上限的亡灵。无法获得“祝福”。“执念”状态下无法施放。",
-        "German": "Belebt eine gezielte Leiche als dauerhaften Untoten mit 50–55% max. Gesundheit / 50% max. Energie und setzt die Rüstungshalbarkeit auf 0%. Erhöht die Moral (bis 70%). Senkt langsam den Verstand, aber nicht unter 60%. Risiko von „Besessenheit“: Hoch. Mehr als ein Untoter verursacht sofort „Besessenheit“. Keine Untoten über dem Level-Limit. Verhindert „Segen“. Nicht unter „Besessenheit“ wirkbar.",
-        "Russian": "Оживляет выбранный труп как постоянную нежить при 50–55% макс. здоровья / 50% макс. энергии и ставит прочность брони на 0%. Повышает мораль (до 70%). Медленно снижает рассудок, но не ниже 60%. Риск «Одержимости»: высокий. Призыв более одной нежити мгновенно вызывает «Одержимость». Нельзя призвать нежить выше уровня навыка. Запрещает получение «Благословения». Нельзя использовать под «Одержимостью»."
+        "English": "Reanimates a targeted corpse as a lasting Undead at 50–55% Max Health / 50% Max Energy and sets Armor Durability to 0%. Increases morale (up to 70%). Slowly decreases Sanity but no less than 60%. Can't summon Undead higher than the skill's level cap. Prevents receiving \"Blessing\".",
+        "Japanese": "対象の死体を永続アンデッドとして蘇生する（最大体力50〜55% / 最大エネルギー50%、防具耐久0%）。士気を上昇（最大70%）。正気を徐々に減少させるが60%未満にはならない。スキルのレベル上限を超えるアンデッドは召喚不可。「祝福」を受けられない。",
+        "Chinese": "将目标尸体复活为持久亡灵（50–55%最大生命 / 50%最大能量，护甲耐久设为0%）。提升士气（最高70%）。缓慢降低理智但不低于60%。无法召唤高于技能等级上限的亡灵。无法获得“祝福”。",
+        "German": "Belebt eine gezielte Leiche als dauerhaften Untoten mit 50–55% max. Gesundheit / 50% max. Energie und setzt die Rüstungshalbarkeit auf 0%. Erhöht die Moral (bis 70%). Senkt langsam den Verstand, aber nicht unter 60%. Keine Untoten über dem Level-Limit. Verhindert „Segen“.",
+        "Russian": "Оживляет выбранный труп как постоянную нежить при 50–55% макс. здоровья / 50% макс. энергии и ставит прочность брони на 0%. Повышает мораль (до 70%). Медленно снижает рассудок, но не ниже 60%. Нельзя призвать нежить выше уровня навыка. Запрещает получение «Благословения»."
       },
       "magicPhrase": {
         "English": "Lagur! Lagur! Lagur!",
@@ -277,11 +277,11 @@
         "Russian": "Мастерство связывания"
       },
       "description": {
-        "English": "Unbinding allies doesn't take a turn and replenishes Energy equal to 10% of your Magic Power. Increases the level of summoning abilities by 1. Summon Skeleton: +2 turns base duration and +10% Max Health / Max Energy. Resurrection thralls start at 60% Max Health. Still limited to one safe Undead at a time unless a higher-tier skill allows more.",
-        "Japanese": "味方の束縛解除はターンを消費せず、魔力の10%相当のエネルギーを回復する。召喚系能力のレベル+1。スケルトン召喚：基本持続+2ターン、最大体力/最大エネルギー+10%。復活の下僕は最大体力60%で開始。上位スキルがない限り、安全なアンデッドは同時に1体まで。",
-        "Chinese": "解除盟友束缚不消耗回合，并回复相当于魔法强度10%的能量。召唤类技能等级+1。召唤骷髅：基础持续时间+2回合，最大生命/最大能量+10%。复活仆从以60%最大生命起步。除非更高阶技能允许，否则同时仅可安全控制一个亡灵。",
-        "German": "Lösen von Verbündeten kostet keinen Zug und stellt Energie in Höhe von 10% eurer Magiekraft wieder her. Erhöht das Level von Beschwörungsfähigkeiten um 1. Skelett beschwören: +2 Züge Basisdauer und +10% max. Gesundheit / max. Energie. Auferstehungsdiener starten mit 60% max. Gesundheit. Weiterhin auf einen sicheren Untoten gleichzeitig begrenzt, sofern keine höhere Fähigkeit mehr erlaubt.",
-        "Russian": "Освобождение союзников не тратит ход и восстанавливает энергию, равную 10% вашей силы магии. Повышает уровень способностей призыва на 1. Призыв скелета: +2 хода базовой длительности и +10% макс. здоровья / макс. энергии. Слуги воскрешения начинают с 60% макс. здоровья. По-прежнему не более одной безопасной нежити одновременно, если более высокий навык не позволяет больше."
+        "English": "Unbinding allies doesn't take a turn and replenishes Energy equal to 10% of your Magic Power. Increases the level of summoning abilities by 1. Summon Skeleton: +4 turns base duration and +10% Max Health / Max Energy. Resurrection thralls start at 60% Max Health. Still limited to one safe Undead at a time unless a higher-tier skill allows more.",
+        "Japanese": "味方の束縛解除はターンを消費せず、魔力の10%相当のエネルギーを回復する。召喚系能力のレベル+1。スケルトン召喚：基本持続+4ターン、最大体力/最大エネルギー+10%。復活の下僕は最大体力60%で開始。上位スキルがない限り、安全なアンデッドは同時に1体まで。",
+        "Chinese": "解除盟友束缚不消耗回合，并回复相当于魔法强度10%的能量。召唤类技能等级+1。召唤骷髅：基础持续时间+4回合，最大生命/最大能量+10%。复活仆从以60%最大生命起步。除非更高阶技能允许，否则同时仅可安全控制一个亡灵。",
+        "German": "Lösen von Verbündeten kostet keinen Zug und stellt Energie in Höhe von 10% eurer Magiekraft wieder her. Erhöht das Level von Beschwörungsfähigkeiten um 1. Skelett beschwören: +4 Züge Basisdauer und +10% max. Gesundheit / max. Energie. Auferstehungsdiener starten mit 60% max. Gesundheit. Weiterhin auf einen sicheren Untoten gleichzeitig begrenzt, sofern keine höhere Fähigkeit mehr erlaubt.",
+        "Russian": "Освобождение союзников не тратит ход и восстанавливает энергию, равную 10% вашей силы магии. Повышает уровень способностей призыва на 1. Призыв скелета: +4 хода базовой длительности и +10% макс. здоровья / макс. энергии. Слуги воскрешения начинают с 60% макс. здоровья. По-прежнему не более одной безопасной нежити одновременно, если более высокий навык не позволяет больше."
       },
       "magicPhrase": {
         "English": "Vinculum Mortis!",
@@ -327,11 +327,11 @@
         "Russian": "Запечатанный разум"
       },
       "description": {
-        "English": "Halves sanity loss of Occultism abilities and partially decreases penalties of \"Obsession\". Grants 33% Unholy Resistance.",
-        "Japanese": "神秘学能力の正気減少を半減し、「執着」のペナルティを部分的に軽減する。不浄耐性33%を付与する。",
-        "Chinese": "使神秘学技能的理智损失减半，并部分降低“执念”惩罚。赋予33%邪秽抗性。",
-        "German": "Halbiert den Verstandverlust von Okkultismus-Fähigkeiten und verringert teilweise die Nachteile von „Besessenheit“. Gewährt 33% Unheiligen Widerstand.",
-        "Russian": "Вдвое снижает потерю рассудка от способностей оккультизма и частично уменьшает штрафы «Одержимости». Даёт 33% сопротивления нечестию."
+        "English": "Halves sanity loss of Occultism abilities. Grants 33% Unholy Resistance.",
+        "Japanese": "神秘学能力の正気減少を半減する。不浄耐性33%を付与する。",
+        "Chinese": "使神秘学技能的理智损失减半。赋予33%邪秽抗性。",
+        "German": "Halbiert den Verstandverlust von Okkultismus-Fähigkeiten. Gewährt 33% Unheiligen Widerstand.",
+        "Russian": "Вдвое снижает потерю рассудка от способностей оккультизма. Даёт 33% сопротивления нечестию."
       },
       "magicPhrase": {
         "English": "Nox Mentis Seal!",
@@ -427,11 +427,11 @@
         "Russian": "Призыв умертвия"
       },
       "description": {
-        "English": "Summons a Wraith on the targeted tile; power depends on \"Essence Charge\" stacks. Removes \"Essence Charge\". If no weapon equipped: -50% Cooldown Duration and Halves Miscast Chance. Risk of \"Obsession\": Extremely High. Summoning more than one Wraith instantly causes \"Obsession\". Can't summon Wraiths higher than the skill's level cap. Cannot cast under \"Obsession\".",
-        "Japanese": "対象タイルにレイスを召喚する。強さは「本質充填」のスタックに依存。「本質充填」を除去。武器未装備時：クールダウン-50%、詠唱失敗率半減。「執着」のリスク: 極めて高い。レイス2体以上で即座に「執着」。スキルのレベル上限を超えるレイスは召喚不可。「執着」中は詠唱不可。",
-        "Chinese": "在目标格子召唤怨灵；强度取决于“精华充能”层数。移除“精华充能”。未装备武器时：冷却时间-50%，施法失败几率减半。“执念”风险：极高。召唤超过一个怨灵会立刻导致“执念”。无法召唤高于技能等级上限的怨灵。“执念”状态下无法施放。",
-        "German": "Beschwört einen Geist auf dem Zielfeld; Stärke hängt von „Essenzladung“-Stapeln ab. Entfernt „Essenzladung“. Ohne Waffe: -50% Abklingzeit und halbe Fehlschlagchance. Risiko von „Besessenheit“: Extrem hoch. Mehr als ein Geist verursacht sofort „Besessenheit\". Keine Geister über dem Level-Limit. Nicht unter „Besessenheit“ wirkbar.",
-        "Russian": "Призывает умертвие на выбранную клетку; сила зависит от стаков «Заряда сущности». Снимает «Заряд сущности». Без оружия: -50% длительности перезарядки и вдвое меньший шанс сбоя. Риск «Одержимости»: крайне высокий. Призыв более одного умертвия мгновенно вызывает «Одержимость». Нельзя призвать умертвия выше уровня навыка. Нельзя использовать под «Одержимостью»."
+        "English": "Summons a Wraith on the targeted tile; power depends on \"Essence Charge\" stacks. Removes \"Essence Charge\". If no weapon equipped: -50% Cooldown Duration and Halves Miscast Chance. Can't summon Wraiths higher than the skill's level cap.",
+        "Japanese": "対象タイルにレイスを召喚する。強さは「本質充填」のスタックに依存。「本質充填」を除去。武器未装備時：クールダウン-50%、詠唱失敗率半減。スキルのレベル上限を超えるレイスは召喚不可。",
+        "Chinese": "在目标格子召唤怨灵；强度取决于“精华充能”层数。移除“精华充能”。未装备武器时：冷却时间-50%，施法失败几率减半。无法召唤高于技能等级上限的怨灵。",
+        "German": "Beschwört einen Geist auf dem Zielfeld; Stärke hängt von „Essenzladung“-Stapeln ab. Entfernt „Essenzladung“. Ohne Waffe: -50% Abklingzeit und halbe Fehlschlagchance. Keine Geister über dem Level-Limit.",
+        "Russian": "Призывает умертвие на выбранную клетку; сила зависит от стаков «Заряда сущности». Снимает «Заряд сущности». Без оружия: -50% длительности перезарядки и вдвое меньший шанс сбоя. Нельзя призвать умертвия выше уровня навыка."
       },
       "magicPhrase": {
         "English": "Lagura mithensa!",
