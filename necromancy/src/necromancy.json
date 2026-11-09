@@ -3,9 +3,9 @@
   "name": "Necromancy",
   "source": "BW-s-Necromancy-main",
   "target": "Sorcery",
-  "totalSkills": 17,
-  "activeCount": 12,
-  "passiveCount": 5,
+  "totalSkills": 15,
+  "activeCount": 11,
+  "passiveCount": 4,
   "skills": [
     {
       "id": "59a5ba7d-bfe3-4136-8bff-3621fa584499",
@@ -14,7 +14,7 @@
       "type": "active",
       "tier": 1,
       "image": "s_desecration",
-      "description": "Shoots a bolt of dark energy, dealing ~ur~7 Unholy Damage~/~ with Accuracy.##If the spell hits the target, burns its Energy for ~lg~33%~/~ of the damage dealt and replenishes the same amount of Energy to the caster.##Grants Unholy Damage for ~w~8 turns~/~.##This effect doesn't stack.",
+      "description": "Shoots a bolt of dark energy, dealing ~ur~8 Unholy Damage~/~ with Accuracy.##If the spell hits the target, burns its Energy for ~lg~33%~/~ of the damage dealt and replenishes the same amount of Energy to the caster.##Grants Unholy Damage for ~w~8 turns~/~.##This effect doesn't stack.",
       "magicPhrase": "In Nag Zur...",
       "requirements": {
         "attributes": [],
@@ -40,7 +40,7 @@
         "armorPenetration": "66",
         "isMissile": true,
         "selfCast": false,
-        "baseDamage": 7,
+        "baseDamage": 8,
         "energyBurnRatio": 0.33,
         "buffTurnsMin": 8,
         "buffTurnsMax": 10
@@ -67,7 +67,7 @@
         "cooldown": 8,
         "energy": 14,
         "reserve": 0,
-        "duration": 4,
+        "duration": 8,
         "aoeLength": 0,
         "aoeWidth": 0,
         "isMovement": false,
@@ -79,7 +79,7 @@
         "armorPenetration": "x",
         "isMissile": false,
         "selfCast": true,
-        "buffTurns": 4,
+        "buffTurns": 8,
         "physRes": 12,
         "bleedRes": 15,
         "magicRes": 10,
@@ -279,6 +279,7 @@
         "armorPenetration": "x",
         "isMissile": false,
         "selfCast": false,
+        "baseTurns": 20,
         "baseHpPct": 50,
         "baseMpPct": 50,
         "hpPctBonus": 5,
@@ -656,8 +657,8 @@
         "skills": [
           "7a73e870-bdb7-4a81-a19b-f8f118e5b0a2",
           "d3bd6b8f-6f07-4c1f-8aeb-783d0afc33b0",
-          "843edbb5-af68-43b7-8432-271739444e99",
-          "158f368c-1e91-424c-b48a-1721b4013738"
+          "158f368c-1e91-424c-b48a-1721b4013738",
+          "843edbb5-af68-43b7-8432-271739444e99"
         ]
       },
       {
@@ -665,17 +666,16 @@
         "skills": [
           "aa19f19a-7398-48b3-a7d6-1bd464fd6bdf",
           "7e983a82-ab7c-48bc-830e-37d05c68fe83",
-          "ed75d3c9-c735-438a-b430-205ad8478419",
           "8a3778f9-eff9-4619-8114-baad567f0728",
-          "e25dc91d-b782-4565-aa0b-c8a1b1d9c21e"
+          "ed75d3c9-c735-438a-b430-205ad8478419"
         ]
       },
       {
         "tier": 4,
         "skills": [
+          "9d160a5a-2bf1-46c1-807a-b9e9e8e75c29",
           "f0f37fa5-3038-4c76-9617-3bf848cfb632",
           "0186d94e-304b-4434-803f-9a03b9106770",
-          "9d160a5a-2bf1-46c1-807a-b9e9e8e75c29",
           "9b1a51b6-daa2-40b3-a236-505eca5fe5f8"
         ]
       }
@@ -720,14 +720,6 @@
       {
         "from": "158f368c-1e91-424c-b48a-1721b4013738",
         "to": "8a3778f9-eff9-4619-8114-baad567f0728"
-      },
-      {
-        "from": "d3bd6b8f-6f07-4c1f-8aeb-783d0afc33b0",
-        "to": "e25dc91d-b782-4565-aa0b-c8a1b1d9c21e"
-      },
-      {
-        "from": "843edbb5-af68-43b7-8432-271739444e99",
-        "to": "e25dc91d-b782-4565-aa0b-c8a1b1d9c21e"
       },
       {
         "from": "7e983a82-ab7c-48bc-830e-37d05c68fe83",

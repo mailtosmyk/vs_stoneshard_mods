@@ -114,14 +114,13 @@ public static class NecromancySchool
         }
 
         // T3 under parents: Death Touch (Essence+Blight), Corpse Burst (Blessing),
-        // Black Sepulchre (Blight), Mastery (Resurrection), Sealed Mind (Blessing/Res).
+        // Black Sepulchre (Blight), Mastery (Resurrection/Summon).
         var t3X = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase)
         {
             ["death_touch"] = 24,
             ["corpse_burst"] = 62,
             ["black_sepulchre"] = 100,
             ["mastery_of_binding"] = 138,
-            ["sealed_mind"] = 176,
         };
         for (var i = 0; i < tier3.Length; i++)
         {

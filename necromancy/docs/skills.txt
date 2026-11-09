@@ -1,6 +1,6 @@
 BW's Necromancy — Stoneshard Skill Tree
 Source: BW-s-Necromancy-main
-Total skills: 17 (12 active, 5 passive)
+Total skills: 15 (11 active, 4 passive)
 
 ================================================================================
 TIER 1
@@ -11,7 +11,7 @@ Type: Active
 Level: 1
 Requirements: None (entry skill)
 Image: s_desecration
-Description: Shoots a bolt of dark energy (Range: 6), dealing 8 Unholy Damage with Accuracy. If the spell hits the target, burns its Energy for 33% of the damage dealt and replenishes the same amount of Energy to the caster. Grants Unholy Damage for 8–10 turns. This effect doesn't stack.
+Description: Shoots a bolt of dark energy (Range: 6), dealing 8 Unholy Damage with Accuracy. If the spell hits the target, burns its Energy for 33% of the damage dealt and replenishes the same amount of Energy to the caster. Grants Unholy Damage for 8–10 turns. This effect doesn't stack. On hit, also applies "Withering Curse".
 
 Name: Bone Ward
 Type: Active
@@ -26,13 +26,6 @@ Level: 1
 Requirements: None (entry skill)
 Image: s_summon_skeleton
 Description: Summons 1 Skeleton on the targeted tile (no corpse required). Duration, Max Health %, and Max Energy % scale with Willpower (starts at 20 turns, 33% Max Health / 25% Max Energy, Armor Durability 0%). Only one Skeleton can exist at a time.
-
-Name: Withering Curse
-Type: Active
-Level: 1
-Requirements: None (entry skill)
-Image: s_withering_curse
-Description: Applies the target with "Withering Curse" for 10 turns (Range: 6): -8% Fortitude, -8% Magic Resistance, -5% Max Health, +3% Damage Taken. Each turn worsens a random body part by 0.25%. Hitting with "Dark Bolt" or repeating the spell on the same target refreshes the duration (does not stack at Tier 1).
 
 ================================================================================
 TIER 2
@@ -52,19 +45,19 @@ Requirements: Attributes: Vitality or WIL >= 5; Skills: Bone Ward
 Image: s_deaths_blessing
 Description: Replenishes Health to the target (based on Magic Power) and improves bodypart condition by 25% of health restored. 50% more effective on allied Undeads. Grants "Death's Blessing" for 8 turns: +6% Life Drain, +6% Energy Drain, +8% Damage Reflection.
 
-Name: Resurrection
-Type: Active
-Level: 2
-Requirements: Attributes: PRC or Vitality or WIL >= 6; Skills: Summon Skeleton
-Image: s_resurrection
-Description: Reanimates a targeted corpse as an Undead for 20 turns at 50% Max Health / 50% Max Energy and sets Armor Durability to 0%. The animated corpse has a chance to lose control. Increases morale (up to 70%). Slowly decreases Sanity but no less than 60%. Can't summon Undead higher than the skill's level cap. Prevents receiving "Blessing".
-
 Name: Grave Blight
 Type: Active
 Level: 2
 Requirements: Attributes: PRC or WIL >= 6; Skills: Bone Ward
 Image: s_grave_blight
 Description: Creates a blighted 3x3 area on the targeted tile (Range: 5–6) for 4 turns. Enemies remaining in the area take 2 Unholy Damage per turn and gain -4% Magic Resistance (stacks up to 3 while inside). Also allows "Withering Curse" (applied by Dark Bolt) to stack up to II; hitting with "Dark Bolt" adds a stack. Bodypart worsen becomes 0.35% per turn per stack.
+
+Name: Resurrection
+Type: Active
+Level: 2
+Requirements: Attributes: PRC or Vitality or WIL >= 6; Skills: Summon Skeleton
+Image: s_resurrection
+Description: Reanimates a targeted corpse as an Undead for 20 turns at 50% Max Health / 50% Max Energy and sets Armor Durability to 0%. The animated corpse has a chance to lose control. Increases morale (up to 70%). Slowly decreases Sanity but no less than 60%. Can't summon Undead higher than the skill's level cap. Prevents receiving "Blessing".
 
 ================================================================================
 TIER 3
@@ -84,13 +77,6 @@ Requirements: Attributes: WIL >= 8; Skills: Death's Blessing
 Image: s_corpse_burst
 Description: Targets a corpse or allied Undead/Skeleton and makes it explode, destroying it. Deals Unholy and Piercing Damage in a base 3x3 area around the target and has a chance to apply Bleeding to affected enemies. Damage, Bleeding chance, and area size scale with Willpower (area grows from 3x3 toward 5x5 / 7x7). Exploding an ally causes a small Sanity loss.
 
-Name: Mastery of Binding
-Type: Passive
-Level: 3
-Requirements: Attributes: PRC or WIL >= 8; Skills: Resurrection or Summon Skeleton
-Image: s_mastery_of_binding
-Description: Unbinding allies doesn't take a turn and replenishes Energy equal to 10% of your Magic Power. Increases the level of summoning abilities by 1. Summon Skeleton: +4 turns base duration and +10% Max Health / Max Energy. Resurrection thralls start at 60% Max Health. Still limited to one safe Undead at a time unless a higher-tier skill allows more.
-
 Name: Black Sepulchre
 Type: Active
 Level: 3
@@ -98,16 +84,23 @@ Requirements: Attributes: PRC or WIL >= 9; Skills: Grave Blight
 Image: s_black_sepulchre
 Description: Detonates "Withering Curse" on the target (Range: 5–6), or on the strongest cursed enemy in a 3x3 if cast on a tile: removes stacks, deals 6 Unholy Damage × stacks to the target and 3 Unholy Damage × stacks to adjacent enemies. Allows "Withering Curse" to stack up to III. Bodypart worsen becomes 0.5% per turn per stack while at III.
 
-Name: Sealed Mind
+Name: Mastery of Binding
 Type: Passive
 Level: 3
-Requirements: Attributes: WIL >= 8; Skills: Death's Blessing or Resurrection
-Image: s_sealed_mind
-Description: Halves sanity loss of Occultism abilities. Grants 33% Unholy Resistance.
+Requirements: Attributes: PRC or WIL >= 8; Skills: Resurrection or Summon Skeleton
+Image: s_mastery_of_binding
+Description: Unbinding allies doesn't take a turn and replenishes Energy equal to 10% of your Magic Power. Increases the level of summoning abilities by 1. Summon Skeleton: +4 turns base duration and +10% Max Health / Max Energy. Resurrection thralls start at 60% Max Health. Still limited to one safe Undead at a time unless a higher-tier skill allows more.
 
 ================================================================================
 TIER 4
 ================================================================================
+
+Name: Archtheurgy
+Type: Passive
+Level: 4
+Requirements: Attributes: WIL >= 15; Skills: Death Touch
+Image: s_archtheurgy
+Description: Casting Spells deals Unholy Damage to all enemies within vision (based on 3.33% of Magic Power). Raising the dead, summoning wraiths, Stealing Essence, or receiving "Death's Blessing" has 33% chance to activate "Ascension" for 6 turns: +33% Unholy Resistance, +66% Miracle Potency, converts Unholy Damage into Sacred Damage.
 
 Name: Immortality
 Type: Passive
@@ -122,13 +115,6 @@ Level: 4
 Requirements: Attributes: PRC or WIL >= 12; Skills: Mastery of Binding
 Image: s_blooming_madness
 Description: Successfully raising the dead allows you to learn one of their active abilities at a time (while available via skill menu; lost when the thrall dies). Increases Experience Gain of Undead kills by 100%.
-
-Name: Archtheurgy
-Type: Passive
-Level: 4
-Requirements: Attributes: WIL >= 15; Skills: Death Touch
-Image: s_archtheurgy
-Description: Casting Spells deals Unholy Damage to all enemies within vision (based on 3.33% of Magic Power). Raising the dead, summoning wraiths, Stealing Essence, or receiving "Death's Blessing" has 33% chance to activate "Ascension" for 6 turns: +33% Unholy Resistance, +66% Miracle Potency, converts Unholy Damage into Sacred Damage.
 
 Name: Wraith Summoning
 Type: Active
