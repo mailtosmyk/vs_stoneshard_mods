@@ -83,11 +83,11 @@ public static class NecromancySchool
                 .Append(", 55, 1)\n");
         }
 
-        // Essence Leech under Desecration; Death's Blessing + Grave Blight under Bone Ward;
-        // Resurrection under Summon Skeleton.
+        // T2 X matches s_nmancy_reworked node centers (24/62/100/138).
+        // Death's Blessing + Grave Blight under Bone Ward; Resurrection under Summon Skeleton.
         var t2X = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase)
         {
-            ["essence_leech"] = 33,
+            ["essence_leech"] = 24,
             ["deaths_blessing"] = 62,
             ["grave_blight"] = 100,
             ["resurrection"] = 138,
