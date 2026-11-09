@@ -202,11 +202,11 @@
         "Russian": "Могильная порча"
       },
       "description": {
-        "English": "Creates a blighted 3x3 area on the targeted tile (Range: 5–6) for 4 turns. Enemies remaining in the area take 2 Unholy Damage per turn and gain -4% Magic Resistance (stacks up to 3 while inside). Also allows \"Withering Curse\" to stack up to II; hitting with \"Dark Bolt\" or repeating the curse adds a stack. Bodypart worsen becomes 0.35% per turn per stack.",
+        "English": "Creates a blighted 3x3 area on the targeted tile (Range: 5–6) for 4 turns. Enemies remaining in the area take 2 Unholy Damage per turn and gain -4% Magic Resistance (stacks up to 3 while inside). Also allows \"Withering Curse\" to stack up to II. Hitting with \"Dark Bolt\" or repeating the curse adds a stack. Bodypart worsen becomes 0.35% per turn per stack.",
         "Japanese": "対象タイルに3x3の疫病地帯を4ターン生成する（射程: 5〜6）。領域内の敵は毎ターン不浄ダメージ2を受け、魔法耐性-4%を得る（内部で最大3スタック）。「枯死の呪い」を最大IIまで重複可能にし、「ダークボルト」の命中または呪いの再詠唱でスタック追加。部位悪化はスタックごとに毎ターン0.35%。",
-        "Chinese": "在目标格子创造3x3疫病区域（射程：5–6），持续4回合。留在区域内的敌人每回合受到2点邪秽伤害，并获得-4%魔法抗性（在区域内最多叠加3层）。同时使“凋零诅咒”可叠至II；以“暗矢”命中或重复诅咒可增加层数。部位恶化变为每层每回合0.35%。",
-        "German": "Erzeugt ein verdorbenes 3x3-Gebiet auf dem Zielfeld (Reichweite: 5–6) für 4 Züge. Feinde darin erleiden 2 Unheiligen Schaden pro Zug und erhalten -4% Magiewiderstand (stapelt bis 3, solange sie drin sind). Erlaubt „Verdorrender Fluch“ bis II zu stapeln; Treffer mit „Dunkler Bolzen“ oder erneuter Fluch fügt einen Stapel hinzu. Körperteilverschlechterung: 0,35% pro Zug und Stapel.",
-        "Russian": "Создаёт заражённую область 3x3 на выбранной клетке (дальность: 5–6) на 4 хода. Враги в зоне получают 2 урона нечестием за ход и -4% маг. сопротивления (до 3 стаков, пока внутри). Также позволяет «Иссушающему проклятию» стакаться до II; попадание «Тёмным зарядом» или повтор проклятия добавляет стак. Ухудшение частей тела: 0,35% за ход за стак."
+        "Chinese": "在目标格子创造3x3疫病区域（射程：5–6），持续4回合。留在区域内的敌人每回合受到2点邪秽伤害，并获得-4%魔法抗性（在区域内最多叠加3层）。同时使“凋零诅咒”可叠至II。以“暗矢”命中或重复诅咒可增加层数。部位恶化变为每层每回合0.35%。",
+        "German": "Erzeugt ein verdorbenes 3x3-Gebiet auf dem Zielfeld (Reichweite: 5–6) für 4 Züge. Feinde darin erleiden 2 Unheiligen Schaden pro Zug und erhalten -4% Magiewiderstand (stapelt bis 3, solange sie drin sind). Erlaubt „Verdorrender Fluch“ bis II zu stapeln. Treffer mit „Dunkler Bolzen“ oder erneuter Fluch fügt einen Stapel hinzu. Körperteilverschlechterung: 0,35% pro Zug und Stapel.",
+        "Russian": "Создаёт заражённую область 3x3 на выбранной клетке (дальность: 5–6) на 4 хода. Враги в зоне получают 2 урона нечестием за ход и -4% маг. сопротивления (до 3 стаков, пока внутри). Также позволяет «Иссушающему проклятию» стакаться до II. Попадание «Тёмным зарядом» или повтор проклятия добавляет стак. Ухудшение частей тела: 0,35% за ход за стак."
       },
       "magicPhrase": {
         "English": "Morgath En'ther!",

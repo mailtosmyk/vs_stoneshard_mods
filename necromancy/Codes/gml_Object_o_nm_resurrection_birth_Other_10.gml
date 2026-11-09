@@ -9,7 +9,7 @@ if (!is_execute)
             target = other.point
             name = other.name
             is_crit = other.is_crit
-            is_fumble = other.is_fumble
+            // o_spellbirth never sets is_fumble — only is_crit (see spellbirth Other_10).
         }
         with (owner)
             scr_unitInterractImpact(id, other.point)

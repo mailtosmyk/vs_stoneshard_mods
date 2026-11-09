@@ -294,7 +294,7 @@
       "type": "active",
       "tier": 2,
       "image": "s_grave_blight",
-      "description": "Creates a blighted 3x3 area on the targeted tile (Range: ~w~5–6~/~) for ~w~4~/~ turns.##Enemies remaining in the area take ~ur~2 Unholy Damage~/~ per turn and gain ~r~-4%~/~ Magic Resistance (stacks up to ~w~3~/~ while inside).##Also allows ~r~\"Withering Curse\"~/~ to stack up to II; hitting with ~lg~\"Dark Bolt\"~/~ or repeating the curse adds a stack.##Bodypart worsen becomes ~r~0.35%~/~ per turn per stack.",
+      "description": "Creates a blighted 3x3 area on the targeted tile (Range: ~w~5–6~/~) for ~w~4~/~ turns.##Enemies remaining in the area take ~ur~2 Unholy Damage~/~ per turn and gain ~r~-4%~/~ Magic Resistance (stacks up to ~w~3~/~ while inside).##Also allows ~r~\"Withering Curse\"~/~ to stack up to II. Hitting with ~lg~\"Dark Bolt\"~/~ or repeating the curse adds a stack.##Bodypart worsen becomes ~r~0.35%~/~ per turn per stack.",
       "magicPhrase": "Morgath En'ther!",
       "requirements": {
         "attributes": [

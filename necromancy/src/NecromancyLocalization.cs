@@ -535,11 +535,11 @@ public static class NecromancyLocalization
             },
             new Dictionary<ModLanguage, string>
             {
-                { ModLanguage.English, "Creates a blighted 3x3 area on the targeted tile (Range: ~w~5–6~/~) for ~w~4~/~ turns.##Enemies remaining in the area take ~ur~2 Unholy Damage~/~ per turn and gain ~r~-4%~/~ Magic Resistance (stacks up to ~w~3~/~ while inside).##Also allows ~r~\"Withering Curse\"~/~ to stack up to II; hitting with ~lg~\"Dark Bolt\"~/~ or repeating the curse adds a stack.##Bodypart worsen becomes ~r~0.35%~/~ per turn per stack." },
+                { ModLanguage.English, "Creates a blighted 3x3 area on the targeted tile (Range: ~w~5–6~/~) for ~w~4~/~ turns.##Enemies remaining in the area take ~ur~2 Unholy Damage~/~ per turn and gain ~r~-4%~/~ Magic Resistance (stacks up to ~w~3~/~ while inside).##Also allows ~r~\"Withering Curse\"~/~ to stack up to II. Hitting with ~lg~\"Dark Bolt\"~/~ or repeating the curse adds a stack.##Bodypart worsen becomes ~r~0.35%~/~ per turn per stack." },
                 { ModLanguage.Japanese, "対象タイルに3x3の疫病地帯を~w~4~/~ターン生成する（射程: ~w~5〜6~/~）。##領域内の敵は毎ターン~ur~不浄ダメージ2~/~を受け、魔法耐性~r~-4%~/~を得る（内部で最大~w~3~/~スタック）。##~r~「枯死の呪い」~/~を最大IIまで重複可能にし、~lg~「ダークボルト」~/~の命中または呪いの再詠唱でスタック追加。##部位悪化はスタックごとに毎ターン~r~0.35%~/~。" },
-                { ModLanguage.Chinese, "在目标格子创造3x3疫病区域（射程：~w~5–6~/~），持续~w~4~/~回合。##留在区域内的敌人每回合受到~ur~2点邪秽伤害~/~，并获得~r~-4%~/~魔法抗性（在区域内最多叠加~w~3~/~层）。##同时使~r~“凋零诅咒”~/~可叠至II；以~lg~“暗矢”~/~命中或重复诅咒可增加层数。##部位恶化变为每层每回合~r~0.35%~/~。" },
-                { ModLanguage.German, "Erzeugt ein verdorbenes 3x3-Gebiet auf dem Zielfeld (Reichweite: ~w~5–6~/~) für ~w~4~/~ Züge.##Feinde darin erleiden ~ur~2 Unheiligen Schaden~/~ pro Zug und erhalten ~r~-4%~/~ Magiewiderstand (stapelt bis ~w~3~/~, solange sie drin sind).##Erlaubt ~r~„Verdorrender Fluch“~/~ bis II zu stapeln; Treffer mit ~lg~„Dunkler Bolzen“~/~ oder erneuter Fluch fügt einen Stapel hinzu.##Körperteilverschlechterung: ~r~0,35%~/~ pro Zug und Stapel." },
-                { ModLanguage.Russian, "Создаёт заражённую область 3x3 на выбранной клетке (дальность: ~w~5–6~/~) на ~w~4~/~ хода.##Враги в зоне получают ~ur~2 урона нечестием~/~ за ход и ~r~-4%~/~ маг. сопротивления (до ~w~3~/~ стаков, пока внутри).##Также позволяет ~r~«Иссушающему проклятию»~/~ стакаться до II; попадание ~lg~«Тёмным зарядом»~/~ или повтор проклятия добавляет стак.##Ухудшение частей тела: ~r~0,35%~/~ за ход за стак." },
+                { ModLanguage.Chinese, "在目标格子创造3x3疫病区域（射程：~w~5–6~/~），持续~w~4~/~回合。##留在区域内的敌人每回合受到~ur~2点邪秽伤害~/~，并获得~r~-4%~/~魔法抗性（在区域内最多叠加~w~3~/~层）。##同时使~r~“凋零诅咒”~/~可叠至II。以~lg~“暗矢”~/~命中或重复诅咒可增加层数。##部位恶化变为每层每回合~r~0.35%~/~。" },
+                { ModLanguage.German, "Erzeugt ein verdorbenes 3x3-Gebiet auf dem Zielfeld (Reichweite: ~w~5–6~/~) für ~w~4~/~ Züge.##Feinde darin erleiden ~ur~2 Unheiligen Schaden~/~ pro Zug und erhalten ~r~-4%~/~ Magiewiderstand (stapelt bis ~w~3~/~, solange sie drin sind).##Erlaubt ~r~„Verdorrender Fluch“~/~ bis II zu stapeln. Treffer mit ~lg~„Dunkler Bolzen“~/~ oder erneuter Fluch fügt einen Stapel hinzu.##Körperteilverschlechterung: ~r~0,35%~/~ pro Zug und Stapel." },
+                { ModLanguage.Russian, "Создаёт заражённую область 3x3 на выбранной клетке (дальность: ~w~5–6~/~) на ~w~4~/~ хода.##Враги в зоне получают ~ur~2 урона нечестием~/~ за ход и ~r~-4%~/~ маг. сопротивления (до ~w~3~/~ стаков, пока внутри).##Также позволяет ~r~«Иссушающему проклятию»~/~ стакаться до II. Попадание ~lg~«Тёмным зарядом»~/~ или повтор проклятия добавляет стак.##Ухудшение частей тела: ~r~0,35%~/~ за ход за стак." },
             });
         RegisterSkillLocalization(
             "death_touch",
@@ -793,8 +793,14 @@ public static class NecromancyLocalization
         PendingSkillLocs.Add((id, name, description));
     }
 
+    // table_skills / table_effects rows are semicolon-delimited (id;RU;EN;...).
+    // A literal ';' inside a translation shifts every language column — English then
+    // reads leftover Russian. Strip/replace before emit.
     static string EscapeSkillCsv(string value) =>
-        (value ?? string.Empty).Replace("\\", "\\\\").Replace("\"", "\\\"");
+        (value ?? string.Empty)
+            .Replace("\\", "\\\\")
+            .Replace("\"", "\\\"")
+            .Replace(";", ".");
 
     static string LocPick(Dictionary<ModLanguage, string> texts, ModLanguage lang)
     {
