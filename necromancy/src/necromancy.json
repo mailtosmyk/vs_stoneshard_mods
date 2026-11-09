@@ -772,5 +772,32 @@
         "to": "9b1a51b6-daa2-40b3-a236-505eca5fe5f8"
       }
     ]
+  },
+  "items": {
+    "books": [
+      {
+        "id": "b7e2c914-6a3f-4d81-9c5e-1f8a0d2e4b61",
+        "name": "Necromantic Treatise II",
+        "slug": "nm_treatise_t2",
+        "type": "book",
+        "tier": 2,
+        "enabled": true,
+        "image": "s_inv_nm_treatise_t2",
+        "lootImage": "s_loot_nm_treatise",
+        "description": "A bound grimoire of rites that open the second circle of necromancy."
+      },
+      {
+        "id": "c8f3d025-7b40-4e92-ad6f-2a9b1e3f5c72",
+        "name": "Necromantic Treatise III",
+        "slug": "nm_treatise_t3",
+        "type": "book",
+        "tier": 3,
+        "enabled": true,
+        "image": "s_inv_nm_treatise_t3",
+        "lootImage": "s_loot_nm_treatise",
+        "description": "A deeper volume of death-lore that opens the third circle of necromancy."
+      }
+    ],
+    "enchant": []
   }
 }

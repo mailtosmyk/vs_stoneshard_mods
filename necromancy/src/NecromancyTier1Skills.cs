@@ -398,6 +398,7 @@ push.e 0
             "Other" => EventType.Other,
             "Draw" => EventType.Draw,
             "Mouse" => EventType.Mouse,
+            "PreCreate" => EventType.PreCreate,
             _ => throw new InvalidOperationException($"Unknown event type '{eventToken}' in '{codeFile}'.")
         };
 

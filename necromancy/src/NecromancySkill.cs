@@ -178,3 +178,51 @@ public sealed class NecromancySkill
     public string StatsObjectName =>
         Combat?.Kind == SkillCombatKind.SelfBuff ? BuffObjectName : BirthObjectName;
 }
+
+/// <summary>
+/// Data-driven item from necromancy.json <c>items</c> (books, enchants, …).
+/// </summary>
+public sealed class NecromancyItem
+{
+    public NecromancyItem(
+        string id,
+        string name,
+        string slug,
+        string type,
+        int tier,
+        bool enabled,
+        string image,
+        string lootImage,
+        string description)
+    {
+        Id = id;
+        Name = name;
+        Slug = slug;
+        Type = type;
+        Tier = tier;
+        Enabled = enabled;
+        Image = image;
+        LootImage = lootImage;
+        Description = description;
+    }
+
+    public string Id { get; }
+    public string Name { get; }
+    public string Slug { get; }
+    public string Type { get; }
+    public int Tier { get; }
+    public bool Enabled { get; }
+    public string Image { get; }
+    public string LootImage { get; }
+    public string Description { get; }
+
+    public string InvObjectName => $"o_inv_{Slug}";
+    public string LootObjectName => $"o_loot_{Slug}";
+    public string LocalizationId => Slug;
+
+    public string InvSpriteName =>
+        string.IsNullOrWhiteSpace(Image) ? $"s_inv_{Slug}" : Image;
+
+    public string LootSpriteName =>
+        string.IsNullOrWhiteSpace(LootImage) ? $"s_loot_{Slug}" : LootImage;
+}

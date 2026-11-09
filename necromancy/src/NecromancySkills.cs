@@ -23,6 +23,7 @@ public static class NecromancySkills
     public static string SchoolTarget { get; }
     public static SkillTree Tree { get; }
     public static NecromancySkill[] All { get; }
+    public static NecromancyItem[] Items { get; }
 
     static NecromancySkills()
     {
@@ -34,10 +35,14 @@ public static class NecromancySkills
         All = (root.Skills ?? Array.Empty<SkillDto>())
             .Select(MapSkill)
             .ToArray();
+        Items = MapItems(root.Items);
     }
 
     public static IEnumerable<NecromancySkill> ByTier(int tier) =>
         All.Where(s => s.Tier == tier);
+
+    public static IEnumerable<NecromancyItem> EnabledBooks =>
+        Items.Where(i => i.Enabled && string.Equals(i.Type, "book", StringComparison.OrdinalIgnoreCase));
 
     public static NecromancySkill? FindBySlug(string slug) =>
         All.FirstOrDefault(s => string.Equals(s.Slug, slug, StringComparison.OrdinalIgnoreCase));
@@ -223,6 +228,37 @@ public static class NecromancySkills
         return new SkillTree(tiers, edges);
     }
 
+    static NecromancyItem[] MapItems(ItemsDto? dto)
+    {
+        if (dto is null)
+            return Array.Empty<NecromancyItem>();
+
+        var books = (dto.Books ?? Array.Empty<ItemDto>()).Select(MapItem);
+        var enchants = (dto.Enchant ?? Array.Empty<ItemDto>()).Select(MapItem);
+        return books.Concat(enchants).ToArray();
+    }
+
+    static NecromancyItem MapItem(ItemDto dto)
+    {
+        if (string.IsNullOrWhiteSpace(dto.Id))
+            throw new InvalidOperationException("Item entry is missing id.");
+        if (string.IsNullOrWhiteSpace(dto.Name))
+            throw new InvalidOperationException($"Item '{dto.Id}' is missing name.");
+        if (string.IsNullOrWhiteSpace(dto.Slug))
+            throw new InvalidOperationException($"Item '{dto.Id}' is missing slug.");
+
+        return new NecromancyItem(
+            dto.Id,
+            dto.Name,
+            dto.Slug,
+            string.IsNullOrWhiteSpace(dto.Type) ? "book" : dto.Type.Trim(),
+            dto.Tier,
+            dto.Enabled,
+            dto.Image ?? string.Empty,
+            dto.LootImage ?? string.Empty,
+            dto.Description ?? string.Empty);
+    }
+
     sealed class NecromancyJsonRoot
     {
         public string? Id { get; set; }
@@ -230,6 +266,26 @@ public static class NecromancySkills
         public string? Target { get; set; }
         public SkillDto[]? Skills { get; set; }
         public TreeDto? Tree { get; set; }
+        public ItemsDto? Items { get; set; }
+    }
+
+    sealed class ItemsDto
+    {
+        public ItemDto[]? Books { get; set; }
+        public ItemDto[]? Enchant { get; set; }
+    }
+
+    sealed class ItemDto
+    {
+        public string? Id { get; set; }
+        public string? Name { get; set; }
+        public string? Slug { get; set; }
+        public string? Type { get; set; }
+        public int Tier { get; set; }
+        public bool Enabled { get; set; }
+        public string? Image { get; set; }
+        public string? LootImage { get; set; }
+        public string? Description { get; set; }
     }
 
     sealed class SkillDto

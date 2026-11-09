@@ -1,5 +1,6 @@
 using ModShardLauncher;
 using ModShardLauncher.Mods;
+using Necromancy.Skills;
 
 namespace Necromancy;
 
@@ -13,7 +14,40 @@ public static class NecromancyLocalization
         PatchSchool();
         PatchSkills();
         PatchBuffs();
+        PatchBooks();
         PatchSpeeches();
+    }
+
+    static void PatchBooks()
+    {
+        foreach (var book in NecromancySkills.EnabledBooks)
+        {
+            var skillLines = string.Join(
+                "#",
+                NecromancySkills.ByTier(book.Tier).Select(s => $"~lg~{s.Name}~/~"));
+
+            var mid = string.IsNullOrEmpty(skillLines)
+                ? book.Description
+                : $"##~gr~Allows you to learn the following Necromancy abilities:~/~##{skillLines}##Reading this book grants some ~y~Experience~/~.";
+
+            var name = new Dictionary<ModLanguage, string>
+            {
+                { ModLanguage.English, book.Name },
+                { ModLanguage.Russian, book.Name },
+            };
+            var type = new Dictionary<ModLanguage, string>
+            {
+                { ModLanguage.English, "Necromantic treatise" },
+                { ModLanguage.Russian, "Некромантский трактат" },
+            };
+            var description = new Dictionary<ModLanguage, string>
+            {
+                { ModLanguage.English, string.IsNullOrWhiteSpace(book.Description) ? mid : $"{book.Description}{mid}" },
+                { ModLanguage.Russian, string.IsNullOrWhiteSpace(book.Description) ? mid : $"{book.Description}{mid}" },
+            };
+
+            Msl.InjectTableItemLocalization(book.LocalizationId, name, type, description);
+        }
     }
 
     static void PatchBuffs()
