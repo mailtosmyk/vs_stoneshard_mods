@@ -28,6 +28,13 @@ if ((!is_execute) && instance_exists(owner))
     var _turns = 2.0 * (10.0 + floor(_wil / 5.0))
     var _hpPct = clamp(33.0 + floor(_wil / 2.0), 20.0, 90.0)
     var _mpPct = clamp(25.0 + floor(_wil / 3.0), 15.0, 80.0)
+    var _mastery = asset_get_index("o_nm_mastery_of_binding_ico")
+    if (_mastery != -1 && instance_exists(_mastery) && _mastery.is_open)
+    {
+        _turns += 4.0
+        _hpPct = clamp(_hpPct + 10.0, 20.0, 100.0)
+        _mpPct = clamp(_mpPct + 10.0, 15.0, 100.0)
+    }
 
     var _skel = -4
     if (object_exists(_skelObj))
@@ -99,7 +106,13 @@ if ((!is_execute) && instance_exists(owner))
     if instance_exists(o_player)
     {
         if (scr_atr("Sanity") > 70)
-            scr_psy_change("Sanity", -0.25)
+        {
+            var _san = 0.25
+            var _sealed = asset_get_index("o_nm_sealed_mind_ico")
+            if (_sealed != -1 && instance_exists(_sealed) && _sealed.is_open)
+                _san *= 0.5
+            scr_psy_change("Sanity", -_san)
+        }
         scr_allturn()
     }
 }

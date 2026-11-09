@@ -20,11 +20,14 @@ if (damage_done > 0)
         if (_curse != -1 && object_is_ancestor(target.object_index, o_unit))
         {
             var _maxStage = 1
-            // asset_get_index: bare o_nm_grave_blight_ico is unresolved when this
-            // Tier-1 bolt is compiled (ico is created later with Tier 2).
+            // asset_get_index: bare ico names are unresolved when this Tier-1 bolt
+            // is compiled (icos are created later with Tier 2/3).
             var _blightIco = asset_get_index("o_nm_grave_blight_ico")
             if (_blightIco != -1 && instance_exists(_blightIco) && _blightIco.is_open)
                 _maxStage = 2
+            var _sepIco = asset_get_index("o_nm_black_sepulchre_ico")
+            if (_sepIco != -1 && instance_exists(_sepIco) && _sepIco.is_open)
+                _maxStage = 3
             var _existing = scr_instance_exists_in_list(_curse, target.buffs)
             if (!_existing)
             {

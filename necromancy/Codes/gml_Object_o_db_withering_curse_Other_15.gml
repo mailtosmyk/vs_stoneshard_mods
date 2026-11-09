@@ -2,7 +2,9 @@ event_inherited()
 ds_map_clear(data)
 var _stage = max(1, stage)
 var _worsen = 0.25
-if (max_stage > 1)
+if (max_stage >= 3)
+    _worsen = 0.5
+else if (max_stage > 1)
     _worsen = 0.35
 with (target)
 {

@@ -364,6 +364,30 @@
           "158f368c-1e91-424c-b48a-1721b4013738"
         ],
         "skillLogic": "and"
+      },
+      "combat": {
+        "kind": "debuff",
+        "target": "object",
+        "range": "5",
+        "cooldown": 10,
+        "energy": 22,
+        "reserve": 0,
+        "duration": 0,
+        "aoeLength": 0,
+        "aoeWidth": 0,
+        "isMovement": false,
+        "pattern": "normal",
+        "class": "spell",
+        "bonusRange": true,
+        "starcast": "",
+        "fumble": 10,
+        "armorPenetration": "33",
+        "isMissile": false,
+        "selfCast": false,
+        "baseDamage": 11,
+        "healRatio": 0.45,
+        "curseDamageBonus": 0.25,
+        "essenceMagicPower": 15
       }
     },
     {
@@ -389,6 +413,29 @@
           "d3bd6b8f-6f07-4c1f-8aeb-783d0afc33b0"
         ],
         "skillLogic": "and"
+      },
+      "combat": {
+        "kind": "debuff",
+        "target": "object",
+        "range": "5",
+        "cooldown": 12,
+        "energy": 20,
+        "reserve": 0,
+        "duration": 0,
+        "aoeLength": 3,
+        "aoeWidth": 3,
+        "isMovement": false,
+        "pattern": "normal",
+        "class": "spell",
+        "bonusRange": false,
+        "starcast": "",
+        "fumble": 8,
+        "armorPenetration": "x",
+        "isMissile": false,
+        "selfCast": false,
+        "baseDamage": 8,
+        "shardPiercing": 6,
+        "staggerChance": 25
       }
     },
     {
@@ -442,6 +489,55 @@
           "158f368c-1e91-424c-b48a-1721b4013738"
         ],
         "skillLogic": "and"
+      },
+      "combat": {
+        "kind": "debuff",
+        "target": "point",
+        "range": "6",
+        "cooldown": 8,
+        "energy": 16,
+        "reserve": 0,
+        "duration": 0,
+        "aoeLength": 3,
+        "aoeWidth": 3,
+        "isMovement": false,
+        "pattern": "normal",
+        "class": "spell",
+        "bonusRange": true,
+        "starcast": "",
+        "fumble": 6,
+        "armorPenetration": "x",
+        "isMissile": false,
+        "selfCast": false,
+        "baseDamage": 6,
+        "curseMaxStage": 3,
+        "bodypartWorsen": 0.5
+      }
+    },
+    {
+      "id": "e25dc91d-b782-4565-aa0b-c8a1b1d9c21e",
+      "name": "Sealed Mind",
+      "slug": "sealed_mind",
+      "type": "passive",
+      "tier": 3,
+      "image": "s_sealed_mind",
+      "description": "Halves sanity loss of Occultism abilities.##Grants ~lg~33%~/~ Unholy Resistance.",
+      "magicPhrase": "Nox Mentis Seal!",
+      "requirements": {
+        "attributes": [
+          {
+            "stats": [
+              "WIL"
+            ],
+            "logic": "and",
+            "min": 8
+          }
+        ],
+        "skills": [
+          "d3bd6b8f-6f07-4c1f-8aeb-783d0afc33b0",
+          "843edbb5-af68-43b7-8432-271739444e99"
+        ],
+        "skillLogic": "or"
       }
     },
     {

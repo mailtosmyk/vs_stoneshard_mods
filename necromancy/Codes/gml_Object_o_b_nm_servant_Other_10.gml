@@ -29,4 +29,9 @@ with (target)
     // Keep the pet on the player turn queue (required for Other_10 AI ticks).
     if (instance_exists(o_player) && ds_list_find_index(o_player.enemylist, id) < 0)
         ds_list_add(o_player.enemylist, id)
+
+    // Clickable unbind buff (Mastery of Binding makes dismiss free + restores MP).
+    var _unbind = asset_get_index("o_b_nm_unbind")
+    if (_unbind != -1 && (!scr_instance_exists_in_list(_unbind, buffs)))
+        scr_effect_create(_unbind, -1, id, id)
 }

@@ -397,6 +397,7 @@ push.e 0
             "Step" => EventType.Step,
             "Other" => EventType.Other,
             "Draw" => EventType.Draw,
+            "Mouse" => EventType.Mouse,
             _ => throw new InvalidOperationException($"Unknown event type '{eventToken}' in '{codeFile}'.")
         };
 

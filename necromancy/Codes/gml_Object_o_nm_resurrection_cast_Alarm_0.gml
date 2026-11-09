@@ -15,13 +15,20 @@ if ((unit_object == o_Hive) || (unit_object == o_hornethive) || (unit_object == 
     return;
 }
 var _pct = restore_percent
-if is_crit
+var _mastery = asset_get_index("o_nm_mastery_of_binding_ico")
+var _hasMastery = (_mastery != -1 && instance_exists(_mastery) && _mastery.is_open)
+if _hasMastery
+    _pct = 0.6
+else if is_crit
     _pct = 0.55
 else
     _pct = 0.5 + (0.05 * (owner.Magic_Power / 100))
-_pct = clamp(_pct, 0.5, 0.55)
+if (!_hasMastery)
+    _pct = clamp(_pct, 0.5, 0.55)
 var _mpPct = 0.5
 var _cap = (owner.LVL + 3)
+if _hasMastery
+    _cap += 1
 
 // Drop previous lasting thrall (tagged nm_resurrection).
 with (o_enemy)
@@ -93,7 +100,11 @@ if instance_exists(owner)
 {
     if is_player(owner)
     {
-        scr_psy_change("Sanity", -0.25)
+        var _san = 0.25
+        var _sealed = asset_get_index("o_nm_sealed_mind_ico")
+        if (_sealed != -1 && instance_exists(_sealed) && _sealed.is_open)
+            _san *= 0.5
+        scr_psy_change("Sanity", -_san)
         scr_allturn()
     }
 }

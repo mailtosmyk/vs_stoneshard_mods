@@ -10,4 +10,10 @@ with (o_b_bless)
         instance_destroy()
 }
 if (_san > 60)
-    scr_psy_change("Sanity", -0.01)
+{
+    var _sanLoss = 0.01
+    var _sealed = asset_get_index("o_nm_sealed_mind_ico")
+    if (_sealed != -1 && instance_exists(_sealed) && _sealed.is_open)
+        _sanLoss *= 0.5
+    scr_psy_change("Sanity", -_sanLoss)
+}
