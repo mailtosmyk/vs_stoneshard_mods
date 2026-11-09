@@ -52,7 +52,7 @@
         "Russian": "Костяной щит"
       },
       "description": {
-        "English": "Activates \"Bone Ward\" for 4 turns (+1 turn if a corpse is adjacent): +12% Physical Resistance, +15% Bleed Resistance, +10% Magic Resistance, +10% Move Resistance. When the effect expires or is activated again, bone shards deal 4 Unholy and 3 Piercing Damage to all adjacent enemies, with 50% chance to Stagger them.",
+        "English": "Activates \"Bone Ward\" for 8 turns (+1 turn if a corpse is adjacent): +12% Physical Resistance, +15% Bleed Resistance, +10% Magic Resistance, +10% Move Resistance. When the effect expires or is activated again, bone shards deal 4 Unholy and 3 Piercing Damage to all adjacent enemies, with 50% chance to Stagger them.",
         "Japanese": "「骨の守護」を4ターン発動する（隣接に死体がある場合+1ターン）：物理耐性+12%、出血耐性+15%、魔法耐性+10%、移動耐性+10%。効果終了時または再発動時、骨片が隣接する全敵に不浄ダメージ4と刺突ダメージ3を与え、50%の確率でよろけさせる。",
         "Chinese": "激活“骸骨结界”，持续4回合（相邻有尸体时+1回合）：+12%物理抗性、+15%出血抗性、+10%魔法抗性、+10%移动抗性。效果结束或再次激活时，骨片对所有相邻敌人造成4点邪秽伤害与3点穿刺伤害，并有50%几率使其踉跄。",
         "German": "Aktiviert „Knochenwächter“ für 4 Züge (+1 Zug, wenn eine Leiche angrenzt): +12% physischer Widerstand, +15% Blutungswiderstand, +10% Magiewiderstand, +10% Bewegungswiderstand. Beim Auslaufen oder erneuten Aktivieren fügen Knochensplitter allen angrenzenden Feinden 4 Unheiligen und 3 Stichschaden zu, mit 50% Chance zu staunen.",

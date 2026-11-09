@@ -18,7 +18,7 @@ Type: Active
 Level: 1
 Requirements: None (entry skill)
 Image: s_bone_ward
-Description: Activates "Bone Ward" for 4 turns (+1 turn if a corpse is adjacent): +12% Physical Resistance, +15% Bleed Resistance, +10% Magic Resistance, +10% Move Resistance. When the effect expires or is activated again, bone shards deal 4 Unholy and 3 Piercing Damage to all adjacent enemies, with 50% chance to Stagger them.
+Description: Activates "Bone Ward" for 8 turns (+1 turn if a corpse is adjacent): +12% Physical Resistance, +15% Bleed Resistance, +10% Magic Resistance, +10% Move Resistance. When the effect expires or is activated again, bone shards deal 4 Unholy and 3 Piercing Damage to all adjacent enemies, with 50% chance to Stagger them.
 
 Name: Summon Skeleton
 Type: Active
