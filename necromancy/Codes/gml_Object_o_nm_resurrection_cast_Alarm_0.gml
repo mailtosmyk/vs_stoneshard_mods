@@ -29,8 +29,17 @@ var _mpPct = 0.5
 var _cap = (owner.LVL + 3)
 if _hasMastery
     _cap += 1
+var _turns = 20.0
 
-// Drop previous lasting thrall (tagged nm_resurrection).
+// Drop previous thrall timer (Destroy unbinds the linked thrall).
+var _timer = asset_get_index("o_b_nm_thrall_timer")
+if (_timer != -1 && instance_exists(owner))
+{
+    with (scr_instance_exists_in_list(_timer, owner.buffs))
+        instance_destroy()
+}
+
+// Drop previous lasting thrall (tagged nm_resurrection) if timer miss.
 with (o_enemy)
 {
     if (variable_instance_exists(id, "nm_resurrection") && nm_resurrection)
@@ -56,6 +65,7 @@ with (scr_enemy_create(x, y, unit_object, false))
     {
         nm_resurrection = true
         nm_summon = true
+        nm_summon_turns = _turns
         owner = other.owner
         can_drop_loot = false
         loot_script = -4
@@ -92,6 +102,16 @@ with (scr_enemy_create(x, y, unit_object, false))
 var _servant = asset_get_index("o_b_nm_servant")
 if (instance_exists(_thrall) && _servant != -1)
     scr_effect_create(_servant, -1, _thrall, owner)
+
+if (instance_exists(_thrall) && _timer != -1 && instance_exists(owner))
+{
+    var _buff = scr_effect_create(_timer, _turns, owner, owner)
+    if instance_exists(_buff)
+    {
+        with (_buff)
+            nm_thrall = _thrall
+    }
+}
 
 with (target)
     instance_destroy()

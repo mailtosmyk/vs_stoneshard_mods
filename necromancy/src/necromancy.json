@@ -241,7 +241,7 @@
       "type": "active",
       "tier": 2,
       "image": "s_resurrection",
-      "description": "Reanimates a targeted corpse as a lasting Undead at ~lg~50–55%~/~ Max Health / ~lg~50%~/~ Max Energy and sets Armor Durability to ~w~0%~/~.##Increases morale (up to ~lg~70%~/~).##Slowly decreases Sanity but no less than ~r~60%~/~.##Can't summon Undead higher than the skill's level cap.##Prevents receiving ~ly~\"Blessing\"~/~.",
+      "description": "Reanimates a targeted corpse as an Undead for ~w~20~/~ turns at ~lg~50%~/~ Max Health / ~lg~50%~/~ Max Energy and sets Armor Durability to ~w~0%~/~.##The animated corpse has a chance to lose control.##Increases morale (up to ~lg~70%~/~).##Slowly decreases Sanity but no less than ~r~60%~/~.##Can't summon Undead higher than the skill's level cap.##Prevents receiving ~ly~\"Blessing\"~/~.",
       "magicPhrase": "Lagur! Lagur! Lagur!",
       "requirements": {
         "attributes": [
@@ -512,32 +512,6 @@
         "baseDamage": 6,
         "curseMaxStage": 3,
         "bodypartWorsen": 0.5
-      }
-    },
-    {
-      "id": "e25dc91d-b782-4565-aa0b-c8a1b1d9c21e",
-      "name": "Sealed Mind",
-      "slug": "sealed_mind",
-      "type": "passive",
-      "tier": 3,
-      "image": "s_sealed_mind",
-      "description": "Halves sanity loss of Occultism abilities.##Grants ~lg~33%~/~ Unholy Resistance.",
-      "magicPhrase": "Nox Mentis Seal!",
-      "requirements": {
-        "attributes": [
-          {
-            "stats": [
-              "WIL"
-            ],
-            "logic": "and",
-            "min": 8
-          }
-        ],
-        "skills": [
-          "d3bd6b8f-6f07-4c1f-8aeb-783d0afc33b0",
-          "843edbb5-af68-43b7-8432-271739444e99"
-        ],
-        "skillLogic": "or"
       }
     },
     {

@@ -1,6 +1,6 @@
 if ((!instance_exists(owner)) || (!instance_exists(target)))
     return;
-Unholy_Damage = 7
+Unholy_Damage = 8
 event_inherited()
 if (damage_done > 0)
 {

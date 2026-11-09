@@ -11,7 +11,7 @@ Type: Active
 Level: 1
 Requirements: None (entry skill)
 Image: s_desecration
-Description: Shoots a bolt of dark energy (Range: 6), dealing 7 Unholy Damage with Accuracy. If the spell hits the target, burns its Energy for 33% of the damage dealt and replenishes the same amount of Energy to the caster. Grants Unholy Damage for 8–10 turns. This effect doesn't stack.
+Description: Shoots a bolt of dark energy (Range: 6), dealing 8 Unholy Damage with Accuracy. If the spell hits the target, burns its Energy for 33% of the damage dealt and replenishes the same amount of Energy to the caster. Grants Unholy Damage for 8–10 turns. This effect doesn't stack.
 
 Name: Bone Ward
 Type: Active
@@ -57,7 +57,7 @@ Type: Active
 Level: 2
 Requirements: Attributes: PRC or Vitality or WIL >= 6; Skills: Summon Skeleton
 Image: s_resurrection
-Description: Reanimates a targeted corpse as a lasting Undead at 50–55% Max Health / 50% Max Energy and sets Armor Durability to 0%. Increases morale (up to 70%). Slowly decreases Sanity but no less than 60%. Can't summon Undead higher than the skill's level cap. Prevents receiving "Blessing".
+Description: Reanimates a targeted corpse as an Undead for 20 turns at 50% Max Health / 50% Max Energy and sets Armor Durability to 0%. The animated corpse has a chance to lose control. Increases morale (up to 70%). Slowly decreases Sanity but no less than 60%. Can't summon Undead higher than the skill's level cap. Prevents receiving "Blessing".
 
 Name: Grave Blight
 Type: Active

@@ -27,11 +27,11 @@
         "Russian": "Тёмный заряд"
       },
       "description": {
-        "English": "Shoots a bolt of dark energy, dealing 7 Unholy Damage with Accuracy. If the spell hits the target, burns its Energy for 33% of the damage dealt and replenishes the same amount of Energy to the caster. Grants Unholy Damage for 8 turns. This effect doesn't stack.",
-        "Japanese": "暗黒エネルギーのボルトを放ち、命中時に7の不浄ダメージを与える。命中すると、与ダメージの33%分のエネルギーを焼き、同量を術者に回復する。8ターンの間、不浄ダメージを付与する。この効果は重複しない。",
-        "Chinese": "射出一道黑暗能量箭，造成7点邪秽伤害（需命中）。若命中目标，按其受到伤害的33%燃烧能量，并将等量能量回复给施法者。赋予邪秽伤害，持续8回合。此效果不叠加。",
-        "German": "Schießt einen Blitz dunkler Energie, der 7 Unheiligen Schaden mit Treffergenauigkeit verursacht. Bei einem Treffer verbrennt der Zauber 33% des verursachten Schadens als Energie und stellt dem Wirker denselben Betrag wieder her. Gewährt Unheiligen Schaden für 8 Züge. Dieser Effekt stapelt nicht.",
-        "Russian": "Выпускает заряд тёмной энергии, наносящий 7 урона нечестием с учётом точности. При попадании сжигает энергию цели в размере 33% от нанесённого урона и восстанавливает столько же энергии заклинателю. Даёт урон нечестием на 8 ходов. Эффект не стакается."
+        "English": "Shoots a bolt of dark energy, dealing 8 Unholy Damage with Accuracy. If the spell hits the target, burns its Energy for 33% of the damage dealt and replenishes the same amount of Energy to the caster. Grants Unholy Damage for 8 turns. This effect doesn't stack.",
+        "Japanese": "暗黒エネルギーのボルトを放ち、命中時に8の不浄ダメージを与える。命中すると、与ダメージの33%分のエネルギーを焼き、同量を術者に回復する。8ターンの間、不浄ダメージを付与する。この効果は重複しない。",
+        "Chinese": "射出一道黑暗能量箭，造成8点邪秽伤害（需命中）。若命中目标，按其受到伤害的33%燃烧能量，并将等量能量回复给施法者。赋予邪秽伤害，持续8回合。此效果不叠加。",
+        "German": "Schießt einen Blitz dunkler Energie, der 8 Unheiligen Schaden mit Treffergenauigkeit verursacht. Bei einem Treffer verbrennt der Zauber 33% des verursachten Schadens als Energie und stellt dem Wirker denselben Betrag wieder her. Gewährt Unheiligen Schaden für 8 Züge. Dieser Effekt stapelt nicht.",
+        "Russian": "Выпускает заряд тёмной энергии, наносящий 8 урона нечестием с учётом точности. При попадании сжигает энергию цели в размере 33% от нанесённого урона и восстанавливает столько же энергии заклинателю. Даёт урон нечестием на 8 ходов. Эффект не стакается."
       },
       "magicPhrase": {
         "English": "In Nag Zur...",
@@ -177,11 +177,11 @@
         "Russian": "Воскрешение"
       },
       "description": {
-        "English": "Reanimates a targeted corpse as a lasting Undead at 50–55% Max Health / 50% Max Energy and sets Armor Durability to 0%. Increases morale (up to 70%). Slowly decreases Sanity but no less than 60%. Can't summon Undead higher than the skill's level cap. Prevents receiving \"Blessing\".",
-        "Japanese": "対象の死体を永続アンデッドとして蘇生する（最大体力50〜55% / 最大エネルギー50%、防具耐久0%）。士気を上昇（最大70%）。正気を徐々に減少させるが60%未満にはならない。スキルのレベル上限を超えるアンデッドは召喚不可。「祝福」を受けられない。",
-        "Chinese": "将目标尸体复活为持久亡灵（50–55%最大生命 / 50%最大能量，护甲耐久设为0%）。提升士气（最高70%）。缓慢降低理智但不低于60%。无法召唤高于技能等级上限的亡灵。无法获得“祝福”。",
-        "German": "Belebt eine gezielte Leiche als dauerhaften Untoten mit 50–55% max. Gesundheit / 50% max. Energie und setzt die Rüstungshalbarkeit auf 0%. Erhöht die Moral (bis 70%). Senkt langsam den Verstand, aber nicht unter 60%. Keine Untoten über dem Level-Limit. Verhindert „Segen“.",
-        "Russian": "Оживляет выбранный труп как постоянную нежить при 50–55% макс. здоровья / 50% макс. энергии и ставит прочность брони на 0%. Повышает мораль (до 70%). Медленно снижает рассудок, но не ниже 60%. Нельзя призвать нежить выше уровня навыка. Запрещает получение «Благословения»."
+        "English": "Reanimates a targeted corpse as an Undead for 20 turns at 50% Max Health / 50% Max Energy and sets Armor Durability to 0%. The animated corpse has a chance to lose control. Increases morale (up to 70%). Slowly decreases Sanity but no less than 60%. Can't summon Undead higher than the skill's level cap. Prevents receiving \"Blessing\".",
+        "Japanese": "対象の死体を20ターンのアンデッドとして蘇生する（最大体力50% / 最大エネルギー50%、防具耐久0%）。蘇生した死体は制御を失うことがある。士気を上昇（最大70%）。正気を徐々に減少させるが60%未満にはならない。スキルのレベル上限を超えるアンデッドは召喚不可。「祝福」を受けられない。",
+        "Chinese": "将目标尸体复活为亡灵，持续20回合（50%最大生命 / 50%最大能量，护甲耐久设为0%）。复活的尸体有几率失控。提升士气（最高70%）。缓慢降低理智但不低于60%。无法召唤高于技能等级上限的亡灵。无法获得“祝福”。",
+        "German": "Belebt eine gezielte Leiche als Untoten für 20 Züge mit 50% max. Gesundheit / 50% max. Energie und setzt die Rüstungshalbarkeit auf 0%. Die belebte Leiche kann die Kontrolle verlieren. Erhöht die Moral (bis 70%). Senkt langsam den Verstand, aber nicht unter 60%. Keine Untoten über dem Level-Limit. Verhindert „Segen“.",
+        "Russian": "Оживляет выбранный труп как нежить на 20 ходов при 50% макс. здоровья / 50% макс. энергии и ставит прочность брони на 0%. Оживлённый труп может выйти из-под контроля. Повышает мораль (до 70%). Медленно снижает рассудок, но не ниже 60%. Нельзя призвать нежить выше уровня навыка. Запрещает получение «Благословения»."
       },
       "magicPhrase": {
         "English": "Lagur! Lagur! Lagur!",

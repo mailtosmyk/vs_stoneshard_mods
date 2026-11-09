@@ -131,6 +131,15 @@ public static class NecromancyTier2Skills
             isAwake: true,
             collisionShapeFlags: CollisionShapeFlags.Circle);
 
+        var thrallTimer = Msl.AddObject(
+            name: "o_b_nm_thrall_timer",
+            spriteName: "s_resurrection",
+            parentName: "o_magical_buff",
+            isVisible: true,
+            isPersistent: false,
+            isAwake: true,
+            collisionShapeFlags: CollisionShapeFlags.Circle);
+
         var blightImpact = Msl.AddObject(
             name: "o_nm_grave_blight_impact",
             spriteName: "s_grave_blight",
@@ -200,6 +209,12 @@ public static class NecromancyTier2Skills
         NecromancyTier1Skills.ApplyEventAndReplace(resCast, modFiles,
             "gml_Object_o_nm_resurrection_cast_Create_0.gml",
             "gml_Object_o_nm_resurrection_cast_Alarm_0.gml");
+
+        NecromancyTier1Skills.ApplyEventAndReplace(thrallTimer, modFiles,
+            "gml_Object_o_b_nm_thrall_timer_Create_0.gml",
+            "gml_Object_o_b_nm_thrall_timer_Other_10.gml",
+            "gml_Object_o_b_nm_thrall_timer_Alarm_2.gml",
+            "gml_Object_o_b_nm_thrall_timer_Destroy_0.gml");
 
         NecromancyTier1Skills.ApplyEventAndReplace(blightImpact, modFiles,
             "gml_Object_o_nm_grave_blight_impact_Create_0.gml",

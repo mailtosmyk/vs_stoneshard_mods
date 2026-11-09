@@ -133,6 +133,25 @@ public static class NecromancyLocalization
             });
 
         RegisterBuffLocalization(
+            "o_b_nm_thrall_timer",
+            new Dictionary<ModLanguage, string>
+            {
+                { ModLanguage.English, "Resurrection" },
+                { ModLanguage.Japanese, "復活" },
+                { ModLanguage.Chinese, "复活" },
+                { ModLanguage.German, "Auferstehung" },
+                { ModLanguage.Russian, "Воскрешение" },
+            },
+            new Dictionary<ModLanguage, string>
+            {
+                { ModLanguage.English, "A reanimated Undead fights for you.##Ends early if the thrall is destroyed." },
+                { ModLanguage.Japanese, "蘇生したアンデッドが味方として戦う。##スレイブが倒れると効果は終了する。" },
+                { ModLanguage.Chinese, "复活的亡灵为你而战。##仆从被摧毁时提前结束。" },
+                { ModLanguage.German, "Ein wiederbelebter Untoter kämpft für dich.##Endet vorzeitig, wenn der Diener zerstört wird." },
+                { ModLanguage.Russian, "Оживлённая нежить сражается на вашей стороне.##Заканчивается раньше, если слуга уничтожен." },
+            });
+
+        RegisterBuffLocalization(
             "o_b_nm_essence_charge",
             new Dictionary<ModLanguage, string>
             {
@@ -406,11 +425,11 @@ public static class NecromancyLocalization
             },
             new Dictionary<ModLanguage, string>
             {
-                { ModLanguage.English, "Shoots a bolt of dark energy, dealing ~ur~7 Unholy Damage~/~ with Accuracy.##If the spell hits the target, burns its Energy for ~lg~33%~/~ of the damage dealt and replenishes the same amount of Energy to the caster.##Grants Unholy Damage for ~w~8 turns~/~.##This effect doesn't stack." },
-                { ModLanguage.Japanese, "暗黒エネルギーのボルトを放ち、命中時に~ur~7の不浄ダメージ~/~を与える。##命中すると、与ダメージの~lg~33%~/~分のエネルギーを焼き、同量を術者に回復する。##~w~8ターン~/~の間、不浄ダメージを付与する。##この効果は重複しない。" },
-                { ModLanguage.Chinese, "射出一道黑暗能量箭，造成~ur~7点邪秽伤害~/~（需命中）。##若命中目标，按其受到伤害的~lg~33%~/~燃烧能量，并将等量能量回复给施法者。##赋予邪秽伤害，持续~w~8回合~/~。##此效果不叠加。" },
-                { ModLanguage.German, "Schießt einen Blitz dunkler Energie, der ~ur~7 Unheiligen Schaden~/~ mit Treffergenauigkeit verursacht.##Bei einem Treffer verbrennt der Zauber ~lg~33%~/~ des verursachten Schadens als Energie und stellt dem Wirker denselben Betrag wieder her.##Gewährt Unheiligen Schaden für ~w~8 Züge~/~.##Dieser Effekt stapelt nicht." },
-                { ModLanguage.Russian, "Выпускает заряд тёмной энергии, наносящий ~ur~7 урона нечестием~/~ с учётом точности.##При попадании сжигает энергию цели в размере ~lg~33%~/~ от нанесённого урона и восстанавливает столько же энергии заклинателю.##Даёт урон нечестием на ~w~8 ходов~/~.##Эффект не стакается." },
+                { ModLanguage.English, "Shoots a bolt of dark energy, dealing ~ur~8 Unholy Damage~/~ with Accuracy.##If the spell hits the target, burns its Energy for ~lg~33%~/~ of the damage dealt and replenishes the same amount of Energy to the caster.##Grants Unholy Damage for ~w~8 turns~/~.##This effect doesn't stack." },
+                { ModLanguage.Japanese, "暗黒エネルギーのボルトを放ち、命中時に~ur~8の不浄ダメージ~/~を与える。##命中すると、与ダメージの~lg~33%~/~分のエネルギーを焼き、同量を術者に回復する。##~w~8ターン~/~の間、不浄ダメージを付与する。##この効果は重複しない。" },
+                { ModLanguage.Chinese, "射出一道黑暗能量箭，造成~ur~8点邪秽伤害~/~（需命中）。##若命中目标，按其受到伤害的~lg~33%~/~燃烧能量，并将等量能量回复给施法者。##赋予邪秽伤害，持续~w~8回合~/~。##此效果不叠加。" },
+                { ModLanguage.German, "Schießt einen Blitz dunkler Energie, der ~ur~8 Unheiligen Schaden~/~ mit Treffergenauigkeit verursacht.##Bei einem Treffer verbrennt der Zauber ~lg~33%~/~ des verursachten Schadens als Energie und stellt dem Wirker denselben Betrag wieder her.##Gewährt Unheiligen Schaden für ~w~8 Züge~/~.##Dieser Effekt stapelt nicht." },
+                { ModLanguage.Russian, "Выпускает заряд тёмной энергии, наносящий ~ur~8 урона нечестием~/~ с учётом точности.##При попадании сжигает энергию цели в размере ~lg~33%~/~ от нанесённого урона и восстанавливает столько же энергии заклинателю.##Даёт урон нечестием на ~w~8 ходов~/~.##Эффект не стакается." },
             });
         RegisterSkillLocalization(
             "bone_ward",
@@ -562,11 +581,11 @@ public static class NecromancyLocalization
             },
             new Dictionary<ModLanguage, string>
             {
-                { ModLanguage.English, "Reanimates a targeted corpse as a lasting Undead at ~lg~50–55%~/~ Max Health / ~lg~50%~/~ Max Energy and sets Armor Durability to ~w~0%~/~.##Increases morale (up to ~lg~70%~/~).##Slowly decreases Sanity but no less than ~r~60%~/~.##Can't summon Undead higher than the skill's level cap.##Prevents receiving ~ly~\"Blessing\"~/~." },
-                { ModLanguage.Japanese, "対象の死体を永続アンデッドとして蘇生する（最大体力~lg~50〜55%~/~ / 最大エネルギー~lg~50%~/~、防具耐久~w~0%~/~）。##士気を上昇（最大~lg~70%~/~）。##正気を徐々に減少させるが~r~60%~/~未満にはならない。##スキルのレベル上限を超えるアンデッドは召喚不可。##「祝福」を受けられない。" },
-                { ModLanguage.Chinese, "将目标尸体复活为持久亡灵（~lg~50–55%~/~最大生命 / ~lg~50%~/~最大能量，护甲耐久设为~w~0%~/~）。##提升士气（最高~lg~70%~/~）。##缓慢降低理智但不低于~r~60%~/~。##无法召唤高于技能等级上限的亡灵。##无法获得“祝福”。" },
-                { ModLanguage.German, "Belebt eine gezielte Leiche als dauerhaften Untoten mit ~lg~50–55%~/~ max. Gesundheit / ~lg~50%~/~ max. Energie und setzt die Rüstungshalbarkeit auf ~w~0%~/~.##Erhöht die Moral (bis ~lg~70%~/~).##Senkt langsam den Verstand, aber nicht unter ~r~60%~/~.##Keine Untoten über dem Level-Limit.##Verhindert „Segen“." },
-                { ModLanguage.Russian, "Оживляет выбранный труп как постоянную нежить при ~lg~50–55%~/~ макс. здоровья / ~lg~50%~/~ макс. энергии и ставит прочность брони на ~w~0%~/~.##Повышает мораль (до ~lg~70%~/~).##Медленно снижает рассудок, но не ниже ~r~60%~/~.##Нельзя призвать нежить выше уровня навыка.##Запрещает получение «Благословения»." },
+                { ModLanguage.English, "Reanimates a targeted corpse as an Undead for ~w~20~/~ turns at ~lg~50%~/~ Max Health / ~lg~50%~/~ Max Energy and sets Armor Durability to ~w~0%~/~.##The animated corpse has a chance to lose control.##Increases morale (up to ~lg~70%~/~).##Slowly decreases Sanity but no less than ~r~60%~/~.##Can't summon Undead higher than the skill's level cap.##Prevents receiving ~ly~\"Blessing\"~/~." },
+                { ModLanguage.Japanese, "対象の死体を~w~20~/~ターンのアンデッドとして蘇生する（最大体力~lg~50%~/~ / 最大エネルギー~lg~50%~/~、防具耐久~w~0%~/~）。##蘇生した死体は制御を失うことがある。##士気を上昇（最大~lg~70%~/~）。##正気を徐々に減少させるが~r~60%~/~未満にはならない。##スキルのレベル上限を超えるアンデッドは召喚不可。##「祝福」を受けられない。" },
+                { ModLanguage.Chinese, "将目标尸体复活为亡灵，持续~w~20~/~回合（~lg~50%~/~最大生命 / ~lg~50%~/~最大能量，护甲耐久设为~w~0%~/~）。##复活的尸体有几率失控。##提升士气（最高~lg~70%~/~）。##缓慢降低理智但不低于~r~60%~/~。##无法召唤高于技能等级上限的亡灵。##无法获得“祝福”。" },
+                { ModLanguage.German, "Belebt eine gezielte Leiche als Untoten für ~w~20~/~ Züge mit ~lg~50%~/~ max. Gesundheit / ~lg~50%~/~ max. Energie und setzt die Rüstungshalbarkeit auf ~w~0%~/~.##Die belebte Leiche kann die Kontrolle verlieren.##Erhöht die Moral (bis ~lg~70%~/~).##Senkt langsam den Verstand, aber nicht unter ~r~60%~/~.##Keine Untoten über dem Level-Limit.##Verhindert „Segen“." },
+                { ModLanguage.Russian, "Оживляет выбранный труп как нежить на ~w~20~/~ ходов при ~lg~50%~/~ макс. здоровья / ~lg~50%~/~ макс. энергии и ставит прочность брони на ~w~0%~/~.##Оживлённый труп может выйти из-под контроля.##Повышает мораль (до ~lg~70%~/~).##Медленно снижает рассудок, но не ниже ~r~60%~/~.##Нельзя призвать нежить выше уровня навыка.##Запрещает получение «Благословения»." },
             });
         RegisterSkillLocalization(
             "grave_blight",
