@@ -106,6 +106,18 @@ if instance_exists(owner)
             _san *= 0.5
         scr_psy_change("Sanity", -_san)
         scr_allturn()
+        var _arch = asset_get_index("o_nm_archtheurgy_ico")
+        if (_arch != -1 && instance_exists(_arch))
+            with (_arch) event_user(3)
+        var _bloom = asset_get_index("o_nm_blooming_madness_ico")
+        if (_bloom != -1 && instance_exists(_bloom) && instance_exists(_thrall))
+        {
+            with (_bloom)
+            {
+                nm_pending_thrall = _thrall
+                event_user(3)
+            }
+        }
     }
 }
 instance_destroy()

@@ -174,6 +174,25 @@ public static class NecromancyLocalization
                 { ModLanguage.Russian, "~r~-4%~/~ маг. сопротивления за стак (до III), пока в порче." },
             });
 
+        RegisterBuffLocalization(
+            "o_b_nm_ascension",
+            new Dictionary<ModLanguage, string>
+            {
+                { ModLanguage.English, "Ascension" },
+                { ModLanguage.Japanese, "昇華" },
+                { ModLanguage.Chinese, "升扬" },
+                { ModLanguage.German, "Aufstieg" },
+                { ModLanguage.Russian, "Вознесение" },
+            },
+            new Dictionary<ModLanguage, string>
+            {
+                { ModLanguage.English, "~lg~+33%~/~ Unholy Resistance#~lg~+66%~/~ Miracle Potency##Converts Unholy Damage into Sacred Damage." },
+                { ModLanguage.Japanese, "~lg~+33%~/~不浄耐性#~lg~+66%~/~奇跡効力##不浄ダメージを聖なるダメージへ変換する。" },
+                { ModLanguage.Chinese, "~lg~+33%~/~邪秽抗性#~lg~+66%~/~奇迹效力##将邪秽伤害转化为神圣伤害。" },
+                { ModLanguage.German, "~lg~+33%~/~ Unheiliger Widerstand#~lg~+66%~/~ Wunderstärke##Wandelt Unheiligen Schaden in Heiligen Schaden um." },
+                { ModLanguage.Russian, "~lg~+33%~/~ сопротивления нечестию#~lg~+66%~/~ силы чудес##Преобразует урон нечестием в священный урон." },
+            });
+
         Msl.LoadGML("gml_GlobalScript_table_effects")
             .Apply(InjectNecromancyTableEffectsRows)
             .Save();

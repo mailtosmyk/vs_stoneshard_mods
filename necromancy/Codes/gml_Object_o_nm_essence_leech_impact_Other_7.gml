@@ -60,6 +60,9 @@ with (owner)
                 }
             }
         }
+        var _arch = asset_get_index("o_nm_archtheurgy_ico")
+        if (_arch != -1 && instance_exists(_arch))
+            with (_arch) event_user(3)
     }
 }
 event_inherited()

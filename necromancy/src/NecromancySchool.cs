@@ -15,16 +15,18 @@ public static class NecromancySchool
     public const string Tier1Global = "global.necromancy_tier1";
     public const string Tier2Global = "global.necromancy_tier2";
     public const string Tier3Global = "global.necromancy_tier3";
+    public const string Tier4Global = "global.necromancy_tier4";
 
     public static void Patch(ModFile modFiles)
     {
         var tier1 = NecromancySkills.ByTier(1).ToArray();
         var tier2 = NecromancySkills.ByTier(2).ToArray();
         var tier3 = NecromancySkills.ByTier(3).ToArray();
+        var tier4 = NecromancySkills.ByTier(4).ToArray();
         if (tier1.Length == 0)
             throw new InvalidOperationException("necromancy.json has no tier 1 skills.");
 
-        EnsureSpriteOrigins(tier1.Concat(tier2).Concat(tier3));
+        EnsureSpriteOrigins(tier1.Concat(tier2).Concat(tier3).Concat(tier4));
 
         var category = Msl.AddObject(
             name: CategoryObjectName,
@@ -49,20 +51,24 @@ public static class NecromancySchool
             // Events already present — ForceReplace below refreshes them.
         }
 
-        WriteCategoryEvents(tier1, tier2, tier3);
+        WriteCategoryEvents(tier1, tier2, tier3, tier4);
 
         InsertCategoryIntoSkillMenu();
-        InsertTierGlobals(tier1, tier2, tier3);
+        InsertTierGlobals(tier1, tier2, tier3, tier4);
         UnlockTier1OnSkillPanelInit();
     }
 
     /// <summary>
     /// Icon strip + layout derived from necromancy.json (not stale Codes/*.gml).
-    /// Tier 1 at Y=55, Tier 2 at Y=118, Tier 3 at Y=181.
+    /// Tier 1 at Y=55, Tier 2 at Y=118, Tier 3 at Y=181, Tier 4 at Y=244.
     /// </summary>
-    static void WriteCategoryEvents(NecromancySkill[] tier1, NecromancySkill[] tier2, NecromancySkill[] tier3)
+    static void WriteCategoryEvents(
+        NecromancySkill[] tier1,
+        NecromancySkill[] tier2,
+        NecromancySkill[] tier3,
+        NecromancySkill[] tier4)
     {
-        var icons = string.Join(", ", tier1.Concat(tier2).Concat(tier3).Select(s => s.IconObjectName));
+        var icons = string.Join(", ", tier1.Concat(tier2).Concat(tier3).Concat(tier4).Select(s => s.IconObjectName));
         WriteGml(
             "gml_Object_o_skill_category_necromancy_Create_0",
             "event_inherited()\n" +
@@ -72,7 +78,7 @@ public static class NecromancySchool
             "is_execute = false\n" +
             "owner = gml_Script_scr_GetMobParametr\n");
 
-        // Tree-ish X placement: T1 evenly spaced; T2/T3 under parents where possible.
+        // Tree-ish X placement: T1 evenly spaced; T2/T3/T4 under parents where possible.
         var layout = new System.Text.StringBuilder("event_inherited()\n");
         var t1Xs = new[] { 33, 81, 130, 178, 226 };
         for (var i = 0; i < tier1.Length; i++)
@@ -127,6 +133,27 @@ public static class NecromancySchool
                 .Append(", ")
                 .Append(x)
                 .Append(", 181, 1)\n");
+        }
+
+        // T4 under parents: Archtheurgy (Death Touch), Immortality (Corpse Burst),
+        // Blooming Madness + Wraith (Mastery).
+        var t4X = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase)
+        {
+            ["archtheurgy"] = 24,
+            ["immortality"] = 62,
+            ["blooming_madness"] = 138,
+            ["wraith_summoning"] = 176,
+        };
+        for (var i = 0; i < tier4.Length; i++)
+        {
+            var x = t4X.TryGetValue(tier4[i].Slug, out var mapped)
+                ? mapped
+                : (i < fallbackXs.Length ? fallbackXs[i] : fallbackXs[^1] + (i - fallbackXs.Length + 1) * 38);
+            layout.Append("scr_guiLayoutOffsetUpdate(")
+                .Append(tier4[i].IconObjectName)
+                .Append(", ")
+                .Append(x)
+                .Append(", 244, 1)\n");
         }
 
         WriteGml("gml_Object_o_skill_category_necromancy_Other_24", layout.ToString());
@@ -211,7 +238,11 @@ public static class NecromancySchool
             .Save();
     }
 
-    static void InsertTierGlobals(NecromancySkill[] tier1, NecromancySkill[] tier2, NecromancySkill[] tier3)
+    static void InsertTierGlobals(
+        NecromancySkill[] tier1,
+        NecromancySkill[] tier2,
+        NecromancySkill[] tier3,
+        NecromancySkill[] tier4)
     {
         var t1Icons = string.Join(", ", tier1.Select(s => s.IconObjectName));
         var gml = "\n" + Tier1Global + " = [\"" + NecromancySkills.SchoolName + "\", " + t1Icons + "]\n";
@@ -225,6 +256,12 @@ public static class NecromancySchool
         {
             var t3Icons = string.Join(", ", tier3.Select(s => s.IconObjectName));
             gml += Tier3Global + " = [\"" + NecromancySkills.SchoolName + "\", " + t3Icons + "]\n";
+        }
+
+        if (tier4.Length > 0)
+        {
+            var t4Icons = string.Join(", ", tier4.Select(s => s.IconObjectName));
+            gml += Tier4Global + " = [\"" + NecromancySkills.SchoolName + "\", " + t4Icons + "]\n";
         }
 
         Msl.LoadGML("gml_GlobalScript_scr_skill_tier_init")

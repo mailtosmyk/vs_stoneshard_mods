@@ -643,6 +643,27 @@
           "ed75d3c9-c735-438a-b430-205ad8478419"
         ],
         "skillLogic": "and"
+      },
+      "combat": {
+        "kind": "summon",
+        "target": "point",
+        "range": "6",
+        "cooldown": 9,
+        "energy": 30,
+        "reserve": 0,
+        "duration": 0,
+        "aoeLength": 0,
+        "aoeWidth": 0,
+        "isMovement": false,
+        "pattern": "normal",
+        "class": "spell",
+        "bonusRange": false,
+        "starcast": "",
+        "fumble": 8,
+        "armorPenetration": "x",
+        "isMissile": false,
+        "selfCast": false,
+        "levelCapBonus": 3
       }
     }
   ],
