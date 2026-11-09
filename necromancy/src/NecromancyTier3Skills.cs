@@ -120,11 +120,12 @@ public static class NecromancyTier3Skills
             isAwake: true,
             collisionShapeFlags: CollisionShapeFlags.Circle);
 
+        // Keep impact logic; hide skill-icon sprite so it does not appear as a floating "sculpture".
         var sepulchreImpact = Msl.AddObject(
             name: "o_nm_black_sepulchre_impact",
             spriteName: "s_black_sepulchre",
             parentName: "o_magic_pillar",
-            isVisible: true,
+            isVisible: false,
             isPersistent: false,
             isAwake: true,
             collisionShapeFlags: CollisionShapeFlags.Circle);
