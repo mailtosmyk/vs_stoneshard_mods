@@ -1,6 +1,5 @@
-1 re arrange skills
-
-2 some skills out of place
+1 re arrange skills — Resurrection←Summon Skeleton; Grave Blight+Death's Blessing←Bone Ward; layout under parents
+2 some skills out of place — Grave Blight moved under Bone Ward (was shifted right of Desecration)
 3 summoned skeleton (ally) kill don't add experience — fixed: patch o_enemy Destroy for nm_summon + sticky owner
-4 some translation point to rus
+4 some translation point to rus — skill table upsert so grave_blight gets EN column on re-patch
 5 some translation show incorrect numbers 50-55%

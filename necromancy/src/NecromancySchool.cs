@@ -83,12 +83,13 @@ public static class NecromancySchool
                 .Append(", 55, 1)\n");
         }
 
-        // Essence Leech / Grave Blight under Desecration; Blessing / Resurrection under Bone Ward.
+        // Essence Leech under Desecration; Death's Blessing + Grave Blight under Bone Ward;
+        // Resurrection under Summon Skeleton.
         var t2X = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase)
         {
-            ["essence_leech"] = 24,
-            ["grave_blight"] = 52,
-            ["deaths_blessing"] = 100,
+            ["essence_leech"] = 33,
+            ["deaths_blessing"] = 62,
+            ["grave_blight"] = 100,
             ["resurrection"] = 138,
         };
         var fallbackXs = new[] { 24, 62, 100, 138, 176 };

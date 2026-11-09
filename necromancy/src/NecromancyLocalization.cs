@@ -72,11 +72,11 @@ public static class NecromancyLocalization
             },
             new Dictionary<ModLanguage, string>
             {
-                { ModLanguage.English, "~ur~+Unholy Damage~/~##Granted by ~lg~\"Desecration\"~/~. Does not stack." },
-                { ModLanguage.Japanese, "~ur~+不浄ダメージ~/~##~lg~「冒涜」~/~により付与。重複しない。" },
-                { ModLanguage.Chinese, "~ur~+不洁伤害~/~##由~lg~\"亵渎\"~/~赋予。不可叠加。" },
-                { ModLanguage.German, "~ur~+Unheiliger Schaden~/~##Durch ~lg~\"Entweihung\"~/~ gewährt. Stapelt nicht." },
-                { ModLanguage.Russian, "~ur~+нечестивого урона~/~##Даётся ~lg~\"Осквернением\"~/~. Не суммируется." },
+                { ModLanguage.English, "~ur~+Unholy Damage~/~##Granted by ~lg~\"Dark Bolt\"~/~. Does not stack." },
+                { ModLanguage.Japanese, "~ur~+不浄ダメージ~/~##~lg~「ダークボルト」~/~により付与。重複しない。" },
+                { ModLanguage.Chinese, "~ur~+不洁伤害~/~##由~lg~\"暗矢\"~/~赋予。不可叠加。" },
+                { ModLanguage.German, "~ur~+Unheiliger Schaden~/~##Durch ~lg~\"Dunkler Bolzen\"~/~ gewährt. Stapelt nicht." },
+                { ModLanguage.Russian, "~ur~+нечестивого урона~/~##Даётся ~lg~\"Тёмным зарядом\"~/~. Не суммируется." },
             });
 
         RegisterBuffLocalization(
@@ -337,19 +337,19 @@ public static class NecromancyLocalization
             "desecration",
             new Dictionary<ModLanguage, string>
             {
-                { ModLanguage.English, "Desecration" },
-                { ModLanguage.Japanese, "冒涜" },
-                { ModLanguage.Chinese, "亵渎" },
-                { ModLanguage.German, "Entweihung" },
-                { ModLanguage.Russian, "Осквернение" },
+                { ModLanguage.English, "Dark Bolt" },
+                { ModLanguage.Japanese, "ダークボルト" },
+                { ModLanguage.Chinese, "暗矢" },
+                { ModLanguage.German, "Dunkler Bolzen" },
+                { ModLanguage.Russian, "Тёмный заряд" },
             },
             new Dictionary<ModLanguage, string>
             {
-                { ModLanguage.English, "Desecration" },
-                { ModLanguage.Japanese, "冒涜" },
-                { ModLanguage.Chinese, "亵渎" },
-                { ModLanguage.German, "Entweihung" },
-                { ModLanguage.Russian, "Осквернение" },
+                { ModLanguage.English, "Dark Bolt" },
+                { ModLanguage.Japanese, "ダークボルト" },
+                { ModLanguage.Chinese, "暗矢" },
+                { ModLanguage.German, "Dunkler Bolzen" },
+                { ModLanguage.Russian, "Тёмный заряд" },
             },
             new Dictionary<ModLanguage, string>
             {
@@ -431,11 +431,11 @@ public static class NecromancyLocalization
             },
             new Dictionary<ModLanguage, string>
             {
-                { ModLanguage.English, "Applies the target with ~r~\"Withering Curse\"~/~ for ~w~10~/~ turns (Range: ~w~6~/~):##~r~-8%~/~ Fortitude#~r~-8%~/~ Magic Resistance#~r~-5%~/~ Max Health#~lg~+3%~/~ Damage Taken##Each turn worsens a random body part by ~r~0.25%~/~.##Hitting with ~lg~\"Desecration\"~/~ or repeating the spell on the same target refreshes the duration (does not stack at Tier 1)." },
-                { ModLanguage.Japanese, "対象に~r~「枯死の呪い」~/~を~w~10~/~ターン付与する（射程: ~w~6~/~）：##~r~-8%~/~頑健#~r~-8%~/~魔法耐性#~r~-5%~/~最大体力#~lg~+3%~/~被ダメージ##毎ターン、ランダムな部位の状態を~r~0.25%~/~悪化させる。##~lg~「冒涜」~/~の命中または同一対象への再詠唱で持続を更新する（ティア1では重複しない）。" },
-                { ModLanguage.Chinese, "对目标施加~r~“凋零诅咒”~/~，持续~w~10~/~回合（射程：~w~6~/~）：##~r~-8%~/~坚韧#~r~-8%~/~魔法抗性#~r~-5%~/~最大生命#~lg~+3%~/~受到伤害##每回合使随机部位状态恶化~r~0.25%~/~。##以~lg~“亵渎”~/~命中或对同一目标重复施放会刷新持续时间（第1阶不叠加）。" },
-                { ModLanguage.German, "Belegt das Ziel mit ~r~„Verdorrender Fluch“~/~ für ~w~10~/~ Züge (Reichweite: ~w~6~/~):##~r~-8%~/~ Zähigkeit#~r~-8%~/~ Magiewiderstand#~r~-5%~/~ max. Gesundheit#~lg~+3%~/~ erlittener Schaden##Jeder Zug verschlechtert einen zufälligen Körperteil um ~r~0,25%~/~.##Treffer mit ~lg~„Entweihung“~/~ oder erneutes Wirken auf dasselbe Ziel erneuert die Dauer (stapelt nicht auf Stufe 1)." },
-                { ModLanguage.Russian, "Накладывает на цель ~r~«Иссушающее проклятие»~/~ на ~w~10~/~ ходов (дальность: ~w~6~/~):##~r~-8%~/~ стойкости#~r~-8%~/~ маг. сопротивления#~r~-5%~/~ макс. здоровья#~lg~+3%~/~ получаемого урона##Каждый ход ухудшает случайную часть тела на ~r~0,25%~/~.##Попадание ~lg~«Осквернением»~/~ или повторное применение обновляет длительность (на 1-м ярусе не стакается)." },
+                { ModLanguage.English, "Applies the target with ~r~\"Withering Curse\"~/~ for ~w~10~/~ turns (Range: ~w~6~/~):##~r~-8%~/~ Fortitude#~r~-8%~/~ Magic Resistance#~r~-5%~/~ Max Health#~lg~+3%~/~ Damage Taken##Each turn worsens a random body part by ~r~0.25%~/~.##Hitting with ~lg~\"Dark Bolt\"~/~ or repeating the spell on the same target refreshes the duration (does not stack at Tier 1)." },
+                { ModLanguage.Japanese, "対象に~r~「枯死の呪い」~/~を~w~10~/~ターン付与する（射程: ~w~6~/~）：##~r~-8%~/~頑健#~r~-8%~/~魔法耐性#~r~-5%~/~最大体力#~lg~+3%~/~被ダメージ##毎ターン、ランダムな部位の状態を~r~0.25%~/~悪化させる。##~lg~「ダークボルト」~/~の命中または同一対象への再詠唱で持続を更新する（ティア1では重複しない）。" },
+                { ModLanguage.Chinese, "对目标施加~r~“凋零诅咒”~/~，持续~w~10~/~回合（射程：~w~6~/~）：##~r~-8%~/~坚韧#~r~-8%~/~魔法抗性#~r~-5%~/~最大生命#~lg~+3%~/~受到伤害##每回合使随机部位状态恶化~r~0.25%~/~。##以~lg~“暗矢”~/~命中或对同一目标重复施放会刷新持续时间（第1阶不叠加）。" },
+                { ModLanguage.German, "Belegt das Ziel mit ~r~„Verdorrender Fluch“~/~ für ~w~10~/~ Züge (Reichweite: ~w~6~/~):##~r~-8%~/~ Zähigkeit#~r~-8%~/~ Magiewiderstand#~r~-5%~/~ max. Gesundheit#~lg~+3%~/~ erlittener Schaden##Jeder Zug verschlechtert einen zufälligen Körperteil um ~r~0,25%~/~.##Treffer mit ~lg~„Dunkler Bolzen“~/~ oder erneutes Wirken auf dasselbe Ziel erneuert die Dauer (stapelt nicht auf Stufe 1)." },
+                { ModLanguage.Russian, "Накладывает на цель ~r~«Иссушающее проклятие»~/~ на ~w~10~/~ ходов (дальность: ~w~6~/~):##~r~-8%~/~ стойкости#~r~-8%~/~ маг. сопротивления#~r~-5%~/~ макс. здоровья#~lg~+3%~/~ получаемого урона##Каждый ход ухудшает случайную часть тела на ~r~0,25%~/~.##Попадание ~lg~«Тёмным зарядом»~/~ или повторное применение обновляет длительность (на 1-м ярусе не стакается)." },
             });
         RegisterSkillLocalization(
             "essence_leech",
@@ -535,11 +535,11 @@ public static class NecromancyLocalization
             },
             new Dictionary<ModLanguage, string>
             {
-                { ModLanguage.English, "Creates a blighted 3x3 area on the targeted tile (Range: ~w~5–6~/~) for ~w~4~/~ turns.##Enemies remaining in the area take ~ur~2 Unholy Damage~/~ per turn and gain ~r~-4%~/~ Magic Resistance (stacks up to ~w~3~/~ while inside).##Also allows ~r~\"Withering Curse\"~/~ to stack up to II; hitting with ~lg~\"Desecration\"~/~ or repeating the curse adds a stack.##Bodypart worsen becomes ~r~0.35%~/~ per turn per stack." },
-                { ModLanguage.Japanese, "対象タイルに3x3の疫病地帯を~w~4~/~ターン生成する（射程: ~w~5〜6~/~）。##領域内の敵は毎ターン~ur~不浄ダメージ2~/~を受け、魔法耐性~r~-4%~/~を得る（内部で最大~w~3~/~スタック）。##~r~「枯死の呪い」~/~を最大IIまで重複可能にし、~lg~「冒涜」~/~の命中または呪いの再詠唱でスタック追加。##部位悪化はスタックごとに毎ターン~r~0.35%~/~。" },
-                { ModLanguage.Chinese, "在目标格子创造3x3疫病区域（射程：~w~5–6~/~），持续~w~4~/~回合。##留在区域内的敌人每回合受到~ur~2点邪秽伤害~/~，并获得~r~-4%~/~魔法抗性（在区域内最多叠加~w~3~/~层）。##同时使~r~“凋零诅咒”~/~可叠至II；以~lg~“亵渎”~/~命中或重复诅咒可增加层数。##部位恶化变为每层每回合~r~0.35%~/~。" },
-                { ModLanguage.German, "Erzeugt ein verdorbenes 3x3-Gebiet auf dem Zielfeld (Reichweite: ~w~5–6~/~) für ~w~4~/~ Züge.##Feinde darin erleiden ~ur~2 Unheiligen Schaden~/~ pro Zug und erhalten ~r~-4%~/~ Magiewiderstand (stapelt bis ~w~3~/~, solange sie drin sind).##Erlaubt ~r~„Verdorrender Fluch“~/~ bis II zu stapeln; Treffer mit ~lg~„Entweihung“~/~ oder erneuter Fluch fügt einen Stapel hinzu.##Körperteilverschlechterung: ~r~0,35%~/~ pro Zug und Stapel." },
-                { ModLanguage.Russian, "Создаёт заражённую область 3x3 на выбранной клетке (дальность: ~w~5–6~/~) на ~w~4~/~ хода.##Враги в зоне получают ~ur~2 урона нечестием~/~ за ход и ~r~-4%~/~ маг. сопротивления (до ~w~3~/~ стаков, пока внутри).##Также позволяет ~r~«Иссушающему проклятию»~/~ стакаться до II; попадание ~lg~«Осквернением»~/~ или повтор проклятия добавляет стак.##Ухудшение частей тела: ~r~0,35%~/~ за ход за стак." },
+                { ModLanguage.English, "Creates a blighted 3x3 area on the targeted tile (Range: ~w~5–6~/~) for ~w~4~/~ turns.##Enemies remaining in the area take ~ur~2 Unholy Damage~/~ per turn and gain ~r~-4%~/~ Magic Resistance (stacks up to ~w~3~/~ while inside).##Also allows ~r~\"Withering Curse\"~/~ to stack up to II; hitting with ~lg~\"Dark Bolt\"~/~ or repeating the curse adds a stack.##Bodypart worsen becomes ~r~0.35%~/~ per turn per stack." },
+                { ModLanguage.Japanese, "対象タイルに3x3の疫病地帯を~w~4~/~ターン生成する（射程: ~w~5〜6~/~）。##領域内の敵は毎ターン~ur~不浄ダメージ2~/~を受け、魔法耐性~r~-4%~/~を得る（内部で最大~w~3~/~スタック）。##~r~「枯死の呪い」~/~を最大IIまで重複可能にし、~lg~「ダークボルト」~/~の命中または呪いの再詠唱でスタック追加。##部位悪化はスタックごとに毎ターン~r~0.35%~/~。" },
+                { ModLanguage.Chinese, "在目标格子创造3x3疫病区域（射程：~w~5–6~/~），持续~w~4~/~回合。##留在区域内的敌人每回合受到~ur~2点邪秽伤害~/~，并获得~r~-4%~/~魔法抗性（在区域内最多叠加~w~3~/~层）。##同时使~r~“凋零诅咒”~/~可叠至II；以~lg~“暗矢”~/~命中或重复诅咒可增加层数。##部位恶化变为每层每回合~r~0.35%~/~。" },
+                { ModLanguage.German, "Erzeugt ein verdorbenes 3x3-Gebiet auf dem Zielfeld (Reichweite: ~w~5–6~/~) für ~w~4~/~ Züge.##Feinde darin erleiden ~ur~2 Unheiligen Schaden~/~ pro Zug und erhalten ~r~-4%~/~ Magiewiderstand (stapelt bis ~w~3~/~, solange sie drin sind).##Erlaubt ~r~„Verdorrender Fluch“~/~ bis II zu stapeln; Treffer mit ~lg~„Dunkler Bolzen“~/~ oder erneuter Fluch fügt einen Stapel hinzu.##Körperteilverschlechterung: ~r~0,35%~/~ pro Zug und Stapel." },
+                { ModLanguage.Russian, "Создаёт заражённую область 3x3 на выбранной клетке (дальность: ~w~5–6~/~) на ~w~4~/~ хода.##Враги в зоне получают ~ur~2 урона нечестием~/~ за ход и ~r~-4%~/~ маг. сопротивления (до ~w~3~/~ стаков, пока внутри).##Также позволяет ~r~«Иссушающему проклятию»~/~ стакаться до II; попадание ~lg~«Тёмным зарядом»~/~ или повтор проклятия добавляет стак.##Ухудшение частей тела: ~r~0,35%~/~ за ход за стак." },
             });
         RegisterSkillLocalization(
             "death_touch",
@@ -820,6 +820,8 @@ public static class NecromancyLocalization
     {
         const string nameMarker = "\";skill_name_end;";
         const string descMarker = "\";skill_desc_end;";
+        // First-patch insert uses desecration as the guard that names were already added.
+        const string nameGuard = "\"desecration;";
 
         var nameInsert = new System.Text.StringBuilder();
         var descInsert = new System.Text.StringBuilder();
@@ -836,22 +838,71 @@ public static class NecromancyLocalization
         foreach (var line in lines)
         {
             var result = line;
-            if (result.Contains(nameMarker, StringComparison.Ordinal) &&
-                !result.Contains("\"desecration;", StringComparison.Ordinal))
+            if (result.Contains(nameMarker, StringComparison.Ordinal))
             {
-                result = result.Replace(nameMarker, nameText + nameMarker, StringComparison.Ordinal);
+                if (result.Contains(nameGuard, StringComparison.Ordinal))
+                {
+                    // Re-patch: upsert every skill so newly added skills (e.g. grave_blight)
+                    // get EN/RU columns instead of falling back to a wrong language.
+                    foreach (var entry in PendingSkillLocs)
+                        result = UpsertSkillsCsvRow(result, entry.Id, entry.Name, nameMarker);
+                }
+                else
+                {
+                    result = result.Replace(nameMarker, nameText + nameMarker, StringComparison.Ordinal);
+                }
             }
 
-            // Name rows may already contain "desecration;" on the same giant return line,
-            // so guard skill_desc with the Russian description prefix instead.
-            if (result.Contains(descMarker, StringComparison.Ordinal) &&
-                !result.Contains(descGuard, StringComparison.Ordinal))
+            if (result.Contains(descMarker, StringComparison.Ordinal))
             {
-                result = result.Replace(descMarker, descText + descMarker, StringComparison.Ordinal);
+                if (result.Contains(descGuard, StringComparison.Ordinal) ||
+                    result.Contains(nameGuard, StringComparison.Ordinal))
+                {
+                    foreach (var entry in PendingSkillLocs)
+                        result = UpsertSkillsCsvRow(result, entry.Id, entry.Desc, descMarker);
+                }
+                else
+                {
+                    result = result.Replace(descMarker, descText + descMarker, StringComparison.Ordinal);
+                }
             }
 
             yield return result;
         }
+    }
+
+    /// <summary>
+    /// Upsert one skill CSV row inside the matching name/desc section of table_skills.
+    /// Columns: id;RU;EN;ZH;DE;ES;FR;IT;PT;PL;TR;JA;KO — EN must stay in the EN slot.
+    /// </summary>
+    static string UpsertSkillsCsvRow(
+        string line,
+        string id,
+        Dictionary<ModLanguage, string> texts,
+        string sectionEndMarker)
+    {
+        var newRow = SkillCsvRow(id, texts);
+        var sectionEnd = line.IndexOf(sectionEndMarker, StringComparison.Ordinal);
+        if (sectionEnd < 0)
+            return line;
+
+        var sectionStartMarker = sectionEndMarker.Contains("skill_name", StringComparison.Ordinal)
+            ? "\";skill_name;"
+            : "\";skill_desc;";
+        var sectionStart = line.LastIndexOf(sectionStartMarker, sectionEnd, StringComparison.Ordinal);
+        if (sectionStart < 0)
+            sectionStart = 0;
+
+        var needle = "\"" + id + ";";
+        var start = line.IndexOf(needle, sectionStart, StringComparison.Ordinal);
+        if (start >= 0 && start < sectionEnd)
+        {
+            var end = line.IndexOf("\",", start, StringComparison.Ordinal);
+            if (end >= 0 && end < sectionEnd)
+                return line.Substring(0, start) + newRow + line.Substring(end + 2);
+        }
+
+        return line.Substring(0, sectionEnd) + newRow + line.Substring(sectionEnd);
     }
 
     static void PatchSpeeches()

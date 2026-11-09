@@ -42,16 +42,89 @@ public static class NecromancyTier1Skills
     /// </summary>
     static void PatchSummonKillExperience()
     {
-        Msl.LoadGML("gml_Object_o_enemy_Destroy_0")
-            .MatchFromUntil(
-                "if (instance_is(last_attacker, o_summoned_entity) && is_player(last_attacker.owner))",
-                "_is_player_attacker = true")
-            .ReplaceBy(
-                "if (instance_is(last_attacker, o_summoned_entity) && is_player(last_attacker.owner))\n" +
-                "                _is_player_attacker = true\n" +
-                "            else if (instance_exists(last_attacker) && variable_instance_exists(last_attacker, \"nm_summon\") && last_attacker.nm_summon && variable_instance_exists(last_attacker, \"owner\") && is_player(last_attacker.owner))\n" +
-                "                _is_player_attacker = true")
+        // o_enemy Destroy does not round-trip through LoadGML (UTMT decompile emits
+        // forms ReplaceGML cannot parse). Patch the summon-credit bytecode instead,
+        // same approach as BW-s-Necromancy EnemyDestroyIterator.
+        Msl.LoadAssemblyAsString("gml_Object_o_enemy_Destroy_0")
+            .Apply(SummonKillExperienceAsm)
             .Save();
+    }
+
+    /// <summary>
+    /// Vanilla credits XP when last_attacker is o_summoned_entity owned by the player.
+    /// When that instance_is check fails it pushes false ([156] push.e 0). Replace that
+    /// false with an nm_summon + owner-is-player check so skeleton/thrall kills count.
+    /// </summary>
+    static IEnumerable<string> SummonKillExperienceAsm(IEnumerable<string> input)
+    {
+        var lines = input as IList<string> ?? input.ToList();
+        if (lines.Any(l => l.Contains("nm_summon", StringComparison.Ordinal)))
+            return lines;
+
+        var status = 0;
+        var output = new List<string>(lines.Count + 32);
+        foreach (var item in lines)
+        {
+            if (status == 0 && item.Contains("gml_Script_instance_is(argc=2)", StringComparison.Ordinal))
+            {
+                status = 1;
+                output.Add(item);
+            }
+            else if (status == 1 && item.Trim() == ":[156]")
+            {
+                status = 2;
+                output.Add(item);
+            }
+            else if (status == 2 && item.Trim() == "push.e 0")
+            {
+                status = 3;
+                // When not o_summoned_entity, credit nm_summon thralls owned by the player.
+                output.Add(@"
+push.v self.last_attacker
+call.i instance_exists(argc=1)
+conv.v.b
+bf [9002]
+
+push.s ""nm_summon""
+conv.s.v
+push.v self.last_attacker
+call.i variable_instance_exists(argc=2)
+conv.v.b
+bf [9002]
+
+push.s ""nm_summon""
+conv.s.v
+push.v self.last_attacker
+call.i variable_instance_get(argc=2)
+conv.v.b
+bf [9002]
+
+push.v self.last_attacker
+pushi.e -9
+push.v [stacktop]self.owner
+call.i gml_Script_is_player(argc=1)
+conv.v.b
+b [9003]
+
+:[9002]
+push.e 0
+
+:[9003]
+");
+            }
+            else
+            {
+                output.Add(item);
+            }
+        }
+
+        if (status != 3)
+        {
+            throw new Exception(
+                "Necromancy: summon XP assembly patch site not found in gml_Object_o_enemy_Destroy_0");
+        }
+
+        return output;
     }
 
     static void CreateSkillObjects(NecromancySkill skill, ModFile modFiles)

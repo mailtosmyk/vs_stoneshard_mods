@@ -20,11 +20,11 @@
       "id": "59a5ba7d-bfe3-4136-8bff-3621fa584499",
       "slug": "desecration",
       "name": {
-        "English": "Desecration",
-        "Japanese": "冒涜",
-        "Chinese": "亵渎",
-        "German": "Entweihung",
-        "Russian": "Осквернение"
+        "English": "Dark Bolt",
+        "Japanese": "ダークボルト",
+        "Chinese": "暗矢",
+        "German": "Dunkler Bolzen",
+        "Russian": "Тёмный заряд"
       },
       "description": {
         "English": "Shoots a bolt of dark energy, dealing 7 Unholy Damage with Accuracy. If the spell hits the target, burns its Energy for 33% of the damage dealt and replenishes the same amount of Energy to the caster. Grants Unholy Damage for 8 turns. This effect doesn't stack.",
@@ -102,11 +102,11 @@
         "Russian": "Иссушающее проклятие"
       },
       "description": {
-        "English": "Applies the target with \"Withering Curse\" for 10 turns (Range: 6): -8% Fortitude, -8% Magic Resistance, -5% Max Health, +3% Damage Taken. Each turn worsens a random body part by 0.25%. Hitting with \"Desecration\" or repeating the spell on the same target refreshes the duration (does not stack at Tier 1).",
-        "Japanese": "対象に「枯死の呪い」を10ターン付与する（射程: 6）：頑健-8%、魔法耐性-8%、最大体力-5%、被ダメージ+3%。毎ターン、ランダムな部位の状態を0.25%悪化させる。「冒涜」の命中または同一対象への再詠唱で持続を更新する（ティア1では重複しない）。",
-        "Chinese": "对目标施加“凋零诅咒”，持续10回合（射程：6）：-8%坚韧、-8%魔法抗性、-5%最大生命、+3%受到伤害。每回合使随机部位状态恶化0.25%。以“亵渎”命中或对同一目标重复施放会刷新持续时间（第1阶不叠加）。",
-        "German": "Belegt das Ziel mit „Verdorrender Fluch“ für 10 Züge (Reichweite: 6): -8% Zähigkeit, -8% Magiewiderstand, -5% max. Gesundheit, +3% erlittener Schaden. Jeder Zug verschlechtert einen zufälligen Körperteil um 0,25%. Treffer mit „Entweihung“ oder erneutes Wirken auf dasselbe Ziel erneuert die Dauer (stapelt nicht auf Stufe 1).",
-        "Russian": "Накладывает на цель «Иссушающее проклятие» на 10 ходов (дальность: 6): -8% стойкости, -8% маг. сопротивления, -5% макс. здоровья, +3% получаемого урона. Каждый ход ухудшает случайную часть тела на 0,25%. Попадание «Осквернением» или повторное применение обновляет длительность (на 1-м ярусе не стакается)."
+        "English": "Applies the target with \"Withering Curse\" for 10 turns (Range: 6): -8% Fortitude, -8% Magic Resistance, -5% Max Health, +3% Damage Taken. Each turn worsens a random body part by 0.25%. Hitting with \"Dark Bolt\" or repeating the spell on the same target refreshes the duration (does not stack at Tier 1).",
+        "Japanese": "対象に「枯死の呪い」を10ターン付与する（射程: 6）：頑健-8%、魔法耐性-8%、最大体力-5%、被ダメージ+3%。毎ターン、ランダムな部位の状態を0.25%悪化させる。「ダークボルト」の命中または同一対象への再詠唱で持続を更新する（ティア1では重複しない）。",
+        "Chinese": "对目标施加“凋零诅咒”，持续10回合（射程：6）：-8%坚韧、-8%魔法抗性、-5%最大生命、+3%受到伤害。每回合使随机部位状态恶化0.25%。以“暗矢”命中或对同一目标重复施放会刷新持续时间（第1阶不叠加）。",
+        "German": "Belegt das Ziel mit „Verdorrender Fluch“ für 10 Züge (Reichweite: 6): -8% Zähigkeit, -8% Magiewiderstand, -5% max. Gesundheit, +3% erlittener Schaden. Jeder Zug verschlechtert einen zufälligen Körperteil um 0,25%. Treffer mit „Dunkler Bolzen“ oder erneutes Wirken auf dasselbe Ziel erneuert die Dauer (stapelt nicht auf Stufe 1).",
+        "Russian": "Накладывает на цель «Иссушающее проклятие» на 10 ходов (дальность: 6): -8% стойкости, -8% маг. сопротивления, -5% макс. здоровья, +3% получаемого урона. Каждый ход ухудшает случайную часть тела на 0,25%. Попадание «Тёмным зарядом» или повторное применение обновляет длительность (на 1-м ярусе не стакается)."
       },
       "magicPhrase": {
         "English": "Shaggrath Azud...",
@@ -202,11 +202,11 @@
         "Russian": "Могильная порча"
       },
       "description": {
-        "English": "Creates a blighted 3x3 area on the targeted tile (Range: 5–6) for 4 turns. Enemies remaining in the area take 2 Unholy Damage per turn and gain -4% Magic Resistance (stacks up to 3 while inside). Also allows \"Withering Curse\" to stack up to II; hitting with \"Desecration\" or repeating the curse adds a stack. Bodypart worsen becomes 0.35% per turn per stack.",
-        "Japanese": "対象タイルに3x3の疫病地帯を4ターン生成する（射程: 5〜6）。領域内の敵は毎ターン不浄ダメージ2を受け、魔法耐性-4%を得る（内部で最大3スタック）。「枯死の呪い」を最大IIまで重複可能にし、「冒涜」の命中または呪いの再詠唱でスタック追加。部位悪化はスタックごとに毎ターン0.35%。",
-        "Chinese": "在目标格子创造3x3疫病区域（射程：5–6），持续4回合。留在区域内的敌人每回合受到2点邪秽伤害，并获得-4%魔法抗性（在区域内最多叠加3层）。同时使“凋零诅咒”可叠至II；以“亵渎”命中或重复诅咒可增加层数。部位恶化变为每层每回合0.35%。",
-        "German": "Erzeugt ein verdorbenes 3x3-Gebiet auf dem Zielfeld (Reichweite: 5–6) für 4 Züge. Feinde darin erleiden 2 Unheiligen Schaden pro Zug und erhalten -4% Magiewiderstand (stapelt bis 3, solange sie drin sind). Erlaubt „Verdorrender Fluch“ bis II zu stapeln; Treffer mit „Entweihung“ oder erneuter Fluch fügt einen Stapel hinzu. Körperteilverschlechterung: 0,35% pro Zug und Stapel.",
-        "Russian": "Создаёт заражённую область 3x3 на выбранной клетке (дальность: 5–6) на 4 хода. Враги в зоне получают 2 урона нечестием за ход и -4% маг. сопротивления (до 3 стаков, пока внутри). Также позволяет «Иссушающему проклятию» стакаться до II; попадание «Осквернением» или повтор проклятия добавляет стак. Ухудшение частей тела: 0,35% за ход за стак."
+        "English": "Creates a blighted 3x3 area on the targeted tile (Range: 5–6) for 4 turns. Enemies remaining in the area take 2 Unholy Damage per turn and gain -4% Magic Resistance (stacks up to 3 while inside). Also allows \"Withering Curse\" to stack up to II; hitting with \"Dark Bolt\" or repeating the curse adds a stack. Bodypart worsen becomes 0.35% per turn per stack.",
+        "Japanese": "対象タイルに3x3の疫病地帯を4ターン生成する（射程: 5〜6）。領域内の敵は毎ターン不浄ダメージ2を受け、魔法耐性-4%を得る（内部で最大3スタック）。「枯死の呪い」を最大IIまで重複可能にし、「ダークボルト」の命中または呪いの再詠唱でスタック追加。部位悪化はスタックごとに毎ターン0.35%。",
+        "Chinese": "在目标格子创造3x3疫病区域（射程：5–6），持续4回合。留在区域内的敌人每回合受到2点邪秽伤害，并获得-4%魔法抗性（在区域内最多叠加3层）。同时使“凋零诅咒”可叠至II；以“暗矢”命中或重复诅咒可增加层数。部位恶化变为每层每回合0.35%。",
+        "German": "Erzeugt ein verdorbenes 3x3-Gebiet auf dem Zielfeld (Reichweite: 5–6) für 4 Züge. Feinde darin erleiden 2 Unheiligen Schaden pro Zug und erhalten -4% Magiewiderstand (stapelt bis 3, solange sie drin sind). Erlaubt „Verdorrender Fluch“ bis II zu stapeln; Treffer mit „Dunkler Bolzen“ oder erneuter Fluch fügt einen Stapel hinzu. Körperteilverschlechterung: 0,35% pro Zug und Stapel.",
+        "Russian": "Создаёт заражённую область 3x3 на выбранной клетке (дальность: 5–6) на 4 хода. Враги в зоне получают 2 урона нечестием за ход и -4% маг. сопротивления (до 3 стаков, пока внутри). Также позволяет «Иссушающему проклятию» стакаться до II; попадание «Тёмным зарядом» или повтор проклятия добавляет стак. Ухудшение частей тела: 0,35% за ход за стак."
       },
       "magicPhrase": {
         "English": "Morgath En'ther!",

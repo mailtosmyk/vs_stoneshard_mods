@@ -9,7 +9,7 @@
   "skills": [
     {
       "id": "59a5ba7d-bfe3-4136-8bff-3621fa584499",
-      "name": "Desecration",
+      "name": "Dark Bolt",
       "slug": "desecration",
       "type": "active",
       "tier": 1,
@@ -256,7 +256,7 @@
           }
         ],
         "skills": [
-          "03f04616-3f5d-4881-82e7-3b74492777b1"
+          "6e7735a0-a0ff-4271-8ac1-00648052a83c"
         ],
         "skillLogic": "and"
       },
@@ -294,7 +294,7 @@
       "type": "active",
       "tier": 2,
       "image": "s_grave_blight",
-      "description": "Creates a blighted 3x3 area on the targeted tile (Range: ~w~5–6~/~) for ~w~4~/~ turns.##Enemies remaining in the area take ~ur~2 Unholy Damage~/~ per turn and gain ~r~-4%~/~ Magic Resistance (stacks up to ~w~3~/~ while inside).##Also allows ~r~\"Withering Curse\"~/~ to stack up to II; hitting with ~lg~\"Desecration\"~/~ or repeating the curse adds a stack.##Bodypart worsen becomes ~r~0.35%~/~ per turn per stack.",
+      "description": "Creates a blighted 3x3 area on the targeted tile (Range: ~w~5–6~/~) for ~w~4~/~ turns.##Enemies remaining in the area take ~ur~2 Unholy Damage~/~ per turn and gain ~r~-4%~/~ Magic Resistance (stacks up to ~w~3~/~ while inside).##Also allows ~r~\"Withering Curse\"~/~ to stack up to II; hitting with ~lg~\"Dark Bolt\"~/~ or repeating the curse adds a stack.##Bodypart worsen becomes ~r~0.35%~/~ per turn per stack.",
       "magicPhrase": "Morgath En'ther!",
       "requirements": {
         "attributes": [
@@ -308,7 +308,7 @@
           }
         ],
         "skills": [
-          "59a5ba7d-bfe3-4136-8bff-3621fa584499"
+          "03f04616-3f5d-4881-82e7-3b74492777b1"
         ],
         "skillLogic": "and"
       },
@@ -600,11 +600,11 @@
       },
       {
         "from": "03f04616-3f5d-4881-82e7-3b74492777b1",
-        "to": "843edbb5-af68-43b7-8432-271739444e99"
+        "to": "158f368c-1e91-424c-b48a-1721b4013738"
       },
       {
-        "from": "59a5ba7d-bfe3-4136-8bff-3621fa584499",
-        "to": "158f368c-1e91-424c-b48a-1721b4013738"
+        "from": "6e7735a0-a0ff-4271-8ac1-00648052a83c",
+        "to": "843edbb5-af68-43b7-8432-271739444e99"
       },
       {
         "from": "7a73e870-bdb7-4a81-a19b-f8f118e5b0a2",

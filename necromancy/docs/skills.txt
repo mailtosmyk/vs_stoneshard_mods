@@ -6,7 +6,7 @@ Total skills: 17 (12 active, 5 passive)
 TIER 1
 ================================================================================
 
-Name: Desecration
+Name: Dark Bolt
 Type: Active
 Level: 1
 Requirements: None (entry skill)
@@ -32,7 +32,7 @@ Type: Active
 Level: 1
 Requirements: None (entry skill)
 Image: s_withering_curse
-Description: Applies the target with "Withering Curse" for 10 turns (Range: 6): -8% Fortitude, -8% Magic Resistance, -5% Max Health, +3% Damage Taken. Each turn worsens a random body part by 0.25%. Hitting with "Desecration" or repeating the spell on the same target refreshes the duration (does not stack at Tier 1).
+Description: Applies the target with "Withering Curse" for 10 turns (Range: 6): -8% Fortitude, -8% Magic Resistance, -5% Max Health, +3% Damage Taken. Each turn worsens a random body part by 0.25%. Hitting with "Dark Bolt" or repeating the spell on the same target refreshes the duration (does not stack at Tier 1).
 
 ================================================================================
 TIER 2
@@ -41,7 +41,7 @@ TIER 2
 Name: Essence Leech
 Type: Active
 Level: 2
-Requirements: Attributes: PRC or WIL >= 6; Skills: Desecration
+Requirements: Attributes: PRC or WIL >= 6; Skills: Dark Bolt
 Image: s_essence_leech
 Description: Devours a targeted corpse or steals 8% Max Health and 8% Max Energy from an allied Undead or Skeleton, transferring half of them to the caster. Activates "Essence Charge" for 12–15 turns: +5% Magic Power, -5% Abilities Energy Cost, +4 Max Energy. Repeated use grants an extra stack (up to II) and refreshes duration. Using Spells reduces stacks by 1.
 
@@ -55,16 +55,16 @@ Description: Replenishes Health to the target (based on Magic Power) and improve
 Name: Resurrection
 Type: Active
 Level: 2
-Requirements: Attributes: PRC or Vitality or WIL >= 6; Skills: Bone Ward
+Requirements: Attributes: PRC or Vitality or WIL >= 6; Skills: Summon Skeleton
 Image: s_resurrection
 Description: Reanimates a targeted corpse as a lasting Undead at 50–55% Max Health / 50% Max Energy and sets Armor Durability to 0%. Increases morale (up to 70%). Slowly decreases Sanity but no less than 60%. Can't summon Undead higher than the skill's level cap. Prevents receiving "Blessing".
 
 Name: Grave Blight
 Type: Active
 Level: 2
-Requirements: Attributes: PRC or WIL >= 6; Skills: Desecration
+Requirements: Attributes: PRC or WIL >= 6; Skills: Bone Ward
 Image: s_grave_blight
-Description: Creates a blighted 3x3 area on the targeted tile (Range: 5–6) for 4 turns. Enemies remaining in the area take 2 Unholy Damage per turn and gain -4% Magic Resistance (stacks up to 3 while inside). Also allows "Withering Curse" (applied by Desecration) to stack up to II; hitting with "Desecration" adds a stack. Bodypart worsen becomes 0.35% per turn per stack.
+Description: Creates a blighted 3x3 area on the targeted tile (Range: 5–6) for 4 turns. Enemies remaining in the area take 2 Unholy Damage per turn and gain -4% Magic Resistance (stacks up to 3 while inside). Also allows "Withering Curse" (applied by Dark Bolt) to stack up to II; hitting with "Dark Bolt" adds a stack. Bodypart worsen becomes 0.35% per turn per stack.
 
 ================================================================================
 TIER 3
