@@ -49,7 +49,8 @@ if ((!is_execute) && instance_exists(owner))
             subfaction_key = "Player"
             faction = "Player"
             scr_faction_map_add(id)
-            combat_array = ["Brigand", "Undead", "Vampire", "Rockeaters", "Crawlers", "Crawler", "Dogs", "Wolves", "Bears", "Gulons", "Trolls", "Bat Flock", "Snake", "Spiderling", "Harpy", "carnivore", "omnivore", "herbivore", "Hive"]
+            // Must match vanilla table_ai / subfaction_key names (scr_nearest_in_array + faction_map).
+            combat_array = ["Brigand", "Undead", "Vampire", "Wolf", "Bear", "Gulon", "Dog", "Wild Dog", "Young Troll", "Ancient Troll", "Crawler", "Bat Flock", "Snake", "Harpy", "Hive", "Buzzer Hive", "Forest Buzzer", "carnivore", "omnivore", "Moose", "Saiga", "Deer", "Fox", "Boar", "Bison", "GrandMagistrate", "Mercenary", "RottenWillow", "Neutral"]
             threat_array = []
             flee_array = []
             is_player_enemy = false
