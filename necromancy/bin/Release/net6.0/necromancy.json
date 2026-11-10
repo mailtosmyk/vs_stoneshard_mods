@@ -357,7 +357,7 @@
               "WIL"
             ],
             "logic": "or",
-            "min": 9
+            "min": 14
           }
         ],
         "skills": [
@@ -406,7 +406,7 @@
               "WIL"
             ],
             "logic": "and",
-            "min": 8
+            "min": 14
           }
         ],
         "skills": [
@@ -455,7 +455,7 @@
               "WIL"
             ],
             "logic": "or",
-            "min": 11
+            "min": 20
           }
         ],
         "skills": [
@@ -481,7 +481,7 @@
               "WIL"
             ],
             "logic": "or",
-            "min": 9
+            "min": 14
           }
         ],
         "skills": [
@@ -531,7 +531,7 @@
               "STR"
             ],
             "logic": "or",
-            "min": 11
+            "min": 20
           }
         ],
         "skills": [
@@ -557,11 +557,11 @@
               "WIL"
             ],
             "logic": "or",
-            "min": 12
+            "min": 20
           }
         ],
         "skills": [
-          "ed75d3c9-c735-438a-b430-205ad8478419"
+          "8a3778f9-eff9-4619-8114-baad567f0728"
         ],
         "skillLogic": "and"
       }
@@ -584,11 +584,11 @@
               "PRC"
             ],
             "logic": "or",
-            "min": 12
+            "min": 20
           }
         ],
         "skills": [
-          "ed75d3c9-c735-438a-b430-205ad8478419"
+          "8a3778f9-eff9-4619-8114-baad567f0728"
         ],
         "skillLogic": "and"
       },
@@ -690,11 +690,11 @@
         "to": "f0f37fa5-3038-4c76-9617-3bf848cfb632"
       },
       {
-        "from": "ed75d3c9-c735-438a-b430-205ad8478419",
+        "from": "8a3778f9-eff9-4619-8114-baad567f0728",
         "to": "0186d94e-304b-4434-803f-9a03b9106770"
       },
       {
-        "from": "ed75d3c9-c735-438a-b430-205ad8478419",
+        "from": "8a3778f9-eff9-4619-8114-baad567f0728",
         "to": "9b1a51b6-daa2-40b3-a236-505eca5fe5f8"
       }
     ]

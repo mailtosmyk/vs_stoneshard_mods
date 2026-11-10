@@ -52,6 +52,72 @@ internal static class AlchemyRecipes
                     slots[3]);
             }
         }
+
+        // MSL InjectTableRecipesCraft omits the trailing ';' so rows have 11 cols while the
+        // header has 12. o_textLoader then crashes: Variable Index [11] out of range [11].
+        PadRecipeCraftRowsToHeaderWidth();
+    }
+
+    static void PadRecipeCraftRowsToHeaderWidth()
+    {
+        Msl.LoadGML("gml_GlobalScript_table_recipes_craft")
+            .Apply(lines => lines.Select(PadShortRecipeCraftRows))
+            .Save();
+    }
+
+    static string PadShortRecipeCraftRows(string line)
+    {
+        // Header: NAME;CAT;Recipe1..Recipe6;AMOUNT;XP;SOURCE;  => 12 fields
+        const int headerWidth = 12;
+        var sb = new System.Text.StringBuilder(line.Length + 128);
+        var i = 0;
+        while (i < line.Length)
+        {
+            if (line[i] != '"')
+            {
+                sb.Append(line[i]);
+                i++;
+                continue;
+            }
+
+            var close = FindClosingQuote(line, i);
+            if (close < 0)
+            {
+                sb.Append(line.AsSpan(i));
+                break;
+            }
+
+            var inner = line.Substring(i + 1, close - (i + 1));
+            if (inner.Contains(';'))
+            {
+                var parts = inner.Split(';');
+                // Data rows look like id;cat;... (skip section markers with empty NAME)
+                if (parts.Length > 0 && parts.Length < headerWidth && !string.IsNullOrEmpty(parts[0]))
+                    inner = string.Join(";", parts.Concat(Enumerable.Repeat(string.Empty, headerWidth - parts.Length)));
+            }
+
+            sb.Append('"').Append(inner).Append('"');
+            i = close + 1;
+        }
+
+        return sb.ToString();
+    }
+
+    static int FindClosingQuote(string line, int openQuote)
+    {
+        for (var i = openQuote + 1; i < line.Length; i++)
+        {
+            if (line[i] == '\\' && i + 1 < line.Length)
+            {
+                i++;
+                continue;
+            }
+
+            if (line[i] == '"')
+                return i;
+        }
+
+        return -1;
     }
 
     static bool IsAdvanced(AlchemyRecipe recipe)

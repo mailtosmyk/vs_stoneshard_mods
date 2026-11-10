@@ -66,21 +66,21 @@ TIER 3
 Name: Death Touch
 Type: Active
 Level: 3
-Requirements: Attributes: PRC or WIL >= 9; Skills: Essence Leech
+Requirements: Level 16 or Attributes: PRC or WIL >= 14; Skills: Essence Leech
 Image: s_death_touch
 Description: Deals 12 Unholy Damage (Range: 4) with Immobilization Chance. Replenishes Health to all allies within Vision for 50% of the damage dealt. If the target has "Withering Curse": +25% damage and adds 1 curse stack. Consuming 1 "Essence Charge" grants +15% Magic Power for this cast only.
 
 Name: Corpse Burst
 Type: Active
 Level: 3
-Requirements: Attributes: WIL >= 8; Skills: Death's Blessing
+Requirements: Level 16 or Attributes: WIL >= 14; Skills: Death's Blessing
 Image: s_corpse_burst
 Description: Targets a corpse or allied Undead/Skeleton and makes it explode, destroying it. Deals Unholy and Piercing Damage in a base 3x3 area around the target and has a chance to apply Bleeding to affected enemies. Damage, Bleeding chance, and area size scale with Willpower (area grows from 3x3 toward 5x5 / 7x7). Exploding an ally causes a small Sanity loss.
 
 Name: Black Sepulchre
 Type: Active
 Level: 3
-Requirements: Attributes: PRC or WIL >= 9; Skills: Grave Blight
+Requirements: Level 16 or Attributes: PRC or WIL >= 14; Skills: Grave Blight
 Image: s_black_sepulchre
 Description: Detonates "Withering Curse" on the target (Range: 5), or on the strongest cursed enemy in a 3x3 if cast on a tile: removes stacks, deals 6 Unholy Damage × stacks to the target and 3 Unholy Damage × stacks to adjacent enemies. Allows "Withering Curse" to stack up to III. Bodypart worsen becomes 0.5% per turn per stack while at III.
 
@@ -91,27 +91,27 @@ TIER 4
 Name: Immortality
 Type: Passive
 Level: 4
-Requirements: Attributes: Vitality or WIL or STR >= 11; Skills: Corpse Burst
+Requirements: Level 22 or Attributes: Vitality or WIL or STR >= 20; Skills: Corpse Burst
 Image: s_immortality
 Description: Prevents dying from lethal hits as long as Max Health and Morale are both higher than 50%. When Health drops below 2, replenishes 33% of Max Health and Max Energy, and applies: -10% Morale, +2% Fatigue. Prevents death from starvation or dehydration.
 
 Name: Mastery of Binding
 Type: Passive
 Level: 4
-Requirements: Attributes: PRC or WIL >= 11; Skills: Resurrection
+Requirements: Level 22 or Attributes: PRC or WIL >= 20; Skills: Resurrection
 Image: s_mastery_of_binding
 Description: Unbinding allies doesn't take a turn and replenishes Energy equal to 10% of your Magic Power. Increases the level of summoning abilities by 1. Summon Skeleton: +4 turns base duration and +10% Max Health / Max Energy. Resurrection thralls start at 60% Max Health. Still limited to one safe Undead at a time unless a higher-tier skill allows more.
 
 Name: Blooming Madness
 Type: Passive
 Level: 4
-Requirements: Attributes: PRC or WIL >= 12; Skills: Mastery of Binding
+Requirements: Level 22 or Attributes: PRC or WIL >= 20; Skills: Black Sepulchre
 Image: s_blooming_madness
 Description: Successfully raising the dead allows you to learn one of their active abilities at a time (while available via skill menu; lost when the thrall dies). Increases Experience Gain of Undead kills by 100%.
 
 Name: Wraith Summoning
 Type: Active
 Level: 4
-Requirements: Attributes: AGL or WIL or PRC >= 12; Skills: Mastery of Binding
+Requirements: Level 22 or Attributes: AGL or WIL or PRC >= 20; Skills: Black Sepulchre
 Image: s_wraith_summoning
 Description: Summons a Wraith on the targeted tile; power depends on "Essence Charge" stacks. Removes "Essence Charge". If no weapon equipped: -50% Cooldown Duration and Halves Miscast Chance. Can't summon Wraiths higher than the skill's level cap.

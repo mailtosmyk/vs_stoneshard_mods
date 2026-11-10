@@ -132,14 +132,14 @@ public static class NecromancySchool
                 .Append(", 172, 1)\n");
         }
 
-        // T4 sockets 24/62/100/138: Immortality under Corpse Burst, Mastery under summoning,
-        // Blooming + Wraith on the remaining nodes (same-tier Mastery gate).
+        // T4 sockets 24/62/100/138: Mastery (from Resurrection, no Death Touch link),
+        // Immortality under Corpse Burst, Blooming + Wraith under Black Sepulchre.
         var t4X = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase)
         {
-            ["wraith_summoning"] = 24,
+            ["mastery_of_binding"] = 24,
             ["immortality"] = 62,
             ["blooming_madness"] = 100,
-            ["mastery_of_binding"] = 138,
+            ["wraith_summoning"] = 138,
         };
         for (var i = 0; i < tier4.Length; i++)
         {
