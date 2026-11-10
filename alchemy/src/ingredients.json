@@ -2161,7 +2161,8 @@
           "add_bleed_resistance": 10,
           "turns": 90
         }
-      ]
+      ],
+      "icon": "s_inv_alch_styptic_brew"
     },
     {
       "id": "clearhead_bitters",
@@ -2188,7 +2189,8 @@
         {
           "halve_hangover_and_aftermath": true
         }
-      ]
+      ],
+      "icon": "s_inv_alch_clearhead_bitters"
     },
     {
       "id": "marching_tea",
@@ -2214,7 +2216,8 @@
         {
           "add_morale": 1
         }
-      ]
+      ],
+      "icon": "s_inv_alch_marching_tea"
     },
     {
       "id": "field_extract",
@@ -2233,7 +2236,8 @@
           "add_pain_resistance": 5,
           "turns": 40
         }
-      ]
+      ],
+      "icon": "s_inv_alch_field_extract"
     },
     {
       "id": "soldiers_draught",
@@ -2252,7 +2256,8 @@
           "add_pain_resistance": 5,
           "turns": 240
         }
-      ]
+      ],
+      "icon": "s_inv_alch_soldiers_draught"
     },
     {
       "id": "cleaving_bitters",
@@ -2271,7 +2276,8 @@
           "add_crit_efficiency": 10,
           "turns": 240
         }
-      ]
+      ],
+      "icon": "s_inv_alch_cleaving_bitters"
     },
     {
       "id": "bloodwake",
@@ -2290,7 +2296,8 @@
           "add_bleed_resistance": 5,
           "turns": 240
         }
-      ]
+      ],
+      "icon": "s_inv_alch_bloodwake"
     },
     {
       "id": "ironbark_tonic",
@@ -2313,7 +2320,8 @@
           "add_pain_resistance": 5,
           "turns": 300
         }
-      ]
+      ],
+      "icon": "s_inv_alch_ironbark_tonic"
     },
     {
       "id": "ward_philter",
@@ -2332,7 +2340,8 @@
           "add_sanity_change": -0.02,
           "turns": 300
         }
-      ]
+      ],
+      "icon": "s_inv_alch_ward_philter"
     },
     {
       "id": "frostguard",
@@ -2350,7 +2359,8 @@
         {
           "add_energy_replenishment": 5
         }
-      ]
+      ],
+      "icon": "s_inv_alch_frostguard"
     },
     {
       "id": "venomguard",
@@ -2369,7 +2379,8 @@
           "add_intoxication_resistance": 10,
           "turns": 300
         }
-      ]
+      ],
+      "icon": "s_inv_alch_venomguard"
     },
     {
       "id": "mooncap_elixir",
@@ -2387,7 +2398,8 @@
         {
           "add_temporary_morale": 5
         }
-      ]
+      ],
+      "icon": "s_inv_alch_mooncap_elixir"
     },
     {
       "id": "arcane_focus",
@@ -2409,7 +2421,8 @@
           "add_backfire_chance": -10,
           "turns": 300
         }
-      ]
+      ],
+      "icon": "s_inv_alch_arcane_focus"
     },
     {
       "id": "pyreheart",
@@ -2428,7 +2441,8 @@
           "add_fire_resistance": 10,
           "turns": 240
         }
-      ]
+      ],
+      "icon": "s_inv_alch_pyreheart"
     },
     {
       "id": "rewoven_philter",
@@ -2448,7 +2462,8 @@
         {
           "add_sanity": -5
         }
-      ]
+      ],
+      "icon": "s_inv_alch_rewoven_philter"
     },
     {
       "id": "unlearning_elixir",
@@ -2472,7 +2487,8 @@
           "add_fatigue_change": 0.2,
           "turns": 60
         }
-      ]
+      ],
+      "icon": "s_inv_alch_unlearning_elixir"
     }
   ],
   "spirit": [
@@ -2718,7 +2734,8 @@
         {
           "throw_aoe": 1
         }
-      ]
+      ],
+      "icon": "s_inv_alch_flame_vial"
     },
     {
       "id": "flame_flask",
@@ -2735,7 +2752,8 @@
         {
           "throw_aoe": 3
         }
-      ]
+      ],
+      "icon": "s_inv_alch_flame_flask"
     },
     {
       "id": "venom_vial",
@@ -2755,7 +2773,8 @@
         {
           "throw_aoe": 1
         }
-      ]
+      ],
+      "icon": "s_inv_alch_venom_vial"
     },
     {
       "id": "venom_flask",
@@ -2781,7 +2800,8 @@
         {
           "throw_aoe": 3
         }
-      ]
+      ],
+      "icon": "s_inv_alch_venom_flask"
     },
     {
       "id": "choke_vial",
@@ -2804,7 +2824,8 @@
         {
           "throw_aoe": 1
         }
-      ]
+      ],
+      "icon": "s_inv_alch_choke_vial"
     },
     {
       "id": "gas_flask",
@@ -2836,7 +2857,8 @@
             6
           ]
         }
-      ]
+      ],
+      "icon": "s_inv_alch_gas_flask"
     },
     {
       "id": "blur_vial",
@@ -2857,7 +2879,8 @@
         {
           "throw_aoe": 1
         }
-      ]
+      ],
+      "icon": "s_inv_alch_blur_vial"
     },
     {
       "id": "tar_vial",
@@ -2878,7 +2901,8 @@
         {
           "throw_aoe": 1
         }
-      ]
+      ],
+      "icon": "s_inv_alch_tar_vial"
     },
     {
       "id": "daze_vial",
@@ -2902,7 +2926,8 @@
         {
           "throw_aoe": 1
         }
-      ]
+      ],
+      "icon": "s_inv_alch_daze_vial"
     },
     {
       "id": "weaken_vial",
@@ -2923,7 +2948,8 @@
         {
           "throw_aoe": 1
         }
-      ]
+      ],
+      "icon": "s_inv_alch_weaken_vial"
     },
     {
       "id": "terror_vial",
@@ -2947,7 +2973,8 @@
         {
           "throw_aoe": 1
         }
-      ]
+      ],
+      "icon": "s_inv_alch_terror_vial"
     },
     {
       "id": "fog_flask",
@@ -2977,7 +3004,8 @@
             5
           ]
         }
-      ]
+      ],
+      "icon": "s_inv_alch_fog_flask"
     },
     {
       "id": "mire_flask",
@@ -2998,7 +3026,8 @@
         {
           "throw_aoe": 3
         }
-      ]
+      ],
+      "icon": "s_inv_alch_mire_flask"
     },
     {
       "id": "blind_flask",
@@ -3028,7 +3057,8 @@
             6
           ]
         }
-      ]
+      ],
+      "icon": "s_inv_alch_blind_flask"
     },
     {
       "id": "rootbind_flask",
@@ -3052,7 +3082,8 @@
         {
           "throw_aoe": 1
         }
-      ]
+      ],
+      "icon": "s_inv_alch_rootbind_flask"
     },
     {
       "id": "cripple_flask",
@@ -3079,7 +3110,8 @@
         {
           "throw_aoe": 3
         }
-      ]
+      ],
+      "icon": "s_inv_alch_cripple_flask"
     }
   ],
   "recipes": [
@@ -3695,7 +3727,8 @@
         {
           "coat_weapon_hits": 12
         }
-      ]
+      ],
+      "icon": "s_inv_alch_ember_oil"
     },
     {
       "id": "cinder_lacquer",
@@ -3710,7 +3743,8 @@
         {
           "coat_weapon_hits": 16
         }
-      ]
+      ],
+      "icon": "s_inv_alch_cinder_lacquer"
     },
     {
       "id": "venom_lacquer",
@@ -3725,7 +3759,8 @@
         {
           "coat_weapon_hits": 12
         }
-      ]
+      ],
+      "icon": "s_inv_alch_venom_lacquer"
     },
     {
       "id": "puffball_paste",
@@ -3740,7 +3775,8 @@
         {
           "coat_weapon_hits": 16
         }
-      ]
+      ],
+      "icon": "s_inv_alch_puffball_paste"
     }
   ]
 }
