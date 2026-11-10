@@ -93,6 +93,10 @@ if ((!is_execute) && instance_exists(owner))
     if (instance_exists(_skel) && _servant != -1)
         scr_effect_create(_servant, -1, _skel, owner)
 
+    // Gear enchants: Summon Health / Summon Damage
+    if instance_exists(_skel)
+        scr_nm_apply_summon_enchants(_skel)
+
     if (instance_exists(_skel) && _timer != -1 && instance_exists(owner))
     {
         var _buff = scr_effect_create(_timer, _turns, owner, owner)

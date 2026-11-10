@@ -193,7 +193,11 @@ public sealed class NecromancyItem
         bool enabled,
         string image,
         string lootImage,
-        string description)
+        string description,
+        string stat = "",
+        string slot = "all",
+        int rarity = 2,
+        int value = 0)
     {
         Id = id;
         Name = name;
@@ -204,6 +208,10 @@ public sealed class NecromancyItem
         Image = image;
         LootImage = lootImage;
         Description = description;
+        Stat = stat;
+        Slot = string.IsNullOrWhiteSpace(slot) ? "all" : slot.Trim();
+        Rarity = rarity;
+        Value = value;
     }
 
     public string Id { get; }
@@ -215,6 +223,14 @@ public sealed class NecromancyItem
     public string Image { get; }
     public string LootImage { get; }
     public string Description { get; }
+    /// <summary>Gear enchant attribute key written to item data / CharN (enchants only).</summary>
+    public string Stat { get; }
+    /// <summary>Weapon / Armor / all — which Metatype can roll this enchant.</summary>
+    public string Slot { get; }
+    /// <summary>1 = common pool, 2 = rare pool (vanilla prefix convention).</summary>
+    public int Rarity { get; }
+    /// <summary>Base enchant magnitude before quality/strength rolls.</summary>
+    public int Value { get; }
 
     public string InvObjectName => $"o_inv_{Slug}";
     public string LootObjectName => $"o_loot_{Slug}";
@@ -225,4 +241,7 @@ public sealed class NecromancyItem
 
     public string LootSpriteName =>
         string.IsNullOrWhiteSpace(LootImage) ? $"s_loot_{Slug}" : LootImage;
+
+    public bool IsEnchant =>
+        string.Equals(Type, "enchant", StringComparison.OrdinalIgnoreCase);
 }

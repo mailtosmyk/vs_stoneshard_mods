@@ -29,3 +29,7 @@ with (target)
     if (instance_exists(o_player) && ds_list_find_index(o_player.enemylist, id) < 0)
         ds_list_add(o_player.enemylist, id)
 }
+
+// Keep summon enchant bonuses in sync with currently equipped gear.
+if instance_exists(target)
+    scr_nm_apply_summon_enchants(target)

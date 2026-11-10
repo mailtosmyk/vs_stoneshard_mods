@@ -44,6 +44,9 @@ public static class NecromancySkills
     public static IEnumerable<NecromancyItem> EnabledBooks =>
         Items.Where(i => i.Enabled && string.Equals(i.Type, "book", StringComparison.OrdinalIgnoreCase));
 
+    public static IEnumerable<NecromancyItem> EnabledEnchants =>
+        Items.Where(i => i.Enabled && i.IsEnchant && !string.IsNullOrWhiteSpace(i.Stat));
+
     public static NecromancySkill? FindBySlug(string slug) =>
         All.FirstOrDefault(s => string.Equals(s.Slug, slug, StringComparison.OrdinalIgnoreCase));
 
@@ -256,7 +259,11 @@ public static class NecromancySkills
             dto.Enabled,
             dto.Image ?? string.Empty,
             dto.LootImage ?? string.Empty,
-            dto.Description ?? string.Empty);
+            dto.Description ?? string.Empty,
+            dto.Stat ?? string.Empty,
+            string.IsNullOrWhiteSpace(dto.Slot) ? "all" : dto.Slot.Trim(),
+            dto.Rarity == 0 ? 2 : dto.Rarity,
+            dto.Value);
     }
 
     sealed class NecromancyJsonRoot
@@ -286,6 +293,10 @@ public static class NecromancySkills
         public string? Image { get; set; }
         public string? LootImage { get; set; }
         public string? Description { get; set; }
+        public string? Stat { get; set; }
+        public string? Slot { get; set; }
+        public int Rarity { get; set; }
+        public int Value { get; set; }
     }
 
     sealed class SkillDto

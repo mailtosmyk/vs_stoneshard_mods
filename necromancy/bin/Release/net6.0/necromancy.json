@@ -724,6 +724,33 @@
         "description": "A deeper volume of death-lore that opens the third circle of necromancy."
       }
     ],
-    "enchant": []
+    "enchant": [
+      {
+        "id": "d9e4f136-8c51-4fa3-be70-3b0c2d4e6f83",
+        "name": "Summon Health",
+        "slug": "nm_summon_health",
+        "type": "enchant",
+        "tier": 0,
+        "enabled": true,
+        "stat": "nm_Summon_Health",
+        "slot": "all",
+        "rarity": 2,
+        "value": 8,
+        "description": "Increases the Max Health pool of your summons."
+      },
+      {
+        "id": "e0f5a247-9d62-40b4-cf81-4c1d3e5f7094",
+        "name": "Summon Damage",
+        "slug": "nm_summon_damage",
+        "type": "enchant",
+        "tier": 0,
+        "enabled": true,
+        "stat": "nm_Summon_Damage",
+        "slot": "all",
+        "rarity": 2,
+        "value": 8,
+        "description": "Increases the Weapon Damage of your summons."
+      }
+    ]
   }
 }

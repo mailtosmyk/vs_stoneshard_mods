@@ -102,6 +102,10 @@ if ((!is_execute) && instance_exists(owner))
     if (instance_exists(_wraith) && _servant != -1)
         scr_effect_create(_servant, -1, _wraith, owner)
 
+    // Gear enchants: Summon Health / Summon Damage
+    if instance_exists(_wraith)
+        scr_nm_apply_summon_enchants(_wraith)
+
     if instance_exists(o_player)
     {
         if (scr_atr("Sanity") > 60)

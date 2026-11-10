@@ -103,6 +103,10 @@ var _servant = asset_get_index("o_b_nm_servant")
 if (instance_exists(_thrall) && _servant != -1)
     scr_effect_create(_servant, -1, _thrall, owner)
 
+// Gear enchants: Summon Health / Summon Damage
+if instance_exists(_thrall)
+    scr_nm_apply_summon_enchants(_thrall)
+
 if (instance_exists(_thrall) && _timer != -1 && instance_exists(owner))
 {
     var _buff = scr_effect_create(_timer, _turns, owner, owner)
