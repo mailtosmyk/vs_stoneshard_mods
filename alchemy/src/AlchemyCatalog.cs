@@ -26,6 +26,26 @@ internal static class AlchemyCatalog
 
     public static IReadOnlyDictionary<string, AlchemyProduct> CustomProducts => Root.CustomProducts;
 
+    /// <summary>
+    /// Elixir ids with <c>debug: true</c> — granted to the player inventory on create.
+    /// </summary>
+    public static IReadOnlyList<string> DebugElixirIds =>
+        Root.Elixirs
+            .Where(e => e.Debug && !string.IsNullOrWhiteSpace(e.Id))
+            .Select(e => e.Id!.Trim())
+            .Distinct(StringComparer.OrdinalIgnoreCase)
+            .ToArray();
+
+    /// <summary>
+    /// Recipe outcome ids with <c>debug: true</c> — grants <c>o_inv_recipe_{id}</c> on create.
+    /// </summary>
+    public static IReadOnlyList<string> DebugRecipeIds =>
+        EnabledRecipes
+            .Where(r => r.Debug)
+            .Select(r => r.Elixir)
+            .Distinct(StringComparer.OrdinalIgnoreCase)
+            .ToArray();
+
     static AlchemyJsonRoot LoadRoot()
     {
         using var stream = OpenDataStream();
@@ -145,7 +165,8 @@ internal sealed class AlchemyJsonRoot
             ingredients,
             dto.IngredientsCost,
             dto.RecipeCost,
-            dto.ElixirCost);
+            dto.ElixirCost,
+            dto.Debug);
     }
 }
 
@@ -170,7 +191,8 @@ internal sealed record AlchemyRecipe(
     IReadOnlyList<string> Ingredients,
     int IngredientsCost,
     int RecipeCost,
-    int ElixirCost);
+    int ElixirCost,
+    bool Debug);
 
 internal sealed class AlchemyProductDto
 {
@@ -188,6 +210,12 @@ internal sealed class AlchemyProductDto
 
     [JsonPropertyName("price")]
     public int? Price { get; set; }
+
+    /// <summary>
+    /// When true, grant this elixir to the player inventory on create. Default false.
+    /// </summary>
+    [JsonPropertyName("debug")]
+    public bool Debug { get; set; }
 }
 
 internal sealed class AlchemyRecipeDto
@@ -209,4 +237,10 @@ internal sealed class AlchemyRecipeDto
 
     [JsonPropertyName("elixir_cost")]
     public int ElixirCost { get; set; }
+
+    /// <summary>
+    /// When true, grant this recipe scroll to the player inventory on create. Default false.
+    /// </summary>
+    [JsonPropertyName("debug")]
+    public bool Debug { get; set; }
 }

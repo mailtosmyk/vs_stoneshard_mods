@@ -24,5 +24,6 @@ public class Alchemy : Mod
         AlchemyItems.Patch();
         AlchemyRecipes.Patch();
         AlchemyShops.Patch();
+        AlchemyDebug.Patch();
     }
 }

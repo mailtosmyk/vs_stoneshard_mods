@@ -33,7 +33,7 @@ internal static class AlchemyItems
                 _ => "o_inv_dishes_beverage",
             };
 
-            Msl.AddObject(
+            var inv = Msl.AddObject(
                 name: $"o_inv_{product.Id}",
                 spriteName: product.Icon,
                 parentName: invParent,
@@ -50,6 +50,12 @@ internal static class AlchemyItems
                 isPersistent: false,
                 isAwake: true,
                 collisionShapeFlags: CollisionShapeFlags.Circle);
+
+            // o_inv_bombs / o_inv_consum_passive never call scr_consum_atr, so `name`
+            // stays unset and o_inv_consum Alarm_0 crashes on loot/add.
+            // Drinkables inherit o_inv_dishes_beverage which already calls it.
+            if (product.Kind is AlchemyProductKind.Throwable or AlchemyProductKind.Coating)
+                EnsureConsumCreate(inv, product.Id);
 
             var (cat, subcat, material, tags) = StatsFor(product);
             Msl.InjectTableItemStats(
@@ -68,6 +74,34 @@ internal static class AlchemyItems
             // consum_name / consum_mid (effects) / consum_desc
             InjectLocalization(product.Id, product.Name, desc, desc);
         }
+    }
+
+    /// <summary>
+    /// Vanilla bombs/coatings set <c>name</c> via <c>scr_consum_atr</c> in Create.
+    /// Without that, <c>o_inv_consum</c> Alarm_0 reads an unset <c>name</c>.
+    /// </summary>
+    static void EnsureConsumCreate(UndertaleGameObject inv, string productId)
+    {
+        var gml = string.Join(
+            "\n",
+            "event_inherited()",
+            $"scr_consum_atr(\"{productId}\")",
+            "is_execute = false");
+
+        try
+        {
+            Msl.AddNewEvent(inv, gml, EventType.Create, 0);
+        }
+        catch (ArgumentException)
+        {
+            // Event already present from a previous patch — refresh body below.
+        }
+
+        var codeName = Msl.EventName(inv.Name.Content, EventType.Create, 0);
+        var lines = gml.Split('\n');
+        Msl.LoadGML(codeName)
+            .Apply(_ => lines)
+            .Save();
     }
 
     static void PatchRecipeScrolls()

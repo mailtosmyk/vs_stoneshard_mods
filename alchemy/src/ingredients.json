@@ -1,6 +1,6 @@
 {
   "targetVersion": "0.9.4.25",
-  "notes": "Vanilla item ids with base price, flavor description, and structured effects from data.win. Effect entries use add_<stat> values; timed buffs include per-effect turns; uses is item use count. Grass includes herbs and mushrooms. Death Cap id=stool. Gwynnel's Elixir id=aqua_vitae. Honeycomb id=honey. Smoking Mix id=pipe_hemp. Spirit is the potion alcohol base. Items holds containers (flask). Coatings are weapon oils/pastes; on use they add fire or poison damage to weapons (coat_weapon_fire_damage / coat_weapon_poison_damage, optional coat_weapon_hits). Throwables are combat flasks: throw_fire_damage / throw_poison_damage / throw_gas effects with throw_aoe 1 (single target) or 3 (3x3); may include throw_ignite_turns, throw_poisoning, throw_coughing, throw_vision, spore_cloud_turns. Debuff throwables apply enemy status effects (vision, movement, combat penalties) via throw_* keys and named debuffs with icon sprites under Sprites/ (s_alch_db_*). Recipes: up to 4 ingredient ids (repeats allowed), enabled flag, elixir outcome id; ingredients_cost is sum of ingredient prices, recipe_cost adds spirit+flask when not already in ingredients, elixir_cost is target price. Bottle of Oil id=oil. Recipes may target elixirs, spirit, oil, coatings, or throwables. ingredients_cost must be between 75% and 100% of elixir_cost; recipe_cost > 100 requires spirit in ingredients; 80 < elixir_cost < 150 requires spirit and flask in ingredients.",
+  "notes": "Vanilla item ids with base price, flavor description, and structured effects from data.win. Effect entries use add_<stat> values; timed buffs include per-effect turns; uses is item use count. Grass includes herbs and mushrooms. Death Cap id=stool. Gwynnel's Elixir id=aqua_vitae. Honeycomb id=honey. Smoking Mix id=pipe_hemp. Spirit is the potion alcohol base. Items holds containers (flask). Coatings are weapon oils/pastes; on use they add fire or poison damage to weapons (coat_weapon_fire_damage / coat_weapon_poison_damage, optional coat_weapon_hits). Throwables are combat flasks: throw_fire_damage / throw_poison_damage / throw_gas effects with throw_aoe 1 (single target) or 3 (3x3); may include throw_ignite_turns, throw_poisoning, throw_coughing, throw_vision, spore_cloud_turns. Debuff throwables apply enemy status effects (vision, movement, combat penalties) via throw_* keys and named debuffs with icon sprites under Sprites/ (s_alch_db_*). Recipes: up to 4 ingredient ids (repeats allowed), enabled flag, optional debug flag (default false; when true grants the recipe scroll into player inventory on create), elixir outcome id; Elixirs may set debug true to grant that elixir into player inventory on create; ingredients_cost is sum of ingredient prices, recipe_cost adds spirit+flask when not already in ingredients, elixir_cost is target price. Bottle of Oil id=oil. Recipes may target elixirs, spirit, oil, coatings, or throwables. ingredients_cost must be between 75% and 100% of elixir_cost; recipe_cost > 100 requires spirit in ingredients; 80 < elixir_cost < 150 requires spirit and flask in ingredients.",
   "grass": [
     {
       "id": "agrimony",
@@ -2070,6 +2070,41 @@
       ]
     },
     {
+      "id": "apple_cider",
+      "name": "Apple Cider",
+      "price": 25,
+      "description": "Pressed orchard apples left to ferment until the sweetness turns sharp. A Sentian favorite at harvest feasts - it lifts the spirits and loosens the tongue.",
+      "effects": [
+        {
+          "add_thirst": -5
+        },
+        {
+          "add_thirst_change": 0.05,
+          "turns": 60
+        },
+        {
+          "add_intoxication": 5
+        },
+        {
+          "add_intoxication_change": 0.01,
+          "turns": 60
+        },
+        {
+          "add_morale": 4
+        },
+        {
+          "add_energy_replenishment": 3
+        },
+        {
+          "uses": 2
+        },
+        {
+          "cause_light_drunkenness": true
+        }
+      ],
+      "icon": "s_inv_alch_apple_cider"
+    },
+    {
       "id": "nikkaf",
       "name": "Nikkaf",
       "price": 100,
@@ -2109,6 +2144,33 @@
           "unpleasant_aftermath": true
         }
       ]
+    },
+    {
+      "id": "night_vision",
+      "name": "Night Vision Philter",
+      "price": 70,
+      "description": "A cool blue draught of ginger and berry steeped for dusk watches. Eyes adjust to moonlight; the world sharpens at the edges of shadow.",
+      "effects": [
+        {
+          "add_thirst": 5
+        },
+        {
+          "add_intoxication": 5
+        },
+        {
+          "add_bonus_vision": 5,
+          "turns": 600
+        },
+        {
+          "add_accuracy": 5,
+          "turns": 600
+        },
+        {
+          "add_fumble_chance": -5,
+          "turns": 600
+        }
+      ],
+      "icon": "s_inv_alch_night_vision"
     },
     {
       "id": "dark_ale",
@@ -3179,6 +3241,18 @@
     },
     {
       "ingredients": [
+        "apple",
+        "apple",
+        "hop"
+      ],
+      "enabled": true,
+      "elixir": "apple_cider",
+      "ingredients_cost": 23,
+      "recipe_cost": 58,
+      "elixir_cost": 25
+    },
+    {
+      "ingredients": [
         "flask",
         "fig",
         "amber",
@@ -3189,6 +3263,19 @@
       "ingredients_cost": 100,
       "recipe_cost": 100,
       "elixir_cost": 100
+    },
+    {
+      "ingredients": [
+        "flask",
+        "spirit",
+        "ginger",
+        "blueberry"
+      ],
+      "enabled": true,
+      "elixir": "night_vision",
+      "ingredients_cost": 67,
+      "recipe_cost": 67,
+      "elixir_cost": 70
     },
     {
       "ingredients": [
