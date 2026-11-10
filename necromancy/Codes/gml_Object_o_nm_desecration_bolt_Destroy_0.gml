@@ -2,7 +2,7 @@ if instance_exists(owner)
 {
     if is_player(owner)
     {
-        var _turns = irandom_range(8, 10)
+        var _turns = 8
         var _buff = asset_get_index("o_b_nm_desecration")
         if (_buff != -1)
         {

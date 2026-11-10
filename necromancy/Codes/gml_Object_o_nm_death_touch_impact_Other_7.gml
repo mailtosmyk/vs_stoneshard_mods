@@ -17,7 +17,7 @@ if (_charge != -1)
     }
 }
 
-var _base = irandom_range(10, 12)
+var _base = 12
 var _curse = asset_get_index("o_db_withering_curse")
 var _hasCurse = (_curse != -1 && scr_instance_exists_in_list(_curse, target.buffs))
 if _hasCurse
@@ -72,9 +72,7 @@ if (_hasCurse && instance_exists(target))
     }
 }
 
-var _healRatio = 0.45
-if is_crit
-    _healRatio = 0.5
+var _healRatio = 0.5
 var _heal = math_round(_dealt * _healRatio)
 var _servant = asset_get_index("o_b_nm_servant")
 var _caster = owner

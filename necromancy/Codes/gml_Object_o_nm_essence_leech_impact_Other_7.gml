@@ -42,7 +42,7 @@ with (owner)
         var _buff = asset_get_index("o_b_nm_essence_charge")
         if (_buff != -1)
         {
-            var _turns = irandom_range(12, 15)
+            var _turns = 12
             var _existing = scr_instance_exists_in_list(_buff, buffs)
             if (!_existing)
             {

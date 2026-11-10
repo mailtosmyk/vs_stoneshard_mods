@@ -1,0 +1,17 @@
+---
+description: Require spirit ingredient when Alchemy recipe_cost is more than 100
+globs: src/ingredients.json
+alwaysApply: false
+---
+
+# Alchemy recipe spirit requirement
+
+When creating or editing recipes in `src/ingredients.json`, follow the project skill `alchemy-recipe-spirit-required`:
+
+for each recipe with cost more than 100 spirit must be required component
+
+If `recipe_cost > 100`, include `spirit` in `ingredients`, recompute costs, then run:
+
+```bash
+python3 .cursor/skills/alchemy-recipe-cost/scripts/validate_recipe_costs.py
+```

@@ -11,7 +11,7 @@ Type: Active
 Level: 1
 Requirements: None (entry skill)
 Image: s_desecration
-Description: Shoots a bolt of dark energy (Range: 6), dealing 8 Unholy Damage with Accuracy. If the spell hits the target, burns its Energy for 33% of the damage dealt and replenishes the same amount of Energy to the caster. Grants Unholy Damage for 8–10 turns. This effect doesn't stack. On hit, also applies "Withering Curse".
+Description: Shoots a bolt of dark energy, dealing 8 Unholy Damage with Accuracy. If the spell hits the target, burns its Energy for 33% of the damage dealt and replenishes the same amount of Energy to the caster. Grants Unholy Damage for 8 turns. This effect doesn't stack.
 
 Name: Bone Ward
 Type: Active
@@ -36,7 +36,7 @@ Type: Active
 Level: 2
 Requirements: Attributes: PRC or WIL >= 6; Skills: Dark Bolt
 Image: s_essence_leech
-Description: Devours a targeted corpse or steals 8% Max Health and 8% Max Energy from an allied Undead or Skeleton, transferring half of them to the caster. Activates "Essence Charge" for 12–15 turns: +5% Magic Power, -5% Abilities Energy Cost, +4 Max Energy. Repeated use grants an extra stack (up to II) and refreshes duration. Using Spells reduces stacks by 1.
+Description: Devours a targeted corpse or steals 8% Max Health and 8% Max Energy from an allied Undead or Skeleton, transferring half of them to the caster. Activates "Essence Charge" for 12 turns: +5% Magic Power, -5% Abilities Energy Cost, +4 Max Energy. Repeated use grants an extra stack (up to II) and refreshes duration. Using Spells reduces stacks by 1.
 
 Name: Death's Blessing
 Type: Active
@@ -50,7 +50,7 @@ Type: Active
 Level: 2
 Requirements: Attributes: PRC or WIL >= 6; Skills: Bone Ward
 Image: s_grave_blight
-Description: Creates a blighted 3x3 area on the targeted tile (Range: 5–6) for 4 turns. Enemies remaining in the area take 2 Unholy Damage per turn and gain -4% Magic Resistance (stacks up to 3 while inside). Also allows "Withering Curse" (applied by Dark Bolt) to stack up to II; hitting with "Dark Bolt" adds a stack. Bodypart worsen becomes 0.35% per turn per stack.
+Description: Creates a blighted 3x3 area on the targeted tile (Range: 6) for 4 turns. Enemies remaining in the area take 2 Unholy Damage per turn and gain -4% Magic Resistance (stacks up to 3 while inside). Also allows "Withering Curse" to stack up to II. Hitting with "Dark Bolt" or repeating the curse adds a stack. Bodypart worsen becomes 0.35% per turn per stack.
 
 Name: Resurrection
 Type: Active
@@ -68,7 +68,7 @@ Type: Active
 Level: 3
 Requirements: Attributes: PRC or WIL >= 9; Skills: Essence Leech
 Image: s_death_touch
-Description: Deals 10–12 Unholy Damage (Range: 4–5) with Immobilization Chance. Replenishes Health to all allies within Vision for 40–50% of the damage dealt. If the target has "Withering Curse": +25% damage and adds 1 curse stack. Consuming 1 "Essence Charge" grants +15% Magic Power for this cast only.
+Description: Deals 12 Unholy Damage (Range: 4) with Immobilization Chance. Replenishes Health to all allies within Vision for 50% of the damage dealt. If the target has "Withering Curse": +25% damage and adds 1 curse stack. Consuming 1 "Essence Charge" grants +15% Magic Power for this cast only.
 
 Name: Corpse Burst
 Type: Active
@@ -82,7 +82,7 @@ Type: Active
 Level: 3
 Requirements: Attributes: PRC or WIL >= 9; Skills: Grave Blight
 Image: s_black_sepulchre
-Description: Detonates "Withering Curse" on the target (Range: 5–6), or on the strongest cursed enemy in a 3x3 if cast on a tile: removes stacks, deals 6 Unholy Damage × stacks to the target and 3 Unholy Damage × stacks to adjacent enemies. Allows "Withering Curse" to stack up to III. Bodypart worsen becomes 0.5% per turn per stack while at III.
+Description: Detonates "Withering Curse" on the target (Range: 5), or on the strongest cursed enemy in a 3x3 if cast on a tile: removes stacks, deals 6 Unholy Damage × stacks to the target and 3 Unholy Damage × stacks to adjacent enemies. Allows "Withering Curse" to stack up to III. Bodypart worsen becomes 0.5% per turn per stack while at III.
 
 ================================================================================
 TIER 4

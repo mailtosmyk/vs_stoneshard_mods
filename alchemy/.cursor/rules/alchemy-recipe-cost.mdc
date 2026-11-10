@@ -1,0 +1,17 @@
+---
+description: Enforce Alchemy recipe ingredients cost band when editing ingredients.json
+globs: src/ingredients.json
+alwaysApply: false
+---
+
+# Alchemy recipe cost
+
+When creating or editing recipes in `src/ingredients.json`, follow the project skill `alchemy-recipe-cost`:
+
+ingredients cost can't exceed elixir cost price and be lower than 75% of target elixir price
+
+Recompute `ingredients_cost`, `recipe_cost`, and `elixir_cost`, then run:
+
+```bash
+python3 .cursor/skills/alchemy-recipe-cost/scripts/validate_recipe_costs.py
+```

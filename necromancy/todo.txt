@@ -2,4 +2,4 @@
 2 some skills out of place — Grave Blight moved under Bone Ward (was shifted right of Desecration)
 3 summoned skeleton (ally) kill don't add experience — fixed: patch o_enemy Destroy for nm_summon + sticky owner
 4 some translation point to rus — skill table upsert so grave_blight gets EN column on re-patch
-5 some translation show incorrect numbers 50-55%
+5 some translation show incorrect numbers 50-55% — fixed: skill effects now use fixed values (no ranges)

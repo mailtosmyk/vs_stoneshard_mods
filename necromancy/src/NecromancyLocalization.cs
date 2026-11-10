@@ -433,10 +433,10 @@ public static class NecromancyLocalization
             new Dictionary<ModLanguage, string>
             {
                 { ModLanguage.English, "Activates ~lg~\"Bone Ward\"~/~ for ~w~8~/~ turns (~lg~+1~/~ turn if a corpse is adjacent):##~lg~+12%~/~ Physical Resistance#~lg~+15%~/~ Bleed Resistance#~lg~+10%~/~ Magic Resistance#~lg~+10%~/~ Move Resistance##When the effect expires or is activated again, bone shards deal ~ur~4 Unholy~/~ and ~w~3 Piercing Damage~/~ to all adjacent enemies, with ~w~50%~/~ chance to Stagger them." },
-                { ModLanguage.Japanese, "~lg~「骨の守護」~/~を~w~4~/~ターン発動する（隣接に死体がある場合~lg~+1~/~ターン）：##~lg~+12%~/~物理耐性#~lg~+15%~/~出血耐性#~lg~+10%~/~魔法耐性#~lg~+10%~/~移動耐性##効果終了時または再発動時、骨片が隣接する全敵に~ur~不浄ダメージ4~/~と刺突ダメージ3を与え、~w~50%~/~の確率でよろけさせる。" },
-                { ModLanguage.Chinese, "激活~lg~“骸骨结界”~/~，持续~w~4~/~回合（相邻有尸体时~lg~+1~/~回合）：##~lg~+12%~/~物理抗性#~lg~+15%~/~出血抗性#~lg~+10%~/~魔法抗性#~lg~+10%~/~移动抗性##效果结束或再次激活时，骨片对所有相邻敌人造成~ur~4点邪秽伤害~/~与~w~3点穿刺伤害~/~，并有~w~50%~/~几率使其踉跄。" },
-                { ModLanguage.German, "Aktiviert ~lg~„Knochenwächter“~/~ für ~w~4~/~ Züge (~lg~+1~/~ Zug, wenn eine Leiche angrenzt):##~lg~+12%~/~ physischer Widerstand#~lg~+15%~/~ Blutungswiderstand#~lg~+10%~/~ Magiewiderstand#~lg~+10%~/~ Bewegungswiderstand##Beim Auslaufen oder erneuten Aktivieren fügen Knochensplitter allen angrenzenden Feinden ~ur~4 Unheiligen~/~ und ~w~3 Stichschaden~/~ zu, mit ~w~50%~/~ Chance zu staunen." },
-                { ModLanguage.Russian, "Активирует ~lg~«Костяной щит»~/~ на ~w~4~/~ хода (~lg~+1~/~ ход, если рядом труп):##~lg~+12%~/~ физ. сопротивления#~lg~+15%~/~ сопротивления кровотечению#~lg~+10%~/~ маг. сопротивления#~lg~+10%~/~ сопротивления перемещению##По окончании или при повторной активации осколки костей наносят всем соседним врагам ~ur~4 урона нечестием~/~ и ~w~3 колющего урона~/~ с ~w~50%~/~ шансом ошеломить." },
+                { ModLanguage.Japanese, "~lg~「骨の守護」~/~を~w~8~/~ターン発動する（隣接に死体がある場合~lg~+1~/~ターン）：##~lg~+12%~/~物理耐性#~lg~+15%~/~出血耐性#~lg~+10%~/~魔法耐性#~lg~+10%~/~移動耐性##効果終了時または再発動時、骨片が隣接する全敵に~ur~不浄ダメージ4~/~と刺突ダメージ3を与え、~w~50%~/~の確率でよろけさせる。" },
+                { ModLanguage.Chinese, "激活~lg~“骸骨结界”~/~，持续~w~8~/~回合（相邻有尸体时~lg~+1~/~回合）：##~lg~+12%~/~物理抗性#~lg~+15%~/~出血抗性#~lg~+10%~/~魔法抗性#~lg~+10%~/~移动抗性##效果结束或再次激活时，骨片对所有相邻敌人造成~ur~4点邪秽伤害~/~与~w~3点穿刺伤害~/~，并有~w~50%~/~几率使其踉跄。" },
+                { ModLanguage.German, "Aktiviert ~lg~„Knochenwächter“~/~ für ~w~8~/~ Züge (~lg~+1~/~ Zug, wenn eine Leiche angrenzt):##~lg~+12%~/~ physischer Widerstand#~lg~+15%~/~ Blutungswiderstand#~lg~+10%~/~ Magiewiderstand#~lg~+10%~/~ Bewegungswiderstand##Beim Auslaufen oder erneuten Aktivieren fügen Knochensplitter allen angrenzenden Feinden ~ur~4 Unheiligen~/~ und ~w~3 Stichschaden~/~ zu, mit ~w~50%~/~ Chance zu staunen." },
+                { ModLanguage.Russian, "Активирует ~lg~«Костяной щит»~/~ на ~w~8~/~ ходов (~lg~+1~/~ ход, если рядом труп):##~lg~+12%~/~ физ. сопротивления#~lg~+15%~/~ сопротивления кровотечению#~lg~+10%~/~ маг. сопротивления#~lg~+10%~/~ сопротивления перемещению##По окончании или при повторной активации осколки костей наносят всем соседним врагам ~ur~4 урона нечестием~/~ и ~w~3 колющего урона~/~ с ~w~50%~/~ шансом ошеломить." },
             });
         RegisterSkillLocalization(
             "summon_skeleton",
@@ -510,11 +510,11 @@ public static class NecromancyLocalization
             },
             new Dictionary<ModLanguage, string>
             {
-                { ModLanguage.English, "Devours a targeted corpse or steals ~lg~8%~/~ Max Health and ~lg~8%~/~ Max Energy from an allied Undead or Skeleton, transferring half of them to the caster.##Activates ~lg~\"Essence Charge\"~/~ for ~w~12–15~/~ turns:##~lg~+5%~/~ Magic Power#~r~-5%~/~ Abilities Energy Cost#~lg~+4~/~ Max Energy##Repeated use grants an extra stack (up to II) and refreshes duration.##Using Spells reduces stacks by ~r~1~/~." },
-                { ModLanguage.Japanese, "対象の死体を喰らうか、味方のアンデッド/スケルトンから最大体力~lg~8%~/~と最大エネルギー~lg~8%~/~を奪い、半分を術者へ移す。##~lg~「本質充填」~/~を~w~12〜15~/~ターン発動：##~lg~+5%~/~魔力#~r~-5%~/~能力のエネルギー消費#~lg~+4~/~最大エネルギー##再使用で追加スタック（最大II）と持続更新。##呪文使用でスタックが~r~1~/~減少。" },
-                { ModLanguage.Chinese, "吞噬目标尸体，或从友方亡灵/骷髅窃取~lg~8%~/~最大生命与~lg~8%~/~最大能量，并将一半转移给施法者。##激活~lg~“精华充能”~/~，持续~w~12–15~/~回合：##~lg~+5%~/~魔法强度#~r~-5%~/~技能能量消耗#~lg~+4~/~最大能量##重复使用额外叠加（最高II）并刷新持续时间。##施放法术会使层数减~r~1~/~。" },
-                { ModLanguage.German, "Verschlingt eine gezielte Leiche oder stiehlt ~lg~8%~/~ max. Gesundheit und ~lg~8%~/~ max. Energie von einem verbündeten Untoten oder Skelett und überträgt die Hälfte auf den Wirker.##Aktiviert ~lg~„Essenzladung“~/~ für ~w~12–15~/~ Züge:##~lg~+5%~/~ Magiekraft#~r~-5%~/~ Energiekosten von Fähigkeiten#~lg~+4~/~ max. Energie##Wiederholte Nutzung gibt einen Extra-Stapel (bis II) und erneuert die Dauer.##Zauber verringern Stapel um ~r~1~/~." },
-                { ModLanguage.Russian, "Пожирает выбранный труп или крадёт ~lg~8%~/~ макс. здоровья и ~lg~8%~/~ макс. энергии у союзной нежити/скелета, передавая половину заклинателю.##Активирует ~lg~«Заряд сущности»~/~ на ~w~12–15~/~ ходов:##~lg~+5%~/~ силы магии#~r~-5%~/~ стоимости энергии способностей#~lg~+4~/~ макс. энергии##Повторное применение даёт доп. стак (до II) и обновляет длительность.##Заклинания уменьшают стаки на ~r~1~/~." },
+                { ModLanguage.English, "Devours a targeted corpse or steals ~lg~8%~/~ Max Health and ~lg~8%~/~ Max Energy from an allied Undead or Skeleton, transferring half of them to the caster.##Activates ~lg~\"Essence Charge\"~/~ for ~w~12~/~ turns:##~lg~+5%~/~ Magic Power#~r~-5%~/~ Abilities Energy Cost#~lg~+4~/~ Max Energy##Repeated use grants an extra stack (up to II) and refreshes duration.##Using Spells reduces stacks by ~r~1~/~." },
+                { ModLanguage.Japanese, "対象の死体を喰らうか、味方のアンデッド/スケルトンから最大体力~lg~8%~/~と最大エネルギー~lg~8%~/~を奪い、半分を術者へ移す。##~lg~「本質充填」~/~を~w~12~/~ターン発動：##~lg~+5%~/~魔力#~r~-5%~/~能力のエネルギー消費#~lg~+4~/~最大エネルギー##再使用で追加スタック（最大II）と持続更新。##呪文使用でスタックが~r~1~/~減少。" },
+                { ModLanguage.Chinese, "吞噬目标尸体，或从友方亡灵/骷髅窃取~lg~8%~/~最大生命与~lg~8%~/~最大能量，并将一半转移给施法者。##激活~lg~“精华充能”~/~，持续~w~12~/~回合：##~lg~+5%~/~魔法强度#~r~-5%~/~技能能量消耗#~lg~+4~/~最大能量##重复使用额外叠加（最高II）并刷新持续时间。##施放法术会使层数减~r~1~/~。" },
+                { ModLanguage.German, "Verschlingt eine gezielte Leiche oder stiehlt ~lg~8%~/~ max. Gesundheit und ~lg~8%~/~ max. Energie von einem verbündeten Untoten oder Skelett und überträgt die Hälfte auf den Wirker.##Aktiviert ~lg~„Essenzladung“~/~ für ~w~12~/~ Züge:##~lg~+5%~/~ Magiekraft#~r~-5%~/~ Energiekosten von Fähigkeiten#~lg~+4~/~ max. Energie##Wiederholte Nutzung gibt einen Extra-Stapel (bis II) und erneuert die Dauer.##Zauber verringern Stapel um ~r~1~/~." },
+                { ModLanguage.Russian, "Пожирает выбранный труп или крадёт ~lg~8%~/~ макс. здоровья и ~lg~8%~/~ макс. энергии у союзной нежити/скелета, передавая половину заклинателю.##Активирует ~lg~«Заряд сущности»~/~ на ~w~12~/~ ходов:##~lg~+5%~/~ силы магии#~r~-5%~/~ стоимости энергии способностей#~lg~+4~/~ макс. энергии##Повторное применение даёт доп. стак (до II) и обновляет длительность.##Заклинания уменьшают стаки на ~r~1~/~." },
             });
         RegisterSkillLocalization(
             "deaths_blessing",
@@ -588,11 +588,11 @@ public static class NecromancyLocalization
             },
             new Dictionary<ModLanguage, string>
             {
-                { ModLanguage.English, "Creates a blighted 3x3 area on the targeted tile (Range: ~w~5–6~/~) for ~w~4~/~ turns.##Enemies remaining in the area take ~ur~2 Unholy Damage~/~ per turn and gain ~r~-4%~/~ Magic Resistance (stacks up to ~w~3~/~ while inside).##Also allows ~r~\"Withering Curse\"~/~ to stack up to II. Hitting with ~lg~\"Dark Bolt\"~/~ or repeating the curse adds a stack.##Bodypart worsen becomes ~r~0.35%~/~ per turn per stack." },
-                { ModLanguage.Japanese, "対象タイルに3x3の疫病地帯を~w~4~/~ターン生成する（射程: ~w~5〜6~/~）。##領域内の敵は毎ターン~ur~不浄ダメージ2~/~を受け、魔法耐性~r~-4%~/~を得る（内部で最大~w~3~/~スタック）。##~r~「枯死の呪い」~/~を最大IIまで重複可能にし、~lg~「ダークボルト」~/~の命中または呪いの再詠唱でスタック追加。##部位悪化はスタックごとに毎ターン~r~0.35%~/~。" },
-                { ModLanguage.Chinese, "在目标格子创造3x3疫病区域（射程：~w~5–6~/~），持续~w~4~/~回合。##留在区域内的敌人每回合受到~ur~2点邪秽伤害~/~，并获得~r~-4%~/~魔法抗性（在区域内最多叠加~w~3~/~层）。##同时使~r~“凋零诅咒”~/~可叠至II。以~lg~“暗矢”~/~命中或重复诅咒可增加层数。##部位恶化变为每层每回合~r~0.35%~/~。" },
-                { ModLanguage.German, "Erzeugt ein verdorbenes 3x3-Gebiet auf dem Zielfeld (Reichweite: ~w~5–6~/~) für ~w~4~/~ Züge.##Feinde darin erleiden ~ur~2 Unheiligen Schaden~/~ pro Zug und erhalten ~r~-4%~/~ Magiewiderstand (stapelt bis ~w~3~/~, solange sie drin sind).##Erlaubt ~r~„Verdorrender Fluch“~/~ bis II zu stapeln. Treffer mit ~lg~„Dunkler Bolzen“~/~ oder erneuter Fluch fügt einen Stapel hinzu.##Körperteilverschlechterung: ~r~0,35%~/~ pro Zug und Stapel." },
-                { ModLanguage.Russian, "Создаёт заражённую область 3x3 на выбранной клетке (дальность: ~w~5–6~/~) на ~w~4~/~ хода.##Враги в зоне получают ~ur~2 урона нечестием~/~ за ход и ~r~-4%~/~ маг. сопротивления (до ~w~3~/~ стаков, пока внутри).##Также позволяет ~r~«Иссушающему проклятию»~/~ стакаться до II. Попадание ~lg~«Тёмным зарядом»~/~ или повтор проклятия добавляет стак.##Ухудшение частей тела: ~r~0,35%~/~ за ход за стак." },
+                { ModLanguage.English, "Creates a blighted 3x3 area on the targeted tile (Range: ~w~6~/~) for ~w~4~/~ turns.##Enemies remaining in the area take ~ur~2 Unholy Damage~/~ per turn and gain ~r~-4%~/~ Magic Resistance (stacks up to ~w~3~/~ while inside).##Also allows ~r~\"Withering Curse\"~/~ to stack up to II. Hitting with ~lg~\"Dark Bolt\"~/~ or repeating the curse adds a stack.##Bodypart worsen becomes ~r~0.35%~/~ per turn per stack." },
+                { ModLanguage.Japanese, "対象タイルに3x3の疫病地帯を~w~4~/~ターン生成する（射程: ~w~6~/~）。##領域内の敵は毎ターン~ur~不浄ダメージ2~/~を受け、魔法耐性~r~-4%~/~を得る（内部で最大~w~3~/~スタック）。##~r~「枯死の呪い」~/~を最大IIまで重複可能にし、~lg~「ダークボルト」~/~の命中または呪いの再詠唱でスタック追加。##部位悪化はスタックごとに毎ターン~r~0.35%~/~。" },
+                { ModLanguage.Chinese, "在目标格子创造3x3疫病区域（射程：~w~6~/~），持续~w~4~/~回合。##留在区域内的敌人每回合受到~ur~2点邪秽伤害~/~，并获得~r~-4%~/~魔法抗性（在区域内最多叠加~w~3~/~层）。##同时使~r~“凋零诅咒”~/~可叠至II。以~lg~“暗矢”~/~命中或重复诅咒可增加层数。##部位恶化变为每层每回合~r~0.35%~/~。" },
+                { ModLanguage.German, "Erzeugt ein verdorbenes 3x3-Gebiet auf dem Zielfeld (Reichweite: ~w~6~/~) für ~w~4~/~ Züge.##Feinde darin erleiden ~ur~2 Unheiligen Schaden~/~ pro Zug und erhalten ~r~-4%~/~ Magiewiderstand (stapelt bis ~w~3~/~, solange sie drin sind).##Erlaubt ~r~„Verdorrender Fluch“~/~ bis II zu stapeln. Treffer mit ~lg~„Dunkler Bolzen“~/~ oder erneuter Fluch fügt einen Stapel hinzu.##Körperteilverschlechterung: ~r~0,35%~/~ pro Zug und Stapel." },
+                { ModLanguage.Russian, "Создаёт заражённую область 3x3 на выбранной клетке (дальность: ~w~6~/~) на ~w~4~/~ хода.##Враги в зоне получают ~ur~2 урона нечестием~/~ за ход и ~r~-4%~/~ маг. сопротивления (до ~w~3~/~ стаков, пока внутри).##Также позволяет ~r~«Иссушающему проклятию»~/~ стакаться до II. Попадание ~lg~«Тёмным зарядом»~/~ или повтор проклятия добавляет стак.##Ухудшение частей тела: ~r~0,35%~/~ за ход за стак." },
             });
         RegisterSkillLocalization(
             "death_touch",
@@ -614,11 +614,11 @@ public static class NecromancyLocalization
             },
             new Dictionary<ModLanguage, string>
             {
-                { ModLanguage.English, "Deals ~ur~10–12 Unholy Damage~/~ (Range: ~w~4–5~/~) with Immobilization Chance.##Replenishes Health to all allies within Vision for ~lg~40–50%~/~ of the damage dealt.##If the target has ~r~\"Withering Curse\"~/~: ~lg~+25%~/~ damage and adds ~w~1~/~ curse stack.##Consuming ~w~1~/~ ~lg~\"Essence Charge\"~/~ grants ~lg~+15%~/~ Magic Power for this cast only." },
-                { ModLanguage.Japanese, "~ur~不浄ダメージ10〜12~/~を与える（射程: ~w~4〜5~/~、拘束確率あり）。##視界内の全味方の体力を、与ダメージの~lg~40〜50%~/~分回復する。##対象が~r~「枯死の呪い」~/~を持つ場合：ダメージ~lg~+25%~/~、呪いスタック~lg~+1~/~。##~lg~「本質充填」~/~を~w~1~/~消費すると、この詠唱のみ魔力~lg~+15%~/~。" },
-                { ModLanguage.Chinese, "造成~ur~10–12点邪秽伤害~/~（射程：~w~4–5~/~），附带定身几率。##按造成伤害的~lg~40–50%~/~恢复视野内所有盟友的生命。##若目标带有~r~“凋零诅咒”~/~：伤害~lg~+25%~/~，并增加~w~1~/~层诅咒。##消耗~w~1~/~层~lg~“精华充能”~/~可在本次施法中获得~lg~+15%~/~魔法强度。" },
-                { ModLanguage.German, "Verursacht ~ur~10–12 Unheiligen Schaden~/~ (Reichweite: ~w~4–5~/~) mit Immobilisierungschance.##Stellt allen Verbündeten in Sichtweite ~lg~40–50%~/~ des verursachten Schadens als Gesundheit wieder her.##Hat das Ziel ~r~„Verdorrender Fluch“~/~: ~lg~+25%~/~ Schaden und ~lg~+1~/~ Fluchstapel.##Verbrauch von ~w~1~/~ ~lg~„Essenzladung“~/~ gewährt ~lg~+15%~/~ Magiekraft nur für diesen Wurf." },
-                { ModLanguage.Russian, "Наносит ~ur~10–12 урона нечестием~/~ (дальность: ~w~4–5~/~) со шансом обездвижить.##Восстанавливает здоровье всем союзникам в поле зрения на ~lg~40–50%~/~ от нанесённого урона.##Если на цели ~r~«Иссушающее проклятие»~/~: ~lg~+25%~/~ урона и ~lg~+1~/~ стак проклятия.##Расход ~w~1~/~ ~lg~«Заряда сущности»~/~ даёт ~lg~+15%~/~ силы магии только для этого применения." },
+                { ModLanguage.English, "Deals ~ur~12 Unholy Damage~/~ (Range: ~w~4~/~) with Immobilization Chance.##Replenishes Health to all allies within Vision for ~lg~50%~/~ of the damage dealt.##If the target has ~r~\"Withering Curse\"~/~: ~lg~+25%~/~ damage and adds ~w~1~/~ curse stack.##Consuming ~w~1~/~ ~lg~\"Essence Charge\"~/~ grants ~lg~+15%~/~ Magic Power for this cast only." },
+                { ModLanguage.Japanese, "~ur~不浄ダメージ12~/~を与える（射程: ~w~4~/~、拘束確率あり）。##視界内の全味方の体力を、与ダメージの~lg~50%~/~分回復する。##対象が~r~「枯死の呪い」~/~を持つ場合：ダメージ~lg~+25%~/~、呪いスタック~lg~+1~/~。##~lg~「本質充填」~/~を~w~1~/~消費すると、この詠唱のみ魔力~lg~+15%~/~。" },
+                { ModLanguage.Chinese, "造成~ur~12点邪秽伤害~/~（射程：~w~4~/~），附带定身几率。##按造成伤害的~lg~50%~/~恢复视野内所有盟友的生命。##若目标带有~r~“凋零诅咒”~/~：伤害~lg~+25%~/~，并增加~w~1~/~层诅咒。##消耗~w~1~/~层~lg~“精华充能”~/~可在本次施法中获得~lg~+15%~/~魔法强度。" },
+                { ModLanguage.German, "Verursacht ~ur~12 Unheiligen Schaden~/~ (Reichweite: ~w~4~/~) mit Immobilisierungschance.##Stellt allen Verbündeten in Sichtweite ~lg~50%~/~ des verursachten Schadens als Gesundheit wieder her.##Hat das Ziel ~r~„Verdorrender Fluch“~/~: ~lg~+25%~/~ Schaden und ~lg~+1~/~ Fluchstapel.##Verbrauch von ~w~1~/~ ~lg~„Essenzladung“~/~ gewährt ~lg~+15%~/~ Magiekraft nur für diesen Wurf." },
+                { ModLanguage.Russian, "Наносит ~ur~12 урона нечестием~/~ (дальность: ~w~4~/~) со шансом обездвижить.##Восстанавливает здоровье всем союзникам в поле зрения на ~lg~50%~/~ от нанесённого урона.##Если на цели ~r~«Иссушающее проклятие»~/~: ~lg~+25%~/~ урона и ~lg~+1~/~ стак проклятия.##Расход ~w~1~/~ ~lg~«Заряда сущности»~/~ даёт ~lg~+15%~/~ силы магии только для этого применения." },
             });
         RegisterSkillLocalization(
             "corpse_burst",
@@ -692,11 +692,11 @@ public static class NecromancyLocalization
             },
             new Dictionary<ModLanguage, string>
             {
-                { ModLanguage.English, "Detonates ~r~\"Withering Curse\"~/~ on the target (Range: ~w~5–6~/~), or on the strongest cursed enemy in a 3x3 if cast on a tile: removes stacks, deals ~ur~6 Unholy Damage~/~ × stacks to the target and ~ur~3 Unholy Damage~/~ × stacks to adjacent enemies.##Allows ~r~\"Withering Curse\"~/~ to stack up to III.##Bodypart worsen becomes ~r~0.5%~/~ per turn per stack while at III." },
-                { ModLanguage.Japanese, "対象の~r~「枯死の呪い」~/~を起爆する（射程: ~w~5〜6~/~）。##タイル詠唱時は3x3内で最も強い呪い持ちを対象：スタックを除去し、対象に~ur~不浄ダメージ6~/~×スタック、隣接敵に~ur~3~/~×スタック。##呪いを最大IIIまで重複可能。##III時の部位悪化はスタックごとに毎ターン~r~0.5%~/~。" },
-                { ModLanguage.Chinese, "引爆目标身上的~r~“凋零诅咒”~/~（射程：~w~5–6~/~）；若对格子施放，则引爆3x3内最强的被诅咒敌人：移除层数，对目标造成~ur~6×层数邪秽伤害~/~，对相邻敌人造成~ur~3×层数邪秽伤害~/~。##使~r~“凋零诅咒”~/~可叠至III。##达到III时，部位恶化变为每层每回合~r~0.5%~/~。" },
-                { ModLanguage.German, "Zündet ~r~„Verdorrender Fluch“~/~ am Ziel (Reichweite: ~w~5–6~/~) oder am stärksten verfluchten Feind in 3x3 bei Feldwirken: entfernt Stapel, verursacht ~ur~6 Unheiligen Schaden~/~ × Stapel am Ziel und ~ur~3~/~ × Stapel an angrenzenden Feinden.##Erlaubt Stapelung bis III.##Bei III: Körperteilverschlechterung ~r~0,5%~/~ pro Zug und Stapel." },
-                { ModLanguage.Russian, "Детонирует ~r~«Иссушающее проклятие»~/~ на цели (дальность: ~w~5–6~/~) или на сильнейшем проклятом враге в 3x3 при применении на клетку: снимает стаки, наносит цели ~ur~6 урона нечестием~/~ × стаки и соседним врагам ~ur~3~/~ × стаки.##Позволяет стакать проклятие до III.##При III ухудшение частей тела: ~r~0,5%~/~ за ход за стак." },
+                { ModLanguage.English, "Detonates ~r~\"Withering Curse\"~/~ on the target (Range: ~w~5~/~), or on the strongest cursed enemy in a 3x3 if cast on a tile: removes stacks, deals ~ur~6 Unholy Damage~/~ × stacks to the target and ~ur~3 Unholy Damage~/~ × stacks to adjacent enemies.##Allows ~r~\"Withering Curse\"~/~ to stack up to III.##Bodypart worsen becomes ~r~0.5%~/~ per turn per stack while at III." },
+                { ModLanguage.Japanese, "対象の~r~「枯死の呪い」~/~を起爆する（射程: ~w~5~/~）。##タイル詠唱時は3x3内で最も強い呪い持ちを対象：スタックを除去し、対象に~ur~不浄ダメージ6~/~×スタック、隣接敵に~ur~3~/~×スタック。##呪いを最大IIIまで重複可能。##III時の部位悪化はスタックごとに毎ターン~r~0.5%~/~。" },
+                { ModLanguage.Chinese, "引爆目标身上的~r~“凋零诅咒”~/~（射程：~w~5~/~）；若对格子施放，则引爆3x3内最强的被诅咒敌人：移除层数，对目标造成~ur~6×层数邪秽伤害~/~，对相邻敌人造成~ur~3×层数邪秽伤害~/~。##使~r~“凋零诅咒”~/~可叠至III。##达到III时，部位恶化变为每层每回合~r~0.5%~/~。" },
+                { ModLanguage.German, "Zündet ~r~„Verdorrender Fluch“~/~ am Ziel (Reichweite: ~w~5~/~) oder am stärksten verfluchten Feind in 3x3 bei Feldwirken: entfernt Stapel, verursacht ~ur~6 Unheiligen Schaden~/~ × Stapel am Ziel und ~ur~3~/~ × Stapel an angrenzenden Feinden.##Erlaubt Stapelung bis III.##Bei III: Körperteilverschlechterung ~r~0,5%~/~ pro Zug und Stapel." },
+                { ModLanguage.Russian, "Детонирует ~r~«Иссушающее проклятие»~/~ на цели (дальность: ~w~5~/~) или на сильнейшем проклятом враге в 3x3 при применении на клетку: снимает стаки, наносит цели ~ur~6 урона нечестием~/~ × стаки и соседним врагам ~ur~3~/~ × стаки.##Позволяет стакать проклятие до III.##При III ухудшение частей тела: ~r~0,5%~/~ за ход за стак." },
             });
         RegisterSkillLocalization(
             "sealed_mind",
@@ -1035,10 +1035,10 @@ public static class NecromancyLocalization
                 ru: "Florath Insania!")),
             ("wraith_summoning", Speech(
                 en: "Lagura mithensa!",
-                ja: "コールグ・ナマール！",
-                zh: "廓卢戈'纳玛尔！",
-                de: "Korrug Namar!",
-                ru: "Korrug Namar!"))
+                ja: "ラグーラ・ミセンサ！",
+                zh: "拉古拉·米森萨！",
+                de: "Lagura mithensa!",
+                ru: "Lagura mithensa!"))
         ));
     }
 

@@ -1,6 +1,6 @@
 {
   "targetVersion": "0.9.4.25",
-  "notes": "Vanilla item ids with base price, flavor description, and structured effects from data.win. Effect entries use add_<stat> values; timed buffs include per-effect turns; uses is item use count. Grass includes herbs and mushrooms. Death Cap id=stool. Gwynnel's Elixir id=aqua_vitae. Honeycomb id=honey.",
+  "notes": "Vanilla item ids with base price, flavor description, and structured effects from data.win. Effect entries use add_<stat> values; timed buffs include per-effect turns; uses is item use count. Grass includes herbs and mushrooms. Death Cap id=stool. Gwynnel's Elixir id=aqua_vitae. Honeycomb id=honey. Smoking Mix id=pipe_hemp. Spirit is the potion alcohol base. Items holds containers (flask). Coatings are weapon oils/pastes; on use they add fire or poison damage to weapons (coat_weapon_fire_damage / coat_weapon_poison_damage, optional coat_weapon_hits). Throwables are combat flasks: throw_fire_damage / throw_poison_damage / throw_gas effects with throw_aoe 1 (single target) or 3 (3x3); may include throw_ignite_turns, throw_poisoning, throw_coughing, throw_vision, spore_cloud_turns. Recipes: up to 4 ingredient ids (repeats allowed), enabled flag, elixir outcome id; ingredients_cost is sum of ingredient prices, recipe_cost adds spirit+flask when not already in ingredients, elixir_cost is target price. Bottle of Oil id=oil. Recipes may target elixirs, spirit, oil, coatings, or throwables. ingredients_cost must be between 75% and 100% of elixir_cost; recipe_cost > 100 requires spirit in ingredients; 80 < elixir_cost < 150 requires spirit and flask in ingredients.",
   "grass": [
     {
       "id": "agrimony",
@@ -1735,7 +1735,7 @@
     },
     {
       "id": "pipe_hemp",
-      "name": "stick_oak",
+      "name": "Smoking Mix",
       "price": 20,
       "description": "A few deep puffs should be enough to settle the nerves and regain lost focus.",
       "effects": [
@@ -1760,12 +1760,15 @@
           "turns": 120
         },
         {
-          "add_morale_change": 0.04,
+          "add_sit_morale_change": 0.04,
           "turns": 120
         },
         {
           "add_temporary_morale": 5,
           "turns": 120
+        },
+        {
+          "add_cooldowns_duration": 10
         }
       ]
     },
@@ -2104,6 +2107,1025 @@
         },
         {
           "unpleasant_aftermath": true
+        }
+      ]
+    },
+    {
+      "id": "dark_ale",
+      "name": "Dark Ale",
+      "price": 15,
+      "description": "A mug of good old village ale. In Aldor it is drunk almost as much as water: it fortifies vigor, provides a little nourishment, and helps endure long days in the fields.",
+      "effects": [
+        {
+          "add_thirst": -5
+        },
+        {
+          "add_thirst_change": 0.05,
+          "turns": 30
+        },
+        {
+          "add_pain_change": -0.1,
+          "turns": 30
+        },
+        {
+          "add_morale": 2
+        },
+        {
+          "add_energy_replenishment": 2
+        },
+        {
+          "uses": 1
+        },
+        {
+          "cause_light_drunkenness": true
+        }
+      ]
+    },
+    {
+      "id": "styptic_brew",
+      "name": "Styptic Brew",
+      "price": 25,
+      "description": "A bitter roadside wash of burnet and nettle. Field surgeons swear by it for closing fresh cuts when bandages run short.",
+      "effects": [
+        {
+          "add_thirst": 5
+        },
+        {
+          "add_health_replenishment": 3
+        },
+        {
+          "add_health_restoration": 2,
+          "turns": 60
+        },
+        {
+          "add_bleed_resistance": 10,
+          "turns": 90
+        }
+      ]
+    },
+    {
+      "id": "clearhead_bitters",
+      "name": "Clearhead Bitters",
+      "price": 40,
+      "description": "A sharp ginger-and-mindwort draught favored by caravan guards after a night of cheap spirit. It clears the fog, though the taste alone is punishment enough.",
+      "effects": [
+        {
+          "add_thirst": 8
+        },
+        {
+          "add_intoxication": -10
+        },
+        {
+          "add_intoxication_change": -0.1,
+          "turns": 60
+        },
+        {
+          "add_immunity": 1
+        },
+        {
+          "help_sober_faster": true
+        },
+        {
+          "halve_hangover_and_aftermath": true
+        }
+      ]
+    },
+    {
+      "id": "marching_tea",
+      "name": "Marching Tea",
+      "price": 20,
+      "description": "A fragrant thyme-and-mint infusion brewed by scouts before long marches. No drunkenness, only a steadier step and clearer head.",
+      "effects": [
+        {
+          "add_thirst": -5
+        },
+        {
+          "add_energy_restoration": 2,
+          "turns": 90
+        },
+        {
+          "add_fatigue_change": -0.02,
+          "turns": 90
+        },
+        {
+          "add_fatigue_resistance": 5,
+          "turns": 90
+        },
+        {
+          "add_morale": 1
+        }
+      ]
+    },
+    {
+      "id": "field_extract",
+      "name": "Field Extract",
+      "price": 25,
+      "description": "A crude poppy-and-wormwood soak mixed in camp kettles. Weaker than a proper herbal extract, but still enough to dull a wound when the apothecary is days away.",
+      "effects": [
+        {
+          "add_intoxication_change": 0.3,
+          "turns": 40
+        },
+        {
+          "add_pain": -15
+        },
+        {
+          "add_pain_resistance": 5,
+          "turns": 40
+        }
+      ]
+    },
+    {
+      "id": "soldiers_draught",
+      "name": "Soldier's Draught",
+      "price": 90,
+      "description": "A harsh amber-and-henbane mix issued to levy men before a charge. It puts iron in the arm for a short while, then leaves the tongue bitter and the head swimming.",
+      "effects": [
+        {
+          "add_intoxication": 10
+        },
+        {
+          "add_weapon_damage": 8,
+          "turns": 240
+        },
+        {
+          "add_pain_resistance": 5,
+          "turns": 240
+        }
+      ]
+    },
+    {
+      "id": "cleaving_bitters",
+      "name": "Cleaving Bitters",
+      "price": 100,
+      "description": "Honeyed bitters prized by duelists who favor a single decisive cut. Sweet on the first swallow, cruel on the second.",
+      "effects": [
+        {
+          "add_intoxication": 10
+        },
+        {
+          "add_crit_chance": 6,
+          "turns": 240
+        },
+        {
+          "add_crit_efficiency": 10,
+          "turns": 240
+        }
+      ]
+    },
+    {
+      "id": "bloodwake",
+      "name": "Bloodwake",
+      "price": 120,
+      "description": "Turquoise-tinted bloodwake is said to thin the foe's armor as much as it thickens one's resolve. Mercenaries drink it before storming plate-clad lines.",
+      "effects": [
+        {
+          "add_intoxication": 12
+        },
+        {
+          "add_armor_penetration": 8,
+          "turns": 240
+        },
+        {
+          "add_bleed_resistance": 5,
+          "turns": 240
+        }
+      ]
+    },
+    {
+      "id": "ironbark_tonic",
+      "name": "Ironbark Tonic",
+      "price": 120,
+      "description": "Brewed over agate-ground bark powders, ironbark tonic toughens flesh against cuts and bruises. The aftertaste is like chewing wet oak.",
+      "effects": [
+        {
+          "add_intoxication": 8
+        },
+        {
+          "add_bleed_resistance": 12,
+          "turns": 300
+        },
+        {
+          "add_healing_efficiency": 8,
+          "turns": 300
+        },
+        {
+          "add_pain_resistance": 5,
+          "turns": 300
+        }
+      ]
+    },
+    {
+      "id": "ward_philter",
+      "name": "Ward Philter",
+      "price": 125,
+      "description": "A turquoise ward philter whispered over with mindwort prayers. It blunts hostile magic, though some complain of a faint ringing behind the eyes.",
+      "effects": [
+        {
+          "add_intoxication": 8
+        },
+        {
+          "add_magic_resistance": 12,
+          "turns": 300
+        },
+        {
+          "add_sanity_change": -0.02,
+          "turns": 300
+        }
+      ]
+    },
+    {
+      "id": "frostguard",
+      "name": "Frostguard",
+      "price": 100,
+      "description": "Amber steeped with lavender against the bite of highland winters and frost-cursed blades. Warmth blooms in the chest, then fades like breath on glass.",
+      "effects": [
+        {
+          "add_intoxication": 8
+        },
+        {
+          "add_frost_resistance": 15,
+          "turns": 300
+        },
+        {
+          "add_energy_replenishment": 5
+        }
+      ]
+    },
+    {
+      "id": "venomguard",
+      "name": "Venomguard",
+      "price": 110,
+      "description": "Azurecap and horsetail rendered into a pale green philter. Hunters sip it before stalking swamp vipers and deathstinger nests.",
+      "effects": [
+        {
+          "add_intoxication": 5
+        },
+        {
+          "add_poison_resistance": 20,
+          "turns": 300
+        },
+        {
+          "add_intoxication_resistance": 10,
+          "turns": 300
+        }
+      ]
+    },
+    {
+      "id": "mooncap_elixir",
+      "name": "Mooncap Elixir",
+      "price": 110,
+      "description": "Moonlit azurecap essence in a clear flask. Weaker than true stardust, yet enough to lend a hedge-mage's cantrips a keener edge.",
+      "effects": [
+        {
+          "add_intoxication": 10
+        },
+        {
+          "add_magic_power": 12,
+          "turns": 240
+        },
+        {
+          "add_temporary_morale": 5
+        }
+      ]
+    },
+    {
+      "id": "arcane_focus",
+      "name": "Arcane Focus",
+      "price": 140,
+      "description": "Moonstone powder suspended in spirit, steadied with thyme. It gathers a caster's will and quiets the worst misfires - for a price paid in thirst.",
+      "effects": [
+        {
+          "add_thirst": 10
+        },
+        {
+          "add_intoxication": 12
+        },
+        {
+          "add_magic_power": 10,
+          "turns": 300
+        },
+        {
+          "add_backfire_chance": -10,
+          "turns": 300
+        }
+      ]
+    },
+    {
+      "id": "pyreheart",
+      "name": "Pyreheart",
+      "price": 100,
+      "description": "Coal-black pyreheart burns going down. It steels the blade-hand and hardens the skin against flame, as if a forge fire briefly took root in the veins.",
+      "effects": [
+        {
+          "add_intoxication": 12
+        },
+        {
+          "add_weapon_damage": 5,
+          "turns": 240
+        },
+        {
+          "add_fire_resistance": 10,
+          "turns": 240
+        }
+      ]
+    }
+  ],
+  "spirit": [
+    {
+      "id": "spirit",
+      "name": "Spirit",
+      "price": 30,
+      "description": "A base for any potion, sought by alchemists and drunkards alike.",
+      "effects": [
+        {
+          "add_thirst": 50
+        },
+        {
+          "add_pain_change": -0.33,
+          "turns": 90
+        },
+        {
+          "add_intoxication_change": 0.5,
+          "turns": 90
+        },
+        {
+          "add_frost_resistance": 10,
+          "turns": 90
+        },
+        {
+          "add_energy_replenishment": 5
+        },
+        {
+          "add_sanity_change": -0.1,
+          "turns": 90
+        },
+        {
+          "uses": 1
+        },
+        {
+          "cause_severe_drunkenness": true
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "flask",
+      "name": "Flask",
+      "price": 5,
+      "description": "Were it not for the ingenuity of the Bronze Isles' craftsmen, glass bottles might have stayed a luxury forever.",
+      "effects": []
+    },
+    {
+      "id": "oil",
+      "name": "Bottle of Oil",
+      "price": 20,
+      "description": "It holds a flammable mixture used by wealthy townsfolk to fuel desk lamps.",
+      "effects": []
+    }
+  ],
+  "throwables": [
+    {
+      "id": "flame_vial",
+      "name": "Flame Vial",
+      "price": 45,
+      "description": "A small flask of lamp oil and powdered charcoal. Shattered against a single foe, it bursts into a brief, clinging flame.",
+      "effects": [
+        {
+          "throw_fire_damage": 12
+        },
+        {
+          "throw_ignite_turns": 3
+        },
+        {
+          "throw_aoe": 1
+        }
+      ]
+    },
+    {
+      "id": "flame_flask",
+      "name": "Flame Flask",
+      "price": 90,
+      "description": "A heavier spirit-cut fire mixture. On impact it spatters burning oil across a three-by-three pace of ground.",
+      "effects": [
+        {
+          "throw_fire_damage": 18
+        },
+        {
+          "throw_ignite_turns": 4
+        },
+        {
+          "throw_aoe": 3
+        }
+      ]
+    },
+    {
+      "id": "venom_vial",
+      "name": "Venom Vial",
+      "price": 40,
+      "description": "Puffball toxin sealed in glass. A direct hit soaks one target in virulent poison.",
+      "effects": [
+        {
+          "throw_poison_damage": 8
+        },
+        {
+          "add_poisoning_chance": 80
+        },
+        {
+          "add_poisoning_duration": 40
+        },
+        {
+          "throw_aoe": 1
+        }
+      ]
+    },
+    {
+      "id": "venom_flask",
+      "name": "Venom Flask",
+      "price": 85,
+      "description": "A volatile spore brew that bursts into a choking poison cloud covering a three-by-three area.",
+      "effects": [
+        {
+          "throw_poison_damage": 10
+        },
+        {
+          "add_poisoning_chance": 70
+        },
+        {
+          "add_poisoning_duration": 50
+        },
+        {
+          "spore_cloud_turns": [
+            3,
+            5
+          ]
+        },
+        {
+          "throw_aoe": 3
+        }
+      ]
+    },
+    {
+      "id": "choke_vial",
+      "name": "Choke Vial",
+      "price": 35,
+      "description": "Hemp smoke and charcoal dust under pressure. Thrown at a single target, it forces a fit of coughing and blurred sight.",
+      "effects": [
+        {
+          "throw_gas": true
+        },
+        {
+          "throw_coughing_chance_pct": 75
+        },
+        {
+          "throw_accuracy": -20
+        },
+        {
+          "throw_fumble_chance": 20
+        },
+        {
+          "throw_aoe": 1
+        }
+      ]
+    },
+    {
+      "id": "gas_flask",
+      "name": "Gas Flask",
+      "price": 60,
+      "description": "Oil, hemp, and charcoal packed to burst into a spreading haze. The cloud fills a three-by-three space, cutting vision and inviting coughs.",
+      "effects": [
+        {
+          "throw_gas": true
+        },
+        {
+          "throw_coughing_chance_pct": 50
+        },
+        {
+          "throw_accuracy": -25
+        },
+        {
+          "throw_fumble_chance": 25
+        },
+        {
+          "throw_vision": 1
+        },
+        {
+          "throw_aoe": 3
+        },
+        {
+          "spore_cloud_turns": [
+            4,
+            6
+          ]
+        }
+      ]
+    }
+  ],
+  "recipes": [
+    {
+      "ingredients": [
+        "wormwood",
+        "jade",
+        "turquoise",
+        "spirit"
+      ],
+      "enabled": false,
+      "elixir": "abasa",
+      "ingredients_cost": 240,
+      "recipe_cost": 245,
+      "elixir_cost": 250
+    },
+    {
+      "ingredients": [
+        "thyme",
+        "azurecap",
+        "turquoise",
+        "spirit"
+      ],
+      "enabled": false,
+      "elixir": "alqud",
+      "ingredients_cost": 185,
+      "recipe_cost": 190,
+      "elixir_cost": 200
+    },
+    {
+      "ingredients": [
+        "silverleaf",
+        "hyssop",
+        "diamond",
+        "spirit"
+      ],
+      "enabled": false,
+      "elixir": "aqua_vitae",
+      "ingredients_cost": 830,
+      "recipe_cost": 835,
+      "elixir_cost": 1000
+    },
+    {
+      "ingredients": [
+        "honey",
+        "honey",
+        "jade",
+        "spirit"
+      ],
+      "enabled": false,
+      "elixir": "hornet_honey",
+      "ingredients_cost": 191,
+      "recipe_cost": 196,
+      "elixir_cost": 200
+    },
+    {
+      "ingredients": [
+        "honey"
+      ],
+      "enabled": false,
+      "elixir": "mead",
+      "ingredients_cost": 18,
+      "recipe_cost": 53,
+      "elixir_cost": 20
+    },
+    {
+      "ingredients": [
+        "flask",
+        "fig",
+        "amber",
+        "spirit"
+      ],
+      "enabled": false,
+      "elixir": "nikkaf",
+      "ingredients_cost": 100,
+      "recipe_cost": 100,
+      "elixir_cost": 100
+    },
+    {
+      "ingredients": [
+        "hop",
+        "hop",
+        "grape",
+        "grape"
+      ],
+      "enabled": false,
+      "elixir": "spirit",
+      "ingredients_cost": 28,
+      "recipe_cost": 63,
+      "elixir_cost": 30
+    },
+    {
+      "ingredients": [
+        "wormwood",
+        "hop",
+        "grape",
+        "grape"
+      ],
+      "enabled": false,
+      "elixir": "spirit",
+      "ingredients_cost": 28,
+      "recipe_cost": 63,
+      "elixir_cost": 30
+    },
+    {
+      "ingredients": [
+        "hemp",
+        "hemp",
+        "hemp",
+        "hemp"
+      ],
+      "enabled": false,
+      "elixir": "oil",
+      "ingredients_cost": 20,
+      "recipe_cost": 55,
+      "elixir_cost": 20
+    },
+    {
+      "ingredients": [
+        "coal",
+        "hemp"
+      ],
+      "enabled": false,
+      "elixir": "oil",
+      "ingredients_cost": 20,
+      "recipe_cost": 55,
+      "elixir_cost": 20
+    },
+    {
+      "ingredients": [
+        "hop",
+        "hop",
+        "hop"
+      ],
+      "enabled": false,
+      "elixir": "dark_ale",
+      "ingredients_cost": 15,
+      "recipe_cost": 50,
+      "elixir_cost": 15
+    },
+    {
+      "ingredients": [
+        "burnet",
+        "nettle",
+        "burdock",
+        "bogbean"
+      ],
+      "enabled": false,
+      "elixir": "styptic_brew",
+      "ingredients_cost": 20,
+      "recipe_cost": 55,
+      "elixir_cost": 25
+    },
+    {
+      "ingredients": [
+        "ginger",
+        "mindwort"
+      ],
+      "enabled": false,
+      "elixir": "clearhead_bitters",
+      "ingredients_cost": 35,
+      "recipe_cost": 70,
+      "elixir_cost": 40
+    },
+    {
+      "ingredients": [
+        "thyme",
+        "lavender",
+        "peppermint",
+        "blueberry"
+      ],
+      "enabled": false,
+      "elixir": "marching_tea",
+      "ingredients_cost": 17,
+      "recipe_cost": 52,
+      "elixir_cost": 20
+    },
+    {
+      "ingredients": [
+        "poppy",
+        "wormwood",
+        "hemp",
+        "hop"
+      ],
+      "enabled": false,
+      "elixir": "field_extract",
+      "ingredients_cost": 20,
+      "recipe_cost": 55,
+      "elixir_cost": 25
+    },
+    {
+      "ingredients": [
+        "flask",
+        "spirit",
+        "amber",
+        "henbane"
+      ],
+      "enabled": false,
+      "elixir": "soldiers_draught",
+      "ingredients_cost": 80,
+      "recipe_cost": 80,
+      "elixir_cost": 90
+    },
+    {
+      "ingredients": [
+        "flask",
+        "spirit",
+        "amber",
+        "honey"
+      ],
+      "enabled": false,
+      "elixir": "cleaving_bitters",
+      "ingredients_cost": 93,
+      "recipe_cost": 93,
+      "elixir_cost": 100
+    },
+    {
+      "ingredients": [
+        "flask",
+        "spirit",
+        "turquoise",
+        "burnet"
+      ],
+      "enabled": false,
+      "elixir": "bloodwake",
+      "ingredients_cost": 120,
+      "recipe_cost": 120,
+      "elixir_cost": 120
+    },
+    {
+      "ingredients": [
+        "flask",
+        "spirit",
+        "agate",
+        "honey"
+      ],
+      "enabled": false,
+      "elixir": "ironbark_tonic",
+      "ingredients_cost": 113,
+      "recipe_cost": 113,
+      "elixir_cost": 120
+    },
+    {
+      "ingredients": [
+        "flask",
+        "spirit",
+        "turquoise",
+        "mindwort"
+      ],
+      "enabled": false,
+      "elixir": "ward_philter",
+      "ingredients_cost": 120,
+      "recipe_cost": 120,
+      "elixir_cost": 125
+    },
+    {
+      "ingredients": [
+        "flask",
+        "spirit",
+        "amber",
+        "lavender"
+      ],
+      "enabled": false,
+      "elixir": "frostguard",
+      "ingredients_cost": 80,
+      "recipe_cost": 80,
+      "elixir_cost": 100
+    },
+    {
+      "ingredients": [
+        "flask",
+        "spirit",
+        "azurecap",
+        "horsetail"
+      ],
+      "enabled": false,
+      "elixir": "venomguard",
+      "ingredients_cost": 110,
+      "recipe_cost": 110,
+      "elixir_cost": 110
+    },
+    {
+      "ingredients": [
+        "flask",
+        "spirit",
+        "azurecap",
+        "peppermint"
+      ],
+      "enabled": false,
+      "elixir": "mooncap_elixir",
+      "ingredients_cost": 110,
+      "recipe_cost": 110,
+      "elixir_cost": 110
+    },
+    {
+      "ingredients": [
+        "flask",
+        "spirit",
+        "moonstone",
+        "thyme"
+      ],
+      "enabled": false,
+      "elixir": "arcane_focus",
+      "ingredients_cost": 140,
+      "recipe_cost": 140,
+      "elixir_cost": 140
+    },
+    {
+      "ingredients": [
+        "flask",
+        "spirit",
+        "amber",
+        "coal"
+      ],
+      "enabled": false,
+      "elixir": "pyreheart",
+      "ingredients_cost": 90,
+      "recipe_cost": 90,
+      "elixir_cost": 100
+    },
+    {
+      "ingredients": [
+        "oil",
+        "coal",
+        "thyme"
+      ],
+      "enabled": false,
+      "elixir": "ember_oil",
+      "ingredients_cost": 40,
+      "recipe_cost": 75,
+      "elixir_cost": 40
+    },
+    {
+      "ingredients": [
+        "oil",
+        "coal",
+        "coal",
+        "henbane"
+      ],
+      "enabled": false,
+      "elixir": "cinder_lacquer",
+      "ingredients_cost": 55,
+      "recipe_cost": 90,
+      "elixir_cost": 60
+    },
+    {
+      "ingredients": [
+        "oil",
+        "stool",
+        "wormwood",
+        "hop"
+      ],
+      "enabled": false,
+      "elixir": "venom_lacquer",
+      "ingredients_cost": 32,
+      "recipe_cost": 67,
+      "elixir_cost": 35
+    },
+    {
+      "ingredients": [
+        "oil",
+        "puffball",
+        "wormwood"
+      ],
+      "enabled": false,
+      "elixir": "puffball_paste",
+      "ingredients_cost": 55,
+      "recipe_cost": 90,
+      "elixir_cost": 55
+    },
+    {
+      "ingredients": [
+        "flask",
+        "oil",
+        "coal",
+        "thyme"
+      ],
+      "enabled": false,
+      "elixir": "flame_vial",
+      "ingredients_cost": 45,
+      "recipe_cost": 75,
+      "elixir_cost": 45
+    },
+    {
+      "ingredients": [
+        "flask",
+        "spirit",
+        "oil",
+        "coal"
+      ],
+      "enabled": false,
+      "elixir": "flame_flask",
+      "ingredients_cost": 70,
+      "recipe_cost": 70,
+      "elixir_cost": 90
+    },
+    {
+      "ingredients": [
+        "flask",
+        "puffball",
+        "wormwood"
+      ],
+      "enabled": false,
+      "elixir": "venom_vial",
+      "ingredients_cost": 40,
+      "recipe_cost": 70,
+      "elixir_cost": 40
+    },
+    {
+      "ingredients": [
+        "flask",
+        "spirit",
+        "puffball",
+        "wormwood"
+      ],
+      "enabled": false,
+      "elixir": "venom_flask",
+      "ingredients_cost": 70,
+      "recipe_cost": 70,
+      "elixir_cost": 85
+    },
+    {
+      "ingredients": [
+        "flask",
+        "hemp",
+        "coal",
+        "hop"
+      ],
+      "enabled": false,
+      "elixir": "choke_vial",
+      "ingredients_cost": 30,
+      "recipe_cost": 60,
+      "elixir_cost": 35
+    },
+    {
+      "ingredients": [
+        "flask",
+        "oil",
+        "hemp",
+        "coal"
+      ],
+      "enabled": false,
+      "elixir": "gas_flask",
+      "ingredients_cost": 45,
+      "recipe_cost": 75,
+      "elixir_cost": 60
+    }
+  ],
+  "coatings": [
+    {
+      "id": "ember_oil",
+      "name": "Ember Oil",
+      "price": 40,
+      "description": "A lamp oil thickened with charcoal and thyme. Rubbed along a blade, it leaves a smoldering sheen that bites with fire on each strike.",
+      "effects": [
+        {
+          "coat_weapon_fire_damage": 4,
+          "turns": 120
+        },
+        {
+          "coat_weapon_hits": 12
+        }
+      ]
+    },
+    {
+      "id": "cinder_lacquer",
+      "name": "Cinder Lacquer",
+      "price": 60,
+      "description": "A denser charcoal lacquer laced with henbane. The coated edge glows faintly, as if still resting on the forge.",
+      "effects": [
+        {
+          "coat_weapon_fire_damage": 7,
+          "turns": 180
+        },
+        {
+          "coat_weapon_hits": 16
+        }
+      ]
+    },
+    {
+      "id": "venom_lacquer",
+      "name": "Venom Lacquer",
+      "price": 35,
+      "description": "Death cap and wormwood cooked into oil until the mixture turns sickly green. A thin coat is enough to poison shallow cuts.",
+      "effects": [
+        {
+          "coat_weapon_poison_damage": 3,
+          "turns": 120
+        },
+        {
+          "coat_weapon_hits": 12
+        }
+      ]
+    },
+    {
+      "id": "puffball_paste",
+      "name": "Puffball Paste",
+      "price": 55,
+      "description": "Pale puffball spores mashed into oil. Assassins favor the paste for its clinging poison that outlasts a brief skirmish.",
+      "effects": [
+        {
+          "coat_weapon_poison_damage": 6,
+          "turns": 180
+        },
+        {
+          "coat_weapon_hits": 16
         }
       ]
     }
