@@ -31,6 +31,11 @@ fi
 
 mkdir -p "$OUT_DIR"
 
+if [[ -f "$ROOT/python/embed_json.py" ]]; then
+  echo "Embedding ingredients.json..."
+  python3 "$ROOT/python/embed_json.py"
+fi
+
 echo "Building $MOD_NAME ($CONFIG)..."
 dotnet build "$ROOT/Alchemy.csproj" -c "$CONFIG" --nologo
 

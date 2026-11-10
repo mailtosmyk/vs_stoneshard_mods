@@ -3122,7 +3122,7 @@
         "turquoise",
         "spirit"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "abasa",
       "ingredients_cost": 240,
       "recipe_cost": 245,
@@ -3135,7 +3135,7 @@
         "turquoise",
         "spirit"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "alqud",
       "ingredients_cost": 185,
       "recipe_cost": 190,
@@ -3148,7 +3148,7 @@
         "diamond",
         "spirit"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "aqua_vitae",
       "ingredients_cost": 830,
       "recipe_cost": 835,
@@ -3161,7 +3161,7 @@
         "jade",
         "spirit"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "hornet_honey",
       "ingredients_cost": 191,
       "recipe_cost": 196,
@@ -3171,7 +3171,7 @@
       "ingredients": [
         "honey"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "mead",
       "ingredients_cost": 18,
       "recipe_cost": 53,
@@ -3184,7 +3184,7 @@
         "amber",
         "spirit"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "nikkaf",
       "ingredients_cost": 100,
       "recipe_cost": 100,
@@ -3197,7 +3197,7 @@
         "grape",
         "grape"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "spirit",
       "ingredients_cost": 28,
       "recipe_cost": 63,
@@ -3210,7 +3210,7 @@
         "grape",
         "grape"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "spirit",
       "ingredients_cost": 28,
       "recipe_cost": 63,
@@ -3223,7 +3223,7 @@
         "hemp",
         "hemp"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "oil",
       "ingredients_cost": 20,
       "recipe_cost": 55,
@@ -3234,7 +3234,7 @@
         "coal",
         "hemp"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "oil",
       "ingredients_cost": 20,
       "recipe_cost": 55,
@@ -3246,7 +3246,7 @@
         "hop",
         "hop"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "dark_ale",
       "ingredients_cost": 15,
       "recipe_cost": 50,
@@ -3259,7 +3259,7 @@
         "burdock",
         "bogbean"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "styptic_brew",
       "ingredients_cost": 20,
       "recipe_cost": 55,
@@ -3270,7 +3270,7 @@
         "ginger",
         "mindwort"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "clearhead_bitters",
       "ingredients_cost": 35,
       "recipe_cost": 70,
@@ -3283,7 +3283,7 @@
         "peppermint",
         "blueberry"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "marching_tea",
       "ingredients_cost": 17,
       "recipe_cost": 52,
@@ -3296,7 +3296,7 @@
         "hemp",
         "hop"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "field_extract",
       "ingredients_cost": 20,
       "recipe_cost": 55,
@@ -3309,7 +3309,7 @@
         "amber",
         "henbane"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "soldiers_draught",
       "ingredients_cost": 80,
       "recipe_cost": 80,
@@ -3322,7 +3322,7 @@
         "amber",
         "honey"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "cleaving_bitters",
       "ingredients_cost": 93,
       "recipe_cost": 93,
@@ -3335,7 +3335,7 @@
         "turquoise",
         "burnet"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "bloodwake",
       "ingredients_cost": 120,
       "recipe_cost": 120,
@@ -3348,7 +3348,7 @@
         "agate",
         "honey"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "ironbark_tonic",
       "ingredients_cost": 113,
       "recipe_cost": 113,
@@ -3361,7 +3361,7 @@
         "turquoise",
         "mindwort"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "ward_philter",
       "ingredients_cost": 120,
       "recipe_cost": 120,
@@ -3374,7 +3374,7 @@
         "amber",
         "lavender"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "frostguard",
       "ingredients_cost": 80,
       "recipe_cost": 80,
@@ -3387,7 +3387,7 @@
         "azurecap",
         "horsetail"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "venomguard",
       "ingredients_cost": 110,
       "recipe_cost": 110,
@@ -3400,7 +3400,7 @@
         "azurecap",
         "peppermint"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "mooncap_elixir",
       "ingredients_cost": 110,
       "recipe_cost": 110,
@@ -3413,7 +3413,7 @@
         "moonstone",
         "thyme"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "arcane_focus",
       "ingredients_cost": 140,
       "recipe_cost": 140,
@@ -3426,7 +3426,7 @@
         "amber",
         "coal"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "pyreheart",
       "ingredients_cost": 90,
       "recipe_cost": 90,
@@ -3438,7 +3438,7 @@
         "coal",
         "thyme"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "ember_oil",
       "ingredients_cost": 40,
       "recipe_cost": 75,
@@ -3451,7 +3451,7 @@
         "coal",
         "henbane"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "cinder_lacquer",
       "ingredients_cost": 55,
       "recipe_cost": 90,
@@ -3464,7 +3464,7 @@
         "wormwood",
         "hop"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "venom_lacquer",
       "ingredients_cost": 32,
       "recipe_cost": 67,
@@ -3476,7 +3476,7 @@
         "puffball",
         "wormwood"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "puffball_paste",
       "ingredients_cost": 55,
       "recipe_cost": 90,
@@ -3489,7 +3489,7 @@
         "coal",
         "thyme"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "flame_vial",
       "ingredients_cost": 45,
       "recipe_cost": 75,
@@ -3502,7 +3502,7 @@
         "oil",
         "coal"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "flame_flask",
       "ingredients_cost": 70,
       "recipe_cost": 70,
@@ -3514,7 +3514,7 @@
         "puffball",
         "wormwood"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "venom_vial",
       "ingredients_cost": 40,
       "recipe_cost": 70,
@@ -3527,7 +3527,7 @@
         "puffball",
         "wormwood"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "venom_flask",
       "ingredients_cost": 70,
       "recipe_cost": 70,
@@ -3540,7 +3540,7 @@
         "coal",
         "hop"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "choke_vial",
       "ingredients_cost": 30,
       "recipe_cost": 60,
@@ -3553,7 +3553,7 @@
         "hemp",
         "coal"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "gas_flask",
       "ingredients_cost": 45,
       "recipe_cost": 75,
@@ -3566,7 +3566,7 @@
         "wormwood",
         "coal"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "blur_vial",
       "ingredients_cost": 30,
       "recipe_cost": 60,
@@ -3578,7 +3578,7 @@
         "oil",
         "hop"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "tar_vial",
       "ingredients_cost": 30,
       "recipe_cost": 60,
@@ -3590,7 +3590,7 @@
         "ginger",
         "henbane"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "daze_vial",
       "ingredients_cost": 40,
       "recipe_cost": 70,
@@ -3602,7 +3602,7 @@
         "puffball",
         "wormwood"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "weaken_vial",
       "ingredients_cost": 40,
       "recipe_cost": 70,
@@ -3615,7 +3615,7 @@
         "henbane",
         "hop"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "terror_vial",
       "ingredients_cost": 45,
       "recipe_cost": 75,
@@ -3628,7 +3628,7 @@
         "pipe_hemp",
         "peppermint"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "fog_flask",
       "ingredients_cost": 50,
       "recipe_cost": 80,
@@ -3641,7 +3641,7 @@
         "coal",
         "honey"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "mire_flask",
       "ingredients_cost": 58,
       "recipe_cost": 88,
@@ -3654,7 +3654,7 @@
         "puffball",
         "peppermint"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "blind_flask",
       "ingredients_cost": 70,
       "recipe_cost": 70,
@@ -3667,7 +3667,7 @@
         "oil",
         "honey"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "rootbind_flask",
       "ingredients_cost": 73,
       "recipe_cost": 73,
@@ -3680,7 +3680,7 @@
         "amber",
         "henbane"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "cripple_flask",
       "ingredients_cost": 80,
       "recipe_cost": 80,
@@ -3693,7 +3693,7 @@
         "seapearl",
         "spirit"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "rewoven_philter",
       "ingredients_cost": 1455,
       "recipe_cost": 1460,
@@ -3706,7 +3706,7 @@
         "aqua_vitae",
         "spirit"
       ],
-      "enabled": false,
+      "enabled": true,
       "elixir": "unlearning_elixir",
       "ingredients_cost": 2155,
       "recipe_cost": 2160,

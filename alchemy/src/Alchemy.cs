@@ -4,8 +4,8 @@ namespace Alchemy;
 
 /// <summary>
 /// ModShardLauncher entry point for Alchemy.
-/// Expands useful crafting/cooking recipes using existing game ingredients —
-/// no new skill school.
+/// Expands useful crafting recipes from existing ingredients and sells their
+/// schematics at herbalists / the Brynn alchemist — no new skill school.
 /// </summary>
 public class Alchemy : Mod
 {
@@ -18,7 +18,11 @@ public class Alchemy : Mod
 
     public override void PatchMod()
     {
-        // Stub: recipe patches land here later.
-        // Ingredient catalog: src/ingredients.json
+        // Load catalog first so recipe/product patches share one parse.
+        _ = AlchemyCatalog.EnabledRecipes;
+
+        AlchemyItems.Patch();
+        AlchemyRecipes.Patch();
+        AlchemyShops.Patch();
     }
 }

@@ -5,5 +5,5 @@ namespace Alchemy;
 /// </summary>
 internal static class AlchemyVersion
 {
-    internal const string Value = "0.1.0";
+    internal const string Value = "0.2.0";
 }

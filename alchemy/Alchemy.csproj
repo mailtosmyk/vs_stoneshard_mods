@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="src\ingredients.json" LogicalName="ingredients.json" />
     <None Include="src\ingredients.json" Link="ingredients.json" CopyToOutputDirectory="PreserveNewest" />
     <None Include="icon.png" Condition="Exists('icon.png')" CopyToOutputDirectory="PreserveNewest" />
     <None Include="Sprites\**\*" CopyToOutputDirectory="PreserveNewest" />
