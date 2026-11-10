@@ -3,7 +3,9 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-MSL_DIR="$(cd "$ROOT/../../msl" && pwd)"
+if [[ -z "${MSL_DIR:-}" ]]; then
+  MSL_DIR="$(cd "$ROOT/../../msl" && pwd)"
+fi
 OUT_DIR="${OUT_DIR:-$MSL_DIR/Mods}"
 MOD_NAME="${MOD_NAME:-Alchemy}"
 CONFIG="${CONFIG:-Release}"

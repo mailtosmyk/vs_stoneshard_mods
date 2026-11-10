@@ -1,6 +1,6 @@
 {
   "targetVersion": "0.9.4.25",
-  "notes": "Vanilla item ids with base price, flavor description, and structured effects from data.win. Effect entries use add_<stat> values; timed buffs include per-effect turns; uses is item use count. Grass includes herbs and mushrooms. Death Cap id=stool. Gwynnel's Elixir id=aqua_vitae. Honeycomb id=honey. Smoking Mix id=pipe_hemp. Spirit is the potion alcohol base. Items holds containers (flask). Coatings are weapon oils/pastes; on use they add fire or poison damage to weapons (coat_weapon_fire_damage / coat_weapon_poison_damage, optional coat_weapon_hits). Throwables are combat flasks: throw_fire_damage / throw_poison_damage / throw_gas effects with throw_aoe 1 (single target) or 3 (3x3); may include throw_ignite_turns, throw_poisoning, throw_coughing, throw_vision, spore_cloud_turns. Recipes: up to 4 ingredient ids (repeats allowed), enabled flag, elixir outcome id; ingredients_cost is sum of ingredient prices, recipe_cost adds spirit+flask when not already in ingredients, elixir_cost is target price. Bottle of Oil id=oil. Recipes may target elixirs, spirit, oil, coatings, or throwables. ingredients_cost must be between 75% and 100% of elixir_cost; recipe_cost > 100 requires spirit in ingredients; 80 < elixir_cost < 150 requires spirit and flask in ingredients.",
+  "notes": "Vanilla item ids with base price, flavor description, and structured effects from data.win. Effect entries use add_<stat> values; timed buffs include per-effect turns; uses is item use count. Grass includes herbs and mushrooms. Death Cap id=stool. Gwynnel's Elixir id=aqua_vitae. Honeycomb id=honey. Smoking Mix id=pipe_hemp. Spirit is the potion alcohol base. Items holds containers (flask). Coatings are weapon oils/pastes; on use they add fire or poison damage to weapons (coat_weapon_fire_damage / coat_weapon_poison_damage, optional coat_weapon_hits). Throwables are combat flasks: throw_fire_damage / throw_poison_damage / throw_gas effects with throw_aoe 1 (single target) or 3 (3x3); may include throw_ignite_turns, throw_poisoning, throw_coughing, throw_vision, spore_cloud_turns. Debuff throwables apply enemy status effects (vision, movement, combat penalties) via throw_* keys and named debuffs with icon sprites under Sprites/ (s_alch_db_*). Recipes: up to 4 ingredient ids (repeats allowed), enabled flag, elixir outcome id; ingredients_cost is sum of ingredient prices, recipe_cost adds spirit+flask when not already in ingredients, elixir_cost is target price. Bottle of Oil id=oil. Recipes may target elixirs, spirit, oil, coatings, or throwables. ingredients_cost must be between 75% and 100% of elixir_cost; recipe_cost > 100 requires spirit in ingredients; 80 < elixir_cost < 150 requires spirit and flask in ingredients.",
   "grass": [
     {
       "id": "agrimony",
@@ -2485,6 +2485,179 @@
       "effects": []
     }
   ],
+  "debuffs": [
+    {
+      "id": "alch_blurred_sight",
+      "name": "Blurred Sight",
+      "icon": "s_alch_db_blurred_sight_0",
+      "description": "Eyes water and edges smear; the world shrinks to a few paces.",
+      "effects": [
+        {
+          "add_bonus_vision": -3,
+          "turns": 6
+        },
+        {
+          "add_accuracy": -10,
+          "turns": 6
+        }
+      ]
+    },
+    {
+      "id": "alch_sticky_feet",
+      "name": "Sticky Feet",
+      "icon": "s_alch_db_sticky_feet_0",
+      "description": "Tar-like residue clings to boots and claws, dragging every step.",
+      "effects": [
+        {
+          "add_movement": -1,
+          "turns": 5
+        },
+        {
+          "add_dodge_chance": -10,
+          "turns": 5
+        }
+      ]
+    },
+    {
+      "id": "alch_dazed",
+      "name": "Dazed",
+      "icon": "s_alch_db_dazed_0",
+      "description": "A ringing haze that staggers thought and footing alike.",
+      "effects": [
+        {
+          "add_fumble_chance": 15,
+          "turns": 4
+        },
+        {
+          "add_accuracy": -10,
+          "turns": 4
+        }
+      ]
+    },
+    {
+      "id": "alch_enfeebled",
+      "name": "Enfeebled",
+      "icon": "s_alch_db_enfeebled_0",
+      "description": "Limbs feel hollow; blows land soft and aim drifts.",
+      "effects": [
+        {
+          "add_weapon_damage": -15,
+          "turns": 6
+        },
+        {
+          "add_accuracy": -10,
+          "turns": 6
+        }
+      ]
+    },
+    {
+      "id": "alch_terror",
+      "name": "Terror",
+      "icon": "s_alch_db_terror_0",
+      "description": "A choking dread that makes hands shake and throats seize.",
+      "effects": [
+        {
+          "add_fumble_chance": 20,
+          "turns": 5
+        },
+        {
+          "add_morale": -5
+        }
+      ]
+    },
+    {
+      "id": "alch_fogged_sight",
+      "name": "Fogged Sight",
+      "icon": "s_alch_db_fogged_sight_0",
+      "description": "A pale mist hangs before the eyes, cutting vision to near nothing.",
+      "effects": [
+        {
+          "add_bonus_vision": -5,
+          "turns": 7
+        },
+        {
+          "add_accuracy": -15,
+          "turns": 7
+        }
+      ]
+    },
+    {
+      "id": "alch_mired",
+      "name": "Mired",
+      "icon": "s_alch_db_mired_0",
+      "description": "Heavy sludge around the legs turns a charge into a slog.",
+      "effects": [
+        {
+          "add_movement": -2,
+          "turns": 6
+        },
+        {
+          "add_dodge_chance": -15,
+          "turns": 6
+        }
+      ]
+    },
+    {
+      "id": "alch_blinded",
+      "name": "Blinded",
+      "icon": "s_alch_db_blinded_0",
+      "description": "Seared sight leaves only shapes and guesses.",
+      "effects": [
+        {
+          "add_bonus_vision": -8,
+          "turns": 5
+        },
+        {
+          "add_accuracy": -25,
+          "turns": 5
+        }
+      ]
+    },
+    {
+      "id": "alch_rootbound",
+      "name": "Rootbound",
+      "icon": "s_alch_db_rootbound_0",
+      "description": "Alchemical binders lock joints in place for a few critical turns.",
+      "effects": [
+        {
+          "add_immobilize": true,
+          "turns": 2
+        },
+        {
+          "add_movement": -2,
+          "turns": 4
+        },
+        {
+          "add_dodge_chance": -20,
+          "turns": 4
+        }
+      ]
+    },
+    {
+      "id": "alch_crippled",
+      "name": "Crippled",
+      "icon": "s_alch_db_crippled_0",
+      "description": "Joints seize and footing fails; swift killers become easy marks.",
+      "effects": [
+        {
+          "add_movement": -2,
+          "turns": 7
+        },
+        {
+          "add_dodge_chance": -20,
+          "turns": 7
+        },
+        {
+          "add_crit_chance": -10,
+          "turns": 7
+        },
+        {
+          "add_counter_chance": -10,
+          "turns": 7
+        }
+      ]
+    }
+  ],
   "throwables": [
     {
       "id": "flame_vial",
@@ -2618,6 +2791,249 @@
             4,
             6
           ]
+        }
+      ]
+    },
+    {
+      "id": "blur_vial",
+      "name": "Blur Vial",
+      "price": 40,
+      "description": "Mint oil and wormwood soot sealed under pressure. A direct hit smears the enemy's vision into a watery haze.",
+      "debuff": "alch_blurred_sight",
+      "effects": [
+        {
+          "throw_vision": 1
+        },
+        {
+          "throw_accuracy": -10
+        },
+        {
+          "throw_debuff_turns": 6
+        },
+        {
+          "throw_aoe": 1
+        }
+      ]
+    },
+    {
+      "id": "tar_vial",
+      "name": "Tar Vial",
+      "price": 40,
+      "description": "Lamp oil thickened with hop resin. It spatters one foe's feet, making every step stick and stumble.",
+      "debuff": "alch_sticky_feet",
+      "effects": [
+        {
+          "throw_movement": -1
+        },
+        {
+          "throw_dodge_chance": -10
+        },
+        {
+          "throw_debuff_turns": 5
+        },
+        {
+          "throw_aoe": 1
+        }
+      ]
+    },
+    {
+      "id": "daze_vial",
+      "name": "Daze Vial",
+      "price": 45,
+      "description": "Ginger heat and henbane vapor packed to burst. The shock leaves a single target reeling and open to missteps.",
+      "debuff": "alch_dazed",
+      "effects": [
+        {
+          "throw_confuse_or_stagger_chance_pct": 100
+        },
+        {
+          "throw_accuracy": -10
+        },
+        {
+          "throw_fumble_chance": 15
+        },
+        {
+          "throw_debuff_turns": 4
+        },
+        {
+          "throw_aoe": 1
+        }
+      ]
+    },
+    {
+      "id": "weaken_vial",
+      "name": "Weaken Vial",
+      "price": 50,
+      "description": "Puffball essence cut with wormwood. Soaked into skin and cloth, it saps the strength behind a foe's swings.",
+      "debuff": "alch_enfeebled",
+      "effects": [
+        {
+          "throw_weapon_damage": -15
+        },
+        {
+          "throw_accuracy": -10
+        },
+        {
+          "throw_debuff_turns": 6
+        },
+        {
+          "throw_aoe": 1
+        }
+      ]
+    },
+    {
+      "id": "terror_vial",
+      "name": "Terror Vial",
+      "price": 55,
+      "description": "Henbane and ginger smoke that claws at the nerves. One target coughs, flinches, and fights with shaking hands.",
+      "debuff": "alch_terror",
+      "effects": [
+        {
+          "throw_gas": true
+        },
+        {
+          "throw_coughing_chance_pct": 60
+        },
+        {
+          "throw_fumble_chance": 20
+        },
+        {
+          "throw_debuff_turns": 5
+        },
+        {
+          "throw_aoe": 1
+        }
+      ]
+    },
+    {
+      "id": "fog_flask",
+      "name": "Fog Flask",
+      "price": 65,
+      "description": "Oil and smoking mix that blooms into a pale cloud. Across a three-by-three space, eyes water and sight fails.",
+      "debuff": "alch_fogged_sight",
+      "effects": [
+        {
+          "throw_gas": true
+        },
+        {
+          "throw_vision": 1
+        },
+        {
+          "throw_accuracy": -15
+        },
+        {
+          "throw_debuff_turns": 7
+        },
+        {
+          "throw_aoe": 3
+        },
+        {
+          "spore_cloud_turns": [
+            3,
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mire_flask",
+      "name": "Mire Flask",
+      "price": 70,
+      "description": "Honeyed oil and charcoal grit that splatters into clinging sludge. A three-by-three patch of ground becomes a trap for feet.",
+      "debuff": "alch_mired",
+      "effects": [
+        {
+          "throw_movement": -2
+        },
+        {
+          "throw_dodge_chance": -15
+        },
+        {
+          "throw_debuff_turns": 6
+        },
+        {
+          "throw_aoe": 3
+        }
+      ]
+    },
+    {
+      "id": "blind_flask",
+      "name": "Blind Flask",
+      "price": 90,
+      "description": "Spirit-cut puffball dust that flares on impact. The cloud sears eyes across a three-by-three area, leaving foes nearly sightless.",
+      "debuff": "alch_blinded",
+      "effects": [
+        {
+          "throw_gas": true
+        },
+        {
+          "throw_vision": 2
+        },
+        {
+          "throw_accuracy": -25
+        },
+        {
+          "throw_debuff_turns": 5
+        },
+        {
+          "throw_aoe": 3
+        },
+        {
+          "spore_cloud_turns": [
+            4,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rootbind_flask",
+      "name": "Rootbind Flask",
+      "price": 95,
+      "description": "A spirit-and-oil binder that hardens on contact. The struck enemy is briefly locked in place, then left heavy-legged.",
+      "debuff": "alch_rootbound",
+      "effects": [
+        {
+          "throw_immobilize_turns": 2
+        },
+        {
+          "throw_movement": -2
+        },
+        {
+          "throw_dodge_chance": -20
+        },
+        {
+          "throw_debuff_turns": 4
+        },
+        {
+          "throw_aoe": 1
+        }
+      ]
+    },
+    {
+      "id": "cripple_flask",
+      "name": "Cripple Flask",
+      "price": 100,
+      "description": "Amber-tempered henbane brew that bursts over a three-by-three space. Joints seize, footwork fails, and counters die in the throat.",
+      "debuff": "alch_crippled",
+      "effects": [
+        {
+          "throw_movement": -2
+        },
+        {
+          "throw_dodge_chance": -20
+        },
+        {
+          "throw_crit_chance": -10
+        },
+        {
+          "throw_counter_chance": -10
+        },
+        {
+          "throw_debuff_turns": 7
+        },
+        {
+          "throw_aoe": 3
         }
       ]
     }
@@ -3066,6 +3482,133 @@
       "ingredients_cost": 45,
       "recipe_cost": 75,
       "elixir_cost": 60
+    },
+    {
+      "ingredients": [
+        "flask",
+        "peppermint",
+        "wormwood",
+        "coal"
+      ],
+      "enabled": false,
+      "elixir": "blur_vial",
+      "ingredients_cost": 30,
+      "recipe_cost": 60,
+      "elixir_cost": 40
+    },
+    {
+      "ingredients": [
+        "flask",
+        "oil",
+        "hop"
+      ],
+      "enabled": false,
+      "elixir": "tar_vial",
+      "ingredients_cost": 30,
+      "recipe_cost": 60,
+      "elixir_cost": 40
+    },
+    {
+      "ingredients": [
+        "flask",
+        "ginger",
+        "henbane"
+      ],
+      "enabled": false,
+      "elixir": "daze_vial",
+      "ingredients_cost": 40,
+      "recipe_cost": 70,
+      "elixir_cost": 45
+    },
+    {
+      "ingredients": [
+        "flask",
+        "puffball",
+        "wormwood"
+      ],
+      "enabled": false,
+      "elixir": "weaken_vial",
+      "ingredients_cost": 40,
+      "recipe_cost": 70,
+      "elixir_cost": 50
+    },
+    {
+      "ingredients": [
+        "flask",
+        "ginger",
+        "henbane",
+        "hop"
+      ],
+      "enabled": false,
+      "elixir": "terror_vial",
+      "ingredients_cost": 45,
+      "recipe_cost": 75,
+      "elixir_cost": 55
+    },
+    {
+      "ingredients": [
+        "flask",
+        "oil",
+        "pipe_hemp",
+        "peppermint"
+      ],
+      "enabled": false,
+      "elixir": "fog_flask",
+      "ingredients_cost": 50,
+      "recipe_cost": 80,
+      "elixir_cost": 65
+    },
+    {
+      "ingredients": [
+        "flask",
+        "oil",
+        "coal",
+        "honey"
+      ],
+      "enabled": false,
+      "elixir": "mire_flask",
+      "ingredients_cost": 58,
+      "recipe_cost": 88,
+      "elixir_cost": 70
+    },
+    {
+      "ingredients": [
+        "flask",
+        "spirit",
+        "puffball",
+        "peppermint"
+      ],
+      "enabled": false,
+      "elixir": "blind_flask",
+      "ingredients_cost": 70,
+      "recipe_cost": 70,
+      "elixir_cost": 90
+    },
+    {
+      "ingredients": [
+        "flask",
+        "spirit",
+        "oil",
+        "honey"
+      ],
+      "enabled": false,
+      "elixir": "rootbind_flask",
+      "ingredients_cost": 73,
+      "recipe_cost": 73,
+      "elixir_cost": 95
+    },
+    {
+      "ingredients": [
+        "flask",
+        "spirit",
+        "amber",
+        "henbane"
+      ],
+      "enabled": false,
+      "elixir": "cripple_flask",
+      "ingredients_cost": 80,
+      "recipe_cost": 80,
+      "elixir_cost": 100
     }
   ],
   "coatings": [

@@ -3,10 +3,13 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-MSL_DIR="$(cd "$ROOT/../../msl" && pwd)"
+if [[ -z "${MSL_DIR:-}" ]]; then
+  MSL_DIR="$(cd "$ROOT/../../msl" && pwd)"
+fi
 OUT_DIR="${OUT_DIR:-$MSL_DIR/Mods}"
 MOD_NAME="${MOD_NAME:-Necromancy}"
 CONFIG="${CONFIG:-Release}"
+SKIP_VERSION_BUMP="${SKIP_VERSION_BUMP:-0}"
 
 # Prefer a user-local or system dotnet install.
 if [[ -z "${DOTNET_ROOT:-}" ]]; then
@@ -42,7 +45,10 @@ mkdir -p "$OUT_DIR"
 
 # Bump first so the packed DLL and build.txt share the same version.
 # embed_json.py (also run by MSBuild BeforeCompile) refreshes ContentBase64 + version consts.
-python3 "$ROOT/python/bump_build_version.py" "$ROOT/build.txt"
+# CI sets SKIP_VERSION_BUMP=1 so release packaging does not mutate build.txt.
+if [[ "$SKIP_VERSION_BUMP" != "1" ]]; then
+  python3 "$ROOT/python/bump_build_version.py" "$ROOT/build.txt"
+fi
 python3 "$ROOT/python/embed_json.py" "$ROOT"
 
 echo "Building $MOD_NAME ($CONFIG)..."
