@@ -20,13 +20,15 @@ public class Necromancy : Mod
     public override void PatchMod()
     {
         NecromancyLocalization.PatchAll();
+        // Register summon-enchant helpers before any object GML that calls them
+        // (UTMT resolves function refs at compile time; late AddFunction leaves broken calls).
+        NecromancyEnchants.Patch(ModFiles);
         NecromancyTier1Skills.Patch(ModFiles);
         NecromancyTier2Skills.Patch(ModFiles);
         NecromancyTier3Skills.Patch(ModFiles);
         NecromancyTier4Skills.Patch(ModFiles);
         NecromancySchool.Patch(ModFiles);
         NecromancyItems.Patch(ModFiles);
-        NecromancyEnchants.Patch(ModFiles);
 
         // Ensure JSON registry is loaded (also used by future tiers).
         _ = NecromancySkills.All;

@@ -16,6 +16,10 @@ internal static class AlchemyItems
     {
         PatchCustomProducts();
         PatchRecipeScrolls();
+        // MSL InjectTableItemStats still emits the pre-0.9.4 column layout (97 cols).
+        // Current table_items_stats header is 107 cols; short rows crash
+        // scr_table_array_filter with "Variable Index [97] out of range [97]".
+        PadItemStatsRowsToHeaderWidth();
     }
 
     static void PatchCustomProducts()
@@ -153,5 +157,93 @@ internal static class AlchemyItems
             { ModLanguage.Russian, description },
         };
         Msl.InjectTableItemLocalization(id, nameDict, typeDict, descDict);
+    }
+
+    /// <summary>
+    /// Current items_stats inserts <c>is_container</c> + purse/bottle/upgrade/fodder/stack/
+    /// fireproof/dropsOnce (10 fields) before <c>tags</c>. Old MSL rows put tags too early.
+    /// </summary>
+    const int ItemsStatsHeaderWidth = 107;
+    const int LegacyItemsStatsWidth = 97;
+    const int LegacyTagsIndex = 95;
+
+    static void PadItemStatsRowsToHeaderWidth()
+    {
+        Msl.LoadGML("gml_GlobalScript_table_items_stats")
+            .Apply(lines => lines.Select(PadAllShortItemStatsRows))
+            .Save();
+    }
+
+    /// <summary>
+    /// Walk every quoted CSV entry. Last array element ends with <c>"]</c> not <c>",</c>,
+    /// so end detection must use the closing quote, not a comma.
+    /// </summary>
+    static string PadAllShortItemStatsRows(string line)
+    {
+        var sb = new System.Text.StringBuilder(line.Length + 256);
+        var i = 0;
+        while (i < line.Length)
+        {
+            if (line[i] != '"')
+            {
+                sb.Append(line[i]);
+                i++;
+                continue;
+            }
+
+            var close = FindClosingQuote(line, i);
+            if (close < 0)
+            {
+                sb.Append(line.AsSpan(i));
+                break;
+            }
+
+            var inner = line.Substring(i + 1, close - (i + 1));
+            if (inner.Contains(';') && inner.Count(c => c == ';') >= 50)
+            {
+                var parts = inner.Split(';');
+                if (parts.Length < ItemsStatsHeaderWidth)
+                    inner = string.Join(";", FixShortItemStatsParts(parts));
+            }
+
+            sb.Append('"').Append(inner).Append('"');
+            i = close + 1;
+        }
+
+        return sb.ToString();
+    }
+
+    static string[] FixShortItemStatsParts(string[] parts)
+    {
+        if (parts.Length == LegacyItemsStatsWidth)
+        {
+            // Insert 10 empty columns before legacy tags so tags land on header index 105.
+            return parts.Take(LegacyTagsIndex)
+                .Concat(Enumerable.Repeat(string.Empty, ItemsStatsHeaderWidth - LegacyItemsStatsWidth))
+                .Concat(parts.Skip(LegacyTagsIndex))
+                .ToArray();
+        }
+
+        // Unknown short layout — pad empties at end so filter does not OOB.
+        return parts
+            .Concat(Enumerable.Repeat(string.Empty, ItemsStatsHeaderWidth - parts.Length))
+            .ToArray();
+    }
+
+    static int FindClosingQuote(string line, int openQuote)
+    {
+        for (var i = openQuote + 1; i < line.Length; i++)
+        {
+            if (line[i] == '\\' && i + 1 < line.Length)
+            {
+                i++;
+                continue;
+            }
+
+            if (line[i] == '"')
+                return i;
+        }
+
+        return -1;
     }
 }
