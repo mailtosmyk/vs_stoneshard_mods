@@ -347,7 +347,7 @@
       "type": "active",
       "tier": 3,
       "image": "s_death_touch",
-      "description": "Deals ~ur~10–12 Unholy Damage~/~ (Range: ~w~4–5~/~) with Immobilization Chance.##Replenishes Health to all allies within Vision for ~lg~40–50%~/~ of the damage dealt.##If the target has ~r~\"Withering Curse\"~/~: ~lg~+25%~/~ damage and adds ~w~1~/~ curse stack.##Consuming ~w~1~/~ ~lg~\"Essence Charge\"~/~ grants ~lg~+15%~/~ Magic Power for this cast only.",
+      "description": "Deals ~ur~12 Unholy Damage~/~ (Range: ~w~4~/~) with Immobilization Chance.##Replenishes Health to all allies within Vision for ~lg~50%~/~ of the damage dealt.##If the target has ~r~\"Withering Curse\"~/~: ~lg~+25%~/~ damage and adds ~w~1~/~ curse stack.##Consuming ~w~1~/~ ~lg~\"Essence Charge\"~/~ grants ~lg~+15%~/~ Magic Power for this cast only.",
       "magicPhrase": "Korrug Namar!",
       "requirements": {
         "attributes": [
@@ -368,7 +368,7 @@
       "combat": {
         "kind": "debuff",
         "target": "object",
-        "range": "5",
+        "range": "3",
         "cooldown": 10,
         "energy": 22,
         "reserve": 0,
@@ -384,7 +384,7 @@
         "armorPenetration": "33",
         "isMissile": false,
         "selfCast": false,
-        "baseDamage": 11,
+        "baseDamage": 12,
         "healRatio": 0.45,
         "curseDamageBonus": 0.25,
         "essenceMagicPower": 15
@@ -443,7 +443,7 @@
       "name": "Mastery of Binding",
       "slug": "mastery_of_binding",
       "type": "passive",
-      "tier": 3,
+      "tier": 4,
       "image": "s_mastery_of_binding",
       "description": "Unbinding allies doesn't take a turn and replenishes Energy equal to ~lg~10%~/~ of your Magic Power.##Increases the level of summoning abilities by ~lg~1~/~.##Summon Skeleton: ~lg~+4~/~ turns base duration and ~lg~+10%~/~ Max Health / Max Energy.##Resurrection thralls start at ~lg~60%~/~ Max Health.##Still limited to one safe Undead at a time unless a higher-tier skill allows more.",
       "magicPhrase": "Vinculum Mortis!",
@@ -455,7 +455,7 @@
               "WIL"
             ],
             "logic": "or",
-            "min": 8
+            "min": 11
           }
         ],
         "skills": [
@@ -471,7 +471,7 @@
       "type": "active",
       "tier": 3,
       "image": "s_black_sepulchre",
-      "description": "Detonates ~r~\"Withering Curse\"~/~ on the target (Range: ~w~5–6~/~), or on the strongest cursed enemy in a 3x3 if cast on a tile: removes stacks, deals ~ur~6 Unholy Damage~/~ × stacks to the target and ~ur~3 Unholy Damage~/~ × stacks to adjacent enemies.##Allows ~r~\"Withering Curse\"~/~ to stack up to III.##Bodypart worsen becomes ~r~0.5%~/~ per turn per stack while at III.",
+      "description": "Detonates ~r~\"Withering Curse\"~/~ on the target (Range: ~w~5~/~), or on the strongest cursed enemy in a 3x3 if cast on a tile: removes stacks, deals ~ur~6 Unholy Damage~/~ × stacks to the target and ~ur~3 Unholy Damage~/~ × stacks to adjacent enemies.##Allows ~r~\"Withering Curse\"~/~ to stack up to III.##Bodypart worsen becomes ~r~0.5%~/~ per turn per stack while at III.",
       "magicPhrase": "Shaggrath Namar!",
       "requirements": {
         "attributes": [
@@ -492,7 +492,7 @@
       "combat": {
         "kind": "debuff",
         "target": "point",
-        "range": "6",
+        "range": "5",
         "cooldown": 8,
         "energy": 16,
         "reserve": 0,
@@ -639,14 +639,14 @@
         "skills": [
           "aa19f19a-7398-48b3-a7d6-1bd464fd6bdf",
           "7e983a82-ab7c-48bc-830e-37d05c68fe83",
-          "8a3778f9-eff9-4619-8114-baad567f0728",
-          "ed75d3c9-c735-438a-b430-205ad8478419"
+          "8a3778f9-eff9-4619-8114-baad567f0728"
         ]
       },
       {
         "tier": 4,
         "skills": [
           "f0f37fa5-3038-4c76-9617-3bf848cfb632",
+          "ed75d3c9-c735-438a-b430-205ad8478419",
           "0186d94e-304b-4434-803f-9a03b9106770",
           "9b1a51b6-daa2-40b3-a236-505eca5fe5f8"
         ]

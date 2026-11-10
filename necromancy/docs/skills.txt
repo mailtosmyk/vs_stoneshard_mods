@@ -84,13 +84,6 @@ Requirements: Attributes: PRC or WIL >= 9; Skills: Grave Blight
 Image: s_black_sepulchre
 Description: Detonates "Withering Curse" on the target (Range: 5–6), or on the strongest cursed enemy in a 3x3 if cast on a tile: removes stacks, deals 6 Unholy Damage × stacks to the target and 3 Unholy Damage × stacks to adjacent enemies. Allows "Withering Curse" to stack up to III. Bodypart worsen becomes 0.5% per turn per stack while at III.
 
-Name: Mastery of Binding
-Type: Passive
-Level: 3
-Requirements: Attributes: PRC or WIL >= 8; Skills: Resurrection
-Image: s_mastery_of_binding
-Description: Unbinding allies doesn't take a turn and replenishes Energy equal to 10% of your Magic Power. Increases the level of summoning abilities by 1. Summon Skeleton: +4 turns base duration and +10% Max Health / Max Energy. Resurrection thralls start at 60% Max Health. Still limited to one safe Undead at a time unless a higher-tier skill allows more.
-
 ================================================================================
 TIER 4
 ================================================================================
@@ -101,6 +94,13 @@ Level: 4
 Requirements: Attributes: Vitality or WIL or STR >= 11; Skills: Corpse Burst
 Image: s_immortality
 Description: Prevents dying from lethal hits as long as Max Health and Morale are both higher than 50%. When Health drops below 2, replenishes 33% of Max Health and Max Energy, and applies: -10% Morale, +2% Fatigue. Prevents death from starvation or dehydration.
+
+Name: Mastery of Binding
+Type: Passive
+Level: 4
+Requirements: Attributes: PRC or WIL >= 11; Skills: Resurrection
+Image: s_mastery_of_binding
+Description: Unbinding allies doesn't take a turn and replenishes Energy equal to 10% of your Magic Power. Increases the level of summoning abilities by 1. Summon Skeleton: +4 turns base duration and +10% Max Health / Max Energy. Resurrection thralls start at 60% Max Health. Still limited to one safe Undead at a time unless a higher-tier skill allows more.
 
 Name: Blooming Madness
 Type: Passive
