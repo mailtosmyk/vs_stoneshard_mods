@@ -113,8 +113,8 @@ public static class NecromancySchool
                 .Append(", 118, 1)\n");
         }
 
-        // T3 under parents: Death Touch (Essence+Blight), Corpse Burst (Blessing),
-        // Black Sepulchre (Blight), Mastery (Resurrection/Summon).
+        // T3 under parents: Death Touch (Essence), Corpse Burst (Blessing),
+        // Black Sepulchre (Blight), Mastery (Resurrection).
         var t3X = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase)
         {
             ["death_touch"] = 24,
@@ -134,11 +134,9 @@ public static class NecromancySchool
                 .Append(", 181, 1)\n");
         }
 
-        // T4 under parents: Archtheurgy (Death Touch), Immortality (Corpse Burst),
-        // Blooming Madness + Wraith (Mastery).
+        // T4 under parents: Immortality (Corpse Burst), Blooming Madness + Wraith (Mastery).
         var t4X = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase)
         {
-            ["archtheurgy"] = 24,
             ["immortality"] = 62,
             ["blooming_madness"] = 138,
             ["wraith_summoning"] = 176,

@@ -53,7 +53,7 @@ public static class NecromancyTier4Skills
                 $"gml_Object_{skill.IconObjectName}_Step_2.gml",
                 $"gml_Object_{skill.IconObjectName}_Other_17.gml",
             };
-            if (skill.Slug is "immortality" or "archtheurgy" or "blooming_madness")
+            if (skill.Slug is "immortality" or "blooming_madness")
                 passiveEvents.Add($"gml_Object_{skill.IconObjectName}_Other_13.gml");
 
             NecromancyTier1Skills.ApplyEventAndReplace(passiveIco, modFiles, passiveEvents.ToArray());
@@ -112,38 +112,9 @@ public static class NecromancyTier4Skills
             isAwake: true,
             collisionShapeFlags: CollisionShapeFlags.Circle);
 
-        var ascension = Msl.AddObject(
-            name: "o_b_nm_ascension",
-            spriteName: "s_archtheurgy",
-            parentName: "o_magical_buff",
-            isVisible: true,
-            isPersistent: false,
-            isAwake: true,
-            collisionShapeFlags: CollisionShapeFlags.Circle);
-
-        var archImpact = Msl.AddObject(
-            name: "o_nm_archtheurgy_impact",
-            spriteName: "",
-            parentName: "",
-            isVisible: false,
-            isPersistent: false,
-            isAwake: true,
-            collisionShapeFlags: CollisionShapeFlags.Circle);
-
         NecromancyTier1Skills.ApplyEventAndReplace(mortalBlocker, modFiles,
             "gml_Object_o_nm_mortal_blocker_Create_0.gml",
             "gml_Object_o_nm_mortal_blocker_Alarm_1.gml");
-
-        NecromancyTier1Skills.ApplyEventAndReplace(ascension, modFiles,
-            "gml_Object_o_b_nm_ascension_Create_0.gml",
-            "gml_Object_o_b_nm_ascension_Alarm_2.gml",
-            "gml_Object_o_b_nm_ascension_Alarm_3.gml",
-            "gml_Object_o_b_nm_ascension_Step_2.gml",
-            "gml_Object_o_b_nm_ascension_Other_10.gml");
-
-        NecromancyTier1Skills.ApplyEventAndReplace(archImpact, modFiles,
-            "gml_Object_o_nm_archtheurgy_impact_Create_0.gml",
-            "gml_Object_o_nm_archtheurgy_impact_Alarm_1.gml");
     }
 
     static void HookImmortalityHungerThirst()

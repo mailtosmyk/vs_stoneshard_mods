@@ -244,7 +244,7 @@ public static class NecromancyTier2Skills
 
     /// <summary>
     /// Spells consume one Essence Charge stack (same hook BW uses on spirit_and_body).
-    /// Also pulses Archtheurgy vision damage; Wraith Summoning skips consume (birth removes all).
+    /// Wraith Summoning skips consume (birth removes all).
     /// </summary>
     static void HookEssenceChargeSpellConsume()
     {
@@ -253,23 +253,6 @@ public static class NecromancyTier2Skills
             .InsertBelow(
                 "if ((!is_enemy_skill) && (!is_attack_skill))\n" +
                 "{\n" +
-                "    var _arch = asset_get_index(\"o_nm_archtheurgy_ico\")\n" +
-                "    if (_arch != -1 && instance_exists(_arch) && _arch.is_open && instance_exists(o_player))\n" +
-                "    {\n" +
-                "        with (o_unit)\n" +
-                "        {\n" +
-                "            if ((!is_player()) && is_visible() && faction_key != \"Player\")\n" +
-                "            {\n" +
-                "                var _impIdx = asset_get_index(\"o_nm_archtheurgy_impact\")\n" +
-                "                if (_impIdx != -1)\n" +
-                "                {\n" +
-                "                    var _imp = instance_create_depth(x, y, 0, _impIdx)\n" +
-                "                    if instance_exists(_imp)\n" +
-                "                        _imp.owner = o_player\n" +
-                "                }\n" +
-                "            }\n" +
-                "        }\n" +
-                "    }\n" +
                 "    if (skill != \"wraith_summoning\")\n" +
                 "    {\n" +
                 "        with (o_b_nm_essence_charge)\n" +

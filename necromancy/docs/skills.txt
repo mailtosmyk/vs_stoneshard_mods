@@ -1,6 +1,6 @@
 BW's Necromancy — Stoneshard Skill Tree
 Source: BW-s-Necromancy-main
-Total skills: 15 (11 active, 4 passive)
+Total skills: 14 (11 active, 3 passive)
 
 ================================================================================
 TIER 1
@@ -66,7 +66,7 @@ TIER 3
 Name: Death Touch
 Type: Active
 Level: 3
-Requirements: Attributes: PRC or WIL >= 9; Skills: Essence Leech and Grave Blight
+Requirements: Attributes: PRC or WIL >= 9; Skills: Essence Leech
 Image: s_death_touch
 Description: Deals 10–12 Unholy Damage (Range: 4–5) with Immobilization Chance. Replenishes Health to all allies within Vision for 40–50% of the damage dealt. If the target has "Withering Curse": +25% damage and adds 1 curse stack. Consuming 1 "Essence Charge" grants +15% Magic Power for this cast only.
 
@@ -87,20 +87,13 @@ Description: Detonates "Withering Curse" on the target (Range: 5–6), or on the
 Name: Mastery of Binding
 Type: Passive
 Level: 3
-Requirements: Attributes: PRC or WIL >= 8; Skills: Resurrection or Summon Skeleton
+Requirements: Attributes: PRC or WIL >= 8; Skills: Resurrection
 Image: s_mastery_of_binding
 Description: Unbinding allies doesn't take a turn and replenishes Energy equal to 10% of your Magic Power. Increases the level of summoning abilities by 1. Summon Skeleton: +4 turns base duration and +10% Max Health / Max Energy. Resurrection thralls start at 60% Max Health. Still limited to one safe Undead at a time unless a higher-tier skill allows more.
 
 ================================================================================
 TIER 4
 ================================================================================
-
-Name: Archtheurgy
-Type: Passive
-Level: 4
-Requirements: Attributes: WIL >= 15; Skills: Death Touch
-Image: s_archtheurgy
-Description: Casting Spells deals Unholy Damage to all enemies within vision (based on 3.33% of Magic Power). Raising the dead, summoning wraiths, Stealing Essence, or receiving "Death's Blessing" has 33% chance to activate "Ascension" for 6 turns: +33% Unholy Resistance, +66% Miracle Potency, converts Unholy Damage into Sacred Damage.
 
 Name: Immortality
 Type: Passive

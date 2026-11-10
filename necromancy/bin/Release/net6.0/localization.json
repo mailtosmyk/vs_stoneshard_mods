@@ -391,31 +391,6 @@
         "Russian": "Florath Insania!"
       }
     },
-    "archtheurgy": {
-      "id": "9d160a5a-2bf1-46c1-807a-b9e9e8e75c29",
-      "slug": "archtheurgy",
-      "name": {
-        "English": "Archtheurgy",
-        "Japanese": "大神業",
-        "Chinese": "大奇术",
-        "German": "Archtheurgie",
-        "Russian": "Архитеургия"
-      },
-      "description": {
-        "English": "Casting Spells deals Unholy Damage to all enemies within vision (based on 3.33% of Magic Power). Raising the dead, summoning wraiths, Stealing Essence, or receiving \"Death's Blessing\" has 33% chance to activate \"Ascension\" for 6 turns: +33% Unholy Resistance, +66% Miracle Potency, converts Unholy Damage into Sacred Damage.",
-        "Japanese": "呪文詠唱時、視界内の全敵に不浄ダメージを与える（魔力の3.33%基準）。死者蘇生・レイス召喚・本質略奪・「死の祝福」受け取り時、33%で「昇華」を6ターン発動：不浄耐性+33%、奇跡効力+66%、不浄ダメージを聖なるダメージへ変換。",
-        "Chinese": "施放法术时对视野内所有敌人造成邪秽伤害（基于魔法强度的3.33%）。复活死者、召唤怨灵、窃取精华或获得“死亡赐福”时，有33%几率激活“升扬”，持续6回合：+33%邪秽抗性、+66%奇迹效力，并将邪秽伤害转化为神圣伤害。",
-        "German": "Zauberwirken verursacht Unheiligen Schaden an allen Feinden in Sichtweite (basiert auf 3,33% Magiekraft). Auferwecken, Geisterbeschwörung, Essenzstehlen oder Erhalt von „Segen des Todes“ hat 33% Chance, „Aufstieg“ für 6 Züge zu aktivieren: +33% Unheiliger Widerstand, +66% Wunderstärke, wandelt Unheiligen Schaden in Heiligen Schaden um.",
-        "Russian": "Применение заклинаний наносит урон нечестием всем врагам в поле зрения (на основе 3,33% силы магии). Воскрешение, призыв умертвий, кража сущности или получение «Благословения смерти» с шансом 33% активирует «Вознесение» на 6 ходов: +33% сопротивления нечестию, +66% силы чудес, преобразует урон нечестием в священный урон."
-      },
-      "magicPhrase": {
-        "English": "Archon Theurgos!",
-        "Japanese": "アルコン・テウルゴス！",
-        "Chinese": "阿尔孔·特乌尔戈斯！",
-        "German": "Archon Theurgos!",
-        "Russian": "Archon Theurgos!"
-      }
-    },
     "wraith_summoning": {
       "id": "9b1a51b6-daa2-40b3-a236-505eca5fe5f8",
       "slug": "wraith_summoning",

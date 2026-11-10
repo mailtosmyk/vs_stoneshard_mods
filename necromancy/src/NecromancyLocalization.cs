@@ -227,25 +227,6 @@ public static class NecromancyLocalization
                 { ModLanguage.Russian, "~r~-4%~/~ маг. сопротивления за стак (до III), пока в порче." },
             });
 
-        RegisterBuffLocalization(
-            "o_b_nm_ascension",
-            new Dictionary<ModLanguage, string>
-            {
-                { ModLanguage.English, "Ascension" },
-                { ModLanguage.Japanese, "昇華" },
-                { ModLanguage.Chinese, "升扬" },
-                { ModLanguage.German, "Aufstieg" },
-                { ModLanguage.Russian, "Вознесение" },
-            },
-            new Dictionary<ModLanguage, string>
-            {
-                { ModLanguage.English, "~lg~+33%~/~ Unholy Resistance#~lg~+66%~/~ Miracle Potency##Converts Unholy Damage into Sacred Damage." },
-                { ModLanguage.Japanese, "~lg~+33%~/~不浄耐性#~lg~+66%~/~奇跡効力##不浄ダメージを聖なるダメージへ変換する。" },
-                { ModLanguage.Chinese, "~lg~+33%~/~邪秽抗性#~lg~+66%~/~奇迹效力##将邪秽伤害转化为神圣伤害。" },
-                { ModLanguage.German, "~lg~+33%~/~ Unheiliger Widerstand#~lg~+66%~/~ Wunderstärke##Wandelt Unheiligen Schaden in Heiligen Schaden um." },
-                { ModLanguage.Russian, "~lg~+33%~/~ сопротивления нечестию#~lg~+66%~/~ силы чудес##Преобразует урон нечестием в священный урон." },
-            });
-
         Msl.LoadGML("gml_GlobalScript_table_effects")
             .Apply(InjectNecromancyTableEffectsRows)
             .Save();
@@ -796,32 +777,6 @@ public static class NecromancyLocalization
                 { ModLanguage.Russian, "Успешное воскрешение мёртвых позволяет изучить одну их активную способность за раз (пока доступна в меню навыков; теряется при смерти слуги).##Увеличивает получаемый опыт за убийства нежити на ~lg~100%~/~." },
             });
         RegisterSkillLocalization(
-            "archtheurgy",
-            new Dictionary<ModLanguage, string>
-            {
-                { ModLanguage.English, "Archtheurgy" },
-                { ModLanguage.Japanese, "大神業" },
-                { ModLanguage.Chinese, "大奇术" },
-                { ModLanguage.German, "Archtheurgie" },
-                { ModLanguage.Russian, "Архитеургия" },
-            },
-            new Dictionary<ModLanguage, string>
-            {
-                { ModLanguage.English, "Archtheurgy" },
-                { ModLanguage.Japanese, "大神業" },
-                { ModLanguage.Chinese, "大奇术" },
-                { ModLanguage.German, "Archtheurgie" },
-                { ModLanguage.Russian, "Архитеургия" },
-            },
-            new Dictionary<ModLanguage, string>
-            {
-                { ModLanguage.English, "Casting Spells deals Unholy Damage to all enemies within vision (based on ~lg~3.33%~/~ of Magic Power).##Raising the dead, summoning wraiths, Stealing Essence, or receiving ~lg~\"Death's Blessing\"~/~ has ~lg~33%~/~ chance to activate ~lg~\"Ascension\"~/~ for ~w~6~/~ turns:##~lg~+33%~/~ Unholy Resistance#~lg~+66%~/~ Miracle Potency#Converts Unholy Damage into Sacred Damage." },
-                { ModLanguage.Japanese, "呪文詠唱時、視界内の全敵に不浄ダメージを与える（魔力の~lg~3.33%~/~基準）。##死者蘇生・レイス召喚・本質略奪・~lg~「死の祝福」~/~受け取り時、~lg~33%~/~で~lg~「昇華」~/~を~w~6~/~ターン発動：##~lg~+33%~/~不浄耐性#~lg~+66%~/~奇跡効力#不浄ダメージを聖なるダメージへ変換。" },
-                { ModLanguage.Chinese, "施放法术时对视野内所有敌人造成邪秽伤害（基于魔法强度的~lg~3.33%~/~）。##复活死者、召唤怨灵、窃取精华或获得~lg~“死亡赐福”~/~时，有~lg~33%~/~几率激活~lg~“升扬”~/~，持续~w~6~/~回合：##~lg~+33%~/~邪秽抗性#~lg~+66%~/~奇迹效力#并将邪秽伤害转化为神圣伤害。" },
-                { ModLanguage.German, "Zauberwirken verursacht Unheiligen Schaden an allen Feinden in Sichtweite (basiert auf ~lg~3,33%~/~ Magiekraft).##Auferwecken, Geisterbeschwörung, Essenzstehlen oder Erhalt von ~lg~„Segen des Todes“~/~ hat ~lg~33%~/~ Chance, ~lg~„Aufstieg“~/~ für ~w~6~/~ Züge zu aktivieren:##~lg~+33%~/~ Unheiliger Widerstand#~lg~+66%~/~ Wunderstärke#wandelt Unheiligen Schaden in Heiligen Schaden um." },
-                { ModLanguage.Russian, "Применение заклинаний наносит урон нечестием всем врагам в поле зрения (на основе ~lg~3,33%~/~ силы магии).##Воскрешение, призыв умертвий, кража сущности или получение ~lg~«Благословения смерти»~/~ с шансом ~lg~33%~/~ активирует ~lg~«Вознесение»~/~ на ~w~6~/~ ходов:##~lg~+33%~/~ сопротивления нечестию#~lg~+66%~/~ силы чудес#преобразует урон нечестием в священный урон." },
-            });
-        RegisterSkillLocalization(
             "wraith_summoning",
             new Dictionary<ModLanguage, string>
             {
@@ -1078,12 +1033,6 @@ public static class NecromancyLocalization
                 zh: "弗洛拉斯·因萨尼亚！",
                 de: "Florath Insania!",
                 ru: "Florath Insania!")),
-            ("archtheurgy", Speech(
-                en: "Archon Theurgos!",
-                ja: "アルコン・テウルゴス！",
-                zh: "阿尔孔·特乌尔戈斯！",
-                de: "Archon Theurgos!",
-                ru: "Archon Theurgos!")),
             ("wraith_summoning", Speech(
                 en: "Lagura mithensa!",
                 ja: "コールグ・ナマール！",

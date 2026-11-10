@@ -3,9 +3,9 @@
   "name": "Necromancy",
   "source": "BW-s-Necromancy-main",
   "target": "Sorcery",
-  "totalSkills": 15,
+  "totalSkills": 14,
   "activeCount": 11,
-  "passiveCount": 4,
+  "passiveCount": 3,
   "skills": [
     {
       "id": "59a5ba7d-bfe3-4136-8bff-3621fa584499",
@@ -361,8 +361,7 @@
           }
         ],
         "skills": [
-          "7a73e870-bdb7-4a81-a19b-f8f118e5b0a2",
-          "158f368c-1e91-424c-b48a-1721b4013738"
+          "7a73e870-bdb7-4a81-a19b-f8f118e5b0a2"
         ],
         "skillLogic": "and"
       },
@@ -460,10 +459,9 @@
           }
         ],
         "skills": [
-          "843edbb5-af68-43b7-8432-271739444e99",
-          "6e7735a0-a0ff-4271-8ac1-00648052a83c"
+          "843edbb5-af68-43b7-8432-271739444e99"
         ],
-        "skillLogic": "or"
+        "skillLogic": "and"
       }
     },
     {
@@ -569,31 +567,6 @@
       }
     },
     {
-      "id": "9d160a5a-2bf1-46c1-807a-b9e9e8e75c29",
-      "name": "Archtheurgy",
-      "slug": "archtheurgy",
-      "type": "passive",
-      "tier": 4,
-      "image": "s_archtheurgy",
-      "description": "Casting Spells deals Unholy Damage to all enemies within vision (based on ~lg~3.33%~/~ of Magic Power).##Raising the dead, summoning wraiths, Stealing Essence, or receiving ~lg~\"Death's Blessing\"~/~ has ~lg~33%~/~ chance to activate ~lg~\"Ascension\"~/~ for ~w~6~/~ turns:##~lg~+33%~/~ Unholy Resistance#~lg~+66%~/~ Miracle Potency#Converts Unholy Damage into Sacred Damage.",
-      "magicPhrase": "Archon Theurgos!",
-      "requirements": {
-        "attributes": [
-          {
-            "stats": [
-              "WIL"
-            ],
-            "logic": "and",
-            "min": 15
-          }
-        ],
-        "skills": [
-          "aa19f19a-7398-48b3-a7d6-1bd464fd6bdf"
-        ],
-        "skillLogic": "and"
-      }
-    },
-    {
       "id": "9b1a51b6-daa2-40b3-a236-505eca5fe5f8",
       "name": "Wraith Summoning",
       "slug": "wraith_summoning",
@@ -673,7 +646,6 @@
       {
         "tier": 4,
         "skills": [
-          "9d160a5a-2bf1-46c1-807a-b9e9e8e75c29",
           "f0f37fa5-3038-4c76-9617-3bf848cfb632",
           "0186d94e-304b-4434-803f-9a03b9106770",
           "9b1a51b6-daa2-40b3-a236-505eca5fe5f8"
@@ -702,19 +674,11 @@
         "to": "aa19f19a-7398-48b3-a7d6-1bd464fd6bdf"
       },
       {
-        "from": "158f368c-1e91-424c-b48a-1721b4013738",
-        "to": "aa19f19a-7398-48b3-a7d6-1bd464fd6bdf"
-      },
-      {
         "from": "d3bd6b8f-6f07-4c1f-8aeb-783d0afc33b0",
         "to": "7e983a82-ab7c-48bc-830e-37d05c68fe83"
       },
       {
         "from": "843edbb5-af68-43b7-8432-271739444e99",
-        "to": "ed75d3c9-c735-438a-b430-205ad8478419"
-      },
-      {
-        "from": "6e7735a0-a0ff-4271-8ac1-00648052a83c",
         "to": "ed75d3c9-c735-438a-b430-205ad8478419"
       },
       {
@@ -728,10 +692,6 @@
       {
         "from": "ed75d3c9-c735-438a-b430-205ad8478419",
         "to": "0186d94e-304b-4434-803f-9a03b9106770"
-      },
-      {
-        "from": "aa19f19a-7398-48b3-a7d6-1bd464fd6bdf",
-        "to": "9d160a5a-2bf1-46c1-807a-b9e9e8e75c29"
       },
       {
         "from": "ed75d3c9-c735-438a-b430-205ad8478419",
