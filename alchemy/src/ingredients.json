@@ -1,0 +1,2111 @@
+{
+  "targetVersion": "0.9.4.25",
+  "notes": "Vanilla item ids with base price, flavor description, and structured effects from data.win. Effect entries use add_<stat> values; timed buffs include per-effect turns; uses is item use count. Grass includes herbs and mushrooms. Death Cap id=stool. Gwynnel's Elixir id=aqua_vitae. Honeycomb id=honey.",
+  "grass": [
+    {
+      "id": "agrimony",
+      "name": "Agrimony",
+      "price": 5,
+      "description": "Agrimony powders and infusions can do wonders for a weakened body.",
+      "effects": [
+        {
+          "add_thirst": 8
+        },
+        {
+          "add_immunity_change": 0.02,
+          "turns": 60
+        },
+        {
+          "add_intoxication": -3
+        },
+        {
+          "uses": 3
+        }
+      ]
+    },
+    {
+      "id": "bogbean",
+      "name": "Bogbean",
+      "price": 5,
+      "description": "Also known as buckbean, this plant can easily be found around swamps. It stimulates appetite and is often used in various tonics.",
+      "effects": [
+        {
+          "add_thirst": 8
+        },
+        {
+          "add_health_restoration": 3,
+          "turns": 60
+        },
+        {
+          "add_healing_efficiency": 5,
+          "turns": 60
+        },
+        {
+          "uses": 3
+        }
+      ]
+    },
+    {
+      "id": "burdock",
+      "name": "Burdock",
+      "price": 5,
+      "description": "This weed grows along roads and fences. Its roots are valued for their numerous medicinal properties.",
+      "effects": [
+        {
+          "add_thirst": 8
+        },
+        {
+          "add_health_replenishment": 2
+        },
+        {
+          "add_health_restoration": 1,
+          "turns": 60
+        },
+        {
+          "add_bleed_resistance": 2,
+          "turns": 60
+        },
+        {
+          "uses": 3
+        }
+      ]
+    },
+    {
+      "id": "burnet",
+      "name": "Burnet",
+      "price": 5,
+      "description": "A herb used to staunch fresh wounds and keep infection at bay.",
+      "effects": [
+        {
+          "add_thirst": 8
+        },
+        {
+          "add_health_replenishment": 1
+        },
+        {
+          "add_bleed_resistance": 5,
+          "turns": 60
+        },
+        {
+          "uses": 3
+        }
+      ]
+    },
+    {
+      "id": "spleenwort",
+      "name": "Crimson Spleenwort",
+      "price": 100,
+      "description": "Crimson spleenwort is used to hasten recovery and healing after complex surgical procedures. Supposedly, it grows only in soil frequently soaked with blood.",
+      "effects": [
+        {
+          "add_thirst": 8
+        },
+        {
+          "add_injury_treatment": 0.1
+        },
+        {
+          "add_all_bodyparts_condition_pct": 0.1,
+          "turns": 360
+        },
+        {
+          "add_damaged_bodyparts_max_health_threshold_reduction_pct": 30,
+          "turns": 360
+        }
+      ]
+    },
+    {
+      "id": "fleawort",
+      "name": "Fleawort",
+      "price": 5,
+      "description": "There once lived a herbalist who insisted on treating pretty much everything with fleawort, from seizures to postpartum delirium. If the rumors are true, he himself died of gangrene.",
+      "effects": [
+        {
+          "add_injury_treatment": 1
+        },
+        {
+          "add_healing_efficiency": 3,
+          "turns": 60
+        },
+        {
+          "uses": 3
+        }
+      ]
+    },
+    {
+      "id": "hemp",
+      "name": "Hemp",
+      "price": 5,
+      "description": "Hemp stalks can be woven into cheap, sturdy ropes. Of course, that's not the only use for this plant...",
+      "effects": [
+        {
+          "add_thirst": 8
+        },
+        {
+          "add_immunity_change": 0.01,
+          "turns": 60
+        },
+        {
+          "add_pain_change": -0.03,
+          "turns": 60
+        },
+        {
+          "add_morale_change": 0.02,
+          "turns": 60
+        },
+        {
+          "uses": 3
+        }
+      ]
+    },
+    {
+      "id": "henbane",
+      "name": "Henbane",
+      "price": 5,
+      "description": "Henbane excites the senses, but in large amounts, it's a deadly poison. In some places, it is even added to beer... to make the drinking merrier, so to speak.",
+      "effects": [
+        {
+          "add_thirst": 8
+        },
+        {
+          "add_intoxication_change": 0.1,
+          "turns": 60
+        },
+        {
+          "add_pain_resistance": 5,
+          "turns": 60
+        },
+        {
+          "uses": 3
+        },
+        {
+          "battle_rage_chance_pct": 25,
+          "battle_rage_chance_scales_with_intoxication": true
+        }
+      ]
+    },
+    {
+      "id": "hyssop",
+      "name": "Honey Hyssop",
+      "price": 100,
+      "description": "With the proper dosage, honey hyssop can quickly bring anyone back to health, unless the patient has already given up on themselves.",
+      "effects": [
+        {
+          "add_thirst": 8
+        },
+        {
+          "add_health_restoration": 10,
+          "turns": 480
+        },
+        {
+          "double_health_restoration": true,
+          "turns": 360
+        }
+      ]
+    },
+    {
+      "id": "hop",
+      "name": "Hop Cone",
+      "price": 5,
+      "description": "####To the citizens of Brynn:##Be it known that for his short-sighted actions, which led to the deaths of several city guards, Master Giselbert has been placed on trial, and from this day forth his shop along with all his property shall fall under the authority of the Grand Magistrate.##Remis Krell#Senior Scribe",
+      "effects": [
+        {
+          "add_thirst": 8
+        },
+        {
+          "add_intoxication_change": -0.01,
+          "turns": 60
+        },
+        {
+          "add_morale_change": 0.01,
+          "turns": 60
+        },
+        {
+          "uses": 3
+        }
+      ]
+    },
+    {
+      "id": "honey",
+      "name": "Honeycomb",
+      "price": 18,
+      "description": "It's both a delicious treat and a remedy.",
+      "effects": [
+        {
+          "add_hunger": -5
+        },
+        {
+          "add_immunity_change": 0.05,
+          "turns": 60
+        },
+        {
+          "add_intoxication_change": -0.05,
+          "turns": 60
+        },
+        {
+          "add_diet_morale": 1,
+          "turns": 60
+        },
+        {
+          "add_sanity": 1
+        },
+        {
+          "add_healing_efficiency": 5,
+          "turns": 60
+        },
+        {
+          "uses": 3
+        }
+      ]
+    },
+    {
+      "id": "horsetail",
+      "name": "Horsetail",
+      "price": 5,
+      "description": "Horsetail is well known as a powerful astringent. It shouldn't be abused, though - cattle that graze on horsetail often end up dead from poisoning.",
+      "effects": [
+        {
+          "add_hunger_resistance": 5,
+          "turns": 60
+        },
+        {
+          "add_thirst": 8
+        },
+        {
+          "add_intoxication": -1
+        },
+        {
+          "add_intoxication_resistance": 3,
+          "turns": 60
+        },
+        {
+          "uses": 3
+        }
+      ]
+    },
+    {
+      "id": "lavender",
+      "name": "Lavender",
+      "price": 5,
+      "description": "Lavender brews are helpful for fortifying the body and the soul in equal measure.",
+      "effects": [
+        {
+          "add_thirst": 8
+        },
+        {
+          "add_morale_change": 0.01,
+          "turns": 60
+        },
+        {
+          "add_sanity_change": 0.01,
+          "turns": 60
+        },
+        {
+          "add_fatigue_change": -0.01,
+          "turns": 60
+        },
+        {
+          "uses": 3
+        }
+      ]
+    },
+    {
+      "id": "mindwort",
+      "name": "Mindwort",
+      "price": 5,
+      "description": "Mindwort is a potent sedative, helpful in the recovery from major shocks.",
+      "effects": [
+        {
+          "add_thirst": 8
+        },
+        {
+          "add_sanity_change": 0.02,
+          "turns": 60
+        },
+        {
+          "add_experience_gain": 1,
+          "turns": 60
+        },
+        {
+          "uses": 3
+        },
+        {
+          "help_sober_faster": true
+        },
+        {
+          "reduce_bad_trip_turns": [
+            5,
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nettle",
+      "name": "Nettle",
+      "price": 5,
+      "description": "For all its prickly nature, nettle leaves and stems are used both as food and in medicine.",
+      "effects": [
+        {
+          "add_thirst": 8
+        },
+        {
+          "add_pain": 5
+        },
+        {
+          "add_health_restoration": 1,
+          "turns": 60
+        },
+        {
+          "add_bleed_resistance": 3,
+          "turns": 60
+        },
+        {
+          "uses": 3
+        }
+      ]
+    },
+    {
+      "id": "poppy",
+      "name": "Poppy",
+      "price": 5,
+      "description": "Not a single pain-relieving mixture is complete without poppy sap.",
+      "effects": [
+        {
+          "add_thirst": 8
+        },
+        {
+          "add_intoxication_change": 0.1,
+          "turns": 60
+        },
+        {
+          "add_pain_change": -0.05,
+          "turns": 60
+        },
+        {
+          "add_pain_resistance": 8,
+          "turns": 60
+        },
+        {
+          "uses": 3
+        },
+        {
+          "may_sleep_or_bad_trip": true
+        }
+      ]
+    },
+    {
+      "id": "rhubarb",
+      "name": "Rhubarb",
+      "price": 5,
+      "description": "Rhubarb stems are nutritious and aid digestion. The leaves, on the other hand, are mildly toxic and best avoided.",
+      "effects": [
+        {
+          "add_hunger": -1
+        },
+        {
+          "add_thirst": 5
+        },
+        {
+          "add_intoxication_change": -0.02,
+          "turns": 60
+        },
+        {
+          "add_intoxication_resistance": 5,
+          "turns": 60
+        },
+        {
+          "uses": 3
+        }
+      ]
+    },
+    {
+      "id": "rotbloom",
+      "name": "Rotbloom",
+      "price": 100,
+      "description": "The eye-watering odor of rotbloom is so reminiscent of decaying meat that it draws scavengers, flies, and other pests from great distances. Nevertheless, it's a plant of many benefits, particularly in treating consumption and lung fever.",
+      "effects": [
+        {
+          "add_thirst": 20
+        },
+        {
+          "add_control_resistance": 10,
+          "turns": 360
+        },
+        {
+          "immunity_to_coughing": true,
+          "turns": 360
+        }
+      ]
+    },
+    {
+      "id": "silverleaf",
+      "name": "Silverleaf",
+      "price": 100,
+      "description": "The marvelous healing properties of silverleaf have been documented since antiquity. To the sorrow of many, centuries of unchecked foraging have pushed it to the brink of extinction.",
+      "effects": [
+        {
+          "add_thirst": 8
+        },
+        {
+          "add_health_per_turn": 1,
+          "turns": 480
+        },
+        {
+          "add_max_health_replenish_pct": 1,
+          "turns": 360
+        }
+      ]
+    },
+    {
+      "id": "peppermint",
+      "name": "Spearmint",
+      "price": 5,
+      "description": "With no shortage of practical uses, spearmint makes a fine addition to any tincture.",
+      "effects": [
+        {
+          "add_thirst": 8
+        },
+        {
+          "add_morale": 1
+        },
+        {
+          "add_morale_change": 0.01,
+          "turns": 60
+        },
+        {
+          "uses": 3
+        }
+      ]
+    },
+    {
+      "id": "spidervine",
+      "name": "Spider Vine",
+      "price": 100,
+      "description": "During her pilgrimage to Mount Foros, Saint Theona's procession was ambushed by bandits. By the grace of the Host, the Hieronites fought them off - after which Theona performed a miracle, healing the dying and wounded with nothing more than a single sprig of spider vine.",
+      "effects": [
+        {
+          "add_thirst": 8
+        },
+        {
+          "add_bleed_resistance": 10,
+          "turns": 480
+        },
+        {
+          "add_bleeding_damage_reduction_pct": 30,
+          "turns": 360
+        }
+      ]
+    },
+    {
+      "id": "thyme",
+      "name": "Thyme",
+      "price": 5,
+      "description": "Aromatic spices, medicinal brews, herbal oils - thyme has a place in all of them.",
+      "effects": [
+        {
+          "add_thirst": 8
+        },
+        {
+          "add_energy_restoration": 1,
+          "turns": 60
+        },
+        {
+          "add_fatigue_change": -0.02,
+          "turns": 60
+        },
+        {
+          "add_fatigue_resistance": 3,
+          "turns": 60
+        },
+        {
+          "uses": 3
+        }
+      ]
+    },
+    {
+      "id": "wormwood",
+      "name": "Wormwood",
+      "price": 5,
+      "description": "Bitter wormwood tinctures are used by Aldorian peasants to treat digestive problems and parasite infections.",
+      "effects": [
+        {
+          "add_hunger_resistance": -5,
+          "turns": 60
+        },
+        {
+          "add_thirst": 8
+        },
+        {
+          "add_pain": -2
+        },
+        {
+          "add_pain_resistance": 5,
+          "turns": 60
+        },
+        {
+          "uses": 3
+        }
+      ]
+    },
+    {
+      "id": "acorn",
+      "name": "Acorn",
+      "price": 1,
+      "description": "During more peaceful times, acorns would be fed to pigs. These days, destitute villagers prefer to hog them all for themselves.",
+      "effects": [
+        {
+          "add_hunger_change": -0.01,
+          "turns": 30
+        },
+        {
+          "add_intoxication_change": 0.01,
+          "turns": 30
+        },
+        {
+          "add_morale": -1
+        }
+      ]
+    },
+    {
+      "id": "azurecap",
+      "name": "Azurecap",
+      "price": 70,
+      "description": "Glows faintly in the dark - it's said azurecaps do so by capturing and retaining moonlight.",
+      "effects": [
+        {
+          "add_hunger_change": -0.01,
+          "turns": 480
+        },
+        {
+          "add_thirst": -3
+        },
+        {
+          "add_thirst_change": -0.02,
+          "turns": 480
+        },
+        {
+          "add_energy_restoration": 5,
+          "turns": 480
+        },
+        {
+          "add_fatigue_resistance": 10,
+          "turns": 480
+        },
+        {
+          "double_energy_restoration": true,
+          "turns": 360
+        }
+      ],
+      "kind": "mushroom"
+    },
+    {
+      "id": "stool",
+      "name": "Death Cap",
+      "price": 2,
+      "description": "It has claimed the lives of many careless foragers.",
+      "effects": [
+        {
+          "add_hunger_change": -0.01,
+          "turns": 45
+        },
+        {
+          "add_intoxication_change": 1,
+          "turns": 45
+        },
+        {
+          "add_nausea_chance": 100
+        },
+        {
+          "add_poisoning_chance": 100
+        },
+        {
+          "add_poisoning_duration": 100
+        },
+        {
+          "uses": 3
+        }
+      ],
+      "kind": "mushroom"
+    },
+    {
+      "id": "flyagaric",
+      "name": "Fly Agaric",
+      "price": 2,
+      "description": "Not as deceptive as a death cap, it's easily recognizable by its bright colors.",
+      "effects": [
+        {
+          "add_hunger_change": -0.01,
+          "turns": 60
+        },
+        {
+          "add_intoxication_change": 0.5,
+          "turns": 60
+        },
+        {
+          "add_pain_change": -0.25,
+          "turns": 60
+        },
+        {
+          "add_pain_resistance": 10,
+          "turns": 60
+        },
+        {
+          "add_sanity": -4
+        },
+        {
+          "add_poisoning_chance": 20
+        },
+        {
+          "add_poisoning_duration": 30
+        },
+        {
+          "uses": 3
+        }
+      ],
+      "kind": "mushroom"
+    },
+    {
+      "id": "truffle",
+      "name": "Marble Truffle",
+      "price": 100,
+      "description": "The right majordomo would gladly line your pockets with gold in exchange for a basket of fresh truffles.",
+      "effects": [
+        {
+          "add_hunger_change": -0.01,
+          "turns": 480
+        },
+        {
+          "add_immunity": 4,
+          "turns": 480
+        },
+        {
+          "add_immunity_change": 0.02,
+          "turns": 480
+        },
+        {
+          "add_intoxication_resistance": 25,
+          "turns": 480
+        },
+        {
+          "add_morale": 1
+        },
+        {
+          "add_diet_morale": 1,
+          "turns": 480
+        },
+        {
+          "add_immunity_intoxication_recovery_pct": 100,
+          "turns": 360
+        }
+      ],
+      "kind": "mushroom"
+    },
+    {
+      "id": "morel",
+      "name": "Morel",
+      "price": 2,
+      "description": "A peculiarly shaped mushroom with a distinctive sponge-like cap.",
+      "effects": [
+        {
+          "add_hunger_change": -0.01,
+          "turns": 45
+        },
+        {
+          "add_immunity_change": 0.02,
+          "turns": 45
+        },
+        {
+          "uses": 3
+        }
+      ],
+      "kind": "mushroom"
+    },
+    {
+      "id": "puffball",
+      "name": "Pale Puffball",
+      "price": 30,
+      "description": "The pale puffball is highly toxic - some accounts tell of a hired assassin fulfilling a contract by generously dispersing its spores throughout the victim's bedroom.",
+      "effects": [
+        {
+          "add_hunger_change": -0.01,
+          "turns": 90
+        },
+        {
+          "add_thirst": 5
+        },
+        {
+          "add_intoxication_change": 0.75,
+          "turns": 90
+        },
+        {
+          "add_poisoning_chance": 75
+        },
+        {
+          "add_poisoning_duration": 50
+        },
+        {
+          "throw_poison_damage": 6,
+          "throw_confuse_or_stagger_chance_pct": 120,
+          "spore_cloud_turns": [
+            4,
+            6
+          ]
+        }
+      ],
+      "kind": "mushroom"
+    },
+    {
+      "id": "pinecap",
+      "name": "Pinecap",
+      "price": 2,
+      "description": "Pinecaps are distant relatives of penny buns. Herbalists insist that when consumed raw, they can absorb poisons and make you feel more energetic.",
+      "effects": [
+        {
+          "add_hunger_change": -0.01,
+          "turns": 45
+        },
+        {
+          "add_intoxication_change": -0.03,
+          "turns": 45
+        },
+        {
+          "uses": 3
+        }
+      ],
+      "kind": "mushroom"
+    }
+  ],
+  "fruits": [
+    {
+      "id": "apple",
+      "name": "Apple",
+      "price": 9,
+      "description": "An apple a day keeps the physician away.",
+      "effects": [
+        {
+          "add_hunger": -3
+        },
+        {
+          "add_thirst": -4
+        },
+        {
+          "add_immunity_change": 0.05,
+          "turns": 30
+        },
+        {
+          "add_healing_efficiency": 3,
+          "turns": 30
+        },
+        {
+          "uses": 3
+        }
+      ]
+    },
+    {
+      "id": "barberry",
+      "name": "Barberry",
+      "price": 2,
+      "description": "Few eat barberries for their taste - they're mostly consumed to treat a variety of ailments.",
+      "effects": [
+        {
+          "add_hunger_change": -0.01,
+          "turns": 30
+        },
+        {
+          "add_thirst_change": -0.03,
+          "turns": 30
+        },
+        {
+          "add_fatigue_change": -0.01,
+          "turns": 30
+        },
+        {
+          "uses": 3
+        }
+      ]
+    },
+    {
+      "id": "whortleberry",
+      "name": "Bilberry",
+      "price": 2,
+      "description": "Local herbalists regard bilberries as a trusted remedy for stomachaches.",
+      "effects": [
+        {
+          "add_hunger_change": -0.01,
+          "turns": 30
+        },
+        {
+          "add_thirst_change": -0.03,
+          "turns": 30
+        },
+        {
+          "add_intoxication_change": -0.01,
+          "turns": 30
+        },
+        {
+          "uses": 3
+        }
+      ]
+    },
+    {
+      "id": "blueberry",
+      "name": "Blueberry",
+      "price": 2,
+      "description": "Sweet, with a touch of pleasant sourness. Simply delicious.",
+      "effects": [
+        {
+          "add_hunger_change": -0.01,
+          "turns": 30
+        },
+        {
+          "add_thirst_change": -0.03,
+          "turns": 30
+        },
+        {
+          "add_fatigue_resistance": 1,
+          "turns": 30
+        },
+        {
+          "uses": 3
+        }
+      ]
+    },
+    {
+      "id": "dragonfruit",
+      "name": "Dragon Fruit",
+      "price": 60,
+      "description": "It's hard to believe this weird fruit could come from our world. The taste is nothing short of amazing.",
+      "effects": [
+        {
+          "add_hunger": -5
+        },
+        {
+          "add_thirst": -8
+        },
+        {
+          "add_immunity_change": 0.25,
+          "turns": 30
+        },
+        {
+          "add_pain_change": -0.1,
+          "turns": 30
+        },
+        {
+          "add_fatigue_change": -0.1,
+          "turns": 30
+        },
+        {
+          "uses": 3
+        }
+      ]
+    },
+    {
+      "id": "citrus",
+      "name": "Elven Citrus",
+      "price": 45,
+      "description": "Hideously sour but very healthy. The nobles cringe but keep eating them.",
+      "effects": [
+        {
+          "add_hunger": -1
+        },
+        {
+          "add_thirst": 10
+        },
+        {
+          "add_immunity_change": 0.2,
+          "turns": 30
+        },
+        {
+          "add_intoxication_change": -0.1,
+          "turns": 30
+        },
+        {
+          "uses": 3
+        }
+      ]
+    },
+    {
+      "id": "fig",
+      "name": "Fig",
+      "price": 25,
+      "description": "A fruit frequently peddled by eastern merchants, tempting buyers with promises of elven longevity.",
+      "effects": [
+        {
+          "add_hunger": -2
+        },
+        {
+          "add_immunity_change": 0.15,
+          "turns": 30
+        },
+        {
+          "add_morale_change": 0.2,
+          "turns": 30
+        },
+        {
+          "add_health_restoration": 3,
+          "turns": 30
+        },
+        {
+          "uses": 3
+        }
+      ]
+    },
+    {
+      "id": "gooseberry",
+      "name": "Gooseberry",
+      "price": 2,
+      "description": "It's tart enough to sour one's mood.",
+      "effects": [
+        {
+          "add_hunger_change": -0.01,
+          "turns": 30
+        },
+        {
+          "add_thirst_change": -0.03,
+          "turns": 30
+        },
+        {
+          "add_healing_efficiency": 1,
+          "turns": 30
+        },
+        {
+          "uses": 3
+        }
+      ]
+    },
+    {
+      "id": "grape",
+      "name": "Grape",
+      "price": 9,
+      "description": "Sweet and slightly tart.",
+      "effects": [
+        {
+          "add_hunger": -3
+        },
+        {
+          "add_thirst": -6
+        },
+        {
+          "add_immunity_change": 0.05,
+          "turns": 30
+        },
+        {
+          "uses": 3
+        }
+      ]
+    },
+    {
+      "id": "lingonberry",
+      "name": "Lingonberry",
+      "price": 2,
+      "description": "Juicy and sugary. Goes into herbal brews, remedies, and jams.",
+      "effects": [
+        {
+          "add_hunger_change": -0.01,
+          "turns": 30
+        },
+        {
+          "add_thirst_change": -0.03,
+          "turns": 30
+        },
+        {
+          "add_pain_change": -0.01,
+          "turns": 30
+        },
+        {
+          "uses": 3
+        }
+      ]
+    },
+    {
+      "id": "peach",
+      "name": "Peach",
+      "price": 18,
+      "description": "The peach came to Aldor from the East in ancient times: back then, it was known as a \"royal fruit\".",
+      "effects": [
+        {
+          "add_hunger": -3
+        },
+        {
+          "add_thirst": -6
+        },
+        {
+          "add_immunity_change": 0.1,
+          "turns": 30
+        },
+        {
+          "add_morale_change": 0.3,
+          "turns": 30
+        },
+        {
+          "uses": 3
+        }
+      ]
+    },
+    {
+      "id": "pear",
+      "name": "Pear",
+      "price": 9,
+      "description": "The Faceless are the Palace Guard of the Great Jacinth and are considered the best warriors in all the Elven Kingdoms. Among other feats, they distinguished themselves on the frontlines of the Radiant Wars by repelling the advance of King Etbert's army.",
+      "effects": [
+        {
+          "add_hunger": -3
+        },
+        {
+          "add_thirst": -4
+        },
+        {
+          "add_immunity_change": 0.05,
+          "turns": 30
+        },
+        {
+          "add_health_restoration": 1,
+          "turns": 30
+        },
+        {
+          "uses": 3
+        }
+      ]
+    },
+    {
+      "id": "raspberry",
+      "name": "Raspberry",
+      "price": 2,
+      "description": "So juicy it almost begs to be devoured by the handful.",
+      "effects": [
+        {
+          "add_hunger_change": -0.01,
+          "turns": 30
+        },
+        {
+          "add_thirst_change": -0.03,
+          "turns": 30
+        },
+        {
+          "add_morale_change": 0.01,
+          "turns": 30
+        },
+        {
+          "uses": 3
+        }
+      ]
+    }
+  ],
+  "vegetables": [
+    {
+      "id": "beet",
+      "name": "Beet",
+      "price": 8,
+      "description": "Filling and mellow in flavor, beets are a staple of peasant cooking.",
+      "effects": [
+        {
+          "add_hunger": -3
+        },
+        {
+          "add_immunity_change": 0.03,
+          "turns": 30
+        },
+        {
+          "uses": 3
+        }
+      ]
+    },
+    {
+      "id": "cabbage",
+      "name": "Cabbage",
+      "price": 18,
+      "description": "Cabbage makes up nearly half the diet of an average peasant: it's eaten raw, boiled, stewed, pickled...",
+      "effects": [
+        {
+          "add_hunger": -3
+        },
+        {
+          "add_immunity_change": 0.03,
+          "turns": 30
+        },
+        {
+          "uses": 3
+        }
+      ]
+    },
+    {
+      "id": "carrot",
+      "name": "Carrot",
+      "price": 8,
+      "description": "An excellent garnish... once you wash the dirt off.",
+      "effects": [
+        {
+          "add_hunger": -3
+        },
+        {
+          "add_immunity_change": 0.03,
+          "turns": 30
+        },
+        {
+          "uses": 3
+        }
+      ]
+    },
+    {
+      "id": "garlic",
+      "name": "Garlic",
+      "price": 4,
+      "description": "Some say its smell drives away evil spirits. In reality, it drives away pretty much everyone.",
+      "effects": [
+        {
+          "add_hunger": -1
+        },
+        {
+          "add_immunity_change": 0.04,
+          "turns": 45
+        },
+        {
+          "add_intoxication_change": -0.01,
+          "turns": 45
+        },
+        {
+          "add_morale": -1
+        },
+        {
+          "uses": 3
+        }
+      ]
+    },
+    {
+      "id": "ginger",
+      "name": "Ginger Root",
+      "price": 30,
+      "description": "An elven plant with a tart taste and fragrant aroma. Reputedly, it helps with hangovers and other similar ailments.",
+      "effects": [
+        {
+          "add_thirst": 5
+        },
+        {
+          "add_immunity": 2,
+          "turns": 30
+        },
+        {
+          "add_intoxication_change": -0.2,
+          "turns": 30
+        },
+        {
+          "add_healing_efficiency": 5,
+          "turns": 30
+        },
+        {
+          "uses": 3
+        },
+        {
+          "help_sober_faster": true
+        }
+      ]
+    },
+    {
+      "id": "leek",
+      "name": "Leek",
+      "price": 6,
+      "description": "Fresh, green, and crisp. It'll go perfectly with most dishes.",
+      "effects": [
+        {
+          "add_hunger": -2
+        },
+        {
+          "add_immunity_change": 0.02,
+          "turns": 45
+        },
+        {
+          "add_intoxication_change": -0.02,
+          "turns": 45
+        },
+        {
+          "uses": 3
+        }
+      ]
+    },
+    {
+      "id": "lentils",
+      "name": "Lentils",
+      "price": 5,
+      "description": "Lentils are nourishing and simple to prepare - during years of poor harvest, they save entire villages from starvation.",
+      "effects": [
+        {
+          "add_hunger": -3
+        },
+        {
+          "uses": 3
+        }
+      ]
+    },
+    {
+      "id": "onion",
+      "name": "Onion",
+      "price": 4,
+      "description": "Has layers and is more than it appears.",
+      "effects": [
+        {
+          "add_hunger": -2
+        },
+        {
+          "add_immunity_change": 0.03,
+          "turns": 45
+        },
+        {
+          "add_intoxication_change": -0.02,
+          "turns": 45
+        },
+        {
+          "add_morale": -1
+        },
+        {
+          "uses": 3
+        }
+      ]
+    },
+    {
+      "id": "potato",
+      "name": "Potato",
+      "price": 5,
+      "description": "You can eat it raw. But why would you?",
+      "effects": [
+        {
+          "add_hunger": -3
+        },
+        {
+          "add_morale": -2
+        },
+        {
+          "uses": 3
+        }
+      ]
+    },
+    {
+      "id": "seaweed",
+      "name": "Seaweed",
+      "price": 5,
+      "description": "Seaweed has been dried and eaten in Aldor since time immemorial, albeit by now its use in dishes has largely gone out of favor.",
+      "effects": [
+        {
+          "add_hunger": -1
+        },
+        {
+          "uses": 3
+        }
+      ]
+    },
+    {
+      "id": "tomato",
+      "name": "Tomato",
+      "price": 6,
+      "description": "Some madmen claim it to be a berry.",
+      "effects": [
+        {
+          "add_hunger": -2
+        },
+        {
+          "add_thirst": -2
+        },
+        {
+          "add_immunity_change": 0.03,
+          "turns": 30
+        },
+        {
+          "add_health_restoration": 0.5,
+          "turns": 30
+        },
+        {
+          "uses": 3
+        }
+      ]
+    },
+    {
+      "id": "white_radish",
+      "name": "White Radish",
+      "price": 5,
+      "description": "While it was brought from the Jacinth Kingdoms fairly recently, it has already managed to take root.",
+      "effects": [
+        {
+          "add_hunger": -2
+        },
+        {
+          "add_hunger_change": -0.1,
+          "turns": 30
+        },
+        {
+          "add_immunity_change": 0.03,
+          "turns": 30
+        },
+        {
+          "uses": 3
+        }
+      ]
+    }
+  ],
+  "stones": [
+    {
+      "id": "agate",
+      "name": "Agate",
+      "price": 60,
+      "description": "Pliable and easy to work with, agate is an excellent material for ornaments and figurines.",
+      "effects": []
+    },
+    {
+      "id": "amber",
+      "name": "Handful of Amber",
+      "price": 40,
+      "description": "It must have come from the shores of distant Skadia. Some of the pieces contain peculiar, long-extinct insects.",
+      "effects": []
+    },
+    {
+      "id": "amethyst",
+      "name": "Amethyst",
+      "price": 150,
+      "description": "Prized for its rich color.",
+      "effects": []
+    },
+    {
+      "id": "aquamarine",
+      "name": "Aquamarine",
+      "price": 200,
+      "description": "Many believe aquamarine to be a powerful magical ward and are willing to pay good money for it.",
+      "effects": []
+    },
+    {
+      "id": "diamond",
+      "name": "Diamond",
+      "price": 600,
+      "description": "Aldwynn jewelers are the finest in all the realm. Diamonds cut by their hands adorn even the tiaras of the Great Jacinth's viziers.",
+      "effects": []
+    },
+    {
+      "id": "emerald",
+      "name": "Emerald",
+      "price": 450,
+      "description": "A rare gemstone worthy of kings - any jeweler would be glad to have it.",
+      "effects": []
+    },
+    {
+      "id": "jade",
+      "name": "Jade",
+      "price": 125,
+      "description": "Everyone in the Jacinth Kingdoms knows that jade cures diseases and grants longevity - hence the reverence it commands there.",
+      "effects": []
+    },
+    {
+      "id": "moonstone",
+      "name": "Moonstone",
+      "price": 100,
+      "description": "It shimmers like a glint of moonlight.",
+      "effects": []
+    },
+    {
+      "id": "morion",
+      "name": "Morion",
+      "price": 250,
+      "description": "The ominous appearance of morions makes them the favorite stone of warlocks and everyone who delves into the occult and other things otherworldly.",
+      "effects": []
+    },
+    {
+      "id": "ruby",
+      "name": "Ruby",
+      "price": 375,
+      "description": "This gem is worth a fortune, valued by enchanters for its unique magical properties.",
+      "effects": []
+    },
+    {
+      "id": "sapphire",
+      "name": "Sapphire",
+      "price": 525,
+      "description": "Sapphires' receptiveness to magic has long drawn the attention of sorcerers. There's a whole heap of scholarly works on the subject gathering dust in the Academy archives.",
+      "effects": []
+    },
+    {
+      "id": "seapearl",
+      "name": "Sea Pearls",
+      "price": 300,
+      "description": "Perfectly round and smooth. The chill of the southern seas is still preserved within them.",
+      "effects": []
+    },
+    {
+      "id": "topaz",
+      "name": "Topaz",
+      "price": 175,
+      "description": "Topaz is a well-known good luck charm that is mostly used in inexpensive jewelry.",
+      "effects": []
+    },
+    {
+      "id": "turquoise",
+      "name": "Turquoise",
+      "price": 80,
+      "description": "Much of the turquoise is mined in the mountains of Jibey, from where it reaches Aldor through the trade routes of the House of the Azure Thread.",
+      "effects": []
+    }
+  ],
+  "ore": [
+    {
+      "id": "coal",
+      "name": "Charcoal Chunk",
+      "price": 15,
+      "description": "The heart of any working forge or smithy.",
+      "effects": []
+    },
+    {
+      "id": "copper_nugget",
+      "name": "Copper Nugget",
+      "price": 20,
+      "description": "Refined copper finds ample use in many areas: household goods, modest jewelry, smelting alloys...",
+      "effects": []
+    },
+    {
+      "id": "gold_nugget",
+      "name": "Gold Nugget",
+      "price": 80,
+      "description": "A chunk of gold‑bearing ore from one of the Aldorian mines.",
+      "effects": []
+    },
+    {
+      "id": "iron_ingot",
+      "name": "Iron Ingot",
+      "price": 70,
+      "description": "An ingot of solid iron that will be readily purchased by any blacksmith.",
+      "effects": []
+    },
+    {
+      "id": "iron_nugget",
+      "name": "Iron Nugget",
+      "price": 30,
+      "description": "The flesh and blood of civilization.",
+      "effects": []
+    },
+    {
+      "id": "silver_nugget",
+      "name": "Silver Nugget",
+      "price": 60,
+      "description": "Doesn't contain a whole lot of silver, so you won't get much from selling it.",
+      "effects": []
+    }
+  ],
+  "medicine": [
+    {
+      "id": "antivenom",
+      "name": "Antidote Syringe",
+      "price": 75,
+      "description": "This ingenious contraption revolutionized the treatment of poisonings. The terrible vertigo that follows is hardly the greatest price to pay for survival.",
+      "effects": [
+        {
+          "add_intoxication": -75
+        },
+        {
+          "add_intoxication_resistance": 75,
+          "turns": 360
+        },
+        {
+          "add_energy_restoration": -5,
+          "turns": 360
+        },
+        {
+          "add_poison_resistance": 50,
+          "turns": 360
+        },
+        {
+          "cause_confusion": true,
+          "turns": 10
+        },
+        {
+          "remove_poisoning": true
+        }
+      ]
+    },
+    {
+      "id": "antitoxin",
+      "name": "Antitoxin",
+      "price": 30,
+      "description": "##Terzi Hold- iki rulo kumaş, bir rulo deri##Demirci Jebar - on demir külçe##Marangoz Jurg - bir uçak ve bir testere##Şifacı Frid - üç şifalı merhem ve bir şişe antitoksin",
+      "effects": [
+        {
+          "add_immunity": -2,
+          "turns": 30
+        },
+        {
+          "add_intoxication": -20
+        },
+        {
+          "add_fatigue_change": 0.1,
+          "turns": 30
+        },
+        {
+          "halve_hangover_and_aftermath": true
+        },
+        {
+          "help_sober_faster": true
+        }
+      ]
+    },
+    {
+      "id": "bandage",
+      "name": "Bandage",
+      "price": 10,
+      "description": "Might keep you from bleeding out.",
+      "effects": [
+        {
+          "add_bleed_resistance": 5,
+          "turns": 30
+        },
+        {
+          "stop_bleeding": true
+        }
+      ]
+    },
+    {
+      "id": "lancet",
+      "name": "Bloodletting Lancet",
+      "price": 35,
+      "description": "Many physicians firmly believe that occasional, well-placed incisions can draw out tainted blood, thus staving off diseases.",
+      "effects": [
+        {
+          "add_intoxication_change": -0.5,
+          "turns": 60
+        },
+        {
+          "add_pain": 3
+        },
+        {
+          "add_morale": -3
+        },
+        {
+          "add_injury_treatment": -3
+        },
+        {
+          "add_bleed_resistance": -10,
+          "turns": 60
+        }
+      ]
+    },
+    {
+      "id": "inhaler",
+      "name": "Ether Inhaler",
+      "price": 60,
+      "description": "The invention of one of the royal physicians: the fumes within this bizarre vessel are poisonous, but they ease pain and clear the mind.",
+      "effects": [
+        {
+          "add_intoxication": 25
+        },
+        {
+          "add_pain": -50
+        },
+        {
+          "add_pain_resistance": 75,
+          "turns": 120
+        },
+        {
+          "add_sanity": 6
+        }
+      ]
+    },
+    {
+      "id": "salve",
+      "name": "Healing Salve",
+      "price": 50,
+      "description": "Originally, this ointment was used to treat scabies. Its potent wound-healing effects were discovered purely by accident.",
+      "effects": [
+        {
+          "add_injury_treatment": 12
+        },
+        {
+          "add_health_replenishment": 3
+        },
+        {
+          "injured_bodypart_effect_penalty_pct": 50
+        }
+      ]
+    },
+    {
+      "id": "herbal",
+      "name": "Herbal Extract",
+      "price": 25,
+      "description": "The long-awaited relief from pain is worth any side effects. Herbalists dedicate entire cellars to drying the intoxicating plants used for such blends.",
+      "effects": [
+        {
+          "add_intoxication_change": 0.5,
+          "turns": 40
+        },
+        {
+          "add_pain": -30
+        }
+      ]
+    },
+    {
+      "id": "incense",
+      "name": "Incense",
+      "price": 200,
+      "description": "An aromatic blend of eastern herbs and exotic animal fats, brought to Aldor through the efforts of elven merchants.",
+      "effects": []
+    },
+    {
+      "id": "leech",
+      "name": "Leeches",
+      "price": 15,
+      "description": "These vile creatures can be of use if you know how to apply them - and when to pull them off.",
+      "effects": [
+        {
+          "add_morale": -3
+        },
+        {
+          "apply_to_bodypart": true
+        },
+        {
+          "add_intoxication_change": -0.1,
+          "turns": 30,
+          "bodypart": true
+        },
+        {
+          "add_immunity_change": 0.05,
+          "turns": 30,
+          "bodypart": true
+        },
+        {
+          "add_pain_change": 0.1,
+          "turns": 30,
+          "bodypart": true
+        },
+        {
+          "add_bleed_resistance": -10,
+          "turns": 30,
+          "bodypart": true
+        },
+        {
+          "add_bodypart_condition_pct": 0.5,
+          "turns": 30,
+          "bodypart": true
+        }
+      ]
+    },
+    {
+      "id": "paregoric",
+      "name": "Paregoric",
+      "price": 150,
+      "description": "A tincture of alcohol, poppy sap, and essential oils, popular among the nobility as a trusted cure for coughs, anxiety, and pain. Many become so addicted to it that they spend days on end in a dreamlike stupor.",
+      "effects": [
+        {
+          "add_intoxication": 15
+        },
+        {
+          "add_temporary_morale": 15
+        },
+        {
+          "add_pain_change": -0.5,
+          "turns": 1200
+        },
+        {
+          "add_pain_limit": -25,
+          "turns": 1200
+        },
+        {
+          "add_pain_resistance": 50,
+          "turns": 1200
+        },
+        {
+          "add_healing_efficiency": 25,
+          "turns": 1200
+        },
+        {
+          "add_sit_morale_change": 0.2,
+          "turns": 1200
+        },
+        {
+          "unpleasant_aftermath": true
+        },
+        {
+          "help_falling_asleep": true
+        },
+        {
+          "halve_coughing_penalties": true
+        }
+      ]
+    },
+    {
+      "id": "rag",
+      "name": "Rag",
+      "price": 3,
+      "description": "A strip of cloth that can be used to bandage a bleeding wound.",
+      "effects": [
+        {
+          "stop_bleeding": true
+        }
+      ]
+    },
+    {
+      "id": "pipe_hemp",
+      "name": "stick_oak",
+      "price": 20,
+      "description": "A few deep puffs should be enough to settle the nerves and regain lost focus.",
+      "effects": [
+        {
+          "add_hunger_resistance": -15,
+          "turns": 120
+        },
+        {
+          "add_intoxication_change": 0.01,
+          "turns": 120
+        },
+        {
+          "add_pain_change": -0.05,
+          "turns": 120
+        },
+        {
+          "add_pain_resistance": 10,
+          "turns": 120
+        },
+        {
+          "add_pain_limit": -10,
+          "turns": 120
+        },
+        {
+          "add_morale_change": 0.04,
+          "turns": 120
+        },
+        {
+          "add_temporary_morale": 5,
+          "turns": 120
+        }
+      ]
+    },
+    {
+      "id": "sponge",
+      "name": "Soporific Sponge",
+      "price": 25,
+      "description": "The kind of sponge used by city barbers to soothe terrified clients before pulling a bad tooth.",
+      "effects": [
+        {
+          "add_intoxication": 5
+        },
+        {
+          "add_pain_change": -1,
+          "turns": 20
+        },
+        {
+          "add_pain_limit": -25,
+          "turns": 20
+        },
+        {
+          "put_to_sleep": true
+        }
+      ]
+    },
+    {
+      "id": "splint",
+      "name": "Splint",
+      "price": 10,
+      "description": "Handy for setting fractures and securing sprains.",
+      "effects": [
+        {
+          "add_injury_treatment": 35
+        },
+        {
+          "stabilize_injury": true
+        }
+      ]
+    },
+    {
+      "id": "stardust",
+      "name": "Stardust",
+      "price": 150,
+      "description": "A capricious substance of mysterious origin: some partakers complain of dreadful hallucinations, while others claim to glimpse other dimensions... Which, in fairness, sounds like much the same thing.",
+      "effects": [
+        {
+          "add_intoxication": 15
+        },
+        {
+          "add_temporary_morale": 20
+        },
+        {
+          "add_sanity": -3
+        },
+        {
+          "add_magic_power": 25,
+          "turns": [
+            180,
+            480
+          ]
+        },
+        {
+          "add_backfire_chance": -25,
+          "turns": [
+            180,
+            480
+          ]
+        },
+        {
+          "add_bonus_range": 10,
+          "turns": [
+            180,
+            480
+          ]
+        },
+        {
+          "add_magic_resistance": 15,
+          "turns": [
+            180,
+            480
+          ]
+        },
+        {
+          "add_sanity_change": -0.05,
+          "turns": [
+            180,
+            480
+          ]
+        },
+        {
+          "special": "It's best to avoid abusing stardust when your Sanity is low"
+        }
+      ]
+    },
+    {
+      "id": "surgeon",
+      "name": "Surgical Kit",
+      "price": 100,
+      "description": "One of those cases where expertise and courage are equally important.",
+      "effects": [
+        {
+          "add_injury_treatment": 100
+        },
+        {
+          "add_health_restoration": 10,
+          "turns": 360
+        },
+        {
+          "add_healing_efficiency": 20,
+          "turns": 360
+        },
+        {
+          "pain_scales_with_low_condition": true
+        }
+      ]
+    },
+    {
+      "id": "essence",
+      "name": "Vivifying Essence",
+      "price": 200,
+      "description": "When asked about its recipe, alchemists prefer to maintain a cryptic silence.",
+      "effects": [
+        {
+          "add_sanity": -3
+        },
+        {
+          "add_health_replenishment": 40
+        },
+        {
+          "add_healing_efficiency": -25,
+          "turns": 60
+        }
+      ]
+    }
+  ],
+  "elixirs": [
+    {
+      "id": "abasa",
+      "name": "Abasa",
+      "price": 250,
+      "description": "First brewed by a Jibean alchemist from a wormwood blend, abasa took inns and taverns of the realm by storm. Eventually, it was outlawed by the highest decree for its ability to awaken the basest of vices in those who drink it.",
+      "effects": [
+        {
+          "add_thirst": -5
+        },
+        {
+          "add_thirst_change": 0.1,
+          "turns": 60
+        },
+        {
+          "add_intoxication": 20
+        },
+        {
+          "add_temporary_morale": 10,
+          "turns": 60
+        },
+        {
+          "add_weapon_damage": 20,
+          "turns": 360
+        },
+        {
+          "add_crit_efficiency": 30,
+          "turns": 360
+        },
+        {
+          "add_armor_penetration": 20,
+          "turns": 360
+        },
+        {
+          "add_pain_resistance": 50,
+          "turns": 360
+        },
+        {
+          "unpleasant_aftermath": true
+        },
+        {
+          "cause_drunkenness": true
+        }
+      ]
+    },
+    {
+      "id": "alqud",
+      "name": "Al'qud",
+      "price": 200,
+      "description": "Maaf warriors often take al'qud before battle to ward off fatigue. Its base is known to be a certain medicinal herb, but the exact way it is prepared remains one of the elves' closely kept secrets.",
+      "effects": [
+        {
+          "add_intoxication": 20
+        },
+        {
+          "add_temporary_morale": 20
+        },
+        {
+          "add_max_energy": 25,
+          "turns": 480
+        },
+        {
+          "add_energy_restoration": 25,
+          "turns": 480
+        },
+        {
+          "add_abilities_energy_cost": -15,
+          "turns": 480
+        },
+        {
+          "unpleasant_aftermath": true
+        }
+      ]
+    },
+    {
+      "id": "aqua_vitae",
+      "name": "Gwynnel's Elixir",
+      "price": 1000,
+      "description": "The life's work of Gwynnel, an Aldwynn alchemist. It can wrest even the hopelessly ill from the clutches of death.",
+      "effects": [
+        {
+          "add_intoxication": -66
+        },
+        {
+          "add_pain": -66
+        },
+        {
+          "add_health_replenishment": 66
+        },
+        {
+          "add_energy_replenishment": 66
+        },
+        {
+          "remove_all_negative_effects": true
+        }
+      ]
+    },
+    {
+      "id": "hornet_honey",
+      "name": "Hornet Honey",
+      "price": 200,
+      "description": "It remains unknown who first thought it would be a good idea to sample deathstinger secretions. Nevertheless, the fact remains: imbibing them briefly sharpens reflexes to an incredible degree. The eventual aftermath comes in the form of a severe headache and full-body cramps.",
+      "effects": [
+        {
+          "add_intoxication": 20
+        },
+        {
+          "add_temporary_morale": 10
+        },
+        {
+          "add_accuracy": 15,
+          "turns": 240
+        },
+        {
+          "add_counter_chance": 15,
+          "turns": 240
+        },
+        {
+          "add_dodge_chance": 15,
+          "turns": 240
+        },
+        {
+          "add_crit_chance": 10,
+          "turns": 240
+        },
+        {
+          "unpleasant_aftermath": true
+        }
+      ]
+    },
+    {
+      "id": "mead",
+      "name": "Mead",
+      "price": 20,
+      "description": "Northerners can go for weeks without a single crumb of bread, but they start to wither after three days without mead.",
+      "effects": [
+        {
+          "add_thirst": -5
+        },
+        {
+          "add_thirst_change": 0.05,
+          "turns": 60
+        },
+        {
+          "add_intoxication_change": 0.01,
+          "turns": 60
+        },
+        {
+          "add_pain_change": -0.1,
+          "turns": 60
+        },
+        {
+          "add_morale": 3
+        },
+        {
+          "add_energy_replenishment": 4
+        },
+        {
+          "uses": 2
+        },
+        {
+          "cause_light_drunkenness": true
+        }
+      ]
+    },
+    {
+      "id": "nikkaf",
+      "name": "Nikkaf",
+      "price": 100,
+      "description": "Another achievement of elven alchemy. Brynn students in particular are fond of its hunger-numbing and memory-boosting effects - a perfect combination for a night of cramming.",
+      "effects": [
+        {
+          "add_intoxication": 10
+        },
+        {
+          "add_temporary_morale": 20
+        },
+        {
+          "add_bonus_vision": 10,
+          "turns": 1200
+        },
+        {
+          "add_experience_gain": 25,
+          "turns": 1200
+        },
+        {
+          "add_fumble_chance": -10,
+          "turns": 1200
+        },
+        {
+          "add_hunger_resistance": 75,
+          "turns": 1200
+        },
+        {
+          "add_fatigue_resistance": 50,
+          "turns": 1200
+        },
+        {
+          "add_sit_sanity_change": 0.1,
+          "turns": 1200
+        },
+        {
+          "unpleasant_aftermath": true
+        }
+      ]
+    }
+  ]
+}

@@ -60,7 +60,8 @@ public static class NecromancySchool
 
     /// <summary>
     /// Icon strip + layout derived from necromancy.json (not stale Codes/*.gml).
-    /// Tier 1 at Y=55, Tier 2 at Y=118, Tier 3 at Y=181, Tier 4 at Y=244.
+    /// Coordinates match s_nmancy_reworked lock centers (162×257):
+    /// Tier 1 at Y=55, Tier 2 at Y=118, Tier 3 at Y=172, Tier 4 at Y=220.
     /// </summary>
     static void WriteCategoryEvents(
         NecromancySkill[] tier1,
@@ -78,9 +79,9 @@ public static class NecromancySchool
             "is_execute = false\n" +
             "owner = gml_Script_scr_GetMobParametr\n");
 
-        // Tree-ish X placement: T1 evenly spaced; T2/T3/T4 under parents where possible.
+        // Node centers on s_nmancy_reworked: T1 33/81/130, T2–T4 24/62/100/138 (T3 uses 24/81/138).
         var layout = new System.Text.StringBuilder("event_inherited()\n");
-        var t1Xs = new[] { 33, 81, 130, 178, 226 };
+        var t1Xs = new[] { 33, 81, 130 };
         for (var i = 0; i < tier1.Length; i++)
         {
             var x = i < t1Xs.Length ? t1Xs[i] : t1Xs[^1] + (i - t1Xs.Length + 1) * 48;
@@ -91,8 +92,7 @@ public static class NecromancySchool
                 .Append(", 55, 1)\n");
         }
 
-        // T2 X matches s_nmancy_reworked node centers (24/62/100/138).
-        // Death's Blessing + Grave Blight under Bone Ward; Resurrection under Summon Skeleton.
+        // T2: Essence Leech | Death's Blessing | Grave Blight | Resurrection.
         var t2X = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase)
         {
             ["essence_leech"] = 24,
@@ -100,7 +100,7 @@ public static class NecromancySchool
             ["grave_blight"] = 100,
             ["resurrection"] = 138,
         };
-        var fallbackXs = new[] { 24, 62, 100, 138, 176 };
+        var fallbackXs = new[] { 24, 62, 100, 138 };
         for (var i = 0; i < tier2.Length; i++)
         {
             var x = t2X.TryGetValue(tier2[i].Slug, out var mapped)
@@ -113,13 +113,12 @@ public static class NecromancySchool
                 .Append(", 118, 1)\n");
         }
 
-        // T3 under parents: Death Touch (Essence), Corpse Burst (Blessing),
-        // Black Sepulchre (Blight).
+        // T3 sockets are left / center / right (24/81/138), not the T2 4-column xs.
         var t3X = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase)
         {
             ["death_touch"] = 24,
-            ["corpse_burst"] = 62,
-            ["black_sepulchre"] = 100,
+            ["corpse_burst"] = 81,
+            ["black_sepulchre"] = 138,
         };
         for (var i = 0; i < tier3.Length; i++)
         {
@@ -130,17 +129,17 @@ public static class NecromancySchool
                 .Append(tier3[i].IconObjectName)
                 .Append(", ")
                 .Append(x)
-                .Append(", 181, 1)\n");
+                .Append(", 172, 1)\n");
         }
 
-        // T4: Immortality (Corpse Burst), Mastery (Resurrection),
-        // Blooming Madness + Wraith gated by Mastery (same-tier prereq).
+        // T4 sockets 24/62/100/138: Immortality under Corpse Burst, Mastery under summoning,
+        // Blooming + Wraith on the remaining nodes (same-tier Mastery gate).
         var t4X = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase)
         {
+            ["wraith_summoning"] = 24,
             ["immortality"] = 62,
+            ["blooming_madness"] = 100,
             ["mastery_of_binding"] = 138,
-            ["blooming_madness"] = 176,
-            ["wraith_summoning"] = 214,
         };
         for (var i = 0; i < tier4.Length; i++)
         {
@@ -151,7 +150,7 @@ public static class NecromancySchool
                 .Append(tier4[i].IconObjectName)
                 .Append(", ")
                 .Append(x)
-                .Append(", 244, 1)\n");
+                .Append(", 220, 1)\n");
         }
 
         WriteGml("gml_Object_o_skill_category_necromancy_Other_24", layout.ToString());

@@ -135,7 +135,7 @@
       "type": "active",
       "tier": 2,
       "image": "s_essence_leech",
-      "description": "Devours a targeted corpse or steals ~lg~8%~/~ Max Health and ~lg~8%~/~ Max Energy from an allied Undead or Skeleton, transferring half of them to the caster.##Activates ~lg~\"Essence Charge\"~/~ for ~w~12–15~/~ turns:##~lg~+5%~/~ Magic Power#~r~-5%~/~ Abilities Energy Cost#~lg~+4~/~ Max Energy##Repeated use grants an extra stack (up to II) and refreshes duration.##Using Spells reduces stacks by ~r~1~/~.",
+      "description": "Devours a targeted corpse or steals ~lg~8%~/~ Max Health and ~lg~8%~/~ Max Energy from an allied Undead or Skeleton, transferring half of them to the caster.##Activates ~lg~\"Essence Charge\"~/~ for ~w~12~/~ turns:##~lg~+5%~/~ Magic Power#~r~-5%~/~ Abilities Energy Cost#~lg~+4~/~ Max Energy##Repeated use grants an extra stack (up to II) and refreshes duration.##Using Spells reduces stacks by ~r~1~/~.",
       "magicPhrase": "En'thero!",
       "requirements": {
         "attributes": [

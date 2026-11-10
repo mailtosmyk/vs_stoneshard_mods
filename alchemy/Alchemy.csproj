@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Alchemy</RootNamespace>
+    <AssemblyName>Alchemy</AssemblyName>
+    <NoWarn>$(NoWarn);CA1416;MSB3277;MSB3270</NoWarn>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="ModShardLauncher">
+      <HintPath>..\..\msl\ModShardLauncher.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UndertaleModLib">
+      <HintPath>..\..\msl\UndertaleModLib.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="src\ingredients.json" Link="ingredients.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="icon.png" Condition="Exists('icon.png')" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="Sprites\**\*" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>
