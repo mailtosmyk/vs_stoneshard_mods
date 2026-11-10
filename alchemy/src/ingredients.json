@@ -2429,6 +2429,50 @@
           "turns": 240
         }
       ]
+    },
+    {
+      "id": "rewoven_philter",
+      "name": "Rewoven Philter",
+      "price": 1500,
+      "description": "A jewel-tempered spirit said to unstitch the body's hard-won gifts. One draught returns spent attribute points to be allocated anew — at a price few purses survive twice.",
+      "effects": [
+        {
+          "reset_allocated_attributes": true
+        },
+        {
+          "add_intoxication": 25
+        },
+        {
+          "add_pain": 10
+        },
+        {
+          "add_sanity": -5
+        }
+      ]
+    },
+    {
+      "id": "unlearning_elixir",
+      "name": "Unlearning Elixir",
+      "price": 2500,
+      "description": "Brewed from Gwynnel's work and rare gemstones, this draught unravels trained techniques from muscle and mind. All allocated skill points are refunded — the knowledge remains only as a bitter aftertaste.",
+      "effects": [
+        {
+          "reset_allocated_skills": true
+        },
+        {
+          "add_intoxication": 35
+        },
+        {
+          "add_pain": 15
+        },
+        {
+          "add_sanity": -10
+        },
+        {
+          "add_fatigue_change": 0.2,
+          "turns": 60
+        }
+      ]
     }
   ],
   "spirit": [
@@ -3609,6 +3653,32 @@
       "ingredients_cost": 80,
       "recipe_cost": 80,
       "elixir_cost": 100
+    },
+    {
+      "ingredients": [
+        "diamond",
+        "sapphire",
+        "seapearl",
+        "spirit"
+      ],
+      "enabled": false,
+      "elixir": "rewoven_philter",
+      "ingredients_cost": 1455,
+      "recipe_cost": 1460,
+      "elixir_cost": 1500
+    },
+    {
+      "ingredients": [
+        "diamond",
+        "sapphire",
+        "aqua_vitae",
+        "spirit"
+      ],
+      "enabled": false,
+      "elixir": "unlearning_elixir",
+      "ingredients_cost": 2155,
+      "recipe_cost": 2160,
+      "elixir_cost": 2500
     }
   ],
   "coatings": [

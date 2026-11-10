@@ -1,0 +1,110 @@
+name: Build SML and Release
+
+on:
+  push:
+    branches: [develop]
+    paths:
+      - "alchemy/**"
+      - "necromancy/**"
+      - "scripts/**"
+      - ".github/workflows/release.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "6.0.x"
+
+      - name: Build SML artifacts
+        env:
+          MSL_VERSION: v0.13.2.0
+          ARTIFACTS_DIR: ${{ github.workspace }}/artifacts
+          # Sibling of the repo checkout so <mod>/../../msl resolves correctly.
+          MSL_DIR: ${{ github.workspace }}/../msl
+        run: |
+          chmod +x scripts/ci-build-sml.sh necromancy/build-sml.sh alchemy/build-sml.sh
+          ./scripts/ci-build-sml.sh
+
+      - name: Load mod versions
+        id: versions
+        run: |
+          set -a
+          # shellcheck disable=SC1091
+          source artifacts/versions.env
+          set +a
+          echo "necromancy_version=$necromancy_version" >> "$GITHUB_OUTPUT"
+          echo "alchemy_version=$alchemy_version" >> "$GITHUB_OUTPUT"
+
+      - name: Prepare release notes
+        id: notes
+        env:
+          BUILD_NUMBER: ${{ github.run_number }}
+          NEC_VER: ${{ steps.versions.outputs.necromancy_version }}
+          ALC_VER: ${{ steps.versions.outputs.alchemy_version }}
+        run: |
+          tag="build-${BUILD_NUMBER}"
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+
+          prev="$(git describe --tags --match 'build-*' --abbrev=0 2>/dev/null || true)"
+          {
+            echo "## Build ${BUILD_NUMBER}"
+            echo
+            echo "### Artifacts"
+            echo
+            echo "- Necromancy \`${NEC_VER}\` → \`Necromancy-${NEC_VER}.sml\`"
+            echo "- Alchemy \`${ALC_VER}\` → \`Alchemy-${ALC_VER}.sml\`"
+            echo
+            if [[ -n "$prev" ]]; then
+              echo "### Changes since \`${prev}\`"
+              echo
+              if [[ -n "$(git log --pretty=format:'%H' "${prev}..HEAD")" ]]; then
+                git log --pretty=format:'- %s%n%w(0,2,2)%b' "${prev}..HEAD"
+              else
+                echo "_No commits since ${prev}_"
+              fi
+            else
+              echo "### Changes"
+              echo
+              git log --pretty=format:'- %s%n%w(0,2,2)%b' -n 100
+            fi
+            echo
+          } > RELEASE_NOTES.md
+
+          echo "---- RELEASE NOTES ----"
+          cat RELEASE_NOTES.md
+
+      - name: Create tag and GitHub release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ steps.notes.outputs.tag }}
+        run: |
+          if git rev-parse "$TAG" >/dev/null 2>&1; then
+            echo "error: tag $TAG already exists" >&2
+            exit 1
+          fi
+
+          # Tag the exact source commit used for this build.
+          git tag -a "$TAG" "${{ github.sha }}" -m "Build ${{ github.run_number }}"
+          git push origin "$TAG"
+
+          gh release create "$TAG" \
+            --title "Build ${{ github.run_number }}" \
+            --notes-file RELEASE_NOTES.md \
+            --target "${{ github.sha }}" \
+            artifacts/*.sml
