@@ -194,6 +194,12 @@ push.e 0
         tealCurse.GMS2PlaybackSpeedType = AnimSpeedType.FramesPerGameFrame;
         tealCurse.GMS2PlaybackSpeed = 0.4f;
 
+        // Buff-only icon (not a skill-tree sprite), so EnsureSpriteOrigins never sees it.
+        // Without 12,12 the enemy Effects grid draws it between rows.
+        var witheringCurseIcon = Msl.GetSprite("s_withering_curse");
+        witheringCurseIcon.OriginX = 12;
+        witheringCurseIcon.OriginY = 12;
+
         // Add all objects before ApplyEvent so cross-refs (bolt→curse, impact→buff, ward→shard)
         // compile as asset indices rather than unset instance variables.
         var bolt = Msl.AddObject(
