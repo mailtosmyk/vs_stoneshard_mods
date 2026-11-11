@@ -19,6 +19,8 @@ if (instance_exists(owner) && instance_exists(target))
             zone_x = _zx
             zone_y = _zy
             zone_radius = _radius
+            // Apply zone tick immediately (Alarm_2 ran before zone_* was set).
+            event_user(0)
         }
     }
 

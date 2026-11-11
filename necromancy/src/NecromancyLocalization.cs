@@ -220,7 +220,7 @@ public static class NecromancyLocalization
             },
             new Dictionary<ModLanguage, string>
             {
-                { ModLanguage.English, "~r~-4%~/~ Magic Resistance per stack (up to III) while inside the blight." },
+                { ModLanguage.English, "~r~-4%~/~ Magic Resistance per stack (up to III). Lasts ~w~1.5x~/~ longer than the blight area." },
                 { ModLanguage.Japanese, "疫病内でスタックごとに魔法耐性~r~-4%~/~（最大III）。" },
                 { ModLanguage.Chinese, "处于疫病中时每层~r~-4%~/~魔法抗性（最高III）。" },
                 { ModLanguage.German, "~r~-4%~/~ Magiewiderstand pro Stapel (bis III) in der Fäule." },
@@ -588,7 +588,7 @@ public static class NecromancyLocalization
             },
             new Dictionary<ModLanguage, string>
             {
-                { ModLanguage.English, "Creates a blighted area on the targeted tile (Range: ~w~6~/~) for ~w~4~/~ turns.##Area size scales with Magic Power (from 3x3 up to 5x5). Gas covers the affected tiles.##Enemies in the area take ~ur~2 Unholy Damage~/~ per turn, become ~r~Blinded~/~, and gain ~r~-4%~/~ Magic Resistance (stacks up to ~w~3~/~ while inside).##Also allows ~r~\"Withering Curse\"~/~ to stack up to II. Hitting with ~lg~\"Dark Bolt\"~/~ or repeating the curse adds a stack.##Bodypart worsen becomes ~r~0.35%~/~ per turn per stack." },
+                { ModLanguage.English, "Creates a blighted area on the targeted tile (Range: ~w~6~/~) for ~w~4~/~ turns.##Area size scales with Magic Power (from 3x3 up to 5x5). Gas covers the affected tiles.##Enemies in the area take ~ur~2 Unholy Damage~/~ per turn, become ~r~Blinded~/~, and gain ~r~\"Grave Blight\"~/~ (~r~-4%~/~ Magic Resistance, stacks up to ~w~3~/~) lasting ~w~1.5x~/~ the area duration.##Also allows ~r~\"Withering Curse\"~/~ to stack up to II. Hitting with ~lg~\"Dark Bolt\"~/~ or repeating the curse adds a stack.##Bodypart worsen becomes ~r~0.35%~/~ per turn per stack." },
                 { ModLanguage.Japanese, "対象タイルに疫病地帯を~w~4~/~ターン生成する（射程: ~w~6~/~）。##範囲は魔力に比例（3x3から最大5x5）。影響タイルにガスが表示される。##領域内の敵は毎ターン~ur~不浄ダメージ2~/~を受け、~r~盲目~/~になり、魔法耐性~r~-4%~/~を得る（内部で最大~w~3~/~スタック）。##~r~「枯死の呪い」~/~を最大IIまで重複可能にし、~lg~「ダークボルト」~/~の命中または呪いの再詠唱でスタック追加。##部位悪化はスタックごとに毎ターン~r~0.35%~/~。" },
                 { ModLanguage.Chinese, "在目标格子创造疫病区域（射程：~w~6~/~），持续~w~4~/~回合。##范围随魔法强度提升（从3x3到最大5x5）。受影响格子显示毒气。##区域内的敌人每回合受到~ur~2点邪秽伤害~/~、陷入~r~致盲~/~，并获得~r~-4%~/~魔法抗性（在区域内最多叠加~w~3~/~层）。##同时使~r~“凋零诅咒”~/~可叠至II。以~lg~“暗矢”~/~命中或重复诅咒可增加层数。##部位恶化变为每层每回合~r~0.35%~/~。" },
                 { ModLanguage.German, "Erzeugt ein verdorbenes Gebiet auf dem Zielfeld (Reichweite: ~w~6~/~) für ~w~4~/~ Züge.##Gebietsgröße skaliert mit Magiekraft (von 3x3 bis 5x5). Gas bedeckt die betroffenen Felder.##Feinde darin erleiden ~ur~2 Unheiligen Schaden~/~ pro Zug, werden ~r~geblendet~/~ und erhalten ~r~-4%~/~ Magiewiderstand (stapelt bis ~w~3~/~, solange sie drin sind).##Erlaubt ~r~„Verdorrender Fluch“~/~ bis II zu stapeln. Treffer mit ~lg~„Dunkler Bolzen“~/~ oder erneuter Fluch fügt einen Stapel hinzu.##Körperteilverschlechterung: ~r~0,35%~/~ pro Zug und Stapel." },

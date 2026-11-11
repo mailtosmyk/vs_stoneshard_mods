@@ -295,7 +295,7 @@
       "type": "active",
       "tier": 2,
       "image": "s_grave_blight",
-      "description": "Creates a blighted area on the targeted tile (Range: ~w~6~/~) for ~w~4~/~ turns.##Area size scales with Magic Power (from 3x3 up to 5x5). Gas covers the affected tiles.##Enemies in the area take ~ur~2 Unholy Damage~/~ per turn, become ~r~Blinded~/~, and gain ~r~-4%~/~ Magic Resistance (stacks up to ~w~3~/~ while inside).##Also allows ~r~\"Withering Curse\"~/~ to stack up to II. Hitting with ~lg~\"Dark Bolt\"~/~ or repeating the curse adds a stack.##Bodypart worsen becomes ~r~0.35%~/~ per turn per stack.",
+      "description": "Creates a blighted area on the targeted tile (Range: ~w~6~/~) for ~w~4~/~ turns.##Area size scales with Magic Power (from 3x3 up to 5x5). Gas covers the affected tiles.##Enemies in the area take ~ur~2 Unholy Damage~/~ per turn, become ~r~Blinded~/~, and gain ~r~\"Grave Blight\"~/~ (~r~-4%~/~ Magic Resistance, stacks up to ~w~3~/~) lasting ~w~1.5x~/~ the area duration.##Also allows ~r~\"Withering Curse\"~/~ to stack up to II. Hitting with ~lg~\"Dark Bolt\"~/~ or repeating the curse adds a stack.##Bodypart worsen becomes ~r~0.35%~/~ per turn per stack.",
       "magicPhrase": "Morgath En'ther!",
       "requirements": {
         "attributes": [

@@ -37,22 +37,35 @@ if ((!is_execute) && instance_exists(owner))
     }
 
     // Optional: consume a nearby floor Bone for +10% Max Health and ArmorDurability 10.
+    // Check tiles adjacent to the summon point OR the caster (Chebyshev <= 1).
     var _boneConsumed = false
+    var _boneId = -4
     var _lootBone = asset_get_index("o_loot_bone")
-    if (_lootBone != -1)
+    if (_lootBone != -1 && object_exists(_lootBone))
     {
-        var _sx = (xx + 13)
-        var _sy = (yy + 13)
+        var _sTileX = floor((xx + 13) / 26)
+        var _sTileY = floor((yy + 13) / 26)
+        var _oTileX = floor(owner.x / 26)
+        var _oTileY = floor(owner.y / 26)
         with (_lootBone)
         {
-            if ((!_boneConsumed) && (point_distance(x, y, _sx, _sy) <= 36))
+            if (_boneId == -4)
             {
-                _boneConsumed = true
-                instance_destroy()
+                var _bx = floor(x / 26)
+                var _by = floor(y / 26)
+                var _nearSummon = (max(abs(_bx - _sTileX), abs(_by - _sTileY)) <= 1)
+                var _nearOwner = (max(abs(_bx - _oTileX), abs(_by - _oTileY)) <= 1)
+                if (_nearSummon || _nearOwner)
+                    _boneId = id
             }
         }
-        if (_boneConsumed)
+        if (_boneId != -4)
+        {
+            with (_boneId)
+                instance_destroy()
+            _boneConsumed = true
             _hpPct = clamp(_hpPct + 10.0, 20.0, 100.0)
+        }
     }
 
     var _skel = -4

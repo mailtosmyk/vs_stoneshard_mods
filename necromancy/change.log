@@ -1,3 +1,7 @@
+1.5.0
+- Grave Blight: apply enemy Magic Resistance debuff on turn tick (was only in create-time Alarm_2 before zone coords existed); debuff lasts 1.5x area duration (6 turns).
+- Summon Skeleton: consume nearby Bone by tile adjacency to summon tile or caster (was easy to miss).
+
 1.4.0
 - Summon Skeleton: if a Bone is nearby on cast, consume it for +10% Max Health and Armor Durability 10%.
 
