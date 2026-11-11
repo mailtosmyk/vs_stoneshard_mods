@@ -44,6 +44,25 @@ def collect_textures(root: Path) -> list[Path]:
     return textures
 
 
+def _count_byte_extends_msl_version(count: int) -> bool:
+    """True if LE count's first byte is still scanned as part of MSLM version.
+
+    FileReader reads the version as ``v`` + run of ``[0-9.]``, then treats the
+    next byte as the texture count. Counts whose low byte is ``.`` (46) or a
+    digit (48-57) are swallowed into the version and break the .sml (e.g. 53
+    textures → ``…2.05`` → cannot read 1090519040 bytes).
+    """
+    b = count & 0xFF
+    return b == 0x2E or 0x30 <= b <= 0x39
+
+
+def msl_safe_texture_count(count: int) -> int:
+    """Bump count until its low byte is safe for FileReader version scanning."""
+    while _count_byte_extends_msl_version(count):
+        count += 1
+    return count
+
+
 def read_msl_version(msl_dir: Path) -> str:
     dll = msl_dir / "ModShardLauncher.dll"
     # Fallback matches the local MSL install header (MSLMv0.13.2.0).
@@ -70,16 +89,27 @@ def pack(
     mod_name: str,
     version: str,
 ) -> None:
-    textures = collect_textures(root)
+    texture_paths = collect_textures(root)
     scripts = collect_files(root, "*.lua")
     codes = collect_files(root, "*.gml")
     assemblies = collect_files(root, "*.asm")
 
-    groups = [textures, scripts, codes, assemblies]
-    entries: list[tuple[str, bytes]] = []
-    for group in groups:
-        for path in group:
-            entries.append((win_rel(mod_name, root, path), path.read_bytes()))
+    # Non-.png pads inflate the texture-group count only. TextureLoader skips
+    # anything that does not end with "png", so these never become sprites.
+    pad_n = msl_safe_texture_count(len(texture_paths)) - len(texture_paths)
+    texture_entries: list[tuple[str, bytes]] = [
+        (win_rel(mod_name, root, path), path.read_bytes()) for path in texture_paths
+    ]
+    for i in range(pad_n):
+        texture_entries.append((f"{mod_name}\\msl_pad_{i + 1:02d}.pad", b"\0"))
+
+    groups: list[list[tuple[str, bytes]]] = [
+        texture_entries,
+        [(win_rel(mod_name, root, p), p.read_bytes()) for p in scripts],
+        [(win_rel(mod_name, root, p), p.read_bytes()) for p in codes],
+        [(win_rel(mod_name, root, p), p.read_bytes()) for p in assemblies],
+    ]
+    entries: list[tuple[str, bytes]] = [e for group in groups for e in group]
 
     dll_bytes = dll_path.read_bytes()
     out_path.parent.mkdir(parents=True, exist_ok=True)
@@ -93,10 +123,8 @@ def pack(
         cursor = 0
         for group in groups:
             fs.write(struct.pack("<i", len(group)))
-            for path in group:
-                name = win_rel(mod_name, root, path)
+            for name, data in group:
                 name_b = name.encode("utf-8")
-                data = entries[cursor][1]
                 cursor += 1
                 fs.write(struct.pack("<i", len(name_b)))
                 fs.write(name_b)
@@ -112,7 +140,7 @@ def pack(
 
     print(f"Packed {out_path} ({out_path.stat().st_size} bytes)")
     print(
-        f"  textures={len(textures)} scripts={len(scripts)} "
+        f"  textures={len(texture_paths)}(+{pad_n} msl pads) scripts={len(scripts)} "
         f"codes={len(codes)} assemblies={len(assemblies)} dll={len(dll_bytes)}"
     )
 
