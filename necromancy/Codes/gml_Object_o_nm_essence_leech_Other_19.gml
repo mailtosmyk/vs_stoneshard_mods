@@ -3,7 +3,7 @@ with (o_player)
 var _cur = s_cursor_skill
 if (pointed == "Target Object" || pointed == "Target Ally")
 {
-    _cur = 1675
+    _cur = s_cursor
     with (o_skill_tile_indicator)
         visible = false
     with (o_corpse)
@@ -27,7 +27,7 @@ if (pointed == "Target Object" || pointed == "Target Ally")
             else
             {
                 other.target_group = o_corpse
-                _cur = 1675
+                _cur = s_cursor
             }
         }
     }
