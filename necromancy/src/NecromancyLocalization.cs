@@ -940,107 +940,116 @@ public static class NecromancyLocalization
 
     static void PatchSpeeches()
     {
-        // Cast bubbles resolve "MC_" + skill (e.g. MC_bone_ward). Bare skill ids are
-        // also registered for tooltip / non-MC speech lookups (vanilla + BW pattern).
-        Msl.InjectTableDialogLocalization(BuildSpeechSentences(
-            ("desecration", Speech(
-                en: "In Nag Zur...",
-                ja: "イン・ナグ・ズール…",
-                zh: "因纳戈祖尔……",
-                de: "In Nag Zur...",
-                ru: "In Nag Zur...")),
-            ("bone_ward", Speech(
-                en: "Ossarak Veth!",
-                ja: "オッサラク・ヴェス！",
-                zh: "奥萨拉克·维斯！",
-                de: "Ossarak Veth!",
-                ru: "Ossarak Veth!")),
-            ("summon_skeleton", Speech(
-                en: "Rattlek Narzul!",
-                ja: "ラットレク・ナルズル！",
-                zh: "拉特雷克·纳祖尔！",
-                de: "Rattlek Narzul!",
-                ru: "Rattlek Narzul!")),
-            ("withering_curse", Speech(
-                en: "Shaggrath Azud...",
-                ja: "シャグラト・アズード！",
-                zh: "沙格拉斯'阿祖得！",
-                de: "Shaggrath Azud...",
-                ru: "Shaggrath Azud...")),
-            ("essence_leech", Speech(
-                en: "En'thero!",
-                ja: "エンセロー！",
-                zh: "恩塞罗！",
-                de: "En'thero!",
-                ru: "En'thero!")),
-            ("deaths_blessing", Speech(
-                en: "Yagrak Atot!",
-                ja: "ヤグラク・アトット！",
-                zh: "亚格拉克'阿托特！",
-                de: "Yagrak Atot!",
-                ru: "Yagrak Atot!")),
-            ("resurrection", Speech(
-                en: "Lagur! Lagur! Lagur!",
-                ja: "ラグール！ ラグール！ ラグール！",
-                zh: "拉古尔！拉古尔！拉古尔！",
-                de: "Lagur! Lagur! Lagur!",
-                ru: "Lagur! Lagur! Lagur!")),
-            ("grave_blight", Speech(
-                en: "Morgath En'ther!",
-                ja: "モルガス・エンサー！",
-                zh: "莫加斯·恩瑟！",
-                de: "Morgath En'ther!",
-                ru: "Morgath En'ther!")),
-            ("death_touch", Speech(
-                en: "Korrug Namar!",
-                ja: "コールグ・ナマール！",
-                zh: "廓卢戈'纳玛尔！",
-                de: "Korrug Namar!",
-                ru: "Korrug Namar!")),
-            ("corpse_burst", Speech(
-                en: "Barath Shatterk!",
-                ja: "バラース・シャッターク！",
-                zh: "巴拉斯·沙特克！",
-                de: "Barath Shatterk!",
-                ru: "Barath Shatterk!")),
-            ("mastery_of_binding", Speech(
-                en: "Vinculum Mortis!",
-                ja: "ウィンクルム・モルティス！",
-                zh: "温库鲁姆·莫提斯！",
-                de: "Vinculum Mortis!",
-                ru: "Vinculum Mortis!")),
-            ("black_sepulchre", Speech(
-                en: "Shaggrath Namar!",
-                ja: "シャグラト・ナマール！",
-                zh: "沙格拉斯'纳玛尔！",
-                de: "Shaggrath Namar!",
-                ru: "Shaggrath Namar!")),
-            ("sealed_mind", Speech(
-                en: "Nox Mentis Seal!",
-                ja: "ノックス・メンティス・シール！",
-                zh: "诺克斯·门提斯·封印！",
-                de: "Nox Mentis Seal!",
-                ru: "Nox Mentis Seal!")),
-            ("immortality", Speech(
-                en: "Aeternum Mortis!",
-                ja: "アエテルヌム・モルティス！",
-                zh: "埃特尔努姆·莫提斯！",
-                de: "Aeternum Mortis!",
-                ru: "Aeternum Mortis!")),
-            ("blooming_madness", Speech(
-                en: "Florath Insania!",
-                ja: "フロラス・インサニア！",
-                zh: "弗洛拉斯·因萨尼亚！",
-                de: "Florath Insania!",
-                ru: "Florath Insania!")),
-            ("wraith_summoning", Speech(
-                en: "Lagura mithensa!",
-                ja: "ラグーラ・ミセンサ！",
-                zh: "拉古拉·米森萨！",
-                de: "Lagura mithensa!",
-                ru: "Lagura mithensa!"))
-        ));
+        // Cast success: scr_random_speech(skill, 100). Miscast: scr_random_speech("MC_"+skill, 100).
+        // Both resolve via global.speech_text from table_speech — NOT table_lines
+        // (InjectTableDialogLocalization). Missing keys become "no text " + id.
+        PendingSpeechLocs.Clear();
+        RegisterSpeech("desecration", Speech(
+            en: "In Nag Zur...",
+            ja: "イン・ナグ・ズール…",
+            zh: "因纳戈祖尔……",
+            de: "In Nag Zur...",
+            ru: "In Nag Zur..."));
+        RegisterSpeech("bone_ward", Speech(
+            en: "Ossarak Veth!",
+            ja: "オッサラク・ヴェス！",
+            zh: "奥萨拉克·维斯！",
+            de: "Ossarak Veth!",
+            ru: "Ossarak Veth!"));
+        RegisterSpeech("summon_skeleton", Speech(
+            en: "Rattlek Narzul!",
+            ja: "ラットレク・ナルズル！",
+            zh: "拉特雷克·纳祖尔！",
+            de: "Rattlek Narzul!",
+            ru: "Rattlek Narzul!"));
+        RegisterSpeech("withering_curse", Speech(
+            en: "Shaggrath Azud...",
+            ja: "シャグラト・アズード！",
+            zh: "沙格拉斯'阿祖得！",
+            de: "Shaggrath Azud...",
+            ru: "Shaggrath Azud..."));
+        RegisterSpeech("essence_leech", Speech(
+            en: "En'thero!",
+            ja: "エンセロー！",
+            zh: "恩塞罗！",
+            de: "En'thero!",
+            ru: "En'thero!"));
+        RegisterSpeech("deaths_blessing", Speech(
+            en: "Yagrak Atot!",
+            ja: "ヤグラク・アトット！",
+            zh: "亚格拉克'阿托特！",
+            de: "Yagrak Atot!",
+            ru: "Yagrak Atot!"));
+        RegisterSpeech("resurrection", Speech(
+            en: "Lagur! Lagur! Lagur!",
+            ja: "ラグール！ ラグール！ ラグール！",
+            zh: "拉古尔！拉古尔！拉古尔！",
+            de: "Lagur! Lagur! Lagur!",
+            ru: "Lagur! Lagur! Lagur!"));
+        RegisterSpeech("grave_blight", Speech(
+            en: "Morgath En'ther!",
+            ja: "モルガス・エンサー！",
+            zh: "莫加斯·恩瑟！",
+            de: "Morgath En'ther!",
+            ru: "Morgath En'ther!"));
+        RegisterSpeech("death_touch", Speech(
+            en: "Korrug Namar!",
+            ja: "コールグ・ナマール！",
+            zh: "廓卢戈'纳玛尔！",
+            de: "Korrug Namar!",
+            ru: "Korrug Namar!"));
+        RegisterSpeech("corpse_burst", Speech(
+            en: "Barath Shatterk!",
+            ja: "バラース・シャッターク！",
+            zh: "巴拉斯·沙特克！",
+            de: "Barath Shatterk!",
+            ru: "Barath Shatterk!"));
+        RegisterSpeech("mastery_of_binding", Speech(
+            en: "Vinculum Mortis!",
+            ja: "ウィンクルム・モルティス！",
+            zh: "温库鲁ム·莫提ス！",
+            de: "Vinculum Mortis!",
+            ru: "Vinculum Mortis!"));
+        RegisterSpeech("black_sepulchre", Speech(
+            en: "Shaggrath Namar!",
+            ja: "シャグラト・ナマール！",
+            zh: "沙格拉斯'纳玛尔！",
+            de: "Shaggrath Namar!",
+            ru: "Shaggrath Namar!"));
+        RegisterSpeech("sealed_mind", Speech(
+            en: "Nox Mentis Seal!",
+            ja: "ノックス・メンティス・シール！",
+            zh: "诺克斯·门提斯·封印！",
+            de: "Nox Mentis Seal!",
+            ru: "Nox Mentis Seal!"));
+        RegisterSpeech("immortality", Speech(
+            en: "Aeternum Mortis!",
+            ja: "アエテルヌム・モルティス！",
+            zh: "埃特尔努ム·莫提斯！",
+            de: "Aeternum Mortis!",
+            ru: "Aeternum Mortis!"));
+        RegisterSpeech("blooming_madness", Speech(
+            en: "Florath Insania!",
+            ja: "フロラス・インサニア！",
+            zh: "弗洛拉斯·因萨尼亚！",
+            de: "Florath Insania!",
+            ru: "Florath Insania!"));
+        RegisterSpeech("wraith_summoning", Speech(
+            en: "Lagura mithensa!",
+            ja: "ラグーラ・ミセンサ！",
+            zh: "拉古拉·米森萨！",
+            de: "Lagura mithensa!",
+            ru: "Lagura mithensa!"));
+
+        Msl.LoadGML("gml_GlobalScript_table_speech")
+            .Apply(InjectNecromancyTableSpeechRows)
+            .Save();
     }
+
+    static readonly List<(string Id, Dictionary<ModLanguage, string> Text)> PendingSpeechLocs = new();
+
+    static void RegisterSpeech(string id, Dictionary<ModLanguage, string> text) =>
+        PendingSpeechLocs.Add((id, text));
 
     static Dictionary<ModLanguage, string> Speech(
         string en, string ja, string zh, string de, string ru) =>
@@ -1053,16 +1062,62 @@ public static class NecromancyLocalization
             { ModLanguage.Russian, ru },
         };
 
-    static LocalizationSentence[] BuildSpeechSentences(
-        params (string SkillId, Dictionary<ModLanguage, string> Text)[] speeches)
+    /// <summary>
+    /// table_speech entries are triples: key row (id in every language column),
+    /// value row (empty id + localized phrases), end marker (id_end in every column).
+    /// Cast success uses bare skill id; miscast uses MC_ + skill.
+    /// </summary>
+    static string SpeechKeyRow(string id)
     {
-        var result = new List<LocalizationSentence>(speeches.Length * 2);
-        foreach (var (skillId, text) in speeches)
-        {
-            result.Add(new LocalizationSentence(skillId, text));
-            result.Add(new LocalizationSentence("MC_" + skillId, text));
-        }
+        var cells = string.Join(";", Enumerable.Repeat(id, 13));
+        return "\"" + cells + ";\", ";
+    }
 
-        return result.ToArray();
+    static string SpeechValueRow(Dictionary<ModLanguage, string> texts)
+    {
+        var en = EscapeSkillCsv(LocPick(texts, ModLanguage.English));
+        var ru = EscapeSkillCsv(LocPick(texts, ModLanguage.Russian));
+        var zh = EscapeSkillCsv(LocPick(texts, ModLanguage.Chinese));
+        var de = EscapeSkillCsv(LocPick(texts, ModLanguage.German));
+        var ja = EscapeSkillCsv(LocPick(texts, ModLanguage.Japanese));
+        // Columns: id;RU;EN;ZH;DE;ES;FR;IT;PT;PL;TR;JA;KO — id left empty for phrase rows.
+        return "\";" + ru + ";" + en + ";" + zh + ";" + de + ";" +
+               en + ";" + en + ";" + en + ";" + en + ";" + en + ";" + en + ";" +
+               ja + ";" + en + ";\", ";
+    }
+
+    static string SpeechBlock(string id, Dictionary<ModLanguage, string> texts) =>
+        SpeechKeyRow(id) + SpeechValueRow(texts) + SpeechKeyRow(id + "_end");
+
+    static IEnumerable<string> InjectNecromancyTableSpeechRows(IEnumerable<string> lines)
+    {
+        // Marker is the speech section terminator inside the giant return array.
+        const string endMarker = "\"speech_end;";
+
+        foreach (var line in lines)
+        {
+            if (!line.Contains(endMarker, StringComparison.Ordinal))
+            {
+                yield return line;
+                continue;
+            }
+
+            var result = line;
+            var insert = new System.Text.StringBuilder();
+            foreach (var (id, text) in PendingSpeechLocs)
+            {
+                // Guard per id so re-patch only adds newly introduced skills.
+                if (!result.Contains("\"" + id + ";" + id + ";", StringComparison.Ordinal))
+                    insert.Append(SpeechBlock(id, text));
+                var mc = "MC_" + id;
+                if (!result.Contains("\"" + mc + ";" + mc + ";", StringComparison.Ordinal))
+                    insert.Append(SpeechBlock(mc, text));
+            }
+
+            if (insert.Length > 0)
+                result = result.Replace(endMarker, insert + endMarker, StringComparison.Ordinal);
+
+            yield return result;
+        }
     }
 }

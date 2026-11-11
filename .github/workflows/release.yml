@@ -99,6 +99,10 @@ jobs:
             exit 1
           fi
 
+          # Annotated tags need a committer identity on the runner.
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
           # Tag the exact source commit used for this build.
           git tag -a "$TAG" "${{ github.sha }}" -m "Build ${{ github.run_number }}"
           git push origin "$TAG"
