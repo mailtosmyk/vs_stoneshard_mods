@@ -50,7 +50,7 @@ Type: Active
 Level: 2
 Requirements: Attributes: PRC or WIL >= 6; Skills: Bone Ward
 Image: s_grave_blight
-Description: Creates a blighted 3x3 area on the targeted tile (Range: 6) for 4 turns. Enemies remaining in the area take 2 Unholy Damage per turn and gain -4% Magic Resistance (stacks up to 3 while inside). Also allows "Withering Curse" to stack up to II. Hitting with "Dark Bolt" or repeating the curse adds a stack. Bodypart worsen becomes 0.35% per turn per stack.
+Description: Creates a blighted area on the targeted tile (Range: 6) for 4 turns. Area size scales with Magic Power (from 3x3 up to 5x5). Gas covers the affected tiles. Enemies in the area take 2 Unholy Damage per turn, become Blinded, and gain -4% Magic Resistance (stacks up to 3 while inside). Also allows "Withering Curse" to stack up to II. Hitting with "Dark Bolt" or repeating the curse adds a stack. Bodypart worsen becomes 0.35% per turn per stack.
 
 Name: Resurrection
 Type: Active

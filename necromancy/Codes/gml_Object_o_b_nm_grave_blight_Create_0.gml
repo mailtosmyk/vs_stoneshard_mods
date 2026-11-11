@@ -7,3 +7,4 @@ draw_duration = true
 max_duration = 4
 zone_x = 0
 zone_y = 0
+zone_radius = 1

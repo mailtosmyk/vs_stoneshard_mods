@@ -6,11 +6,16 @@ var _debuff = asset_get_index("o_db_nm_grave_blight")
 var _hit = asset_get_index("o_nm_grave_blight_tick")
 var _zx = zone_x
 var _zy = zone_y
+var _radius = zone_radius
+var _zTileX = floor(_zx / 26)
+var _zTileY = floor(_zy / 26)
 with (o_enemy)
 {
     if (is_player_enemy || (!is_neutral))
     {
-        if (point_distance(x, y, _zx, _zy) <= 40)
+        var _dx = abs(floor(x / 26) - _zTileX)
+        var _dy = abs(floor(y / 26) - _zTileY)
+        if (max(_dx, _dy) <= _radius)
         {
             if (_hit != -1)
             {
@@ -20,6 +25,7 @@ with (o_enemy)
                     target = other.id
                 }
             }
+            scr_effect_create(o_db_blind, 2, id, _caster)
             if (_debuff != -1)
             {
                 var _ex = scr_instance_exists_in_list(_debuff, buffs)
