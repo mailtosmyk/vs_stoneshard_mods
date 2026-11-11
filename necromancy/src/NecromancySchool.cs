@@ -79,8 +79,11 @@ public static class NecromancySchool
             "is_execute = false\n" +
             "owner = gml_Script_scr_GetMobParametr\n");
 
-        // Node centers: T1 24/81/138 (outer cols align with T2 essence_leech / resurrection),
-        // T2–T4 24/62/100/138 (T3 uses 24/81/138).
+        // Branches:
+        //   Left   Dark Bolt → Essence Leech → Death Touch → Corpse Burst
+        //   Center Bone Ward → Blessing/Blight → Black Sepulchre → Immortality/Blooming
+        //   Right  Summon Skeleton → Resurrection → Mastery → Wraith
+        // Centers: T1/T3 24/81/138; T2/T4 24/62/100/138.
         var layout = new System.Text.StringBuilder("event_inherited()\n");
         var t1Xs = new[] { 24, 81, 138 };
         for (var i = 0; i < tier1.Length; i++)
@@ -93,7 +96,6 @@ public static class NecromancySchool
                 .Append(", 55, 1)\n");
         }
 
-        // T2: Essence Leech | Death's Blessing | Grave Blight | Resurrection.
         var t2X = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase)
         {
             ["essence_leech"] = 24,
@@ -114,12 +116,11 @@ public static class NecromancySchool
                 .Append(", 118, 1)\n");
         }
 
-        // T3 sockets are left / center / right (24/81/138), not the T2 4-column xs.
         var t3X = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase)
         {
             ["death_touch"] = 24,
-            ["corpse_burst"] = 81,
-            ["black_sepulchre"] = 138,
+            ["black_sepulchre"] = 81,
+            ["mastery_of_binding"] = 138,
         };
         for (var i = 0; i < tier3.Length; i++)
         {
@@ -133,11 +134,9 @@ public static class NecromancySchool
                 .Append(", 172, 1)\n");
         }
 
-        // T4 sockets 24/62/100/138: Mastery (from Resurrection, no Death Touch link),
-        // Immortality under Corpse Burst, Blooming + Wraith under Black Sepulchre.
         var t4X = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase)
         {
-            ["mastery_of_binding"] = 24,
+            ["corpse_burst"] = 24,
             ["immortality"] = 62,
             ["blooming_madness"] = 100,
             ["wraith_summoning"] = 138,

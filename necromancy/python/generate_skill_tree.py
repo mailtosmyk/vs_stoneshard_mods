@@ -3,21 +3,25 @@
 
 Modes
 -----
-full tree
+locked tree (default)
+    Blank panel from ``python/skill_tree/`` (background + top line). Every
+    skill is a lock frame; all ``tree.edges`` are drawn as orthogonal links.
+    No skill icons.
+
+--icons
     Composite skill icons onto ``s_nmancy_reworked`` (sockets + link art already
     in the branch sprite). Icon centers match in-game layout.
 
 --skills A,B,...
-    Blank panel from ``python/skill_tree/`` (background + top line + lock
-    frames). Only the listed skills are drawn. Direct ``tree.edges`` between
-    selected skills are drawn as orthogonal links.
+    Blank panel + lock frames for the listed skills only. Direct ``tree.edges``
+    between them are drawn. Omit ``--filled`` to show icons in those sockets;
+    ``--filled ''`` / ``--locked`` keeps locks only.
 
 --empty-back
     Blank panel only (fill + top ornament; no skills or links).
 
 Skill tokens (``--skills`` / ``--filled``) accept id, slug, or display name;
-repeat the flag or use commas. Omit ``--filled`` to fill every shown skill;
-``--filled ''`` shows locks only.
+repeat the flag or use commas. ``--filled ''`` shows locks only.
 """
 
 from __future__ import annotations
@@ -47,7 +51,10 @@ LINK_STOP = 16
 
 TIER_Y = {1: 55, 2: 118, 3: 172, 4: 220}
 SLUG_X: dict[str, int] = {
-    # Tier 1 — 24 / 81 / 138 (outer columns align with T2 essence_leech / resurrection)
+    # Left: Dark Bolt → Essence Leech → Death Touch → Corpse Burst
+    # Center: Bone Ward → Blessing/Blight → Black Sepulchre → Immortality/Blooming
+    # Right: Summon Skeleton → Resurrection → Mastery → Wraith
+    # Tier 1 — 24 / 81 / 138
     "desecration": 24,
     "bone_ward": 81,
     "summon_skeleton": 138,
@@ -58,10 +65,10 @@ SLUG_X: dict[str, int] = {
     "resurrection": 138,
     # Tier 3 — 24 / 81 / 138
     "death_touch": 24,
-    "corpse_burst": 81,
-    "black_sepulchre": 138,
+    "black_sepulchre": 81,
+    "mastery_of_binding": 138,
     # Tier 4 — 24 / 62 / 100 / 138
-    "mastery_of_binding": 24,
+    "corpse_burst": 24,
     "immortality": 62,
     "blooming_madness": 100,
     "wraith_summoning": 138,
@@ -394,12 +401,16 @@ def paint_slot(
     lock_frame: Image.Image | None,
     empty_style: str,
     place_lock: bool,
+    allow_icons: bool = True,
 ) -> None:
     if place_lock and lock_frame is not None:
         canvas.alpha_composite(
             lock_frame,
             (slot.cx - LOCK_ORIGIN[0], slot.cy - LOCK_ORIGIN[1]),
         )
+
+    if not allow_icons:
+        return
 
     if not slot.filled and empty_style == "lock":
         # Keep padlock art (from branch or placed lock frame).
@@ -413,6 +424,21 @@ def paint_slot(
         icon,
         (slot.cx - ICON_ORIGIN[0], slot.cy - ICON_ORIGIN[1]),
     )
+
+
+def draw_edges_for_slots(
+    canvas: Image.Image,
+    data: dict,
+    slots: list[Slot],
+) -> None:
+    """Draw orthogonal links for every tree.edge whose ends are both shown."""
+    by_id = {slot.skill.id: slot for slot in slots}
+    selected = set(by_id)
+    for edge in parse_edges(data):
+        if edge.src not in selected or edge.dst not in selected:
+            continue
+        a, b = by_id[edge.src], by_id[edge.dst]
+        draw_orthogonal_link(canvas, a.cx, a.cy, b.cx, b.cy)
 
 
 def apply_chrome(
@@ -476,10 +502,17 @@ def render_branch(
     show_labels: bool,
     title: str | None,
     only: set[str] | None = None,
+    *,
+    locked: bool = False,
+    use_icons: bool = False,
 ) -> Path:
     skills = parse_skills(data)
     if not skills:
         raise SystemExit("no skills found in JSON")
+
+    # Locked tree never fills icons, even if --filled listed skills.
+    if locked:
+        unlocked = set()
 
     slots = build_slots(data, skills, unlocked, only=only)
     if only is not None and not slots:
@@ -494,7 +527,11 @@ def render_branch(
             file=sys.stderr,
         )
 
-    if only is not None:
+    # Component panel: selected skills, explicit --locked, or default (no --icons).
+    use_components = only is not None or locked or not use_icons
+    allow_icons = use_icons or (only is not None and not locked)
+
+    if use_components:
         canvas = make_empty_back(branch)
         lock_frame = load_lock_frame()
         if lock_frame is None:
@@ -503,14 +540,7 @@ def render_branch(
                 "sockets will have no frame",
                 file=sys.stderr,
             )
-        # Direct edges only — both ends must be in the selected set.
-        selected = {slot.skill.id for slot in slots}
-        by_id = {slot.skill.id: slot for slot in slots}
-        for edge in parse_edges(data):
-            if edge.src not in selected or edge.dst not in selected:
-                continue
-            a, b = by_id[edge.src], by_id[edge.dst]
-            draw_orthogonal_link(canvas, a.cx, a.cy, b.cx, b.cy)
+        draw_edges_for_slots(canvas, data, slots)
         for slot in slots:
             paint_slot(
                 canvas,
@@ -519,6 +549,7 @@ def render_branch(
                 lock_frame=lock_frame,
                 empty_style=empty_style,
                 place_lock=True,
+                allow_icons=allow_icons,
             )
     else:
         canvas = branch.copy()
@@ -530,6 +561,7 @@ def render_branch(
                 lock_frame=None,
                 empty_style=empty_style,
                 place_lock=False,
+                allow_icons=True,
             )
 
     canvas = apply_chrome(
@@ -549,15 +581,18 @@ def render_branch(
 
 HELP_EPILOG = """
 examples:
-  # Full tree, every skill filled
+  # Full locked tree (default): panel + edges + lock frames, no skill icons
   python3 python/generate_skill_tree.py
 
-  # Full tree, only some skills filled (rest stay as locks)
-  python3 python/generate_skill_tree.py \\
-    --filled desecration,bone_ward,summon_skeleton
+  # Same, explicit
+  python3 python/generate_skill_tree.py --locked
 
-  # Full tree, all locks (no icons)
-  python3 python/generate_skill_tree.py --filled ''
+  # Full tree with skill icons on branch sprite
+  python3 python/generate_skill_tree.py --icons
+
+  # Icons tree, only some skills filled (rest stay as locks)
+  python3 python/generate_skill_tree.py --icons \\
+    --filled desecration,bone_ward,summon_skeleton
 
   # Selected skills on blank panel; draw direct tree.edges between them
   python3 python/generate_skill_tree.py \\
@@ -566,7 +601,7 @@ examples:
 
   # Selected skills as locks only
   python3 python/generate_skill_tree.py \\
-    --skills black_sepulchre,blooming_madness,wraith_summoning --filled ''
+    --skills black_sepulchre,blooming_madness,wraith_summoning --locked
 
   # Blank panel asset (no skills)
   python3 python/generate_skill_tree.py --empty-back
@@ -574,7 +609,7 @@ examples:
   # Labels + title + upscale
   python3 python/generate_skill_tree.py --title auto --labels --scale 4
 
-components (used by --skills / --empty-back):
+components (used by locked tree / --skills / --empty-back):
   python/skill_tree/background.png
   python/skill_tree/top_line.png
   python/skill_tree/locked_skill.png
@@ -626,6 +661,22 @@ def build_argparser() -> argparse.ArgumentParser:
         ),
     )
     p.add_argument(
+        "--locked",
+        action="store_true",
+        help=(
+            "Locked tree: blank panel + lock frames + tree.edges, no skill icons. "
+            "Default when neither --icons nor --skills is set."
+        ),
+    )
+    p.add_argument(
+        "--icons",
+        action="store_true",
+        help=(
+            "Composite skill icons onto the branch sprite (full tree). "
+            "With --skills, fill selected sockets with icons instead of locks."
+        ),
+    )
+    p.add_argument(
         "--skills",
         action="append",
         default=None,
@@ -642,7 +693,7 @@ def build_argparser() -> argparse.ArgumentParser:
         metavar="SKILL",
         help=(
             "Which shown skills are filled (id/slug/name; comma or repeat). "
-            "Omit = fill all shown; --filled '' = locks only."
+            "Omit = fill all shown when icons are enabled; --filled '' = locks only."
         ),
     )
     p.add_argument(
@@ -674,9 +725,11 @@ def main(argv: list[str] | None = None) -> int:
     args = build_argparser().parse_args(argv)
     branch_path = find_branch_sprite(args.sprites, args.branch)
     out_path: Path = args.out
+    root = Path(__file__).resolve().parents[1]
+    default_out = root / "_debug" / "necromancy-skill-tree.png"
 
     if args.empty_back:
-        if out_path == Path(__file__).resolve().parents[1] / "_debug" / "necromancy-skill-tree.png":
+        if out_path == default_out:
             out_path = out_path.with_name("necromancy-skill-tree-back.png")
         branch = Image.open(branch_path).convert("RGBA")
         canvas = scale_nearest(make_empty_back(branch), args.scale)
@@ -695,11 +748,22 @@ def main(argv: list[str] | None = None) -> int:
             raise SystemExit("no valid skills in --skills")
         only = set(selected)
 
+    # Default (no --icons / --skills): locked full tree from components.
+    locked = bool(args.locked) or (only is None and not args.icons)
+
     filled_args = args.filled
-    if filled_args is not None and len(filled_args) == 1 and filled_args[0].strip() == "":
+    if locked or (
+        filled_args is not None and len(filled_args) == 1 and filled_args[0].strip() == ""
+    ):
         unlocked: set[str] | None = set()
     else:
         unlocked = parse_unlocked(filled_args, skills)
+
+    # Icon compositing: --icons for full tree, or --skills without --locked.
+    use_icons = (bool(args.icons) or only is not None) and not locked
+
+    if out_path == default_out and locked and only is None:
+        out_path = out_path.with_name("necromancy-skill-tree-locked.png")
 
     title = None if args.title == "" else args.title
     out = render_branch(
@@ -713,6 +777,8 @@ def main(argv: list[str] | None = None) -> int:
         show_labels=args.labels,
         title=title,
         only=only,
+        locked=locked,
+        use_icons=use_icons,
     )
     print(f"wrote {out}")
     return 0

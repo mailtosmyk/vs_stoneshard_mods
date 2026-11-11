@@ -92,9 +92,15 @@ public static class NecromancyTier4Skills
             $"gml_Object_{skill.IconObjectName}_Create_0.gml",
             $"gml_Object_{skill.IconObjectName}_Step_2.gml");
 
-        NecromancyTier1Skills.ApplyEventAndReplace(skillObj, modFiles,
+        var skillEvents = new List<string>
+        {
             $"gml_Object_{skill.SkillObjectName}_Create_0.gml",
-            $"gml_Object_{skill.SkillObjectName}_Other_17.gml");
+            $"gml_Object_{skill.SkillObjectName}_Other_17.gml",
+        };
+        if (skill.Slug == "corpse_burst")
+            skillEvents.Add($"gml_Object_{skill.SkillObjectName}_Other_19.gml");
+
+        NecromancyTier1Skills.ApplyEventAndReplace(skillObj, modFiles, skillEvents.ToArray());
 
         NecromancyTier1Skills.ApplyEventAndReplace(birth, modFiles,
             $"gml_Object_{skill.BirthObjectName}_Create_0.gml",
