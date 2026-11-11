@@ -1,0 +1,11 @@
+1.2.0
+- Raise tier 3/4 skill attribute gates and add level OR alternatives (16 / 22).
+- Retarget Blooming Madness and Wraith Summoning prerequisites to Black Sepulchre.
+- Grave Blight area now scales with Magic Power (3x3 up to 5x5), applies Blind, and shows gas on affected tiles.
+
+1.1.0
+- Add summon gear enchant system and apply bonuses to Skeleton, Resurrection, and Wraith summons.
+- Fix enchant registration so bonuses apply reliably.
+
+1.0.0
+- Public release baseline for Stoneshard 0.9.4.25.

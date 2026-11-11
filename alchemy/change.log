@@ -1,0 +1,20 @@
+0.2.4
+- Add Apple Cider and Night Vision Philter.
+- Add debug elixir grants on player create.
+- Fix consumable create handling for custom products.
+
+0.2.3
+- Fix recipe item stats padding.
+
+0.2.2
+- Fix custom product item stats padding.
+
+0.2.0
+- Load alchemy catalog from ingredients.json and register custom product items.
+- Add inventory icons for elixirs, throwables, and coatings.
+- Sell recipes through NPC shops.
+
+0.1.0
+- Initial Alchemy scaffold, ingredient catalog, recipes, and build packaging.
+- Add debuff throwables/coatings and recipe validation rules.
+- Add respec Unlearning Elixir and related mid/high-tier elixirs.
