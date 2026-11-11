@@ -67,8 +67,8 @@ jobs:
             echo
             echo "### Artifacts"
             echo
-            echo "- Necromancy \`${NEC_VER}\` → \`Necromancy-${NEC_VER}.sml\`"
-            echo "- Alchemy \`${ALC_VER}\` → \`Alchemy-${ALC_VER}.sml\`"
+            echo "- Necromancy \`${NEC_VER}\` → \`Necromancy_${NEC_VER}.zip\` (\`.sml\` + \`.dll\`)"
+            echo "- Alchemy \`${ALC_VER}\` → \`Alchemy_${ALC_VER}.zip\` (\`.sml\` + \`.dll\`)"
             echo
             if [[ -n "$prev" ]]; then
               echo "### Changes since \`${prev}\`"
@@ -111,4 +111,4 @@ jobs:
             --title "Build ${{ github.run_number }}" \
             --notes-file RELEASE_NOTES.md \
             --target "${{ github.sha }}" \
-            artifacts/*.sml
+            artifacts/*.zip

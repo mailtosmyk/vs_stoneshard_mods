@@ -48,9 +48,26 @@ bash "$ROOT/alchemy/build-sml.sh"
 NEC_VER="$(tr -d '[:space:]' <"$ROOT/necromancy/build.txt")"
 ALC_VER="$(tr -d '[:space:]' <"$ROOT/alchemy/build.txt")"
 
-mv -f "$ARTIFACTS_DIR/Necromancy.sml" "$ARTIFACTS_DIR/Necromancy-${NEC_VER}.sml"
-mv -f "$ARTIFACTS_DIR/Alchemy.sml" "$ARTIFACTS_DIR/Alchemy-${ALC_VER}.sml"
-rm -f "$ARTIFACTS_DIR/Necromancy.dll" "$ARTIFACTS_DIR/Alchemy.dll"
+pack_mod_zip() {
+  local name="$1"
+  local ver="$2"
+  local sml="$ARTIFACTS_DIR/${name}.sml"
+  local dll="$ARTIFACTS_DIR/${name}.dll"
+  local zip_path="$ARTIFACTS_DIR/${name}_${ver}.zip"
+
+  if [[ ! -f "$sml" || ! -f "$dll" ]]; then
+    echo "error: missing $sml or $dll for zip" >&2
+    exit 1
+  fi
+
+  rm -f "$zip_path"
+  # Store plain ModName.sml + ModName.dll inside a versioned zip.
+  (cd "$ARTIFACTS_DIR" && zip -q "$zip_path" "${name}.sml" "${name}.dll")
+  echo "Packed $zip_path"
+}
+
+pack_mod_zip Necromancy "$NEC_VER"
+pack_mod_zip Alchemy "$ALC_VER"
 
 {
   echo "necromancy_version=$NEC_VER"
@@ -58,5 +75,5 @@ rm -f "$ARTIFACTS_DIR/Necromancy.dll" "$ARTIFACTS_DIR/Alchemy.dll"
 } >"$ARTIFACTS_DIR/versions.env"
 
 echo "Artifacts:"
-ls -la "$ARTIFACTS_DIR"/*.sml
+ls -la "$ARTIFACTS_DIR"/*.zip
 cat "$ARTIFACTS_DIR/versions.env"
