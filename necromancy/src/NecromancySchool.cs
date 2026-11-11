@@ -79,9 +79,10 @@ public static class NecromancySchool
             "is_execute = false\n" +
             "owner = gml_Script_scr_GetMobParametr\n");
 
-        // Node centers on s_nmancy_reworked: T1 33/81/130, T2–T4 24/62/100/138 (T3 uses 24/81/138).
+        // Node centers: T1 24/81/138 (outer cols align with T2 essence_leech / resurrection),
+        // T2–T4 24/62/100/138 (T3 uses 24/81/138).
         var layout = new System.Text.StringBuilder("event_inherited()\n");
-        var t1Xs = new[] { 33, 81, 130 };
+        var t1Xs = new[] { 24, 81, 138 };
         for (var i = 0; i < tier1.Length; i++)
         {
             var x = i < t1Xs.Length ? t1Xs[i] : t1Xs[^1] + (i - t1Xs.Length + 1) * 48;
