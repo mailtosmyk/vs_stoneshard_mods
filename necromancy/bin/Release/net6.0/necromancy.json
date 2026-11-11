@@ -396,7 +396,7 @@
       "name": "Corpse Burst",
       "slug": "corpse_burst",
       "type": "active",
-      "tier": 3,
+      "tier": 4,
       "image": "s_corpse_burst",
       "description": "Targets a corpse or allied Undead/Skeleton and makes it explode, destroying it.##Deals Unholy and Piercing Damage in a base 3x3 area around the target and has a chance to apply Bleeding to affected enemies.##Damage, Bleeding chance, and area size scale with Willpower (area grows from 3x3 toward 5x5 / 7x7).##Exploding an ally causes a small Sanity loss.",
       "magicPhrase": "Barath Shatterk!",
@@ -407,11 +407,11 @@
               "WIL"
             ],
             "logic": "and",
-            "min": 14
+            "min": 20
           }
         ],
         "skills": [
-          "d3bd6b8f-6f07-4c1f-8aeb-783d0afc33b0"
+          "aa19f19a-7398-48b3-a7d6-1bd464fd6bdf"
         ],
         "skillLogic": "and"
       },
@@ -444,7 +444,7 @@
       "name": "Mastery of Binding",
       "slug": "mastery_of_binding",
       "type": "passive",
-      "tier": 4,
+      "tier": 3,
       "image": "s_mastery_of_binding",
       "description": "Unbinding allies doesn't take a turn and replenishes Energy equal to ~lg~10%~/~ of your Magic Power.##Increases the level of summoning abilities by ~lg~1~/~.##Summon Skeleton: ~lg~+4~/~ turns base duration and ~lg~+10%~/~ Max Health / Max Energy.##Resurrection thralls start at ~lg~60%~/~ Max Health.##Still limited to one safe Undead at a time unless a higher-tier skill allows more.",
       "magicPhrase": "Vinculum Mortis!",
@@ -456,7 +456,7 @@
               "WIL"
             ],
             "logic": "or",
-            "min": 20
+            "min": 14
           }
         ],
         "skills": [
@@ -486,9 +486,10 @@
           }
         ],
         "skills": [
+          "d3bd6b8f-6f07-4c1f-8aeb-783d0afc33b0",
           "158f368c-1e91-424c-b48a-1721b4013738"
         ],
-        "skillLogic": "and"
+        "skillLogic": "or"
       },
       "combat": {
         "kind": "debuff",
@@ -536,7 +537,7 @@
           }
         ],
         "skills": [
-          "7e983a82-ab7c-48bc-830e-37d05c68fe83"
+          "8a3778f9-eff9-4619-8114-baad567f0728"
         ],
         "skillLogic": "and"
       }
@@ -589,7 +590,7 @@
           }
         ],
         "skills": [
-          "8a3778f9-eff9-4619-8114-baad567f0728"
+          "ed75d3c9-c735-438a-b430-205ad8478419"
         ],
         "skillLogic": "and"
       },
@@ -639,15 +640,15 @@
         "tier": 3,
         "skills": [
           "aa19f19a-7398-48b3-a7d6-1bd464fd6bdf",
-          "7e983a82-ab7c-48bc-830e-37d05c68fe83",
-          "8a3778f9-eff9-4619-8114-baad567f0728"
+          "8a3778f9-eff9-4619-8114-baad567f0728",
+          "ed75d3c9-c735-438a-b430-205ad8478419"
         ]
       },
       {
         "tier": 4,
         "skills": [
+          "7e983a82-ab7c-48bc-830e-37d05c68fe83",
           "f0f37fa5-3038-4c76-9617-3bf848cfb632",
-          "ed75d3c9-c735-438a-b430-205ad8478419",
           "0186d94e-304b-4434-803f-9a03b9106770",
           "9b1a51b6-daa2-40b3-a236-505eca5fe5f8"
         ]
@@ -659,6 +660,14 @@
         "to": "7a73e870-bdb7-4a81-a19b-f8f118e5b0a2"
       },
       {
+        "from": "7a73e870-bdb7-4a81-a19b-f8f118e5b0a2",
+        "to": "aa19f19a-7398-48b3-a7d6-1bd464fd6bdf"
+      },
+      {
+        "from": "aa19f19a-7398-48b3-a7d6-1bd464fd6bdf",
+        "to": "7e983a82-ab7c-48bc-830e-37d05c68fe83"
+      },
+      {
         "from": "03f04616-3f5d-4881-82e7-3b74492777b1",
         "to": "d3bd6b8f-6f07-4c1f-8aeb-783d0afc33b0"
       },
@@ -667,27 +676,15 @@
         "to": "158f368c-1e91-424c-b48a-1721b4013738"
       },
       {
-        "from": "6e7735a0-a0ff-4271-8ac1-00648052a83c",
-        "to": "843edbb5-af68-43b7-8432-271739444e99"
-      },
-      {
-        "from": "7a73e870-bdb7-4a81-a19b-f8f118e5b0a2",
-        "to": "aa19f19a-7398-48b3-a7d6-1bd464fd6bdf"
-      },
-      {
         "from": "d3bd6b8f-6f07-4c1f-8aeb-783d0afc33b0",
-        "to": "7e983a82-ab7c-48bc-830e-37d05c68fe83"
-      },
-      {
-        "from": "843edbb5-af68-43b7-8432-271739444e99",
-        "to": "ed75d3c9-c735-438a-b430-205ad8478419"
+        "to": "8a3778f9-eff9-4619-8114-baad567f0728"
       },
       {
         "from": "158f368c-1e91-424c-b48a-1721b4013738",
         "to": "8a3778f9-eff9-4619-8114-baad567f0728"
       },
       {
-        "from": "7e983a82-ab7c-48bc-830e-37d05c68fe83",
+        "from": "8a3778f9-eff9-4619-8114-baad567f0728",
         "to": "f0f37fa5-3038-4c76-9617-3bf848cfb632"
       },
       {
@@ -695,7 +692,15 @@
         "to": "0186d94e-304b-4434-803f-9a03b9106770"
       },
       {
-        "from": "8a3778f9-eff9-4619-8114-baad567f0728",
+        "from": "6e7735a0-a0ff-4271-8ac1-00648052a83c",
+        "to": "843edbb5-af68-43b7-8432-271739444e99"
+      },
+      {
+        "from": "843edbb5-af68-43b7-8432-271739444e99",
+        "to": "ed75d3c9-c735-438a-b430-205ad8478419"
+      },
+      {
+        "from": "ed75d3c9-c735-438a-b430-205ad8478419",
         "to": "9b1a51b6-daa2-40b3-a236-505eca5fe5f8"
       }
     ]
