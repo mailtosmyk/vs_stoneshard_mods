@@ -529,7 +529,6 @@ def render_branch(
 
     # Component panel: selected skills, explicit --locked, or default (no --icons).
     use_components = only is not None or locked or not use_icons
-    allow_icons = use_icons or (only is not None and not locked)
 
     if use_components:
         canvas = make_empty_back(branch)
@@ -549,7 +548,7 @@ def render_branch(
                 lock_frame=lock_frame,
                 empty_style=empty_style,
                 place_lock=True,
-                allow_icons=allow_icons,
+                allow_icons=use_icons,
             )
     else:
         canvas = branch.copy()
@@ -561,7 +560,7 @@ def render_branch(
                 lock_frame=None,
                 empty_style=empty_style,
                 place_lock=False,
-                allow_icons=True,
+                allow_icons=use_icons,
             )
 
     canvas = apply_chrome(
