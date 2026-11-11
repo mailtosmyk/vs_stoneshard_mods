@@ -458,11 +458,11 @@ public static class NecromancyLocalization
             },
             new Dictionary<ModLanguage, string>
             {
-                { ModLanguage.English, "Summon skeleton on the targeted tile (no corpse required).##Duration, Max Health %, and Max Energy % scale with Willpower (starts at ~w~20~/~ turns, ~lg~33%~/~ Max Health / ~lg~25%~/~ Max Energy, Armor Durability ~w~0%~/~).##Only one Skeleton can exist at a time." },
-                { ModLanguage.Japanese, "対象タイルにスケルトンを召喚する（死体不要）。##持続時間・最大体力%・最大エネルギー%は意志力に比例する（初期: ~w~20~/~ターン、最大体力~lg~33%~/~ / 最大エネルギー~lg~25%~/~、防具耐久~w~0%~/~）。##同時に存在できるスケルトンは1体のみ。" },
-                { ModLanguage.Chinese, "在目标格子召唤骷髅（无需尸体）。##持续时间、最大生命%与最大能量%随意志力提升（起始：~w~20~/~回合，~lg~33%~/~最大生命 / ~lg~25%~/~最大能量，护甲耐久~w~0%~/~）。##同时仅可存在一具骷髅。" },
-                { ModLanguage.German, "Beschwört ein Skelett auf dem Ziel-Feld (keine Leiche nötig).##Dauer, max. Gesundheit % und max. Energie % skalieren mit Willenskraft (Start: ~w~20~/~ Züge, ~lg~33%~/~ max. Gesundheit / ~lg~25%~/~ max. Energie, Rüstungshalbarkeit ~w~0%~/~).##Nur ein Skelett gleichzeitig." },
-                { ModLanguage.Russian, "Призывает скелета на выбранную клетку (труп не нужен).##Длительность, % макс. здоровья и % макс. энергии зависят от Воли (старт: ~w~20~/~ ходов, ~lg~33%~/~ макс. здоровья / ~lg~25%~/~ макс. энергии, прочность брони ~w~0%~/~).##Одновременно может существовать только один скелет." },
+                { ModLanguage.English, "Summon skeleton on the targeted tile (no corpse required).##Duration, Max Health %, and Max Energy % scale with Willpower (starts at ~w~20~/~ turns, ~lg~33%~/~ Max Health / ~lg~25%~/~ Max Energy, Armor Durability ~w~0%~/~).##If a Bone is nearby, it is consumed: ~lg~+10%~/~ Max Health and Armor Durability ~w~10%~/~.##Only one Skeleton can exist at a time." },
+                { ModLanguage.Japanese, "対象タイルにスケルトンを召喚する（死体不要）。##持続時間・最大体力%・最大エネルギー%は意志力に比例する（初期: ~w~20~/~ターン、最大体力~lg~33%~/~ / 最大エネルギー~lg~25%~/~、防具耐久~w~0%~/~）。##近くに骨がある場合は消費し、最大体力~lg~+10%~/~と防具耐久~w~10%~/~を得る。##同時に存在できるスケルトンは1体のみ。" },
+                { ModLanguage.Chinese, "在目标格子召唤骷髅（无需尸体）。##持续时间、最大生命%与最大能量%随意志力提升（起始：~w~20~/~回合，~lg~33%~/~最大生命 / ~lg~25%~/~最大能量，护甲耐久~w~0%~/~）。##若附近有骨头则消耗：最大生命~lg~+10%~/~，护甲耐久~w~10%~/~。##同时仅可存在一具骷髅。" },
+                { ModLanguage.German, "Beschwört ein Skelett auf dem Ziel-Feld (keine Leiche nötig).##Dauer, max. Gesundheit % und max. Energie % skalieren mit Willenskraft (Start: ~w~20~/~ Züge, ~lg~33%~/~ max. Gesundheit / ~lg~25%~/~ max. Energie, Rüstungshalbarkeit ~w~0%~/~).##Ist ein Knochen in der Nähe, wird er verbraucht: ~lg~+10%~/~ max. Gesundheit und Rüstungshalbarkeit ~w~10%~/~.##Nur ein Skelett gleichzeitig." },
+                { ModLanguage.Russian, "Призывает скелета на выбранную клетку (труп не нужен).##Длительность, % макс. здоровья и % макс. энергии зависят от Воли (старт: ~w~20~/~ ходов, ~lg~33%~/~ макс. здоровья / ~lg~25%~/~ макс. энергии, прочность брони ~w~0%~/~).##Если рядом есть Кость, она расходуется: ~lg~+10%~/~ макс. здоровья и прочность брони ~w~10%~/~.##Одновременно может существовать только один скелет." },
             });
         RegisterSkillLocalization(
             "withering_curse",

@@ -96,7 +96,7 @@
       "type": "active",
       "tier": 1,
       "image": "s_summon_skeleton",
-      "description": "Summon skeleton on the targeted tile (no corpse required).##Duration, Max Health %, and Max Energy % scale with Willpower (starts at ~w~20~/~ turns, ~lg~33%~/~ Max Health / ~lg~25%~/~ Max Energy, Armor Durability ~w~0%~/~).##Only one Skeleton can exist at a time.",
+      "description": "Summon skeleton on the targeted tile (no corpse required).##Duration, Max Health %, and Max Energy % scale with Willpower (starts at ~w~20~/~ turns, ~lg~33%~/~ Max Health / ~lg~25%~/~ Max Energy, Armor Durability ~w~0%~/~).##If a Bone is nearby, it is consumed: ~lg~+10%~/~ Max Health and Armor Durability ~w~10%~/~.##Only one Skeleton can exist at a time.",
       "magicPhrase": "Rattlek Narzul!",
       "requirements": {
         "attributes": [],

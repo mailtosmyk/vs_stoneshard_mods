@@ -36,6 +36,25 @@ if ((!is_execute) && instance_exists(owner))
         _mpPct = clamp(_mpPct + 10.0, 15.0, 100.0)
     }
 
+    // Optional: consume a nearby floor Bone for +10% Max Health and ArmorDurability 10.
+    var _boneConsumed = false
+    var _lootBone = asset_get_index("o_loot_bone")
+    if (_lootBone != -1)
+    {
+        var _sx = (xx + 13)
+        var _sy = (yy + 13)
+        with (_lootBone)
+        {
+            if ((!_boneConsumed) && (point_distance(x, y, _sx, _sy) <= 36))
+            {
+                _boneConsumed = true
+                instance_destroy()
+            }
+        }
+        if (_boneConsumed)
+            _hpPct = clamp(_hpPct + 10.0, 20.0, 100.0)
+    }
+
     var _skel = -4
     if (object_exists(_skelObj))
     {
@@ -49,6 +68,8 @@ if ((!is_execute) && instance_exists(owner))
             loot_script = -4
             gain_xp *= 0.1
             ArmorDurability = 0
+            if (_boneConsumed)
+                ArmorDurability = 10
 
             // Syndicate-style Player retinue bind.
             scr_faction_map_remove(id)

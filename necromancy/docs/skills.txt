@@ -25,7 +25,7 @@ Type: Active
 Level: 1
 Requirements: None (entry skill)
 Image: s_summon_skeleton
-Description: Summons 1 Skeleton on the targeted tile (no corpse required). Duration, Max Health %, and Max Energy % scale with Willpower (starts at 20 turns, 33% Max Health / 25% Max Energy, Armor Durability 0%). Only one Skeleton can exist at a time.
+Description: Summons 1 Skeleton on the targeted tile (no corpse required). Duration, Max Health %, and Max Energy % scale with Willpower (starts at 20 turns, 33% Max Health / 25% Max Energy, Armor Durability 0%). If a Bone is nearby, it is consumed: +10% Max Health and Armor Durability 10%. Only one Skeleton can exist at a time.
 
 ================================================================================
 TIER 2

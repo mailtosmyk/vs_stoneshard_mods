@@ -77,11 +77,11 @@
         "Russian": "Призыв скелета"
       },
       "description": {
-        "English": "Summon skeleton on the targeted tile (no corpse required). Duration, Max Health %, and Max Energy % scale with Willpower (starts at 20 turns, 33% Max Health / 25% Max Energy, Armor Durability 0%). Only one Skeleton can exist at a time.",
-        "Japanese": "対象タイルにスケルトンを召喚する（死体不要）。持続時間・最大体力%・最大エネルギー%は意志力に比例する（初期: 20ターン、最大体力33% / 最大エネルギー25%、防具耐久0%）。同時に存在できるスケルトンは1体のみ。",
-        "Chinese": "在目标格子召唤骷髅（无需尸体）。持续时间、最大生命%与最大能量%随意志力提升（起始：20回合，33%最大生命 / 25%最大能量，护甲耐久0%）。同时仅可存在一具骷髅。",
-        "German": "Beschwört ein Skelett auf dem Ziel-Feld (keine Leiche nötig). Dauer, max. Gesundheit % und max. Energie % skalieren mit Willenskraft (Start: 20 Züge, 33% max. Gesundheit / 25% max. Energie, Rüstungshalbarkeit 0%). Nur ein Skelett gleichzeitig.",
-        "Russian": "Призывает скелета на выбранную клетку (труп не нужен). Длительность, % макс. здоровья и % макс. энергии зависят от Воли (старт: 20 ходов, 33% макс. здоровья / 25% макс. энергии, прочность брони 0%). Одновременно может существовать только один скелет."
+        "English": "Summon skeleton on the targeted tile (no corpse required). Duration, Max Health %, and Max Energy % scale with Willpower (starts at 20 turns, 33% Max Health / 25% Max Energy, Armor Durability 0%). If a Bone is nearby, it is consumed: +10% Max Health and Armor Durability 10%. Only one Skeleton can exist at a time.",
+        "Japanese": "対象タイルにスケルトンを召喚する（死体不要）。持続時間・最大体力%・最大エネルギー%は意志力に比例する（初期: 20ターン、最大体力33% / 最大エネルギー25%、防具耐久0%）。近くに骨がある場合は消費し、最大体力+10%と防具耐久10%を得る。同時に存在できるスケルトンは1体のみ。",
+        "Chinese": "在目标格子召唤骷髅（无需尸体）。持续时间、最大生命%与最大能量%随意志力提升（起始：20回合，33%最大生命 / 25%最大能量，护甲耐久0%）。若附近有骨头则消耗：最大生命+10%，护甲耐久10%。同时仅可存在一具骷髅。",
+        "German": "Beschwört ein Skelett auf dem Ziel-Feld (keine Leiche nötig). Dauer, max. Gesundheit % und max. Energie % skalieren mit Willenskraft (Start: 20 Züge, 33% max. Gesundheit / 25% max. Energie, Rüstungshalbarkeit 0%). Ist ein Knochen in der Nähe, wird er verbraucht: +10% max. Gesundheit und Rüstungshalbarkeit 10%. Nur ein Skelett gleichzeitig.",
+        "Russian": "Призывает скелета на выбранную клетку (труп не нужен). Длительность, % макс. здоровья и % макс. энергии зависят от Воли (старт: 20 ходов, 33% макс. здоровья / 25% макс. энергии, прочность брони 0%). Если рядом есть Кость, она расходуется: +10% макс. здоровья и прочность брони 10%. Одновременно может существовать только один скелет."
       },
       "magicPhrase": {
         "English": "Rattlek Narzul!",
