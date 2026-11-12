@@ -1,3 +1,7 @@
+0.2.7
+- Study schematics with 3 of the same product plus any gem (was 4).
+- Ignore craftkits in the station so reverse-engineering works at craft stations.
+
 0.2.4
 - Add Apple Cider and Night Vision Philter.
 - Add debug elixir grants on player create.

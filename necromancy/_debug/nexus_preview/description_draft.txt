@@ -1,0 +1,124 @@
+[b]  Description[/b]
+<br />
+<br />  Necromancy adds a full occult skill school to Stoneshard. Raise skeletons and thralls, curse enemies with Withering Curse, drain essence from the dead, and bind unholy power across a 14-skill tree (11 active, 3 passive).
+<br />  Built for the current ModShardLauncher pipeline and Stoneshard 0.9.4.x.
+<br />
+<br />  Play a dark mage who turns corpses into weapons — bolt, blight, blast, and army.
+<br />
+<br />  ────────────────────────────────────────
+<br />
+<br />[b]  Installation instructions[/b]
+<br />
+<br />  1. Switch Stoneshard to the modbranch beta on Steam (Properties → Betas → modbranch). The version in-game should end with -vm.
+<br />  2. Install ModShardLauncher (MSL) from GitHub releases (https://github.com/ModShardTeam/ModShardLauncher/releases) or Nexus (https://www.nexusmods.com/stoneshard/mods/29). Follow the official install guide
+<br />    (https://modshardteam.github.io/ModShardLauncher/guides/how-to-play-mod.html).
+<br />  3. In your Stoneshard folder, rename data.win to vanilla.win (backup first).
+<br />  4. Download this mod’s .sml file and place it in MSL’s Mods folder.
+<br />  5. Open MSL → Anvil (Mods) → load vanilla.win → enable Necromancy → Save as e.g. modded.win.
+<br />  6. Launch Stoneshard and select modded.win.
+<br />
+<br />  Tip: Back up your saves before using mods. If MSL appears frozen while loading the .win, wait — that is normal.
+<br />
+<br />  ────────────────────────────────────────
+<br />
+<br />[b]  Main features[/b]
+<br />
+<br />  • New skill school: Necromancy — 14 skills across 4 tiers
+<br />  • Summoning — Summon Skeleton, Resurrection, Wraith Summoning; thralls scale with Willpower and passives
+<br />  • Bone offering — casting Summon Skeleton near a Bone consumes it for +10% Max Health and Armor Durability 10%
+<br />  • Offense — Dark Bolt, Death Touch, Corpse Burst, Black Sepulchre
+<br />  • Defense &amp; support — Bone Ward, Death’s Blessing, Essence Leech
+<br />  • Curses &amp; zones — Grave Blight / Withering Curse stacking and detonation (area scales with Magic Power, applies Blind, shows gas)
+<br />  • Passives — Immortality, Mastery of Binding, Blooming Madness
+<br />  • Summon gear enchants — gear bonuses that empower Skeleton, Resurrection, and Wraith summons
+<br />  • Treatises — Necromancy skill books (lootable, including witch-house container chances)
+<br />  • XP from summons — kills by your thralls credit the player
+<br />  • Tier 3 / 4 gates — Level 16 / 22 or attribute thresholds
+<br />
+<br />  ──────────────────────────────────────
+<br />
+<br />
+[b] Skill tree[/b]
+<br />
+<br />
+<br />
+[img]PLACEHOLDER_TREE_URL[/img]
+<br />
+<br />
+<br />
+[b] Skills by tier[/b]
+<br />
+<br />
+<br />
+[b] Tier 1[/b]
+<br />
+<br />
+[img]PLACEHOLDER_TIER_1_URL[/img]
+<br />
+<br />
+<br />
+[b] Tier 2[/b]
+<br />
+<br />
+[img]PLACEHOLDER_TIER_2_URL[/img]
+<br />
+<br />
+<br />
+[b] Tier 3[/b]
+<br />
+<br />
+[img]PLACEHOLDER_TIER_3_URL[/img]
+<br />
+<br />
+<br />
+[b] Tier 4[/b]
+<br />
+<br />
+[img]PLACEHOLDER_TIER_4_URL[/img]
+<br />
+<br />
+<br />
+ ──
+<br />
+<br />[b]  Requirements[/b]
+<br />
+<br />  • Stoneshard 0.9.4.x on Steam modbranch
+<br />  • ModShardLauncher (recent version that supports current .sml files)
+<br />  • .NET Desktop Runtime 6.0 if MSL fails to start
+<br />  • No other content mods required (compatible with other MSL mods in principle; load order / conflicts not guaranteed)
+<br />
+<br />  ────────────────────────────────────────
+<br />
+<br />[b]  Shout outs[/b]
+<br />
+<br />  Huge thanks to Blackwood (BW) and CommissarAmethyst — the original Necromancy Remade / BW’s Necromancy design, balance, and artwork this school builds on.
+<br />
+<br />  Thanks to the ModShardTeam for ModShardLauncher, and to the Stoneshard Mod Hub community for tools, docs, and support.
+<br />
+<br />  ────────────────────────────────────────
+<br />
+<br />[b]  Changelog (recent)[/b]
+<br />
+<br />  1.4.0
+<br />  • Summon Skeleton: if a Bone is nearby on cast, consume it for +10% Max Health and Armor Durability 10%.
+<br />
+<br />  1.2.0
+<br />  • Raise tier 3/4 skill attribute gates and add level OR alternatives (16 / 22).
+<br />  • Retarget Blooming Madness and Wraith Summoning prerequisites to Black Sepulchre.
+<br />  • Grave Blight area now scales with Magic Power (3×3 up to 5×5), applies Blind, and shows gas on affected tiles.
+<br />
+<br />  1.1.0
+<br />  • Add summon gear enchant system and apply bonuses to Skeleton, Resurrection, and Wraith summons.
+<br />  • Fix enchant registration so bonuses apply reliably.
+<br />
+<br />  ────────────────────────────────────────
+<br />
+<br />[b]  Support[/b]
+<br />
+<br />  If you enjoy the mod and want to support further updates and maintenance:
+<br />
+<br />  • Patreon: https://www.patreon.com/c/vitali_smyk
+<br />  • PayPal: https://www.paypal.com/donate/?hosted_button_id=FV3P3RCGG9MD8
+<br />
+<br />  Any support is appreciated — it helps keep the school alive through game patches.
+<br />

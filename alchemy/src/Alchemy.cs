@@ -13,7 +13,7 @@ public class Alchemy : Mod
     public override string Name => "Alchemy";
     public override string Description =>
         "More useful recipes from existing ingredients — no new skills. " +
-        "Place 4 of the same elixir and any gem in a cooking pot or craft station to learn that elixir's recipe.";
+        "Place 3 of the same elixir and any gem in a cooking pot or craft station to learn that elixir's recipe.";
     public override string Version => AlchemyVersion.Value;
     public override string TargetVersion => "0.9.4.25";
 
