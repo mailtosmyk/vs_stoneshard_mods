@@ -261,6 +261,45 @@ public static class NecromancyLocalization
                 { ModLanguage.Russian, "~r~-4%~/~ маг. сопротивления за стак (до III), пока в порче." },
             });
 
+        // Clickable dismiss buff on thralls — without this, combat log / tooltip show "o_b_nm_unbind".
+        RegisterBuffLocalization(
+            "o_b_nm_unbind",
+            new Dictionary<ModLanguage, string>
+            {
+                { ModLanguage.English, "Unbind" },
+                { ModLanguage.Japanese, "解放" },
+                { ModLanguage.Chinese, "解绑" },
+                { ModLanguage.German, "Losbinden" },
+                { ModLanguage.Russian, "Отпустить" },
+            },
+            new Dictionary<ModLanguage, string>
+            {
+                { ModLanguage.English, "Click to dismiss this thrall.##With ~lg~\"Mastery of Binding\"~/~, dismissing costs no turn and restores Energy equal to ~lg~10%~/~ of your Magic Power." },
+                { ModLanguage.Japanese, "クリックで従者を解放する。##~lg~「束縛の熟練」~/~があればターンを消費せず、魔力の~lg~10%~/~分のエネルギーを回復する。" },
+                { ModLanguage.Chinese, "点击解散该仆从。##拥有~lg~\"束缚精通\"~/~时不消耗回合，并恢复相当于魔法强度~lg~10%~/~的能量。" },
+                { ModLanguage.German, "Klicken, um diesen Diener zu entlassen.##Mit ~lg~„Meisterschaft der Bindung“~/~ kostet dies keinen Zug und stellt Energie in Höhe von ~lg~10%~/~ deiner Magiekraft wieder her." },
+                { ModLanguage.Russian, "Нажмите, чтобы отпустить слугу.##С ~lg~\"Мастерством связывания\"~/~ это не тратит ход и восстанавливает энергию, равную ~lg~10%~/~ вашей силы магии." },
+            });
+
+        RegisterBuffLocalization(
+            "o_b_nm_servant",
+            new Dictionary<ModLanguage, string>
+            {
+                { ModLanguage.English, "Bound Servant" },
+                { ModLanguage.Japanese, "束縛された従者" },
+                { ModLanguage.Chinese, "束缚仆从" },
+                { ModLanguage.German, "Gebundener Diener" },
+                { ModLanguage.Russian, "Связанный слуга" },
+            },
+            new Dictionary<ModLanguage, string>
+            {
+                { ModLanguage.English, "This creature is bound to your will." },
+                { ModLanguage.Japanese, "この存在はあなたの意志に束縛されている。" },
+                { ModLanguage.Chinese, "该生物受你的意志束缚。" },
+                { ModLanguage.German, "Diese Kreatur ist an deinen Willen gebunden." },
+                { ModLanguage.Russian, "Это существо связано вашей волей." },
+            });
+
         // Overwrite vanilla Seal of Unholiness title/desc with necromancy-tuned text.
         RegisterBuffLocalization(
             "o_b_magic_unholy",
