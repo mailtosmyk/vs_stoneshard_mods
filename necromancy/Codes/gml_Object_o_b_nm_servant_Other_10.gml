@@ -35,3 +35,7 @@ with (target)
     if (_unbind != -1 && (!scr_instance_exists_in_list(_unbind, buffs)))
         scr_effect_create(_unbind, -1, id, id)
 }
+
+// Keep summon HP/Damage in sync with gear + Seal of Unholiness each turn.
+if instance_exists(target)
+    scr_nm_apply_summon_enchants(target)

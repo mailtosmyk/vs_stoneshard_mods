@@ -14,8 +14,42 @@ public static class NecromancyLocalization
         PatchSchool();
         PatchSkills();
         PatchBuffs();
+        PatchSealOfPower();
         PatchBooks();
         PatchSpeeches();
+    }
+
+    /// <summary>
+    /// Appends the Necromancy school line to Magic Mastery Seal of Power's skill tooltip
+    /// (EN/RU), without rewriting the rest of the multilingual CSV row.
+    /// </summary>
+    static void PatchSealOfPower()
+    {
+        const string enNeedle = "##Using the ability tree's spells transforms the effect back into";
+        const string enInsert =
+            "#~ur~Necromancy:~/~ ~lg~+15%~/~ Magic Power, ~ur~+2 Unholy Damage~/~ to strikes and shots, " +
+            "~lg~+2~/~ Summon Damage, and ~lg~+10%~/~ Summon Health." + enNeedle;
+
+        const string ruNeedle = "##Применение заклинаний ветки перерождает эффект обратно в";
+        const string ruInsert =
+            "#~ur~Некромантия:~/~ ~lg~+15%~/~ к силе магии, ~ur~+2 нечестивого урона~/~ ударам и выстрелам, " +
+            "~lg~+2~/~ к урону призванных и ~lg~+10%~/~ к здоровью призванных." + ruNeedle;
+
+        Msl.LoadGML("gml_GlobalScript_table_skills")
+            .Apply(lines => lines.Select(line =>
+            {
+                if (!line.Contains("\"Seal_of_Power;", StringComparison.Ordinal))
+                    return line;
+                var result = line;
+                if (result.Contains(enNeedle, StringComparison.Ordinal) &&
+                    !result.Contains("~ur~Necromancy:~/~", StringComparison.Ordinal))
+                    result = result.Replace(enNeedle, enInsert, StringComparison.Ordinal);
+                if (result.Contains(ruNeedle, StringComparison.Ordinal) &&
+                    !result.Contains("~ur~Некромантия:~/~", StringComparison.Ordinal))
+                    result = result.Replace(ruNeedle, ruInsert, StringComparison.Ordinal);
+                return result;
+            }))
+            .Save();
     }
 
     static void PatchBooks()
@@ -225,6 +259,31 @@ public static class NecromancyLocalization
                 { ModLanguage.Chinese, "处于疫病中时每层~r~-4%~/~魔法抗性（最高III）。" },
                 { ModLanguage.German, "~r~-4%~/~ Magiewiderstand pro Stapel (bis III) in der Fäule." },
                 { ModLanguage.Russian, "~r~-4%~/~ маг. сопротивления за стак (до III), пока в порче." },
+            });
+
+        // Overwrite vanilla Seal of Unholiness title/desc with necromancy-tuned text.
+        RegisterBuffLocalization(
+            "o_b_magic_unholy",
+            new Dictionary<ModLanguage, string>
+            {
+                { ModLanguage.English, "Seal of Necromancy" },
+                { ModLanguage.Japanese, "死霊術の印" },
+                { ModLanguage.Chinese, "死灵法印" },
+                { ModLanguage.German, "Siegel der Nekromantie" },
+                { ModLanguage.Russian, "Печать Некромантии" },
+            },
+            new Dictionary<ModLanguage, string>
+            {
+                { ModLanguage.English,
+                    "~lg~+15%~/~ Magic Power#~ur~+2 Unholy Damage~/~ to strikes and shots#~lg~+2~/~ Summon Damage#~lg~+10%~/~ Summon Health##Using spells transforms the effect into a ~lg~\"Seal\"~/~ of the corresponding School and prolongs its duration by ~lg~3~/~ turns (up to ~sy~9~/~)." },
+                { ModLanguage.Japanese,
+                    "魔力~lg~+15%~/~#打撃・射撃に~ur~不浄ダメージ+2~/~#召喚ダメージ~lg~+2~/~#召喚体力~lg~+10%~/~##呪文使用で対応学校の~lg~「印」~/~に変化し、持続が~lg~3~/~ターン延長（最大~sy~9~/~）。" },
+                { ModLanguage.Chinese,
+                    "~lg~+15%~/~魔法强度#打击与射击~ur~+2邪秽伤害~/~#召唤伤害~lg~+2~/~#召唤生命~lg~+10%~/~##施放法术会转化为对应学派的~lg~“法印”~/~，并延长~lg~3~/~回合（最多~sy~9~/~）。" },
+                { ModLanguage.German,
+                    "~lg~+15%~/~ Magiekraft#~ur~+2 Unheiliger Schaden~/~ auf Schläge und Schüsse#~lg~+2~/~ Beschwörungsschaden#~lg~+10%~/~ Beschwörungsleben##Zauber verwandeln den Effekt in ein ~lg~„Siegel“~/~ der entsprechenden Schule und verlängern ihn um ~lg~3~/~ Züge (bis ~sy~9~/~)." },
+                { ModLanguage.Russian,
+                    "~lg~+15%~/~ к силе магии#~ur~+2 нечестивого урона~/~ ударам и выстрелам#~lg~+2~/~ к урону призванных#~lg~+10%~/~ к здоровью призванных##Применение заклинаний перерождает эффект в ~lg~\"Печать\"~/~ соответствующей школы и продлевает её длительность на ~lg~3~/~ хода (вплоть до ~sy~9~/~)." },
             });
 
         Msl.LoadGML("gml_GlobalScript_table_effects")

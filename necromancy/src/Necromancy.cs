@@ -23,6 +23,7 @@ public class Necromancy : Mod
         // Register summon-enchant helpers before any object GML that calls them
         // (UTMT resolves function refs at compile time; late AddFunction leaves broken calls).
         NecromancyEnchants.Patch(ModFiles);
+        NecromancySealOfPower.Patch(ModFiles);
         NecromancyTier1Skills.Patch(ModFiles);
         NecromancyTier2Skills.Patch(ModFiles);
         NecromancyTier3Skills.Patch(ModFiles);
