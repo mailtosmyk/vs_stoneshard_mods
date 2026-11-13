@@ -323,21 +323,21 @@ push.e 0
             "gml_Object_o_db_withering_curse_Destroy_0.gml",
             "gml_Object_o_db_withering_curse_Step_0.gml");
 
-        wardImpact.ApplyEvent(modFiles,
-            new MslEvent("gml_Object_o_nm_bone_ward_impact_Create_0.gml", EventType.Create, 0),
-            new MslEvent("gml_Object_o_nm_bone_ward_impact_Alarm_0.gml", EventType.Alarm, 0),
-            new MslEvent("gml_Object_o_nm_bone_ward_impact_Other_7.gml", EventType.Other, 7),
-            new MslEvent("gml_Object_o_nm_bone_ward_impact_Draw_0.gml", EventType.Draw, 0));
+        ApplyEventAndReplace(wardImpact, modFiles,
+            "gml_Object_o_nm_bone_ward_impact_Create_0.gml",
+            "gml_Object_o_nm_bone_ward_impact_Alarm_0.gml",
+            "gml_Object_o_nm_bone_ward_impact_Other_7.gml",
+            "gml_Object_o_nm_bone_ward_impact_Draw_0.gml");
 
-        wardBuff.ApplyEvent(modFiles,
-            new MslEvent("gml_Object_o_b_bone_ward_Create_0.gml", EventType.Create, 0),
-            new MslEvent("gml_Object_o_b_bone_ward_Other_10.gml", EventType.Other, 10),
-            new MslEvent("gml_Object_o_b_bone_ward_Alarm_2.gml", EventType.Alarm, 2),
-            new MslEvent("gml_Object_o_b_bone_ward_Destroy_0.gml", EventType.Destroy, 0));
+        ApplyEventAndReplace(wardBuff, modFiles,
+            "gml_Object_o_b_bone_ward_Create_0.gml",
+            "gml_Object_o_b_bone_ward_Other_10.gml",
+            "gml_Object_o_b_bone_ward_Alarm_2.gml",
+            "gml_Object_o_b_bone_ward_Destroy_0.gml");
 
-        shardHit.ApplyEvent(modFiles,
-            new MslEvent("gml_Object_o_nm_bone_shard_hit_Create_0.gml", EventType.Create, 0),
-            new MslEvent("gml_Object_o_nm_bone_shard_hit_Alarm_1.gml", EventType.Alarm, 1));
+        ApplyEventAndReplace(shardHit, modFiles,
+            "gml_Object_o_nm_bone_shard_hit_Create_0.gml",
+            "gml_Object_o_nm_bone_shard_hit_Alarm_1.gml");
 
         // ApplyEvent/AddNewEvent skips when the event already exists, so re-patches
         // leave stale GML in data.win. Force-replace after add so fixes actually apply.
