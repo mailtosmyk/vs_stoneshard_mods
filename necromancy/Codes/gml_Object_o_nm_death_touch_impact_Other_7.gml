@@ -30,7 +30,7 @@ if is_crit
 
 with (target)
     scr_guiAnimation_ext(x, y, s_signofdarkness_impact)
-scr_audio_play_at(snd_arcane_impact_1)
+scr_audio_play_at(snd_skill_death_touch_hit)
 
 var _immob = (36 + (_mp * 0.3))
 with (target)

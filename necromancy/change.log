@@ -1,3 +1,11 @@
+1.8.0
+- Death Touch / Black Sepulchre: replace nonexistent snd_arcane_impact_1 with vanilla impact sounds (fixes Animation End crash).
+
+1.7.0
+- Seal of Power (Magic Mastery): necromancy transform now grants +15% Magic Power, +2 Unholy Damage to strikes/shots, +2 Summon Damage, and +10% Summon Health.
+- Summon enchant apply folds in Seal of Necromancy bonuses and refreshes on seal gain / servant turns.
+- Register Unbind / Bound Servant buff names in table_effects for combat log.
+
 1.6.0
 - Seal of Power (Magic Mastery): necromancy transform now grants +15% Magic Power, +2 Unholy Damage to strikes/shots, +2 Summon Damage, and +10% Summon Health.
 - Summon enchant apply folds in Seal of Necromancy bonuses and refreshes on seal gain / servant turns.

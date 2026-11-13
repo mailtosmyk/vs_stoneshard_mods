@@ -84,7 +84,7 @@ with (_main)
 {
     with (scr_guiAnimation_ext(x, y, s_signofdarkness_impact))
     {
-        scr_audio_play_at(snd_arcane_impact_1)
+        scr_audio_play_at(snd_sigilofdarkness_cast)
         depth = (other.depth - 1)
     }
 }
