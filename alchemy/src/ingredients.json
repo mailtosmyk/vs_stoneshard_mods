@@ -3953,7 +3953,8 @@
       "elixir": "blank_scroll",
       "ingredients_cost": 5,
       "recipe_cost": 5,
-      "elixir_cost": 5
+      "elixir_cost": 5,
+      "source": "base"
     },
     {
       "ingredients": [

@@ -229,8 +229,10 @@ internal sealed class AlchemyJsonRoot
             ? AlchemyCraftSource.BaseRecipe
             : AlchemyCraftSource.Trade;
 
-        // Ingots + scrolls craft at the workbench / craftkit (advanced station).
-        var advanced = dto.Advanced || materialOutcome || scrollOutcome;
+        // Ingots and learned scrolls craft at the workbench / craftkit.
+        // Blank Scroll is a simple known-from-start Base Recipe (basic craft).
+        var advanced = dto.Advanced || materialOutcome
+            || (scrollOutcome && !blankScroll);
 
         return new AlchemyRecipe(
             elixir,

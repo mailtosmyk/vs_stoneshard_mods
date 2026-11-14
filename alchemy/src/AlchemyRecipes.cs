@@ -134,7 +134,11 @@ internal static class AlchemyRecipes
                 return true;
         }
 
-        return AlchemyCatalog.CustomProducts.ContainsKey(recipe.Elixir);
+        // Custom elixirs/throwables/coatings/materials need the craft station.
+        // Blank scrolls are a simple Base Recipe (hemp) and stay basic.
+        if (!AlchemyCatalog.CustomProducts.TryGetValue(recipe.Elixir, out var product))
+            return false;
+        return product.Kind != AlchemyProductKind.Scroll;
     }
 
     static ushort XpFor(AlchemyRecipe recipe)
