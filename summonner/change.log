@@ -1,4 +1,5 @@
 0.3.0
+- Hunt Command aura recolored red; Kindred Spirit icon recolored green.
 - Skill deps: T3 requires any T2; T4 requires any T3 only (no T2→T4 skips); T2 still gated by T1.
 - Alpha's Howl 8 turns; Savage Bond 10 turns; Primal Apex 6 turns.
 

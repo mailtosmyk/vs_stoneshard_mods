@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import colorsys
 from pathlib import Path
 
 from PIL import Image
@@ -10,6 +11,15 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "Sprites"
 ICON_SIZE = (25, 24)
+
+# Post-extract hue shifts (sheet art is purple-tinted).
+# Hunt Command: keep grey wolf, push aura to red.
+# Kindred Spirit: full icon to green (passive bond).
+RECOLOR: dict[str, tuple[float, bool, float]] = {
+    # name -> (target_hue, preserve_neutral, sat_floor)
+    "s_hunt_command": (0.0, True, 0.30),
+    "s_kindred_spirit": (0.33, False, 0.22),
+}
 
 # Sheet is laid out 3 / 3 / 4 / 3 (tree shape). Cells mapped by art, not tree column order.
 LAYOUT: list[list[str]] = [
@@ -146,6 +156,42 @@ def to_game_icon(src: Image.Image) -> Image.Image:
     return scaled.crop((left, top, left + tw, top + th))
 
 
+def recolor_purple(
+    img: Image.Image,
+    target_h: float,
+    *,
+    preserve_neutral: bool,
+    sat_floor: float = 0.0,
+) -> Image.Image:
+    """Shift purple/violet glow pixels toward ``target_h`` (HSV hue 0–1)."""
+    out = img.convert("RGBA").copy()
+    px = out.load()
+    w, h = out.size
+    for y in range(h):
+        for x in range(w):
+            r, g, b, a = px[x, y]
+            if a < 10:
+                continue
+            hf, s, v = colorsys.rgb_to_hsv(r / 255, g / 255, b / 255)
+            chroma = abs(r - g) + abs(g - b) + abs(b - r)
+            if preserve_neutral and chroma < 45 and s < 0.28:
+                continue
+            purple = (s >= 0.10 and (hf >= 0.68 or hf <= 0.04)) or (
+                b > g + 6 and (r + b) > 28 and s >= 0.08
+            )
+            if not purple:
+                continue
+            ns = min(1.0, max(s, sat_floor) * 1.08)
+            nr, ng, nb = colorsys.hsv_to_rgb(target_h, ns, v)
+            if v < 0.18:
+                if target_h < 0.1:
+                    nr, ng, nb = min(1.0, v * 2.4), v * 0.12, v * 0.15
+                else:
+                    nr, ng, nb = v * 0.18, min(1.0, v * 2.2), v * 0.3
+            px[x, y] = (int(nr * 255), int(ng * 255), int(nb * 255), a)
+    return out
+
+
 def write_tree_placeholder() -> None:
     branch = Image.new("RGBA", (162, 257), (18, 16, 14, 255))
     branch.save(OUT / "s_summoner_tree_0.png")
@@ -166,6 +212,11 @@ def main() -> None:
         ix0, iy0, ix1, iy1 = frame_inset(px, x0, y0, x1, y1)
         art = sheet.crop((ix0, iy0, ix1 + 1, iy1 + 1))
         icon = to_game_icon(art)
+        if name in RECOLOR:
+            target_h, preserve_neutral, sat_floor = RECOLOR[name]
+            icon = recolor_purple(
+                icon, target_h, preserve_neutral=preserve_neutral, sat_floor=sat_floor
+            )
         out_path = OUT / f"{name}_0.png"
         icon.save(out_path)
         print(f"wrote {out_path.name} from cell ({x0},{y0})-({x1},{y1}) inset ({ix0},{iy0})-({ix1},{iy1})")

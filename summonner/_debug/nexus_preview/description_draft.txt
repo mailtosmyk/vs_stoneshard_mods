@@ -24,11 +24,11 @@ Tip: Back up your saves before using mods. If MSL appears frozen while loading t
 • Tier gates — attribute thresholds and skill prerequisites across the tree
 ────────────────────────────────────────
 [b]  Skill tree[/b]
-[img]https://files.catbox.moe/4k7hzy.png[/img]
-[img]https://files.catbox.moe/0c5f0f.png[/img]
-[img]https://files.catbox.moe/pbi3qi.png[/img]
-[img]https://files.catbox.moe/j8o90t.png[/img]
-[img]https://files.catbox.moe/v5sgha.png[/img]
+[img]https://files.catbox.moe/q1z82l.png[/img]
+[img]https://files.catbox.moe/r75mds.png[/img]
+[img]https://files.catbox.moe/suzkru.png[/img]
+[img]https://files.catbox.moe/eybc5i.png[/img]
+[img]https://files.catbox.moe/6jrbzu.png[/img]
 ────────────────────────────────────────
 [b]  Requirements[/b]
 • Stoneshard 0.9.4.x on Steam modbranch
@@ -40,6 +40,9 @@ Tip: Back up your saves before using mods. If MSL appears frozen while loading t
 Thanks to the ModShardTeam for ModShardLauncher, and to the Stoneshard Mod Hub community for tools, docs, and support.
 ────────────────────────────────────────
 [b]  Changelog (recent)[/b]
+0.3.0
+• Skill deps: T3 requires any T2; T4 requires any T3 only.
+• Alpha’s Howl 8 turns; Savage Bond 10 turns; Primal Apex 6 turns.
 0.2.0
 • Arcane Bestiary skill icons (frameless) for all 13 skills.
 • Summon death applies temporary Morale debuff for 600 turns (does not stack); Kindred still halves.

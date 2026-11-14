@@ -1,3 +1,7 @@
+1.11.0
+- Summon Skeleton: Willpower tiers (Risen Recruit / Squire / Companion) with per-tier ally AI.
+- Wraith Summoning: Willpower tiers (Wraith / Squire / Warrior / Commander).
+
 1.10.0
 - Bone Ward: shatter immediately on buff Destroy with center burst VFX + adjacent hit sparks/damage (deferred alarm helpers never fired).
 
