@@ -22,4 +22,21 @@ if (variable_instance_exists(target, "sm_species"))
 var _kindred = asset_get_index("o_sm_kindred_spirit_ico")
 if (_kindred != -1 && instance_exists(_kindred) && _kindred.is_open)
     _loss = floor(_loss * 0.5)
-scr_psy_change("Morale", (-_loss))
+var _buff = asset_get_index("o_b_sm_summon_death")
+if (_buff == -1)
+    exit
+var _existing = -4
+with (owner)
+    _existing = scr_instance_exists_in_list(_buff, buffs)
+if (_existing != -4)
+{
+    with (_existing)
+    {
+        duration = 600
+        if (_loss > stage)
+            stage = _loss
+        event_perform(ev_alarm, 2)
+    }
+}
+else
+    scr_effect_create(_buff, 600, owner, owner, _loss)

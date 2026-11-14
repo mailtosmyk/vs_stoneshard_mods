@@ -39,6 +39,20 @@ public static class SummonerSkillsPatch
             "gml_Object_o_b_sm_servant_Create_0.gml",
             "gml_Object_o_b_sm_servant_Other_10.gml",
             "gml_Object_o_b_sm_servant_Destroy_0.gml");
+
+        // Temporary Morale penalty when a summon dies in combat (600t, does not stack).
+        var summonDeath = Msl.AddObject(
+            name: "o_b_sm_summon_death",
+            spriteName: "s_kindred_spirit",
+            parentName: "o_physical_buff",
+            isVisible: true,
+            isPersistent: false,
+            isAwake: true,
+            collisionShapeFlags: CollisionShapeFlags.Circle);
+        ApplyEventAndReplace(summonDeath, modFiles,
+            "gml_Object_o_b_sm_summon_death_Create_0.gml",
+            "gml_Object_o_b_sm_summon_death_Other_10.gml",
+            "gml_Object_o_b_sm_summon_death_Alarm_2.gml");
     }
 
     static void CreateSkillObjects(SummonerSkill skill, ModFile modFiles)

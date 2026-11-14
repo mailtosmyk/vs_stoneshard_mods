@@ -1,14 +1,15 @@
-Summoner — Stoneshard Skill Tree (balanced 0.1.0)
+Summoner — Stoneshard Skill Tree (balanced 0.3.0)
 Total skills: 13 (11 active, 2 passive)
 Layout: 3 / 3 / 4 / 3
 
 Balance notes:
-- Per-species XP tracks (wolf/crawler/bear/bison/gulon), ~1.75x XP curve
-- Bear 100/13, Bison 130/10 (roles differentiated)
+- Per-species XP tracks (wolf/crawler/bear/bison/gulon); XP/HP/damage/armor tables on each summon skill
+- Bear 100/13/2, Bison 130/10/4 at L1 (roles differentiated; armor scales per level)
 - Pack Instincts: +1 cap, +4% HP / +3% damage
-- Death Morale: 6/8/10/10/12 (Kindred halves); Unsummon / map travel = safe dismiss
+- Death Morale: 6/8/10/10/12 for 600t, no stack (Kindred halves); Unsummon / map travel = safe dismiss
 - Map tile / room change: scr_sm_unsummon_all() (XP kept, no Morale loss)
-- Apex +15% dmg / +10% crit; Howl +10% dmg / +5% crit; Hunt +12% dmg
+- Howl 8t / Bond 10t / Apex 6t; Howl +10% dmg / +5% crit; Hunt +12% dmg; Apex +15% dmg / +10% crit
+- Deps: T2←T1 column; T3←any T2; T4←any T3 (no cross-tier skips)
 
 T1  Hunt Command — Summon Wolf — Unsummon
 T2  Alpha's Howl — Pack Instincts — Mend Pack
