@@ -256,8 +256,20 @@ push.e 0
             isAwake: true,
             collisionShapeFlags: CollisionShapeFlags.Circle);
 
-        // Concrete ally skeleton: inherits militiaman Create/scr_param, overrides Other_10
-        // with Syndicate-style retinue AI (event_inherited combat / scr_turn follow).
+        // Ally skeletons by Willpower tier (Recruit / Squire / Companion).
+        // Each inherits parent Create/scr_param and overrides Other_10 with Syndicate-style AI.
+        var skeletonAllyRecruit = Msl.AddObject(
+            name: "o_nm_skeleton_ally_recruit",
+            spriteName: "s_skeleton_swordsman",
+            parentName: "o_skeleton_swordsman",
+            isVisible: true,
+            isPersistent: false,
+            isAwake: true,
+            collisionShapeFlags: CollisionShapeFlags.Circle);
+        var swordsman = Msl.GetObject("o_skeleton_swordsman");
+        if (swordsman != null)
+            skeletonAllyRecruit.ParentId = swordsman;
+
         var skeletonAlly = Msl.AddObject(
             name: "o_nm_skeleton_ally",
             spriteName: "s_skeleton_militiaman",
@@ -269,6 +281,18 @@ push.e 0
         var militiaman = Msl.GetObject("o_skeleton_militiaman");
         if (militiaman != null)
             skeletonAlly.ParentId = militiaman;
+
+        var skeletonAllyCompanion = Msl.AddObject(
+            name: "o_nm_skeleton_ally_companion",
+            spriteName: "s_skeleton_soldier",
+            parentName: "o_skeleton_soldier",
+            isVisible: true,
+            isPersistent: false,
+            isAwake: true,
+            collisionShapeFlags: CollisionShapeFlags.Circle);
+        var soldier = Msl.GetObject("o_skeleton_soldier");
+        if (soldier != null)
+            skeletonAllyCompanion.ParentId = soldier;
 
         var skeletonTimer = Msl.AddObject(
             name: "o_b_nm_skeleton_timer",
@@ -341,8 +365,13 @@ push.e 0
 
         // ApplyEvent/AddNewEvent skips when the event already exists, so re-patches
         // leave stale GML in data.win. Force-replace after add so fixes actually apply.
+        // Same Syndicate-style ally AI for every Willpower tier (separate code names).
+        ApplyEventAndReplace(skeletonAllyRecruit, modFiles,
+            "gml_Object_o_nm_skeleton_ally_recruit_Other_10.gml");
         ApplyEventAndReplace(skeletonAlly, modFiles,
             "gml_Object_o_nm_skeleton_ally_Other_10.gml");
+        ApplyEventAndReplace(skeletonAllyCompanion, modFiles,
+            "gml_Object_o_nm_skeleton_ally_companion_Other_10.gml");
 
         ApplyEventAndReplace(skeletonTimer, modFiles,
             "gml_Object_o_b_nm_skeleton_timer_Create_0.gml",

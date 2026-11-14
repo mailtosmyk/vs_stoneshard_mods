@@ -5,16 +5,6 @@ if ((!is_execute) && instance_exists(owner))
     yy = point_y
     is_execute = true
 
-    // Custom ally object (Syndicate-style Other_10). Falls back to a concrete skeleton
-    // if the ally object failed to register.
-    var _skelObj = asset_get_index("o_nm_skeleton_ally")
-    if (_skelObj == -1 || (!object_exists(_skelObj)))
-        _skelObj = o_skeleton_militiaman
-    if (!object_exists(_skelObj))
-        _skelObj = o_skeleton_footman
-    if (!object_exists(_skelObj))
-        _skelObj = o_skeleton_spearman
-
     // Drop previous summon timer (Destroy unbinds the linked skeleton).
     var _timer = asset_get_index("o_b_nm_skeleton_timer")
     if (_timer != -1)
@@ -24,6 +14,29 @@ if ((!is_execute) && instance_exists(owner))
     }
 
     var _wil = scr_atr("WIL")
+    // Unit tier by Willpower: Recruit (<15), Squire (15-19), Companion (20+).
+    // Custom ally objects keep Syndicate-style Other_10; fall back to vanilla parents.
+    var _skelObj = -1
+    var _allyName = "o_nm_skeleton_ally_recruit"
+    var _fallback = o_skeleton_swordsman
+    if (_wil >= 20.0)
+    {
+        _allyName = "o_nm_skeleton_ally_companion"
+        _fallback = o_skeleton_soldier
+    }
+    else if (_wil >= 15.0)
+    {
+        _allyName = "o_nm_skeleton_ally"
+        _fallback = o_skeleton_militiaman
+    }
+    _skelObj = asset_get_index(_allyName)
+    if (_skelObj == -1 || (!object_exists(_skelObj)))
+        _skelObj = _fallback
+    if (!object_exists(_skelObj))
+        _skelObj = o_skeleton_footman
+    if (!object_exists(_skelObj))
+        _skelObj = o_skeleton_spearman
+
     // Use .0 literals so ReplaceGML does not resolve bare ints to asset ids.
     var _turns = 2.0 * (10.0 + floor(_wil / 5.0))
     var _hpPct = clamp(33.0 + floor(_wil / 2.0), 20.0, 90.0)

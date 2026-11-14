@@ -96,7 +96,7 @@
       "type": "active",
       "tier": 1,
       "image": "s_summon_skeleton",
-      "description": "Summon skeleton on the targeted tile (no corpse required).##Duration, Max Health %, and Max Energy % scale with Willpower (starts at ~w~20~/~ turns, ~lg~33%~/~ Max Health / ~lg~25%~/~ Max Energy, Armor Durability ~w~0%~/~).##If a Bone is nearby, it is consumed: ~lg~+10%~/~ Max Health and Armor Durability ~w~10%~/~.##Only one Skeleton can exist at a time.",
+      "description": "Summon a skeleton on the targeted tile (no corpse required).##Unit type scales with Willpower: ~lg~Risen Recruit~/~ below ~w~15~/~, ~lg~Risen Squire~/~ at ~w~15~/~–~w~19~/~, ~lg~Risen Companion~/~ at ~w~20~/~+.##Duration, Max Health %, and Max Energy % also scale with Willpower (starts at ~w~20~/~ turns, ~lg~33%~/~ Max Health / ~lg~25%~/~ Max Energy, Armor Durability ~w~0%~/~).##If a Bone is nearby, it is consumed: ~lg~+10%~/~ Max Health and Armor Durability ~w~10%~/~.##Only one Skeleton can exist at a time.",
       "magicPhrase": "Rattlek Narzul!",
       "requirements": {
         "attributes": [],
@@ -575,7 +575,7 @@
       "type": "active",
       "tier": 4,
       "image": "s_wraith_summoning",
-      "description": "Summons a Wraith on the targeted tile; power depends on ~lg~\"Essence Charge\"~/~ stacks.##Removes ~lg~\"Essence Charge\"~/~.##If no weapon equipped: ~r~-50%~/~ Cooldown Duration and Halves Miscast Chance.##Can't summon Wraiths higher than the skill's level cap.",
+      "description": "Summons a Wraith on the targeted tile; type scales with Willpower: ~lg~Wraith~/~ below ~w~25~/~, ~lg~Wraith Squire~/~ at ~w~25~/~–~w~29~/~, ~lg~Wraith Warrior~/~ at ~w~30~/~–~w~39~/~, ~lg~Wraith Commander~/~ at ~w~40~/~+.##Removes ~lg~\"Essence Charge\"~/~.##If no weapon equipped: ~r~-50%~/~ Cooldown Duration and Halves Miscast Chance.##Can't summon Wraiths higher than the skill's level cap.",
       "magicPhrase": "Lagura mithensa!",
       "requirements": {
         "attributes": [

@@ -5,33 +5,23 @@ if ((!is_execute) && instance_exists(owner))
     yy = point_y
     is_execute = true
 
-    var _stage = 0
+    // Still consume Essence Charge if present (resource sink); unit tier is Willpower.
     var _charge = asset_get_index("o_b_nm_essence_charge")
     if (_charge != -1)
     {
         with (scr_instance_exists_in_list(_charge, owner.buffs))
-        {
-            _stage = stage
             instance_destroy()
-        }
     }
 
-    var _unit = o_ghost_squire
-    switch _stage
-    {
-        case 0:
-            _unit = choose(o_ghost_squire, o_ghost_monk)
-            break
-        case 1:
-            _unit = choose(o_ghost_squire, o_ghost_monk)
-            break
-        case 2:
-            _unit = choose(o_ghost_cleric, o_ghost_sergeant)
-            break
-        default:
-            _unit = choose(o_ghost_seer, o_ghost_knight)
-            break
-    }
+    // WIL: <25 Wraith, 25-29 Squire, 30-39 Warrior (Knight), 40+ Commander.
+    var _wil = scr_atr("WIL")
+    var _unit = o_ghost
+    if (_wil >= 40.0)
+        _unit = o_ghost_commander
+    else if (_wil >= 30.0)
+        _unit = o_ghost_knight
+    else if (_wil >= 25.0)
+        _unit = o_ghost_squire
 
     // Drop previous wraith summon marked nm_wraith.
     with (o_enemy)
