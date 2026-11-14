@@ -1,0 +1,887 @@
+{
+  "id": "c0b06e1b-11fd-4859-a6f4-5d4e83c028cf",
+  "name": "Summoner",
+  "source": "original",
+  "target": "Utility",
+  "totalSkills": 13,
+  "activeCount": 11,
+  "passiveCount": 2,
+  "mechanics": {
+    "summonsPersistXp": true,
+    "xpTrackPerSpecies": true,
+    "summonDeathMoraleLoss": 8,
+    "unsummonMoraleLoss": 0,
+    "defaultMaxSummons": 1,
+    "xpSavedOnUnsummon": true,
+    "xpSavedOnDeath": true,
+    "progression": {
+      "statKeys": [
+        "MaxHealth",
+        "WeaponDamage",
+        "STR",
+        "AGL",
+        "PRC",
+        "Vitality"
+      ],
+      "perLevel": {
+        "MaxHealthPct": 6,
+        "WeaponDamagePct": 4,
+        "STR": 1,
+        "AGL": 1,
+        "PRC": 0.5,
+        "Vitality": 1
+      },
+      "maxSummonLevel": 10,
+      "xpCurve": [
+        0,
+        70,
+        158,
+        280,
+        438,
+        630,
+        858,
+        1120,
+        1418,
+        1750
+      ],
+      "note": "Each species stores its own xp and level; leveling one companion never transfers to another."
+    },
+    "species": [
+      {
+        "id": "wolf",
+        "slug": "wolf",
+        "unlockSkill": "summon_wolf",
+        "role": "skirmisher",
+        "baseHp": 55,
+        "baseDamage": 9,
+        "xpTrack": "wolf",
+        "deathMoraleLoss": 6
+      },
+      {
+        "id": "crawler",
+        "slug": "crawler",
+        "unlockSkill": "summon_crawler",
+        "role": "ambusher",
+        "baseHp": 45,
+        "baseDamage": 11,
+        "xpTrack": "crawler",
+        "deathMoraleLoss": 8
+      },
+      {
+        "id": "bear",
+        "slug": "bear",
+        "unlockSkill": "summon_bear",
+        "role": "fighter",
+        "baseHp": 100,
+        "baseDamage": 13,
+        "xpTrack": "bear",
+        "deathMoraleLoss": 10
+      },
+      {
+        "id": "bison",
+        "slug": "bison",
+        "unlockSkill": "summon_bison",
+        "role": "bruiser",
+        "baseHp": 130,
+        "baseDamage": 10,
+        "xpTrack": "bison",
+        "deathMoraleLoss": 10
+      },
+      {
+        "id": "gulon",
+        "slug": "gulon",
+        "unlockSkill": "summon_gulon",
+        "role": "apex",
+        "baseHp": 85,
+        "baseDamage": 16,
+        "xpTrack": "gulon",
+        "deathMoraleLoss": 12
+      }
+    ]
+  },
+  "skills": [
+    {
+      "id": "3a09952b-9014-417c-8c11-e2b650c5e7c2",
+      "name": "Summon Wolf",
+      "slug": "summon_wolf",
+      "type": "active",
+      "tier": 1,
+      "image": "s_summon_wolf",
+      "description": "Summons your bonded ~lg~Wolf~/~ on the targeted tile.##The Wolf keeps its ~lg~own~/~ Experience and level (separate from other companions) when dismissed or when it dies.##Each Wolf level raises Max Health, Damage, and core attributes.##Base limit: ~w~1~/~ summon at a time.##If the Wolf dies in combat, you suffer ~r~-6 Morale~/~.",
+      "magicPhrase": "Vulpis, veni!",
+      "requirements": {
+        "attributes": [],
+        "skills": [],
+        "skillLogic": "none"
+      },
+      "combat": {
+        "kind": "summon",
+        "target": "point",
+        "range": "4",
+        "cooldown": 10,
+        "energy": 16,
+        "reserve": 0,
+        "duration": 0,
+        "aoeLength": 0,
+        "aoeWidth": 0,
+        "isMovement": false,
+        "pattern": "normal",
+        "class": "spell",
+        "bonusRange": false,
+        "starcast": "",
+        "fumble": 6,
+        "armorPenetration": "x",
+        "isMissile": false,
+        "selfCast": false,
+        "species": "wolf",
+        "persistXp": 1,
+        "xpTrack": "wolf",
+        "deathMoraleLoss": 6
+      }
+    },
+    {
+      "id": "b07c6617-aed7-48fd-9617-5754c1fd1cff",
+      "name": "Unsummon",
+      "slug": "unsummon",
+      "type": "active",
+      "tier": 1,
+      "image": "s_unsummon",
+      "description": "Safely dismisses a targeted allied summon (or the nearest one).##That companion's ~lg~own~/~ Experience and level are kept.##Does ~lg~not~/~ apply the Morale penalty that occurs when a summon dies in combat.",
+      "magicPhrase": "Recedo!",
+      "requirements": {
+        "attributes": [],
+        "skills": [],
+        "skillLogic": "none"
+      },
+      "combat": {
+        "kind": "debuff",
+        "target": "object",
+        "range": "vis",
+        "cooldown": 2,
+        "energy": 6,
+        "reserve": 0,
+        "duration": 0,
+        "aoeLength": 0,
+        "aoeWidth": 0,
+        "isMovement": false,
+        "pattern": "normal",
+        "class": "spell",
+        "bonusRange": false,
+        "starcast": "",
+        "fumble": 0,
+        "armorPenetration": "x",
+        "isMissile": false,
+        "selfCast": false,
+        "keepXp": 1,
+        "moraleLoss": 0
+      }
+    },
+    {
+      "id": "4d477236-e51e-4f7d-9bc6-2fbbfbe89487",
+      "name": "Hunt Command",
+      "slug": "hunt_command",
+      "type": "active",
+      "tier": 1,
+      "image": "s_hunt_command",
+      "description": "Marks an enemy for ~w~6~/~ turns.##Your summons gain ~lg~+12%~/~ Weapon Damage and ~lg~+10%~/~ Accuracy against the marked target.",
+      "magicPhrase": "Venare!",
+      "requirements": {
+        "attributes": [],
+        "skills": [],
+        "skillLogic": "none"
+      },
+      "combat": {
+        "kind": "debuff",
+        "target": "object",
+        "range": "6",
+        "cooldown": 8,
+        "energy": 12,
+        "reserve": 0,
+        "duration": 6,
+        "aoeLength": 0,
+        "aoeWidth": 0,
+        "isMovement": false,
+        "pattern": "normal",
+        "class": "spell",
+        "bonusRange": true,
+        "starcast": "",
+        "fumble": 4,
+        "armorPenetration": "x",
+        "isMissile": false,
+        "selfCast": false,
+        "summonDamagePct": 12,
+        "summonAccuracy": 10,
+        "markTurns": 6
+      }
+    },
+    {
+      "id": "90d9d53a-1c56-4946-abcb-bd89c4760c7d",
+      "name": "Mend Pack",
+      "slug": "mend_pack",
+      "type": "active",
+      "tier": 2,
+      "image": "s_mend_pack",
+      "description": "Restores Health to all active summons within Vision (scales with Magic Power / Willpower).##Also clears ~lg~1~/~ minor injury stage on each healed companion.",
+      "magicPhrase": "Sanare fera!",
+      "requirements": {
+        "attributes": [
+          {
+            "stats": [
+              "Vitality",
+              "WIL"
+            ],
+            "logic": "or",
+            "min": 6
+          }
+        ],
+        "skills": [
+          "b07c6617-aed7-48fd-9617-5754c1fd1cff"
+        ],
+        "skillLogic": "and"
+      },
+      "combat": {
+        "kind": "debuff",
+        "target": "none",
+        "range": "vis",
+        "cooldown": 10,
+        "energy": 18,
+        "reserve": 0,
+        "duration": 0,
+        "aoeLength": 0,
+        "aoeWidth": 0,
+        "isMovement": false,
+        "pattern": "normal",
+        "class": "spell",
+        "bonusRange": false,
+        "starcast": "",
+        "fumble": 2,
+        "armorPenetration": "x",
+        "isMissile": false,
+        "selfCast": true,
+        "healBase": 12,
+        "injuryClear": 1
+      }
+    },
+    {
+      "id": "ba686eb8-10fc-4293-a6ae-3aed105d4018",
+      "name": "Pack Instincts",
+      "slug": "pack_instincts",
+      "type": "passive",
+      "tier": 2,
+      "image": "s_pack_instincts",
+      "description": "Increases your summon limit by ~lg~+1~/~.##All summons gain ~lg~+4%~/~ Max Health and ~lg~+3%~/~ Weapon Damage.##Each companion's Experience gain is increased by ~lg~10%~/~ (still tracked per species).",
+      "magicPhrase": "Packa cordis!",
+      "requirements": {
+        "attributes": [
+          {
+            "stats": [
+              "PRC",
+              "WIL"
+            ],
+            "logic": "or",
+            "min": 6
+          }
+        ],
+        "skills": [
+          "3a09952b-9014-417c-8c11-e2b650c5e7c2"
+        ],
+        "skillLogic": "and"
+      },
+      "combat": {
+        "kind": "none",
+        "target": "none",
+        "range": "0",
+        "cooldown": 0,
+        "energy": 0,
+        "reserve": 0,
+        "duration": 0,
+        "aoeLength": 0,
+        "aoeWidth": 0,
+        "isMovement": false,
+        "pattern": "normal",
+        "class": "spell",
+        "bonusRange": false,
+        "starcast": "",
+        "fumble": 0,
+        "armorPenetration": "x",
+        "isMissile": false,
+        "selfCast": false,
+        "maxSummonsBonus": 1,
+        "summonHpPct": 4,
+        "summonDamagePct": 3,
+        "summonXpGainPct": 10
+      }
+    },
+    {
+      "id": "a3e16c2c-4bb9-43b1-bd04-d5d29a84e566",
+      "name": "Alpha's Howl",
+      "slug": "alphas_howl",
+      "type": "active",
+      "tier": 2,
+      "image": "s_alphas_howl",
+      "description": "Your summons enter ~lg~\"Alpha's Howl\"~/~ for ~w~6~/~ turns:##~lg~+10%~/~ Weapon Damage#~lg~+5%~/~ Crit Chance#~lg~+10%~/~ Move Resistance##Enemies adjacent to any summon have a chance to become ~r~Hesitant~/~ for ~w~1~/~ turn.",
+      "magicPhrase": "Ulula!",
+      "requirements": {
+        "attributes": [
+          {
+            "stats": [
+              "WIL",
+              "STR"
+            ],
+            "logic": "or",
+            "min": 6
+          }
+        ],
+        "skills": [
+          "4d477236-e51e-4f7d-9bc6-2fbbfbe89487"
+        ],
+        "skillLogic": "and"
+      },
+      "combat": {
+        "kind": "self_buff",
+        "target": "none",
+        "range": "0",
+        "cooldown": 12,
+        "energy": 16,
+        "reserve": 0,
+        "duration": 6,
+        "aoeLength": 0,
+        "aoeWidth": 0,
+        "isMovement": false,
+        "pattern": "normal",
+        "class": "spell",
+        "bonusRange": false,
+        "starcast": "",
+        "fumble": 4,
+        "armorPenetration": "x",
+        "isMissile": false,
+        "selfCast": true,
+        "buffTurns": 6,
+        "summonDamagePct": 10,
+        "summonCrit": 5,
+        "summonMoveRes": 10,
+        "hesitantChance": 35
+      }
+    },
+    {
+      "id": "a358292e-75df-40aa-a9cc-c1fdd5328a03",
+      "name": "Summon Crawler",
+      "slug": "summon_crawler",
+      "type": "active",
+      "tier": 3,
+      "image": "s_summon_crawler",
+      "description": "Summons your bonded ~lg~Crawler~/~ on the targeted tile.##Keeps its ~lg~own~/~ Experience and level, independent of Wolf / Bear / Bison / Gulon.##Ambusher: higher Damage, can apply ~r~Weakness~/~ or slow.##Death in combat causes ~r~-8 Morale~/~.",
+      "magicPhrase": "Repere, veni!",
+      "requirements": {
+        "attributes": [
+          {
+            "stats": [
+              "PRC",
+              "AGL",
+              "WIL"
+            ],
+            "logic": "or",
+            "min": 14
+          }
+        ],
+        "skills": [
+          "a3e16c2c-4bb9-43b1-bd04-d5d29a84e566",
+          "ba686eb8-10fc-4293-a6ae-3aed105d4018"
+        ],
+        "skillLogic": "or"
+      },
+      "combat": {
+        "kind": "summon",
+        "target": "point",
+        "range": "5",
+        "cooldown": 14,
+        "energy": 22,
+        "reserve": 0,
+        "duration": 0,
+        "aoeLength": 0,
+        "aoeWidth": 0,
+        "isMovement": false,
+        "pattern": "normal",
+        "class": "spell",
+        "bonusRange": false,
+        "starcast": "",
+        "fumble": 8,
+        "armorPenetration": "x",
+        "isMissile": false,
+        "selfCast": false,
+        "species": "crawler",
+        "persistXp": 1,
+        "xpTrack": "crawler",
+        "deathMoraleLoss": 8
+      }
+    },
+    {
+      "id": "c4e8f1a2-3b5d-4e6f-9a0b-1c2d3e4f5a6b",
+      "name": "Summon Bear",
+      "slug": "summon_bear",
+      "type": "active",
+      "tier": 3,
+      "image": "s_summon_bear",
+      "description": "Summons your bonded ~lg~Bear~/~ on the targeted tile.##Keeps its ~lg~own~/~ Experience and level, independent of other companions.##Heavy fighter: solid Health and Damage; strong Knockback (less bulk than Bison).##Death in combat causes ~r~-10 Morale~/~.",
+      "magicPhrase": "Ursus, veni!",
+      "requirements": {
+        "attributes": [
+          {
+            "stats": [
+              "STR",
+              "Vitality",
+              "WIL"
+            ],
+            "logic": "or",
+            "min": 14
+          }
+        ],
+        "skills": [
+          "ba686eb8-10fc-4293-a6ae-3aed105d4018",
+          "90d9d53a-1c56-4946-abcb-bd89c4760c7d"
+        ],
+        "skillLogic": "or"
+      },
+      "combat": {
+        "kind": "summon",
+        "target": "point",
+        "range": "4",
+        "cooldown": 15,
+        "energy": 24,
+        "reserve": 0,
+        "duration": 0,
+        "aoeLength": 0,
+        "aoeWidth": 0,
+        "isMovement": false,
+        "pattern": "normal",
+        "class": "spell",
+        "bonusRange": false,
+        "starcast": "",
+        "fumble": 8,
+        "armorPenetration": "x",
+        "isMissile": false,
+        "selfCast": false,
+        "species": "bear",
+        "persistXp": 1,
+        "xpTrack": "bear",
+        "deathMoraleLoss": 10
+      }
+    },
+    {
+      "id": "e3cbf27b-c139-4cb1-8f1b-d2037e9d4f3e",
+      "name": "Summon Bison",
+      "slug": "summon_bison",
+      "type": "active",
+      "tier": 3,
+      "image": "s_summon_bison",
+      "description": "Summons your bonded ~lg~Bison~/~ on the targeted tile.##Keeps its ~lg~own~/~ Experience and level, independent of other companions.##Tanky bruiser: highest Max Health among companions, lower Damage; strong Knockback; lower mobility.##Death in combat causes ~r~-10 Morale~/~.",
+      "magicPhrase": "Bison, sta!",
+      "requirements": {
+        "attributes": [
+          {
+            "stats": [
+              "STR",
+              "Vitality",
+              "WIL"
+            ],
+            "logic": "or",
+            "min": 14
+          }
+        ],
+        "skills": [
+          "90d9d53a-1c56-4946-abcb-bd89c4760c7d",
+          "ba686eb8-10fc-4293-a6ae-3aed105d4018"
+        ],
+        "skillLogic": "or"
+      },
+      "combat": {
+        "kind": "summon",
+        "target": "point",
+        "range": "4",
+        "cooldown": 16,
+        "energy": 24,
+        "reserve": 0,
+        "duration": 0,
+        "aoeLength": 0,
+        "aoeWidth": 0,
+        "isMovement": false,
+        "pattern": "normal",
+        "class": "spell",
+        "bonusRange": false,
+        "starcast": "",
+        "fumble": 8,
+        "armorPenetration": "x",
+        "isMissile": false,
+        "selfCast": false,
+        "species": "bison",
+        "persistXp": 1,
+        "xpTrack": "bison",
+        "deathMoraleLoss": 10
+      }
+    },
+    {
+      "id": "5be4bd58-354b-45af-9132-c9288123d41d",
+      "name": "Savage Bond",
+      "slug": "savage_bond",
+      "type": "active",
+      "tier": 3,
+      "image": "s_savage_bond",
+      "description": "For ~w~8~/~ turns, you and your summons share a bond:##Summons gain ~lg~+10%~/~ Damage Reflection#You gain ~lg~+8%~/~ Life Drain while any summon is alive##If a summon would die during the bond, it instead survives at ~w~1~/~ Health once (then the bond ends).",
+      "magicPhrase": "Vincula fera!",
+      "requirements": {
+        "attributes": [
+          {
+            "stats": [
+              "Vitality",
+              "WIL"
+            ],
+            "logic": "or",
+            "min": 14
+          }
+        ],
+        "skills": [
+          "a358292e-75df-40aa-a9cc-c1fdd5328a03",
+          "c4e8f1a2-3b5d-4e6f-9a0b-1c2d3e4f5a6b",
+          "e3cbf27b-c139-4cb1-8f1b-d2037e9d4f3e"
+        ],
+        "skillLogic": "or"
+      },
+      "combat": {
+        "kind": "self_buff",
+        "target": "none",
+        "range": "0",
+        "cooldown": 18,
+        "energy": 20,
+        "reserve": 0,
+        "duration": 8,
+        "aoeLength": 0,
+        "aoeWidth": 0,
+        "isMovement": false,
+        "pattern": "normal",
+        "class": "spell",
+        "bonusRange": false,
+        "starcast": "",
+        "fumble": 4,
+        "armorPenetration": "x",
+        "isMissile": false,
+        "selfCast": true,
+        "buffTurns": 8,
+        "summonReflect": 10,
+        "lifeDrain": 8,
+        "cheatDeath": 1
+      }
+    },
+    {
+      "id": "d5f9a2b3-4c6e-4f70-8b1c-2d3e4f5a6b7c",
+      "name": "Summon Gulon",
+      "slug": "summon_gulon",
+      "type": "active",
+      "tier": 4,
+      "image": "s_summon_gulon",
+      "description": "Summons your bonded ~lg~Gulon~/~ on the targeted tile.##Keeps its ~lg~own~/~ Experience and level, independent of other companions.##Apex predator: high Damage and Crit; feeds off Hunt Command marks.##Death in combat causes ~r~-12 Morale~/~.",
+      "magicPhrase": "Gulo, surge!",
+      "requirements": {
+        "attributes": [
+          {
+            "stats": [
+              "STR",
+              "AGL",
+              "WIL"
+            ],
+            "logic": "or",
+            "min": 20
+          }
+        ],
+        "skills": [
+          "a3e16c2c-4bb9-43b1-bd04-d5d29a84e566",
+          "c4e8f1a2-3b5d-4e6f-9a0b-1c2d3e4f5a6b"
+        ],
+        "skillLogic": "or"
+      },
+      "combat": {
+        "kind": "summon",
+        "target": "point",
+        "range": "5",
+        "cooldown": 18,
+        "energy": 28,
+        "reserve": 0,
+        "duration": 0,
+        "aoeLength": 0,
+        "aoeWidth": 0,
+        "isMovement": false,
+        "pattern": "normal",
+        "class": "spell",
+        "bonusRange": false,
+        "starcast": "",
+        "fumble": 8,
+        "armorPenetration": "x",
+        "isMissile": false,
+        "selfCast": false,
+        "species": "gulon",
+        "persistXp": 1,
+        "xpTrack": "gulon",
+        "deathMoraleLoss": 12
+      }
+    },
+    {
+      "id": "1ed35067-a689-4484-a645-b80834b8aaa0",
+      "name": "Kindred Spirit",
+      "slug": "kindred_spirit",
+      "type": "passive",
+      "tier": 4,
+      "image": "s_kindred_spirit",
+      "description": "Your bond with beasts deepens.##Each companion's Experience gain ~lg~+25%~/~ (still separate per species).##Morale loss from summon death is reduced by ~lg~50%~/~.##While you have at least two summons active: ~lg~+5%~/~ Magic Power and ~lg~+5%~/~ Fortitude.",
+      "magicPhrase": "Animae iunctae!",
+      "requirements": {
+        "attributes": [
+          {
+            "stats": [
+              "WIL",
+              "Vitality",
+              "PRC"
+            ],
+            "logic": "or",
+            "min": 20
+          }
+        ],
+        "skills": [
+          "a358292e-75df-40aa-a9cc-c1fdd5328a03",
+          "c4e8f1a2-3b5d-4e6f-9a0b-1c2d3e4f5a6b",
+          "e3cbf27b-c139-4cb1-8f1b-d2037e9d4f3e"
+        ],
+        "skillLogic": "or"
+      }
+    },
+    {
+      "id": "fe5164c9-22f8-4f8d-a3d7-3d83f72813ce",
+      "name": "Primal Apex",
+      "slug": "primal_apex",
+      "type": "active",
+      "tier": 4,
+      "image": "s_primal_apex",
+      "description": "For ~w~5~/~ turns, all active summons enter ~lg~\"Primal Apex\"~/~:##~lg~+15%~/~ Weapon Damage#~lg~+10%~/~ Crit Chance#~lg~+15%~/~ Max Health (temporary)##During Apex, each summon gains ~lg~bonus Experience~/~ on hits into its ~lg~own~/~ XP track.##When Apex ends, each participating summon is Exhausted for ~w~2~/~ turns.",
+      "magicPhrase": "Apex primus!",
+      "requirements": {
+        "attributes": [
+          {
+            "stats": [
+              "STR",
+              "AGL",
+              "WIL"
+            ],
+            "logic": "or",
+            "min": 20
+          }
+        ],
+        "skills": [
+          "5be4bd58-354b-45af-9132-c9288123d41d"
+        ],
+        "skillLogic": "and"
+      },
+      "combat": {
+        "kind": "self_buff",
+        "target": "none",
+        "range": "0",
+        "cooldown": 24,
+        "energy": 28,
+        "reserve": 0,
+        "duration": 5,
+        "aoeLength": 0,
+        "aoeWidth": 0,
+        "isMovement": false,
+        "pattern": "normal",
+        "class": "spell",
+        "bonusRange": false,
+        "starcast": "",
+        "fumble": 6,
+        "armorPenetration": "x",
+        "isMissile": false,
+        "selfCast": true,
+        "buffTurns": 5,
+        "summonDamagePct": 15,
+        "summonCrit": 10,
+        "summonTempHpPct": 15,
+        "bonusXpOnHit": 1,
+        "exhaustTurns": 2
+      }
+    }
+  ],
+  "tree": {
+    "tiers": [
+      {
+        "tier": 1,
+        "skills": [
+          "4d477236-e51e-4f7d-9bc6-2fbbfbe89487",
+          "3a09952b-9014-417c-8c11-e2b650c5e7c2",
+          "b07c6617-aed7-48fd-9617-5754c1fd1cff"
+        ]
+      },
+      {
+        "tier": 2,
+        "skills": [
+          "a3e16c2c-4bb9-43b1-bd04-d5d29a84e566",
+          "ba686eb8-10fc-4293-a6ae-3aed105d4018",
+          "90d9d53a-1c56-4946-abcb-bd89c4760c7d"
+        ]
+      },
+      {
+        "tier": 3,
+        "skills": [
+          "a358292e-75df-40aa-a9cc-c1fdd5328a03",
+          "c4e8f1a2-3b5d-4e6f-9a0b-1c2d3e4f5a6b",
+          "e3cbf27b-c139-4cb1-8f1b-d2037e9d4f3e",
+          "5be4bd58-354b-45af-9132-c9288123d41d"
+        ]
+      },
+      {
+        "tier": 4,
+        "skills": [
+          "d5f9a2b3-4c6e-4f70-8b1c-2d3e4f5a6b7c",
+          "1ed35067-a689-4484-a645-b80834b8aaa0",
+          "fe5164c9-22f8-4f8d-a3d7-3d83f72813ce"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "4d477236-e51e-4f7d-9bc6-2fbbfbe89487",
+        "to": "a3e16c2c-4bb9-43b1-bd04-d5d29a84e566"
+      },
+      {
+        "from": "a3e16c2c-4bb9-43b1-bd04-d5d29a84e566",
+        "to": "a358292e-75df-40aa-a9cc-c1fdd5328a03"
+      },
+      {
+        "from": "a3e16c2c-4bb9-43b1-bd04-d5d29a84e566",
+        "to": "d5f9a2b3-4c6e-4f70-8b1c-2d3e4f5a6b7c"
+      },
+      {
+        "from": "3a09952b-9014-417c-8c11-e2b650c5e7c2",
+        "to": "ba686eb8-10fc-4293-a6ae-3aed105d4018"
+      },
+      {
+        "from": "ba686eb8-10fc-4293-a6ae-3aed105d4018",
+        "to": "a358292e-75df-40aa-a9cc-c1fdd5328a03"
+      },
+      {
+        "from": "ba686eb8-10fc-4293-a6ae-3aed105d4018",
+        "to": "c4e8f1a2-3b5d-4e6f-9a0b-1c2d3e4f5a6b"
+      },
+      {
+        "from": "ba686eb8-10fc-4293-a6ae-3aed105d4018",
+        "to": "e3cbf27b-c139-4cb1-8f1b-d2037e9d4f3e"
+      },
+      {
+        "from": "c4e8f1a2-3b5d-4e6f-9a0b-1c2d3e4f5a6b",
+        "to": "d5f9a2b3-4c6e-4f70-8b1c-2d3e4f5a6b7c"
+      },
+      {
+        "from": "c4e8f1a2-3b5d-4e6f-9a0b-1c2d3e4f5a6b",
+        "to": "1ed35067-a689-4484-a645-b80834b8aaa0"
+      },
+      {
+        "from": "b07c6617-aed7-48fd-9617-5754c1fd1cff",
+        "to": "90d9d53a-1c56-4946-abcb-bd89c4760c7d"
+      },
+      {
+        "from": "90d9d53a-1c56-4946-abcb-bd89c4760c7d",
+        "to": "c4e8f1a2-3b5d-4e6f-9a0b-1c2d3e4f5a6b"
+      },
+      {
+        "from": "90d9d53a-1c56-4946-abcb-bd89c4760c7d",
+        "to": "e3cbf27b-c139-4cb1-8f1b-d2037e9d4f3e"
+      },
+      {
+        "from": "e3cbf27b-c139-4cb1-8f1b-d2037e9d4f3e",
+        "to": "1ed35067-a689-4484-a645-b80834b8aaa0"
+      },
+      {
+        "from": "a358292e-75df-40aa-a9cc-c1fdd5328a03",
+        "to": "5be4bd58-354b-45af-9132-c9288123d41d"
+      },
+      {
+        "from": "c4e8f1a2-3b5d-4e6f-9a0b-1c2d3e4f5a6b",
+        "to": "5be4bd58-354b-45af-9132-c9288123d41d"
+      },
+      {
+        "from": "e3cbf27b-c139-4cb1-8f1b-d2037e9d4f3e",
+        "to": "5be4bd58-354b-45af-9132-c9288123d41d"
+      },
+      {
+        "from": "a358292e-75df-40aa-a9cc-c1fdd5328a03",
+        "to": "1ed35067-a689-4484-a645-b80834b8aaa0"
+      },
+      {
+        "from": "5be4bd58-354b-45af-9132-c9288123d41d",
+        "to": "fe5164c9-22f8-4f8d-a3d7-3d83f72813ce"
+      }
+    ]
+  },
+  "items": {
+    "books": [
+      {
+        "id": "3de0f3ac-b6e3-4926-abff-ea7003aaf7e6",
+        "name": "Beastbinder's Treatise II",
+        "slug": "sm_treatise_t2",
+        "type": "book",
+        "tier": 2,
+        "enabled": true,
+        "image": "s_inv_sm_treatise_t2",
+        "lootImage": "s_loot_sm_treatise",
+        "description": "Field notes that open the second circle of the Summoner school."
+      },
+      {
+        "id": "59ee4f51-aa15-4806-ba7e-1e156f0e45e0",
+        "name": "Beastbinder's Treatise III",
+        "slug": "sm_treatise_t3",
+        "type": "book",
+        "tier": 3,
+        "enabled": true,
+        "image": "s_inv_sm_treatise_t3",
+        "lootImage": "s_loot_sm_treatise",
+        "description": "A deeper volume of beast-lore that opens the third circle of the Summoner school."
+      }
+    ],
+    "enchant": [
+      {
+        "id": "7a1b2c3d-4e5f-6789-abcd-ef0123456789",
+        "name": "Companion Health",
+        "slug": "sm_summon_health",
+        "type": "enchant",
+        "tier": 0,
+        "enabled": true,
+        "stat": "sm_Summon_Health",
+        "slot": "all",
+        "rarity": 2,
+        "value": 8,
+        "description": "Increases the Max Health pool of your summons."
+      },
+      {
+        "id": "8b2c3d4e-5f60-789a-bcde-f01234567890",
+        "name": "Companion Damage",
+        "slug": "sm_summon_damage",
+        "type": "enchant",
+        "tier": 0,
+        "enabled": true,
+        "stat": "sm_Summon_Damage",
+        "slot": "all",
+        "rarity": 2,
+        "value": 8,
+        "description": "Increases the Weapon Damage of your summons."
+      },
+      {
+        "id": "9c3d4e5f-6071-89ab-cdef-012345678901",
+        "name": "Companion Experience",
+        "slug": "sm_summon_xp",
+        "type": "enchant",
+        "tier": 0,
+        "enabled": true,
+        "stat": "sm_Summon_XP",
+        "slot": "all",
+        "rarity": 3,
+        "value": 10,
+        "description": "Increases Experience gained by each summon into its own XP track."
+      }
+    ]
+  }
+}

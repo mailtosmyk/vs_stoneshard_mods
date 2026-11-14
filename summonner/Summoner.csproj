@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Summoner</RootNamespace>
+    <AssemblyName>Summoner</AssemblyName>
+    <NoWarn>$(NoWarn);CA1416;MSB3277;MSB3270</NoWarn>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="ModShardLauncher">
+      <HintPath>..\..\msl\ModShardLauncher.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UndertaleModLib">
+      <HintPath>..\..\msl\UndertaleModLib.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="src\summonner.json" LogicalName="summonner.json" />
+    <None Include="src\summonner.json" Link="summonner.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="src\localization.json" Link="localization.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="icon.png" Condition="Exists('icon.png')" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="Sprites\**\*" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <Target Name="EmbedSummonerJson" BeforeTargets="BeforeCompile">
+    <PropertyGroup>
+      <_EmbedPy Condition="Exists('$(MSBuildProjectDirectory)\python\embed_json.py')">$(MSBuildProjectDirectory)\python\embed_json.py</_EmbedPy>
+      <_PythonExe Condition="'$(OS)' == 'Windows_NT'">python</_PythonExe>
+      <_PythonExe Condition="'$(OS)' != 'Windows_NT'">python3</_PythonExe>
+    </PropertyGroup>
+    <Error Condition="'$(_EmbedPy)' == ''" Text="python/embed_json.py missing." />
+    <Exec Command="$(_PythonExe) &quot;$(_EmbedPy)&quot; &quot;$(MSBuildProjectDirectory)&quot;"
+          StandardOutputImportance="high"
+          StandardErrorImportance="high" />
+  </Target>
+
+</Project>

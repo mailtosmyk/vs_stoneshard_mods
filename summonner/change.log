@@ -1,0 +1,4 @@
+0.1.0
+- Initial Summoner school scaffold: 13 skills, per-species XP tracks, balance pass.
+- Summons dismiss safely when changing map tiles / rooms (XP kept, no Morale loss).
+- Skill icons and .sml build pipeline.
