@@ -19,8 +19,9 @@ if (_empty == 2)
     Miscast_Chance = clamp((Miscast_Chance * 0.5), 0, 100)
 }
 
+// Level-cap tooltip: Mastery of Binding removes the limit.
 var _mastery = asset_get_index("o_nm_mastery_of_binding_ico")
-var _bonus = 3
 if (_mastery != -1 && instance_exists(_mastery) && _mastery.is_open)
-    _bonus = 4
-ds_map_replace(data, "LEVL", (owner.LVL + _bonus))
+    ds_map_replace(data, "LEVL", 99)
+else
+    ds_map_replace(data, "LEVL", (owner.LVL + 3))

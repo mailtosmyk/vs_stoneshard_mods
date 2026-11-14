@@ -38,18 +38,21 @@ if ((!is_execute) && instance_exists(owner))
         }
     }
 
+    // Mastery of Binding removes the summon level cap entirely.
     var _cap = (owner.LVL + 3)
+    var _noCap = false
     var _mastery = asset_get_index("o_nm_mastery_of_binding_ico")
     if (_mastery != -1 && instance_exists(_mastery) && _mastery.is_open)
-        _cap += 1
+        _noCap = true
 
     scr_guiAnimation_ext((xx + 13), (yy + 13), s_wraithsummon_hit, 1, 1, 0, 16777215, 0)
     scr_audio_play_at(snd_skill_wraith_summoning_hit)
 
+    // Tile-target summon: no corpse required (same as Summon Skeleton).
     var _wraith = -4
     with (scr_enemy_create((xx + 13), (yy + 13), _unit, false))
     {
-        if (LVL > _cap)
+        if ((!_noCap) && (LVL > _cap))
         {
             instance_destroy()
         }

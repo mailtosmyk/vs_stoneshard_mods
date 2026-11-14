@@ -44,7 +44,7 @@ if ((!is_execute) && instance_exists(owner))
     var _mastery = asset_get_index("o_nm_mastery_of_binding_ico")
     if (_mastery != -1 && instance_exists(_mastery) && _mastery.is_open)
     {
-        _turns += 4.0
+        _turns += 10.0
         _hpPct = clamp(_hpPct + 10.0, 20.0, 100.0)
         _mpPct = clamp(_mpPct + 10.0, 15.0, 100.0)
     }

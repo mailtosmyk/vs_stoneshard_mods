@@ -26,10 +26,12 @@ else
 if (!_hasMastery)
     _pct = clamp(_pct, 0.5, 0.55)
 var _mpPct = 0.5
+// Mastery of Binding removes the summon level cap entirely.
 var _cap = (owner.LVL + 3)
-if _hasMastery
-    _cap += 1
+var _noCap = _hasMastery
 var _turns = 20.0
+if _hasMastery
+    _turns += 10.0
 
 // Drop previous thrall timer (Destroy unbinds the linked thrall).
 var _timer = asset_get_index("o_b_nm_thrall_timer")
@@ -57,7 +59,7 @@ with (o_enemy)
 var _thrall = -4
 with (scr_enemy_create(x, y, unit_object, false))
 {
-    if (LVL > _cap)
+    if ((!_noCap) && (LVL > _cap))
     {
         instance_destroy()
     }

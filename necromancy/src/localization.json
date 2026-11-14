@@ -277,11 +277,11 @@
         "Russian": "Мастерство связывания"
       },
       "description": {
-        "English": "Unbinding allies doesn't take a turn and replenishes Energy equal to 10% of your Magic Power. Increases the level of summoning abilities by 1. Summon Skeleton: +4 turns base duration and +10% Max Health / Max Energy. Resurrection thralls start at 60% Max Health. Still limited to one safe Undead at a time unless a higher-tier skill allows more.",
-        "Japanese": "味方の束縛解除はターンを消費せず、魔力の10%相当のエネルギーを回復する。召喚系能力のレベル+1。スケルトン召喚：基本持続+4ターン、最大体力/最大エネルギー+10%。復活の下僕は最大体力60%で開始。上位スキルがない限り、安全なアンデッドは同時に1体まで。",
-        "Chinese": "解除盟友束缚不消耗回合，并回复相当于魔法强度10%的能量。召唤类技能等级+1。召唤骷髅：基础持续时间+4回合，最大生命/最大能量+10%。复活仆从以60%最大生命起步。除非更高阶技能允许，否则同时仅可安全控制一个亡灵。",
-        "German": "Lösen von Verbündeten kostet keinen Zug und stellt Energie in Höhe von 10% eurer Magiekraft wieder her. Erhöht das Level von Beschwörungsfähigkeiten um 1. Skelett beschwören: +4 Züge Basisdauer und +10% max. Gesundheit / max. Energie. Auferstehungsdiener starten mit 60% max. Gesundheit. Weiterhin auf einen sicheren Untoten gleichzeitig begrenzt, sofern keine höhere Fähigkeit mehr erlaubt.",
-        "Russian": "Освобождение союзников не тратит ход и восстанавливает энергию, равную 10% вашей силы магии. Повышает уровень способностей призыва на 1. Призыв скелета: +4 хода базовой длительности и +10% макс. здоровья / макс. энергии. Слуги воскрешения начинают с 60% макс. здоровья. По-прежнему не более одной безопасной нежити одновременно, если более высокий навык не позволяет больше."
+        "English": "Unbinding allies doesn't take a turn and replenishes Energy equal to 10% of your Magic Power. Removes the level limit of summoning abilities. Summon Skeleton: +10 turns base duration and +10% Max Health / Max Energy. Resurrection thralls start at 60% Max Health and last +10 turns. Still limited to one safe Undead at a time unless a higher-tier skill allows more.",
+        "Japanese": "味方の束縛解除はターンを消費せず、魔力の10%相当のエネルギーを回復する。召喚系能力のレベル上限を撤廃。スケルトン召喚：基本持続+10ターン、最大体力/最大エネルギー+10%。復活の下僕は最大体力60%で開始し、持続+10ターン。上位スキルがない限り、安全なアンデッドは同時に1体まで。",
+        "Chinese": "解除盟友束缚不消耗回合，并回复相当于魔法强度10%的能量。移除召唤类技能的等级上限。召唤骷髅：基础持续时间+10回合，最大生命/最大能量+10%。复活仆从以60%最大生命起步，并额外持续+10回合。除非更高阶技能允许，否则同时仅可安全控制一个亡灵。",
+        "German": "Lösen von Verbündeten kostet keinen Zug und stellt Energie in Höhe von 10% eurer Magiekraft wieder her. Hebt das Level-Limit von Beschwörungsfähigkeiten auf. Skelett beschwören: +10 Züge Basisdauer und +10% max. Gesundheit / max. Energie. Auferstehungsdiener starten mit 60% max. Gesundheit und halten +10 Züge länger. Weiterhin auf einen sicheren Untoten gleichzeitig begrenzt, sofern keine höhere Fähigkeit mehr erlaubt.",
+        "Russian": "Освобождение союзников не тратит ход и восстанавливает энергию, равную 10% вашей силы магии. Снимает ограничение уровня способностей призыва. Призыв скелета: +10 ходов базовой длительности и +10% макс. здоровья / макс. энергии. Слуги воскрешения начинают с 60% макс. здоровья и длятся на +10 ходов дольше. По-прежнему не более одной безопасной нежити одновременно, если более высокий навык не позволяет больше."
       },
       "magicPhrase": {
         "English": "Vinculum Mortis!",
@@ -402,11 +402,11 @@
         "Russian": "Призыв умертвия"
       },
       "description": {
-        "English": "Summons a Wraith on the targeted tile; type scales with Willpower: Wraith below 25, Wraith Squire at 25–29, Wraith Warrior at 30–39, Wraith Commander at 40+. Removes \"Essence Charge\". If no weapon equipped: -50% Cooldown Duration and Halves Miscast Chance. Can't summon Wraiths higher than the skill's level cap.",
-        "Japanese": "対象タイルにレイスを召喚する。種類は意志力に比例：25未満は亡霊、25–29は従騎士の亡霊、30–39は戦士の亡霊、40以上は指揮官の亡霊。「本質充填」を除去。武器未装備時：クールダウン-50%、詠唱失敗率半減。スキルのレベル上限を超えるレイスは召喚不可。",
-        "Chinese": "在目标格子召唤怨灵；类型随意志力提升：低于25为幽魂，25–29为幽魂扈从，30–39为幽魂骑士，40+为幽魂指挥官。移除“精华充能”。未装备武器时：冷却时间-50%，施法失败几率减半。无法召唤高于技能等级上限的怨灵。",
-        "German": "Beschwört einen Geist auf dem Zielfeld; Typ skaliert mit Willenskraft: Geist unter 25, Geisterknappe bei 25–29, Geisterkrieger bei 30–39, Geisterkommandant ab 40+. Entfernt „Essenzladung“. Ohne Waffe: -50% Abklingzeit und halbe Fehlschlagchance. Keine Geister über dem Level-Limit.",
-        "Russian": "Призывает умертвие на выбранную клетку; тип зависит от Воли: Умертвие ниже 25, Умертвие-оруженосец при 25–29, Умертвие-воитель при 30–39, Умертвие-командор при 40+. Снимает «Заряд сущности». Без оружия: -50% длительности перезарядки и вдвое меньший шанс сбоя. Нельзя призвать умертвия выше уровня навыка."
+        "English": "Summons a Wraith on the targeted tile (no corpse required); type scales with Willpower: Wraith below 25, Wraith Squire at 25–29, Wraith Warrior at 30–39, Wraith Commander at 40+. Removes \"Essence Charge\". If no weapon equipped: -50% Cooldown Duration and Halves Miscast Chance. With \"Mastery of Binding\", there is no summon level cap.",
+        "Japanese": "対象タイルにレイスを召喚する（死体不要）。種類は意志力に比例：25未満は亡霊、25–29は従騎士の亡霊、30–39は戦士の亡霊、40以上は指揮官の亡霊。「本質充填」を除去。武器未装備時：クールダウン-50%、詠唱失敗率半減。「束縛の極意」があると召喚レベル上限なし。",
+        "Chinese": "在目标格子召唤怨灵（无需尸体）；类型随意志力提升：低于25为幽魂，25–29为幽魂扈从，30–39为幽魂骑士，40+为幽魂指挥官。移除“精华充能”。未装备武器时：冷却时间-50%，施法失败几率减半。拥有“束缚精通”时无召唤等级上限。",
+        "German": "Beschwört einen Geist auf dem Zielfeld (keine Leiche nötig); Typ skaliert mit Willenskraft: Geist unter 25, Geisterknappe bei 25–29, Geisterkrieger bei 30–39, Geisterkommandant ab 40+. Entfernt „Essenzladung“. Ohne Waffe: -50% Abklingzeit und halbe Fehlschlagchance. Mit „Meisterschaft der Bindung“ gibt es kein Beschwörungs-Level-Limit.",
+        "Russian": "Призывает умертвие на выбранную клетку (труп не нужен); тип зависит от Воли: Умертвие ниже 25, Умертвие-оруженосец при 25–29, Умертвие-воитель при 30–39, Умертвие-командор при 40+. Снимает «Заряд сущности». Без оружия: -50% длительности перезарядки и вдвое меньший шанс сбоя. С «Мастерством связывания» нет ограничения уровня призыва."
       },
       "magicPhrase": {
         "English": "Lagura mithensa!",

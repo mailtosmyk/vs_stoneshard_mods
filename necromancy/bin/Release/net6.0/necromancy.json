@@ -446,7 +446,7 @@
       "type": "passive",
       "tier": 3,
       "image": "s_mastery_of_binding",
-      "description": "Unbinding allies doesn't take a turn and replenishes Energy equal to ~lg~10%~/~ of your Magic Power.##Increases the level of summoning abilities by ~lg~1~/~.##Summon Skeleton: ~lg~+4~/~ turns base duration and ~lg~+10%~/~ Max Health / Max Energy.##Resurrection thralls start at ~lg~60%~/~ Max Health.##Still limited to one safe Undead at a time unless a higher-tier skill allows more.",
+      "description": "Unbinding allies doesn't take a turn and replenishes Energy equal to ~lg~10%~/~ of your Magic Power.##Removes the level limit of summoning abilities.##Summon Skeleton: ~lg~+10~/~ turns base duration and ~lg~+10%~/~ Max Health / Max Energy.##Resurrection thralls start at ~lg~60%~/~ Max Health and last ~lg~+10~/~ turns.##Still limited to one safe Undead at a time unless a higher-tier skill allows more.",
       "magicPhrase": "Vinculum Mortis!",
       "requirements": {
         "attributes": [
@@ -575,7 +575,7 @@
       "type": "active",
       "tier": 4,
       "image": "s_wraith_summoning",
-      "description": "Summons a Wraith on the targeted tile; type scales with Willpower: ~lg~Wraith~/~ below ~w~25~/~, ~lg~Wraith Squire~/~ at ~w~25~/~–~w~29~/~, ~lg~Wraith Warrior~/~ at ~w~30~/~–~w~39~/~, ~lg~Wraith Commander~/~ at ~w~40~/~+.##Removes ~lg~\"Essence Charge\"~/~.##If no weapon equipped: ~r~-50%~/~ Cooldown Duration and Halves Miscast Chance.##Can't summon Wraiths higher than the skill's level cap.",
+      "description": "Summons a Wraith on the targeted tile (no corpse required); type scales with Willpower: ~lg~Wraith~/~ below ~w~25~/~, ~lg~Wraith Squire~/~ at ~w~25~/~–~w~29~/~, ~lg~Wraith Warrior~/~ at ~w~30~/~–~w~39~/~, ~lg~Wraith Commander~/~ at ~w~40~/~+.##Removes ~lg~\"Essence Charge\"~/~.##If no weapon equipped: ~r~-50%~/~ Cooldown Duration and Halves Miscast Chance.##With ~lg~\"Mastery of Binding\"~/~, there is no summon level cap.",
       "magicPhrase": "Lagura mithensa!",
       "requirements": {
         "attributes": [

@@ -100,7 +100,7 @@ Type: Passive
 Level: 4
 Requirements: Level 22 or Attributes: PRC or WIL >= 20; Skills: Resurrection
 Image: s_mastery_of_binding
-Description: Unbinding allies doesn't take a turn and replenishes Energy equal to 10% of your Magic Power. Increases the level of summoning abilities by 1. Summon Skeleton: +4 turns base duration and +10% Max Health / Max Energy. Resurrection thralls start at 60% Max Health. Still limited to one safe Undead at a time unless a higher-tier skill allows more.
+Description: Unbinding allies doesn't take a turn and replenishes Energy equal to 10% of your Magic Power. Removes the level limit of summoning abilities. Summon Skeleton: +10 turns base duration and +10% Max Health / Max Energy. Resurrection thralls start at 60% Max Health and last +10 turns. Still limited to one safe Undead at a time unless a higher-tier skill allows more.
 
 Name: Blooming Madness
 Type: Passive
@@ -114,4 +114,4 @@ Type: Active
 Level: 4
 Requirements: Level 22 or Attributes: AGL or WIL or PRC >= 20; Skills: Black Sepulchre
 Image: s_wraith_summoning
-Description: Summons a Wraith on the targeted tile; type scales with Willpower: Wraith below 25, Wraith Squire at 25–29, Wraith Warrior at 30–39, Wraith Commander at 40+. Removes "Essence Charge". If no weapon equipped: -50% Cooldown Duration and Halves Miscast Chance. Can't summon Wraiths higher than the skill's level cap.
+Description: Summons a Wraith on the targeted tile (no corpse required); type scales with Willpower: Wraith below 25, Wraith Squire at 25–29, Wraith Warrior at 30–39, Wraith Commander at 40+. Removes "Essence Charge". If no weapon equipped: -50% Cooldown Duration and Halves Miscast Chance. With "Mastery of Binding", there is no summon level cap.
