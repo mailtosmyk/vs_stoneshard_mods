@@ -11,6 +11,7 @@ internal static class AlchemyShops
     public static void Patch()
     {
         var recipes = AlchemyCatalog.EnabledRecipes
+            .Where(r => r.Source != AlchemyCraftSource.BaseRecipe)
             .GroupBy(r => r.Elixir, StringComparer.OrdinalIgnoreCase)
             .Select(g => g.First())
             .ToArray();

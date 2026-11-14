@@ -1,3 +1,13 @@
+0.2.9
+- Add workbench recipes (known from start) to smelt 2 nuggets into copper/iron/gold ingots.
+- Add copper and gold ingot items with inventory icons; price = nuggets×2 + 10%.
+- Align iron ingot sell price with the same smelting economy.
+- Spirit craft recipes are known from the start (no schematic).
+
+0.2.8
+- Add craft recipe for Nistrian Flame Flask (bomb_fire): flask, spirit, oil, turquoise.
+- Document custom elixirs/throwables/coatings on the Nexus description (icons, effects, ingredients).
+
 0.2.7
 - Study schematics with 3 of the same product plus any gem (was 4).
 - Ignore craftkits in the station so reverse-engineering works at craft stations.

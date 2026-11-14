@@ -15,6 +15,7 @@ internal static class AlchemyItems
     public static void Patch()
     {
         PatchCustomProducts();
+        PatchVanillaMaterialPrices();
         PatchRecipeScrolls();
         // MSL InjectTableItemStats still emits the pre-0.9.4 column layout (97 cols).
         // Current table_items_stats header is 107 cols; short rows crash
@@ -29,9 +30,11 @@ internal static class AlchemyItems
             var invParent = product.Kind switch
             {
                 AlchemyProductKind.Throwable => "o_inv_bombs",
-                AlchemyProductKind.Coating => "o_inv_consum_passive",
+                AlchemyProductKind.Coating or AlchemyProductKind.Material => "o_inv_consum_passive",
                 _ => "o_inv_dishes_beverage",
             };
+
+            var lootSprite = LootSpriteFor(product);
 
             var inv = Msl.AddObject(
                 name: $"o_inv_{product.Id}",
@@ -44,7 +47,7 @@ internal static class AlchemyItems
 
             Msl.AddObject(
                 name: $"o_loot_{product.Id}",
-                spriteName: product.Icon,
+                spriteName: lootSprite,
                 parentName: "o_consument_loot",
                 isVisible: true,
                 isPersistent: false,
@@ -54,26 +57,58 @@ internal static class AlchemyItems
             // o_inv_bombs / o_inv_consum_passive never call scr_consum_atr, so `name`
             // stays unset and o_inv_consum Alarm_0 crashes on loot/add.
             // Drinkables inherit o_inv_dishes_beverage which already calls it.
-            if (product.Kind is AlchemyProductKind.Throwable or AlchemyProductKind.Coating)
+            if (product.Kind is AlchemyProductKind.Throwable or AlchemyProductKind.Coating
+                or AlchemyProductKind.Material)
                 EnsureConsumCreate(inv, product.Id);
 
-            var (cat, subcat, material, tags) = StatsFor(product);
+            var (cat, subcat, material, weight, tags) = StatsFor(product);
             Msl.InjectTableItemStats(
                 product.Id,
                 material,
-                Msl.ItemStatsWeight.Light,
+                weight,
                 Price: Math.Max(1, product.Price),
                 Cat: cat,
                 Subcat: subcat,
                 tags: tags);
 
             var desc = string.IsNullOrWhiteSpace(product.Description)
-                ? $"An alchemical preparation: {product.Name}."
+                ? product.Kind == AlchemyProductKind.Material
+                    ? product.Name
+                    : $"An alchemical preparation: {product.Name}."
                 : product.Description;
 
             // consum_name / consum_mid (effects) / consum_desc
             InjectLocalization(product.Id, product.Name, desc, desc);
         }
+    }
+
+    /// <summary>
+    /// Align vanilla iron_ingot sell price with the nugget×2+10% smelting economy.
+    /// </summary>
+    static void PatchVanillaMaterialPrices()
+    {
+        const string id = "iron_ingot";
+        if (!AlchemyCatalog.Root.Ore.Any(o =>
+                string.Equals(o.Id, id, StringComparison.OrdinalIgnoreCase) && o.Price is int))
+            return;
+
+        var price = AlchemyCatalog.Root.Ore
+            .First(o => string.Equals(o.Id, id, StringComparison.OrdinalIgnoreCase))
+            .Price!.Value;
+
+        Msl.LoadGML("gml_GlobalScript_table_items_stats")
+            .Apply(lines => lines.Select(line =>
+                line.Replace("iron_ingot;;70;70;", $"iron_ingot;;{price};{price};", StringComparison.Ordinal)))
+            .Save();
+    }
+
+    static string LootSpriteFor(AlchemyProduct product)
+    {
+        if (product.Kind != AlchemyProductKind.Material)
+            return product.Icon;
+        if (product.Icon.StartsWith("s_inv_", StringComparison.Ordinal))
+            return "s_loot_" + product.Icon["s_inv_".Length..];
+        return product.Icon;
     }
 
     /// <summary>
@@ -108,7 +143,12 @@ internal static class AlchemyItems
     {
         var products = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         foreach (var recipe in AlchemyCatalog.EnabledRecipes)
+        {
+            // Base recipes are known from the start — no schematic item.
+            if (recipe.Source == AlchemyCraftSource.BaseRecipe)
+                continue;
             products.Add(recipe.Elixir);
+        }
 
         foreach (var productId in products)
         {
@@ -144,23 +184,35 @@ internal static class AlchemyItems
         }
     }
 
-    static (Msl.ItemStatsCategory Cat, Msl.ItemStatsSubcategory Subcat, Msl.ItemStatsMaterial Material, Msl.ItemStatsTags Tags)
+    static (Msl.ItemStatsCategory Cat, Msl.ItemStatsSubcategory Subcat, Msl.ItemStatsMaterial Material,
+            Msl.ItemStatsWeight Weight, Msl.ItemStatsTags Tags)
         StatsFor(AlchemyProduct product) => product.Kind switch
         {
             AlchemyProductKind.Throwable => (
                 Msl.ItemStatsCategory.tool,
                 Msl.ItemStatsSubcategory.none,
                 Msl.ItemStatsMaterial.glass,
+                Msl.ItemStatsWeight.Light,
                 Msl.ItemStatsTags.commonalchemy),
             AlchemyProductKind.Coating => (
                 Msl.ItemStatsCategory.additive,
                 Msl.ItemStatsSubcategory.alchemy,
                 Msl.ItemStatsMaterial.organic,
+                Msl.ItemStatsWeight.Light,
                 Msl.ItemStatsTags.commonalchemy),
+            AlchemyProductKind.Material => (
+                Msl.ItemStatsCategory.valuable,
+                Msl.ItemStatsSubcategory.none,
+                product.Id.Contains("gold", StringComparison.OrdinalIgnoreCase)
+                    ? Msl.ItemStatsMaterial.gold
+                    : Msl.ItemStatsMaterial.metal,
+                Msl.ItemStatsWeight.Medium,
+                Msl.ItemStatsTags.common),
             _ => (
                 Msl.ItemStatsCategory.medicine,
                 Msl.ItemStatsSubcategory.potion,
                 Msl.ItemStatsMaterial.glass,
+                Msl.ItemStatsWeight.Light,
                 Msl.ItemStatsTags.commonalchemy),
         };
 

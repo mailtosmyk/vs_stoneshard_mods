@@ -1456,6 +1456,14 @@
       "effects": []
     },
     {
+      "id": "copper_ingot",
+      "name": "Copper Ingot",
+      "price": 44,
+      "description": "A cast bar of copper. Useful for alloys, fittings, and trade with smiths.",
+      "effects": [],
+      "icon": "s_inv_copper_ingot"
+    },
+    {
       "id": "gold_nugget",
       "name": "Gold Nugget",
       "price": 80,
@@ -1463,9 +1471,17 @@
       "effects": []
     },
     {
+      "id": "gold_ingot",
+      "name": "Gold Ingot",
+      "price": 176,
+      "description": "A gleaming bar of refined gold. Merchants and jewelers pay handsomely for it.",
+      "effects": [],
+      "icon": "s_inv_gold_ingot"
+    },
+    {
       "id": "iron_ingot",
       "name": "Iron Ingot",
-      "price": 70,
+      "price": 66,
       "description": "An ingot of solid iron that will be readily purchased by any blacksmith.",
       "effects": []
     },
@@ -2856,6 +2872,26 @@
       "icon": "s_inv_alch_flame_flask"
     },
     {
+      "id": "bomb_fire",
+      "name": "Nistrian Flame Flask",
+      "price": 140,
+      "description": "The recipe for Nistrian flame, the flasks of which occasionally find their way to Aldor, still remains a secret despite the efforts of many talented scholars. Alas, no one has yet invented an alternative that burns at least half as well.",
+      "effects": [
+        {
+          "throw_fire_damage": 20
+        },
+        {
+          "throw_caustic_damage": 5
+        },
+        {
+          "throw_ignite_turns": 4
+        },
+        {
+          "throw_aoe": 3
+        }
+      ]
+    },
+    {
       "id": "venom_vial",
       "name": "Venom Vial",
       "price": 40,
@@ -3662,6 +3698,19 @@
     {
       "ingredients": [
         "flask",
+        "spirit",
+        "oil",
+        "turquoise"
+      ],
+      "enabled": true,
+      "elixir": "bomb_fire",
+      "ingredients_cost": 135,
+      "recipe_cost": 135,
+      "elixir_cost": 140
+    },
+    {
+      "ingredients": [
+        "flask",
         "puffball",
         "wormwood"
       ],
@@ -3862,6 +3911,39 @@
       "ingredients_cost": 2155,
       "recipe_cost": 2160,
       "elixir_cost": 2500
+    },
+    {
+      "ingredients": [
+        "copper_nugget",
+        "copper_nugget"
+      ],
+      "enabled": true,
+      "elixir": "copper_ingot",
+      "ingredients_cost": 40,
+      "recipe_cost": 40,
+      "elixir_cost": 44
+    },
+    {
+      "ingredients": [
+        "iron_nugget",
+        "iron_nugget"
+      ],
+      "enabled": true,
+      "elixir": "iron_ingot",
+      "ingredients_cost": 60,
+      "recipe_cost": 60,
+      "elixir_cost": 66
+    },
+    {
+      "ingredients": [
+        "gold_nugget",
+        "gold_nugget"
+      ],
+      "enabled": true,
+      "elixir": "gold_ingot",
+      "ingredients_cost": 160,
+      "recipe_cost": 160,
+      "elixir_cost": 176
     }
   ],
   "coatings": [

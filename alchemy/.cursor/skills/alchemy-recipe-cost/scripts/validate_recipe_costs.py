@@ -38,6 +38,12 @@ def main() -> int:
         print("ERROR: spirit and flask prices are required", file=sys.stderr)
         return 1
 
+    ore_outcomes = {
+        str(it["id"])
+        for it in data.get("ore") or []
+        if isinstance(it, dict) and it.get("id")
+    }
+
     failures = 0
     for i, recipe in enumerate(data.get("recipes") or []):
         label = recipe.get("elixir", f"#{i}")
@@ -63,7 +69,13 @@ def main() -> int:
 
         ingredients_cost = sum(prices[x] for x in ings)
         elixir_cost = prices[elixir_id]
-        recipe_cost = recipe_cost_of(ingredients_cost, ings, spirit, flask)
+        # Ore/material smelts skip flask+spirit surcharge and spirit/midtier rules.
+        is_material = elixir_id in ore_outcomes
+        recipe_cost = (
+            ingredients_cost
+            if is_material
+            else recipe_cost_of(ingredients_cost, ings, spirit, flask)
+        )
         minimum = math.ceil(elixir_cost * MIN_RATIO)
         maximum = elixir_cost
 
@@ -86,14 +98,14 @@ def main() -> int:
             )
             local_fail += 1
 
-        if recipe_cost > SPIRIT_COST_THRESHOLD and "spirit" not in ings:
+        if not is_material and recipe_cost > SPIRIT_COST_THRESHOLD and "spirit" not in ings:
             print(
                 f"FAIL {label}: recipe_cost {recipe_cost} > "
                 f"{SPIRIT_COST_THRESHOLD} requires spirit component"
             )
             local_fail += 1
 
-        if MIDTIER_ELIXIR_COST_MIN < elixir_cost < MIDTIER_ELIXIR_COST_MAX:
+        if not is_material and MIDTIER_ELIXIR_COST_MIN < elixir_cost < MIDTIER_ELIXIR_COST_MAX:
             missing_mid = [x for x in ("spirit", "flask") if x not in ings]
             if missing_mid:
                 print(

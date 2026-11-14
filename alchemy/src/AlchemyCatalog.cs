@@ -110,6 +110,10 @@ internal sealed class AlchemyJsonRoot
     [JsonPropertyName("coatings")]
     public List<AlchemyProductDto> Coatings { get; set; } = new();
 
+    /// <summary>Vanilla ore / metal catalog; entries with icons are mod materials.</summary>
+    [JsonPropertyName("ore")]
+    public List<AlchemyProductDto> Ore { get; set; } = new();
+
     [JsonPropertyName("recipes")]
     public List<AlchemyRecipeDto> RecipeDtos { get; set; } = new();
 
@@ -125,9 +129,10 @@ internal sealed class AlchemyJsonRoot
         IndexSection(Elixirs, AlchemyProductKind.Elixir);
         IndexSection(Throwables, AlchemyProductKind.Throwable);
         IndexSection(Coatings, AlchemyProductKind.Coating);
+        IndexOreMaterials(Ore);
 
         MappedRecipes = RecipeDtos
-            .Select(MapRecipe)
+            .Select(dto => MapRecipe(dto, CustomProducts))
             .ToList();
     }
 
@@ -151,7 +156,26 @@ internal sealed class AlchemyJsonRoot
         }
     }
 
-    static AlchemyRecipe MapRecipe(AlchemyRecipeDto dto)
+    void IndexOreMaterials(IEnumerable<AlchemyProductDto> items)
+    {
+        foreach (var dto in items)
+        {
+            if (string.IsNullOrWhiteSpace(dto.Id) || string.IsNullOrWhiteSpace(dto.Icon))
+                continue;
+
+            CustomProducts[dto.Id] = new AlchemyProduct(
+                dto.Id,
+                string.IsNullOrWhiteSpace(dto.Name) ? dto.Id : dto.Name,
+                dto.Description ?? "",
+                dto.Icon,
+                dto.Price ?? 0,
+                AlchemyProductKind.Material);
+        }
+    }
+
+    static AlchemyRecipe MapRecipe(
+        AlchemyRecipeDto dto,
+        IReadOnlyDictionary<string, AlchemyProduct> products)
     {
         var ingredients = (dto.Ingredients ?? new List<string>())
             .Where(s => !string.IsNullOrWhiteSpace(s))
@@ -159,14 +183,33 @@ internal sealed class AlchemyJsonRoot
             .Take(4)
             .ToArray();
 
+        var elixir = dto.Elixir?.Trim() ?? "";
+        // Ore smelting + spirit: Apple Cider JSON shape; known-from-start / workbench inferred
+        // (optional source/advanced overrides still honored).
+        var materialOutcome =
+            products.TryGetValue(elixir, out var product)
+                && product.Kind == AlchemyProductKind.Material
+            || string.Equals(elixir, "iron_ingot", StringComparison.OrdinalIgnoreCase);
+        var knownFromStart = materialOutcome
+            || string.Equals(elixir, "spirit", StringComparison.OrdinalIgnoreCase);
+
+        var source = string.Equals(dto.Source?.Trim(), "base", StringComparison.OrdinalIgnoreCase)
+                || (dto.Source is null && knownFromStart)
+            ? AlchemyCraftSource.BaseRecipe
+            : AlchemyCraftSource.Trade;
+
+        var advanced = dto.Advanced || materialOutcome;
+
         return new AlchemyRecipe(
-            dto.Elixir?.Trim() ?? "",
+            elixir,
             dto.Enabled,
             ingredients,
             dto.IngredientsCost,
             dto.RecipeCost,
             dto.ElixirCost,
-            dto.Debug);
+            dto.Debug,
+            source,
+            advanced);
     }
 }
 
@@ -175,6 +218,13 @@ internal enum AlchemyProductKind
     Elixir,
     Throwable,
     Coating,
+    Material,
+}
+
+internal enum AlchemyCraftSource
+{
+    Trade,
+    BaseRecipe,
 }
 
 internal sealed record AlchemyProduct(
@@ -192,7 +242,9 @@ internal sealed record AlchemyRecipe(
     int IngredientsCost,
     int RecipeCost,
     int ElixirCost,
-    bool Debug);
+    bool Debug,
+    AlchemyCraftSource Source,
+    bool Advanced);
 
 internal sealed class AlchemyProductDto
 {
@@ -243,4 +295,16 @@ internal sealed class AlchemyRecipeDto
     /// </summary>
     [JsonPropertyName("debug")]
     public bool Debug { get; set; }
+
+    /// <summary>
+    /// Craft discovery source: <c>trade</c> (default) or <c>base</c> (known from the start).
+    /// </summary>
+    [JsonPropertyName("source")]
+    public string? Source { get; set; }
+
+    /// <summary>
+    /// When true, register as an advanced (craftkit / workbench) recipe.
+    /// </summary>
+    [JsonPropertyName("advanced")]
+    public bool Advanced { get; set; }
 }

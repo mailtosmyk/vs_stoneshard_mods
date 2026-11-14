@@ -4,7 +4,7 @@ namespace Alchemy;
 
 /// <summary>
 /// Registers enabled craft recipes from <c>ingredients.json</c> into
-/// <c>table_recipes_craft</c> with <see cref="Msl.RecipesCraftSource.Trade"/>.
+/// <c>table_recipes_craft</c>.
 /// </summary>
 internal static class AlchemyRecipes
 {
@@ -18,9 +18,12 @@ internal static class AlchemyRecipes
             if (!seen.Add(recipe.Elixir))
                 continue;
 
-            var advanced = IsAdvanced(recipe);
+            var advanced = recipe.Advanced || IsAdvanced(recipe);
             var xp = XpFor(recipe);
             var slots = PadIngredients(recipe.Ingredients, advanced);
+            var source = recipe.Source == AlchemyCraftSource.BaseRecipe
+                ? Msl.RecipesCraftSource.BaseRecipe
+                : Msl.RecipesCraftSource.Trade;
 
             if (advanced)
             {
@@ -30,7 +33,7 @@ internal static class AlchemyRecipes
                     Msl.RecipesCraftCategory.advanced,
                     xp,
                     AMOUNT: 1,
-                    Msl.RecipesCraftSource.Trade,
+                    source,
                     slots[0] ?? "craftkit, workbench",
                     slots[1],
                     slots[2],
@@ -45,7 +48,7 @@ internal static class AlchemyRecipes
                     Msl.RecipesCraftCategory.basic,
                     xp,
                     AMOUNT: 1,
-                    Msl.RecipesCraftSource.Trade,
+                    source,
                     slots[0] ?? "-",
                     slots[1],
                     slots[2],
