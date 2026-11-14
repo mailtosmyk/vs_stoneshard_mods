@@ -31,9 +31,13 @@ internal static class AlchemyItems
             {
                 AlchemyProductKind.Throwable => "o_inv_bombs",
                 AlchemyProductKind.Coating or AlchemyProductKind.Material => "o_inv_consum_passive",
+                AlchemyProductKind.Scroll => "o_inv_scroll_parent",
                 _ => "o_inv_dishes_beverage",
             };
 
+            var lootParent = product.Kind == AlchemyProductKind.Scroll
+                ? "o_loot_scroll_parent"
+                : "o_consument_loot";
             var lootSprite = LootSpriteFor(product);
 
             var inv = Msl.AddObject(
@@ -48,7 +52,7 @@ internal static class AlchemyItems
             Msl.AddObject(
                 name: $"o_loot_{product.Id}",
                 spriteName: lootSprite,
-                parentName: "o_consument_loot",
+                parentName: lootParent,
                 isVisible: true,
                 isPersistent: false,
                 isAwake: true,
@@ -58,7 +62,7 @@ internal static class AlchemyItems
             // stays unset and o_inv_consum Alarm_0 crashes on loot/add.
             // Drinkables inherit o_inv_dishes_beverage which already calls it.
             if (product.Kind is AlchemyProductKind.Throwable or AlchemyProductKind.Coating
-                or AlchemyProductKind.Material)
+                or AlchemyProductKind.Material or AlchemyProductKind.Scroll)
                 EnsureConsumCreate(inv, product.Id);
 
             var (cat, subcat, material, weight, tags) = StatsFor(product);
@@ -104,6 +108,8 @@ internal static class AlchemyItems
 
     static string LootSpriteFor(AlchemyProduct product)
     {
+        if (product.Kind == AlchemyProductKind.Scroll)
+            return "s_loot_scroll";
         if (product.Kind != AlchemyProductKind.Material)
             return product.Icon;
         if (product.Icon.StartsWith("s_inv_", StringComparison.Ordinal))
@@ -207,6 +213,12 @@ internal static class AlchemyItems
                     ? Msl.ItemStatsMaterial.gold
                     : Msl.ItemStatsMaterial.metal,
                 Msl.ItemStatsWeight.Medium,
+                Msl.ItemStatsTags.common),
+            AlchemyProductKind.Scroll => (
+                Msl.ItemStatsCategory.scroll,
+                Msl.ItemStatsSubcategory.none,
+                Msl.ItemStatsMaterial.paper,
+                Msl.ItemStatsWeight.Light,
                 Msl.ItemStatsTags.common),
             _ => (
                 Msl.ItemStatsCategory.medicine,

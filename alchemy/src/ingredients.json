@@ -2281,15 +2281,15 @@
         },
         {
           "add_energy_restoration": 2,
-          "turns": 90
+          "turns": 180
         },
         {
           "add_fatigue_change": -0.02,
-          "turns": 90
+          "turns": 180
         },
         {
           "add_fatigue_resistance": 5,
-          "turns": 90
+          "turns": 180
         },
         {
           "add_morale": 1
@@ -3944,6 +3944,52 @@
       "ingredients_cost": 160,
       "recipe_cost": 160,
       "elixir_cost": 176
+    },
+    {
+      "ingredients": [
+        "hemp"
+      ],
+      "enabled": true,
+      "elixir": "blank_scroll",
+      "ingredients_cost": 5,
+      "recipe_cost": 5,
+      "elixir_cost": 5
+    },
+    {
+      "ingredients": [
+        "blank_scroll",
+        "mindwort"
+      ],
+      "enabled": true,
+      "elixir": "scroll_identification",
+      "ingredients_cost": 10,
+      "recipe_cost": 10,
+      "elixir_cost": 10
+    },
+    {
+      "ingredients": [
+        "blank_scroll",
+        "spirit",
+        "wormwood"
+      ],
+      "enabled": true,
+      "elixir": "scroll_disenchant",
+      "ingredients_cost": 40,
+      "recipe_cost": 40,
+      "elixir_cost": 40
+    },
+    {
+      "ingredients": [
+        "blank_scroll",
+        "spirit",
+        "moonstone",
+        "amber"
+      ],
+      "enabled": true,
+      "elixir": "scroll_enchant",
+      "ingredients_cost": 175,
+      "recipe_cost": 175,
+      "elixir_cost": 200
     }
   ],
   "coatings": [
@@ -4010,6 +4056,37 @@
         }
       ],
       "icon": "s_inv_alch_puffball_paste"
+    }
+  ],
+  "scrolls": [
+    {
+      "id": "blank_scroll",
+      "name": "Blank Scroll",
+      "price": 5,
+      "description": "A clean strip of hemp parchment, ready for ink and reagents.",
+      "effects": [],
+      "icon": "s_inv_alch_blank_scroll"
+    },
+    {
+      "id": "scroll_identification",
+      "name": "Identification Scroll",
+      "price": 10,
+      "description": "A result of a longstanding clash between the Mages Guild and the Enchanters Guild.",
+      "effects": []
+    },
+    {
+      "id": "scroll_disenchant",
+      "name": "Disenchantment Scroll",
+      "price": 40,
+      "description": "Fight fire with fire: it magically purges items of all traces of magic.",
+      "effects": []
+    },
+    {
+      "id": "scroll_enchant",
+      "name": "Enchantment Scroll",
+      "price": 200,
+      "description": "Another powerful blow delivered by the Mages Guild to the Enchanters Guild.",
+      "effects": []
     }
   ]
 }

@@ -43,6 +43,11 @@ def main() -> int:
         for it in data.get("ore") or []
         if isinstance(it, dict) and it.get("id")
     }
+    scroll_outcomes = {
+        str(it["id"])
+        for it in data.get("scrolls") or []
+        if isinstance(it, dict) and it.get("id")
+    }
 
     failures = 0
     for i, recipe in enumerate(data.get("recipes") or []):
@@ -69,8 +74,9 @@ def main() -> int:
 
         ingredients_cost = sum(prices[x] for x in ings)
         elixir_cost = prices[elixir_id]
-        # Ore/material smelts skip flask+spirit surcharge and spirit/midtier rules.
-        is_material = elixir_id in ore_outcomes
+        # Ore/material smelts and scroll crafts skip flask+spirit surcharge and
+        # spirit/midtier alchemy rules (scroll recipes still include spirit when needed).
+        is_material = elixir_id in ore_outcomes or elixir_id in scroll_outcomes
         recipe_cost = (
             ingredients_cost
             if is_material

@@ -114,6 +114,10 @@ internal sealed class AlchemyJsonRoot
     [JsonPropertyName("ore")]
     public List<AlchemyProductDto> Ore { get; set; } = new();
 
+    /// <summary>Scroll catalog; entries with icons are mod blank scrolls.</summary>
+    [JsonPropertyName("scrolls")]
+    public List<AlchemyProductDto> Scrolls { get; set; } = new();
+
     [JsonPropertyName("recipes")]
     public List<AlchemyRecipeDto> RecipeDtos { get; set; } = new();
 
@@ -130,6 +134,7 @@ internal sealed class AlchemyJsonRoot
         IndexSection(Throwables, AlchemyProductKind.Throwable);
         IndexSection(Coatings, AlchemyProductKind.Coating);
         IndexOreMaterials(Ore);
+        IndexScrollProducts(Scrolls);
 
         MappedRecipes = RecipeDtos
             .Select(dto => MapRecipe(dto, CustomProducts))
@@ -173,6 +178,28 @@ internal sealed class AlchemyJsonRoot
         }
     }
 
+    void IndexScrollProducts(IEnumerable<AlchemyProductDto> items)
+    {
+        foreach (var dto in items)
+        {
+            // Only register mod blank scrolls (icon required). Vanilla ID/disenchant/enchant
+            // already exist — never recreate them even if a page icon is present.
+            if (string.IsNullOrWhiteSpace(dto.Id) || string.IsNullOrWhiteSpace(dto.Icon))
+                continue;
+            if (!string.Equals(dto.Id, "blank_scroll", StringComparison.OrdinalIgnoreCase)
+                && !dto.Id.StartsWith("alch_", StringComparison.OrdinalIgnoreCase))
+                continue;
+
+            CustomProducts[dto.Id] = new AlchemyProduct(
+                dto.Id,
+                string.IsNullOrWhiteSpace(dto.Name) ? dto.Id : dto.Name,
+                dto.Description ?? "",
+                dto.Icon,
+                dto.Price ?? 0,
+                AlchemyProductKind.Scroll);
+        }
+    }
+
     static AlchemyRecipe MapRecipe(
         AlchemyRecipeDto dto,
         IReadOnlyDictionary<string, AlchemyProduct> products)
@@ -184,13 +211,17 @@ internal sealed class AlchemyJsonRoot
             .ToArray();
 
         var elixir = dto.Elixir?.Trim() ?? "";
-        // Ore smelting + spirit: Apple Cider JSON shape; known-from-start / workbench inferred
+        // Ore smelting + blank scroll + spirit: known-from-start inferred
         // (optional source/advanced overrides still honored).
         var materialOutcome =
             products.TryGetValue(elixir, out var product)
                 && product.Kind == AlchemyProductKind.Material
             || string.Equals(elixir, "iron_ingot", StringComparison.OrdinalIgnoreCase);
+        var blankScroll = string.Equals(elixir, "blank_scroll", StringComparison.OrdinalIgnoreCase);
+        var scrollOutcome = blankScroll
+            || elixir.StartsWith("scroll_", StringComparison.OrdinalIgnoreCase);
         var knownFromStart = materialOutcome
+            || blankScroll
             || string.Equals(elixir, "spirit", StringComparison.OrdinalIgnoreCase);
 
         var source = string.Equals(dto.Source?.Trim(), "base", StringComparison.OrdinalIgnoreCase)
@@ -198,7 +229,8 @@ internal sealed class AlchemyJsonRoot
             ? AlchemyCraftSource.BaseRecipe
             : AlchemyCraftSource.Trade;
 
-        var advanced = dto.Advanced || materialOutcome;
+        // Ingots + scrolls craft at the workbench / craftkit (advanced station).
+        var advanced = dto.Advanced || materialOutcome || scrollOutcome;
 
         return new AlchemyRecipe(
             elixir,
@@ -219,6 +251,7 @@ internal enum AlchemyProductKind
     Throwable,
     Coating,
     Material,
+    Scroll,
 }
 
 internal enum AlchemyCraftSource
