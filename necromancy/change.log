@@ -1,3 +1,9 @@
+1.10.0
+- Bone Ward: shatter immediately on buff Destroy with center burst VFX + adjacent hit sparks/damage (deferred alarm helpers never fired).
+
+1.9.0
+- Corpse Burst / Black Sepulchre / Death Touch: call scr_damage_init on impact create so Animation End damage no longer crashes on unset damage fields.
+
 1.8.0
 - Death Touch / Black Sepulchre: replace nonexistent snd_arcane_impact_1 with vanilla impact sounds (fixes Animation End crash).
 

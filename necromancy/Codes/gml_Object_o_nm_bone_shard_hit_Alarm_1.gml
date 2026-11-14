@@ -1,5 +1,9 @@
 if (instance_exists(owner) && instance_exists(target))
 {
+    scr_damage_init()
+    is_crit = false
+    if ((!variable_instance_exists(id, "name")) || (name == "N/A"))
+        name = "Bone Ward"
     Unholy_Damage = 4.0
     Piercing_Damage = 3.0
     bArmor_Piercing = 0.0
