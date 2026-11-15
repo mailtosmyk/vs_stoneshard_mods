@@ -1,3 +1,7 @@
+1.13.0
+- Death Touch / Corpse Burst / Black Sepulchre: re-init damage fields on Animation End before scr_skill_damage (fixes Weapon_Damage crash when Create was never registered on re-patch).
+- ApplyEventAndReplace: register each event subtype individually so a pre-existing Other_7 cannot skip adding Create_0.
+
 1.12.0
 - Mastery of Binding: removes summon level cap entirely (was +1); Skeleton/Resurrection duration +10 turns.
 - Wraith Summoning: explicitly tile-target with no corpse required.

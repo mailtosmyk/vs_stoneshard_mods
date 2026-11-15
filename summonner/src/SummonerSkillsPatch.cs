@@ -133,12 +133,13 @@ public static class SummonerSkillsPatch
     internal static void ApplyEventAndReplace(
         UndertaleGameObject gameObject, ModFile modFiles, params string[] codeFiles)
     {
-        var events = codeFiles.Select(ParseMslEvent).ToArray();
-        try { gameObject.ApplyEvent(modFiles, events); }
-        catch (ArgumentException) { }
-
+        // One-by-one so a pre-existing subtype cannot abort adding a new event.
         foreach (var codeFile in codeFiles)
+        {
+            try { gameObject.ApplyEvent(modFiles, ParseMslEvent(codeFile)); }
+            catch (ArgumentException) { }
             ForceReplaceCode(modFiles, codeFile);
+        }
     }
 
     internal static MslEvent ParseMslEvent(string codeFile)

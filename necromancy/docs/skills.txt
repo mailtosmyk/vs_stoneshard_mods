@@ -57,7 +57,7 @@ Type: Active
 Level: 2
 Requirements: Attributes: PRC or Vitality or WIL >= 6; Skills: Summon Skeleton
 Image: s_resurrection
-Description: Reanimates a targeted corpse as an Undead for 20 turns at 50% Max Health / 50% Max Energy and sets Armor Durability to 0%. The animated corpse has a chance to lose control. Increases morale (up to 70%). Slowly decreases Sanity but no less than 60%. Can't summon Undead higher than the skill's level cap. Prevents receiving "Blessing".
+Description: Reanimates a targeted corpse as an Undead for 20 turns at 50% Max Health / 50% Max Energy and sets Armor Durability to 0%. Beware: raised spirit could lose control. Increases morale (up to 70%). Slowly decreases Sanity but no less than 60%. Can't summon Undead higher than the skill's level cap. Prevents receiving "Blessing".
 
 ================================================================================
 TIER 3

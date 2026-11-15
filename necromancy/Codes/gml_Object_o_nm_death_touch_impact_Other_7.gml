@@ -23,6 +23,8 @@ var _hasCurse = (_curse != -1 && scr_instance_exists_in_list(_curse, target.buff
 if _hasCurse
     _base = math_round(_base * 1.25)
 
+// Re-init here: Create may be missing on re-patches that only had Other_7 before 1.9.0.
+scr_damage_init()
 var _mp = owner.Magic_Power + _mpBonus
 Unholy_Damage = max(1, math_round((_base * _mp) * 0.01))
 if is_crit
@@ -33,12 +35,13 @@ with (target)
 scr_audio_play_at(snd_skill_death_touch_hit)
 
 var _immob = (36 + (_mp * 0.3))
+var _immobTurns = 2.0
 with (target)
 {
     if object_is_ancestor(object_index, o_unit)
     {
         if scr_chance_value(max((_immob - Knockback_Resistance), 0))
-            scr_effect_create(o_db_immob, 2, id, other.owner)
+            scr_effect_create(o_db_immob, _immobTurns, id, other.owner)
     }
 }
 

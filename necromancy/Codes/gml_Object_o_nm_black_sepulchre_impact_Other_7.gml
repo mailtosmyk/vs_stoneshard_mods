@@ -89,6 +89,7 @@ with (_main)
     }
 }
 
+scr_damage_init()
 Unholy_Damage = _mainDmg
 target = _main
 scr_skill_damage(_main)
@@ -99,6 +100,8 @@ with (o_enemy)
     {
         if (scr_tile_distance(id, _main) <= 1)
         {
+            with (other)
+                scr_damage_init()
             other.Unholy_Damage = _splash
             other.target = id
             with (scr_guiAnimation_ext(x, y, s_weapondamage_unholy))

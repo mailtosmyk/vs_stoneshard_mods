@@ -177,11 +177,11 @@
         "Russian": "Воскрешение"
       },
       "description": {
-        "English": "Reanimates a targeted corpse as an Undead for 20 turns at 50% Max Health / 50% Max Energy and sets Armor Durability to 0%. The animated corpse has a chance to lose control. Increases morale (up to 70%). Slowly decreases Sanity but no less than 60%. Can't summon Undead higher than the skill's level cap. Prevents receiving \"Blessing\".",
-        "Japanese": "対象の死体を20ターンのアンデッドとして蘇生する（最大体力50% / 最大エネルギー50%、防具耐久0%）。蘇生した死体は制御を失うことがある。士気を上昇（最大70%）。正気を徐々に減少させるが60%未満にはならない。スキルのレベル上限を超えるアンデッドは召喚不可。「祝福」を受けられない。",
-        "Chinese": "将目标尸体复活为亡灵，持续20回合（50%最大生命 / 50%最大能量，护甲耐久设为0%）。复活的尸体有几率失控。提升士气（最高70%）。缓慢降低理智但不低于60%。无法召唤高于技能等级上限的亡灵。无法获得“祝福”。",
-        "German": "Belebt eine gezielte Leiche als Untoten für 20 Züge mit 50% max. Gesundheit / 50% max. Energie und setzt die Rüstungshalbarkeit auf 0%. Die belebte Leiche kann die Kontrolle verlieren. Erhöht die Moral (bis 70%). Senkt langsam den Verstand, aber nicht unter 60%. Keine Untoten über dem Level-Limit. Verhindert „Segen“.",
-        "Russian": "Оживляет выбранный труп как нежить на 20 ходов при 50% макс. здоровья / 50% макс. энергии и ставит прочность брони на 0%. Оживлённый труп может выйти из-под контроля. Повышает мораль (до 70%). Медленно снижает рассудок, но не ниже 60%. Нельзя призвать нежить выше уровня навыка. Запрещает получение «Благословения»."
+        "English": "Reanimates a targeted corpse as an Undead for 20 turns at 50% Max Health / 50% Max Energy and sets Armor Durability to 0%. Beware: raised spirit could lose control. Increases morale (up to 70%). Slowly decreases Sanity but no less than 60%. Can't summon Undead higher than the skill's level cap. Prevents receiving \"Blessing\".",
+        "Japanese": "対象の死体を20ターンのアンデッドとして蘇生する（最大体力50% / 最大エネルギー50%、防具耐久0%）。注意：蘇らせた霊は制御を失うことがある。士気を上昇（最大70%）。正気を徐々に減少させるが60%未満にはならない。スキルのレベル上限を超えるアンデッドは召喚不可。「祝福」を受けられない。",
+        "Chinese": "将目标尸体复活为亡灵，持续20回合（50%最大生命 / 50%最大能量，护甲耐久设为0%）。当心：唤起的灵魂可能失控。提升士气（最高70%）。缓慢降低理智但不低于60%。无法召唤高于技能等级上限的亡灵。无法获得“祝福”。",
+        "German": "Belebt eine gezielte Leiche als Untoten für 20 Züge mit 50% max. Gesundheit / 50% max. Energie und setzt die Rüstungshalbarkeit auf 0%. Vorsicht: Der erweckte Geist kann die Kontrolle verlieren. Erhöht die Moral (bis 70%). Senkt langsam den Verstand, aber nicht unter 60%. Keine Untoten über dem Level-Limit. Verhindert „Segen“.",
+        "Russian": "Оживляет выбранный труп как нежить на 20 ходов при 50% макс. здоровья / 50% макс. энергии и ставит прочность брони на 0%. Осторожно: поднятый дух может выйти из-под контроля. Повышает мораль (до 70%). Медленно снижает рассудок, но не ниже 60%. Нельзя призвать нежить выше уровня навыка. Запрещает получение «Благословения»."
       },
       "magicPhrase": {
         "English": "Lagur! Lagur! Lagur!",

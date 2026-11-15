@@ -393,24 +393,28 @@ push.e 0
     /// <summary>
     /// Add events on first install, then always overwrite code bodies from ModFiles.
     /// Needed because Msl.AddNewEvent refuses to replace an existing event subtype.
+    /// Events are applied one-by-one so a pre-existing subtype (e.g. Other_7) cannot
+    /// abort ApplyEvent before a newly added Create_0 is registered — that left
+    /// Death Touch / Corpse Burst / Black Sepulchre impacts without scr_damage_init.
     /// </summary>
     internal static void ApplyEventAndReplace(
         UndertaleGameObject gameObject,
         ModFile modFiles,
         params string[] codeFiles)
     {
-        var events = codeFiles.Select(ParseMslEvent).ToArray();
-        try
-        {
-            gameObject.ApplyEvent(modFiles, events);
-        }
-        catch (ArgumentException)
-        {
-            // Event already present from a previous patch — ForceReplaceCode below refreshes it.
-        }
-
         foreach (var codeFile in codeFiles)
+        {
+            try
+            {
+                gameObject.ApplyEvent(modFiles, ParseMslEvent(codeFile));
+            }
+            catch (ArgumentException)
+            {
+                // Event already present from a previous patch — ForceReplaceCode below refreshes it.
+            }
+
             ForceReplaceCode(modFiles, codeFile);
+        }
     }
 
     internal static MslEvent ParseMslEvent(string codeFile)

@@ -58,6 +58,8 @@ with (o_enemy)
         var _dy = abs(floor(y / 26) - _tTileY)
         if (max(_dx, _dy) <= _radius)
         {
+            with (other)
+                scr_damage_init()
             other.Unholy_Damage = _unholy
             other.Piercing_Damage = _pierce
             other.bArmor_Piercing = 0
