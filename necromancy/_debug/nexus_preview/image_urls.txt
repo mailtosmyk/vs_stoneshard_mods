@@ -1,0 +1,5 @@
+skill_tree.png https://files.catbox.moe/9ksboc.png
+tier_1.png https://files.catbox.moe/irqlj9.png
+tier_2.png https://files.catbox.moe/3203yk.png
+tier_3.png https://files.catbox.moe/f73va3.png
+tier_4.png https://files.catbox.moe/noci5h.png
