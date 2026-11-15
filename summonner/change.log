@@ -1,6 +1,7 @@
 0.4.0
 - Summon RMB context menu: Inspect (Explore) and tile Swap with the player (adjacent).
 - Swap works while summons are idle (vanilla gate blocked idle neutrals).
+- Fix AddFunction order so scr_sm_apply_level_stats exists before scr_sm_bind_summon (startup crash).
 
 0.3.0
 - Hunt Command aura recolored red; Kindred Spirit icon recolored green.

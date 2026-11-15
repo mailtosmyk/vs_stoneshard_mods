@@ -30,11 +30,9 @@ LAYOUT: list[list[str]] = [
 ]
 
 
-def find_sheet() -> Path:
+def find_sheet() -> Path | None:
     matches = sorted(ROOT.glob("*Arcane Bestiary Icons*.png"))
-    if not matches:
-        raise FileNotFoundError(f"No Arcane Bestiary Icons sheet under {ROOT}")
-    return matches[0]
+    return matches[0] if matches else None
 
 
 def is_content(px, x: int, y: int) -> bool:
@@ -199,6 +197,16 @@ def write_tree_placeholder() -> None:
 
 def main() -> None:
     sheet_path = find_sheet()
+    if sheet_path is None:
+        names = [name for row in LAYOUT for name in row]
+        missing = [n for n in names if not (OUT / f"{n}_0.png").is_file()]
+        if missing:
+            raise FileNotFoundError(
+                f"No Arcane Bestiary Icons sheet under {ROOT} and missing sprites: {missing}"
+            )
+        print(f"No icon sheet under {ROOT}; keeping existing Sprites/")
+        return
+
     sheet = Image.open(sheet_path).convert("RGBA")
     cells = detect_cells(sheet)
     px = sheet.load()
