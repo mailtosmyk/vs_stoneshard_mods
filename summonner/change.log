@@ -1,3 +1,7 @@
+0.5.0
+- Fix startup crash: map-travel unsummon hook no longer tears apart location/room scripts (playerGridX).
+- Fix skill menu crash: add Summoner to table_text Tier_name / skilltree_hover (string_height_ext undefined).
+
 0.4.0
 - Summon RMB context menu: Inspect (Explore) and tile Swap with the player (adjacent).
 - Swap works while summons are idle (vanilla gate blocked idle neutrals).

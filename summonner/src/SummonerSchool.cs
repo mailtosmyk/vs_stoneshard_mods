@@ -57,7 +57,7 @@ public static class SummonerSchool
         WriteGml(
             "gml_Object_o_skill_category_summoner_Create_0",
             "event_inherited()\n" +
-            "text = \"Summoner\"\n" +
+            "text = \"" + SummonerSkills.SchoolName + "\"\n" +
             "skill = [" + icons + "]\n" +
             "branch_sprite = s_summoner_tree\n" +
             "is_execute = false\n" +

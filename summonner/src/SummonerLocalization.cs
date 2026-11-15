@@ -22,6 +22,8 @@ public static class SummonerLocalization
             "Companion's Death",
             "~r~Morale~/~ penalty from a companion dying in combat.##Lasts ~w~600~/~ turns.##Does ~lg~not~/~ stack."));
 
+        PatchSchool();
+
         Msl.LoadGML("gml_GlobalScript_table_skills")
             .Apply(InjectTableSkillsRows)
             .Save();
@@ -29,6 +31,65 @@ public static class SummonerLocalization
         Msl.LoadGML("gml_GlobalScript_table_effects")
             .Apply(InjectTableEffectsRows)
             .Save();
+    }
+
+    static void PatchSchool()
+    {
+        // o_skillmenu Create does:
+        //   name = ds_map_find_value(global.tier_name, text)
+        //   scr_stringGetHeightExt(name, ...)
+        // global.tier_name comes from table_text Tier_name — missing key => undefined crash.
+        Msl.LoadGML("gml_GlobalScript_table_text")
+            .Apply(InjectSummonerTableTextRows)
+            .Save();
+    }
+
+    /// <summary>
+    /// CSV columns: id;RU;EN;ZH;DE;ES;FR;IT;PT;PL;TR;JA;KO
+    /// Id must match category Create `text` / SchoolName ("Summoner").
+    /// </summary>
+    static IEnumerable<string> InjectSummonerTableTextRows(IEnumerable<string> lines)
+    {
+        var school = SummonerSkills.SchoolName;
+        const string tierMarker = "\";Tier_name_end;";
+        const string hoverMarker = "\";skilltree_hover_end;";
+
+        // RU;EN;ZH;DE;ES;FR;IT;PT;PL;TR;JA;KO
+        var tierRow =
+            "\"" + school + ";Призыватель;" + school + ";召唤师;Beschwörer;Invocador;Invocateur;Evocatore;Invocador;Przywoływacz;Çağırıcı;召喚師;소환사;\", ";
+
+        const string hoverEn =
+            "Bind living beasts as companions that keep their own experience and grow with you.##~y~Main focus:~/~#~w~Minion Management~/~, ~w~Support~/~, ~w~Pack Synergy~/~, ~w~Sustain~/~";
+        const string hoverRu =
+            "Приручайте живых зверей — компаньоны сохраняют опыт и растут вместе с вами.##~y~Особенности:~/~#~w~Управление призывами~/~, ~w~Поддержка~/~, ~w~Синергия стаи~/~, ~w~Устойчивость~/~";
+        const string hoverZh =
+            "束缚活体野兽作为同伴，它们保留自身经验并与你一同成长。##~y~主要方向:~/~#~w~召唤物管理~/~, ~w~支援~/~, ~w~群体协同~/~, ~w~续航~/~";
+        const string hoverDe =
+            "Binde lebende Bestien als Gefährten, die eigene Erfahrung behalten und mit dir wachsen.##~y~Fokus:~/~#~w~Dienerverwaltung~/~, ~w~Unterstützung~/~, ~w~Rudel-Synergie~/~, ~w~Durchhaltevermögen~/~";
+        const string hoverJa =
+            "生きた獣を仲間として束ね、経験を保持したまま共に成長する。##~y~主な特徴:~/~#~w~召喚管理~/~, ~w~支援~/~, ~w~群れの相乗~/~, ~w~持続~/~";
+
+        var hoverRow =
+            "\"" + school + ";" + hoverRu + ";" + hoverEn + ";" + hoverZh + ";" + hoverDe + ";" +
+            hoverEn + ";" + hoverEn + ";" + hoverEn + ";" + hoverEn + ";" + hoverEn + ";" + hoverEn + ";" +
+            hoverJa + ";" + hoverEn + ";\", ";
+
+        var tierGuard = "\"" + school + ";Призыватель;";
+        var hoverGuard = "\"" + school + ";" + hoverRu;
+
+        foreach (var line in lines)
+        {
+            var result = line;
+            if (result.Contains(tierMarker, StringComparison.Ordinal) &&
+                !result.Contains(tierGuard, StringComparison.Ordinal))
+                result = result.Replace(tierMarker, tierRow + tierMarker, StringComparison.Ordinal);
+
+            if (result.Contains(hoverMarker, StringComparison.Ordinal) &&
+                !result.Contains(hoverGuard, StringComparison.Ordinal))
+                result = result.Replace(hoverMarker, hoverRow + hoverMarker, StringComparison.Ordinal);
+
+            yield return result;
+        }
     }
 
     static string Escape(string value) =>
