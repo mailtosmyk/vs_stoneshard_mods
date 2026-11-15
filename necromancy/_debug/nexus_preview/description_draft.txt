@@ -46,9 +46,10 @@ Thanks to the ModShardTeam for ModShardLauncher, and to the Stoneshard Mod Hub c
 [b]  Changelog (recent)[/b]
 1.14.0
 • Summon RMB context menu: Inspect (Explore) and tile Swap with the player (adjacent).
-• Swap works while summons are idle.
+• Swap works while summons are idle (vanilla gate blocked idle neutrals).
 1.13.0
-• Death Touch / Corpse Burst / Black Sepulchre: re-init damage on hit so Weapon_Damage is always set (fixes Animation End crash after older re-patches).
+• Death Touch / Corpse Burst / Black Sepulchre: re-init damage fields on Animation End before scr_skill_damage (fixes Weapon_Damage crash when Create was never registered on re-patch).
+• ApplyEventAndReplace: register each event subtype individually so a pre-existing Other_7 cannot skip adding Create_0.
 1.12.0
 • Mastery of Binding: removes summon level cap entirely (was +1); Skeleton/Resurrection duration +10 turns.
 • Wraith Summoning: explicitly tile-target with no corpse required.
@@ -57,10 +58,6 @@ Thanks to the ModShardTeam for ModShardLauncher, and to the Stoneshard Mod Hub c
 • Wraith Summoning: Willpower tiers (Wraith / Squire / Warrior / Commander).
 1.10.0
 • Bone Ward: shatter immediately on buff Destroy with center burst VFX + adjacent hit sparks/damage (deferred alarm helpers never fired).
-1.9.0
-• Corpse Burst / Black Sepulchre / Death Touch: call scr_damage_init on impact create so Animation End damage no longer crashes on unset damage fields.
-1.8.0
-• Death Touch / Black Sepulchre: replace nonexistent snd_arcane_impact_1 with vanilla impact sounds (fixes Animation End crash).
 ────────────────────────────────────────
 [b]  Support[/b]
 If you enjoy the mod and want to support further updates and maintenance:

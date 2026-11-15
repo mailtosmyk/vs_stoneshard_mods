@@ -40,16 +40,22 @@ Tip: Back up your saves before using mods. If MSL appears frozen while loading t
 Thanks to the ModShardTeam for ModShardLauncher, and to the Stoneshard Mod Hub community for tools, docs, and support.
 ────────────────────────────────────────
 [b]  Changelog (recent)[/b]
+0.4.0
+• Summon RMB context menu: Inspect (Explore) and tile Swap with the player (adjacent).
+• Swap works while summons are idle (vanilla gate blocked idle neutrals).
+• Fix AddFunction order so scr_sm_apply_level_stats exists before scr_sm_bind_summon (startup crash).
 0.3.0
-• Skill deps: T3 requires any T2; T4 requires any T3 only.
-• Alpha’s Howl 8 turns; Savage Bond 10 turns; Primal Apex 6 turns.
+• Hunt Command aura recolored red; Kindred Spirit icon recolored green.
+• Skill deps: T3 requires any T2; T4 requires any T3 only (no T2→T4 skips); T2 still gated by T1.
+• Alpha's Howl 8 turns; Savage Bond 10 turns; Primal Apex 6 turns.
 0.2.0
-• Arcane Bestiary skill icons (frameless) for all 13 skills.
+• Arcane Bestiary skill icons (frameless extracts) for all 13 skills.
 • Summon death applies temporary Morale debuff for 600 turns (does not stack); Kindred still halves.
 • Per-summon XP / HP / damage / armor progression tables on each summon skill.
 0.1.0
 • Initial Summoner school scaffold: 13 skills, per-species XP tracks, balance pass.
 • Summons dismiss safely when changing map tiles / rooms (XP kept, no Morale loss).
+• Skill icons and .sml build pipeline.
 ────────────────────────────────────────
 [b]  Support[/b]
 If you enjoy the mod and want to support further updates and maintenance:
