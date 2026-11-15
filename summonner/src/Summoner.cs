@@ -20,6 +20,7 @@ public class Summoner : Mod
         SummonerSkillsPatch.Patch(ModFiles);
         SummonerSchool.Patch(ModFiles);
         SummonerMapHooks.Patch();
+        SummonerSummonContextMenu.Patch();
         _ = SummonerSkills.All;
     }
 }

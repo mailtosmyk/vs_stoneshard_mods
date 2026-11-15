@@ -30,6 +30,7 @@ public class Necromancy : Mod
         NecromancyTier4Skills.Patch(ModFiles);
         NecromancySchool.Patch(ModFiles);
         NecromancyItems.Patch(ModFiles);
+        NecromancySummonContextMenu.Patch();
 
         // Ensure JSON registry is loaded (also used by future tiers).
         _ = NecromancySkills.All;

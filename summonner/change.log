@@ -1,3 +1,7 @@
+0.4.0
+- Summon RMB context menu: Inspect (Explore) and tile Swap with the player (adjacent).
+- Swap works while summons are idle (vanilla gate blocked idle neutrals).
+
 0.3.0
 - Hunt Command aura recolored red; Kindred Spirit icon recolored green.
 - Skill deps: T3 requires any T2; T4 requires any T3 only (no T2→T4 skips); T2 still gated by T1.

@@ -1,3 +1,7 @@
+1.14.0
+- Summon RMB context menu: Inspect (Explore) and tile Swap with the player (adjacent).
+- Swap works while summons are idle (vanilla gate blocked idle neutrals).
+
 1.13.0
 - Death Touch / Corpse Burst / Black Sepulchre: re-init damage fields on Animation End before scr_skill_damage (fixes Weapon_Damage crash when Create was never registered on re-patch).
 - ApplyEventAndReplace: register each event subtype individually so a pre-existing Other_7 cannot skip adding Create_0.
