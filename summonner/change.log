@@ -1,3 +1,8 @@
+0.6.1
+- Fix missing skill descriptions (table_skills desc rows were skipped after name insert).
+- Tier 2 locks until its corresponding Tier 1 is learned (Hunt→Howl, Wolf→Instincts, Unsummon→Mend).
+- Gate higher tiers with can_learn like vanilla/Necromancy (no free unlock).
+
 0.6.0
 - Move Summoner school to the Magic (Sorcery) skill column.
 - Restore skill-tree background (locks + links) on s_summoner_tree.

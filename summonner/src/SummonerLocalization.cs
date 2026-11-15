@@ -110,7 +110,9 @@ public static class SummonerLocalization
     {
         const string nameMarker = "\";skill_name_end;";
         const string descMarker = "\";skill_desc_end;";
-        var guard = "\"" + Pending[0].Id + ";";
+        // Desc section must not share a slug-only guard with names — both live on the same
+        // giant return line, so a shared guard would skip every description after name insert.
+        var descGuard = "\"" + Pending[0].Id + ";" + Escape(Pending[0].Desc);
 
         var names = new StringBuilder();
         var descs = new StringBuilder();
@@ -120,15 +122,39 @@ public static class SummonerLocalization
             descs.Append(CsvRow(e.Id, e.Desc));
         }
 
+        var nameText = names.ToString();
+        var descText = descs.ToString();
+
         foreach (var line in lines)
         {
             var result = line;
-            if (result.Contains(nameMarker, StringComparison.Ordinal) &&
-                !result.Contains(guard, StringComparison.Ordinal))
-                result = result.Replace(nameMarker, names + nameMarker, StringComparison.Ordinal);
-            if (result.Contains(descMarker, StringComparison.Ordinal) &&
-                !result.Contains(guard, StringComparison.Ordinal))
-                result = result.Replace(descMarker, descs + descMarker, StringComparison.Ordinal);
+            if (result.Contains(nameMarker, StringComparison.Ordinal))
+            {
+                if (SectionHasId(result, Pending[0].Id, "\";skill_name;", nameMarker))
+                {
+                    foreach (var e in Pending)
+                        result = UpsertCsvRow(result, e.Id, e.Name, nameMarker, "\";skill_name;");
+                }
+                else
+                {
+                    result = result.Replace(nameMarker, nameText + nameMarker, StringComparison.Ordinal);
+                }
+            }
+
+            if (result.Contains(descMarker, StringComparison.Ordinal))
+            {
+                if (SectionHasId(result, Pending[0].Id, "\";skill_desc;", descMarker) ||
+                    result.Contains(descGuard, StringComparison.Ordinal))
+                {
+                    foreach (var e in Pending)
+                        result = UpsertCsvRow(result, e.Id, e.Desc, descMarker, "\";skill_desc;");
+                }
+                else
+                {
+                    result = result.Replace(descMarker, descText + descMarker, StringComparison.Ordinal);
+                }
+            }
+
             yield return result;
         }
     }
@@ -137,7 +163,7 @@ public static class SummonerLocalization
     {
         const string nameMarker = "\";buff_name_end;";
         const string descMarker = "\";buff_desc_end;";
-        var guard = "\"" + PendingBuffs[0].Id + ";";
+        var descGuard = "\"" + PendingBuffs[0].Id + ";" + Escape(PendingBuffs[0].Desc);
 
         var names = new StringBuilder();
         var descs = new StringBuilder();
@@ -147,16 +173,80 @@ public static class SummonerLocalization
             descs.Append(CsvRow(e.Id, e.Desc));
         }
 
+        var nameText = names.ToString();
+        var descText = descs.ToString();
+
         foreach (var line in lines)
         {
             var result = line;
-            if (result.Contains(nameMarker, StringComparison.Ordinal) &&
-                !result.Contains(guard, StringComparison.Ordinal))
-                result = result.Replace(nameMarker, names + nameMarker, StringComparison.Ordinal);
-            if (result.Contains(descMarker, StringComparison.Ordinal) &&
-                !result.Contains(guard, StringComparison.Ordinal))
-                result = result.Replace(descMarker, descs + descMarker, StringComparison.Ordinal);
+            if (result.Contains(nameMarker, StringComparison.Ordinal))
+            {
+                if (SectionHasId(result, PendingBuffs[0].Id, "\";buff_name;", nameMarker))
+                {
+                    foreach (var e in PendingBuffs)
+                        result = UpsertCsvRow(result, e.Id, e.Name, nameMarker, "\";buff_name;");
+                }
+                else
+                {
+                    result = result.Replace(nameMarker, nameText + nameMarker, StringComparison.Ordinal);
+                }
+            }
+
+            if (result.Contains(descMarker, StringComparison.Ordinal))
+            {
+                if (SectionHasId(result, PendingBuffs[0].Id, "\";buff_desc;", descMarker) ||
+                    result.Contains(descGuard, StringComparison.Ordinal))
+                {
+                    foreach (var e in PendingBuffs)
+                        result = UpsertCsvRow(result, e.Id, e.Desc, descMarker, "\";buff_desc;");
+                }
+                else
+                {
+                    result = result.Replace(descMarker, descText + descMarker, StringComparison.Ordinal);
+                }
+            }
+
             yield return result;
         }
+    }
+
+    static bool SectionHasId(
+        string line, string id, string sectionStartMarker, string sectionEndMarker)
+    {
+        var sectionEnd = line.IndexOf(sectionEndMarker, StringComparison.Ordinal);
+        if (sectionEnd < 0)
+            return false;
+        var sectionStart = line.LastIndexOf(sectionStartMarker, sectionEnd, StringComparison.Ordinal);
+        if (sectionStart < 0)
+            sectionStart = 0;
+
+        var needle = "\"" + id + ";";
+        var start = line.IndexOf(needle, sectionStart, StringComparison.Ordinal);
+        return start >= 0 && start < sectionEnd;
+    }
+
+    static string UpsertCsvRow(
+        string line, string id, string text, string sectionEndMarker, string sectionStartMarker)
+    {
+        var newRow = CsvRow(id, text);
+        var sectionEnd = line.IndexOf(sectionEndMarker, StringComparison.Ordinal);
+        if (sectionEnd < 0)
+            return line;
+
+        var sectionStart = line.LastIndexOf(sectionStartMarker, sectionEnd, StringComparison.Ordinal);
+        if (sectionStart < 0)
+            sectionStart = 0;
+
+        var needle = "\"" + id + ";";
+        var start = line.IndexOf(needle, sectionStart, StringComparison.Ordinal);
+        if (start >= 0 && start < sectionEnd)
+        {
+            var end = line.IndexOf("\",", start, StringComparison.Ordinal);
+            if (end < 0 || end > sectionEnd)
+                return line;
+            return line[..start] + newRow + line[(end + 2)..];
+        }
+
+        return line[..sectionEnd] + newRow + line[sectionEnd..];
     }
 }
