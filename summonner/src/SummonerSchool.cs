@@ -215,7 +215,10 @@ public static class SummonerSchool
     {
         Msl.LoadGML("gml_Object_o_skill_fast_panel_Alarm_0")
             .MatchFrom("scr_skill_open_from_array1d(global.survival_tier1)")
-            .InsertBelow("scr_skill_open_from_array1d(" + Tier1Global + ")")
+            .InsertBelow(
+                "scr_skill_open_from_array1d(" + Tier1Global + ")\n" +
+                "with (" + CategoryObjectName + ")\n" +
+                "    is_lock = false")
             .Save();
     }
 }

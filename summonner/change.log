@@ -1,3 +1,9 @@
+0.6.0
+- Move Summoner school to the Magic (Sorcery) skill column.
+- Restore skill-tree background (locks + links) on s_summoner_tree.
+- Tier 2 unlocks when any Tier 1 skill is learned (not a specific column).
+- Fix skill hover crash: active icons now copy desc via event_perform_object(child_skill).
+
 0.5.2
 - Fix skill menu coexistence with Necromancy (inject category instead of ReplaceBy wipe).
 - Drop bogus category owner script assignment.

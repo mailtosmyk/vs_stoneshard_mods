@@ -254,7 +254,7 @@ public static class SummonerSkillsPatch
         return
             $"\"{skill.Slug};{skill.StatsObjectName};{target};{combat.Range};{combat.Cooldown};{combat.Energy};" +
             $"{combat.Reserve};{combat.Duration};{combat.AoeLength};{combat.AoeWidth};{(combat.IsMovement ? "1" : "0")};" +
-            $"{pattern};;{cls};{(combat.BonusRange ? "1" : "0")};{starcast};summoner;0;1;utility;" +
+            $"{pattern};;{cls};{(combat.BonusRange ? "1" : "0")};{starcast};summoner;0;1;sorcery;" +
             $"{combat.Fumble};{combat.ArmorPenetration};;;;;1;{tags};\",";
     }
 }

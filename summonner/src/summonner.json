@@ -2,7 +2,7 @@
   "id": "c0b06e1b-11fd-4859-a6f4-5d4e83c028cf",
   "name": "Summoner",
   "source": "original",
-  "target": "Utility",
+  "target": "Sorcery",
   "totalSkills": 13,
   "activeCount": 11,
   "passiveCount": 2,
@@ -306,9 +306,11 @@
           }
         ],
         "skills": [
-          "b07c6617-aed7-48fd-9617-5754c1fd1cff"
+          "3a09952b-9014-417c-8c11-e2b650c5e7c2",
+          "b07c6617-aed7-48fd-9617-5754c1fd1cff",
+          "4d477236-e51e-4f7d-9bc6-2fbbfbe89487"
         ],
-        "skillLogic": "and"
+        "skillLogic": "or"
       },
       "combat": {
         "kind": "debuff",
@@ -354,9 +356,11 @@
           }
         ],
         "skills": [
-          "3a09952b-9014-417c-8c11-e2b650c5e7c2"
+          "3a09952b-9014-417c-8c11-e2b650c5e7c2",
+          "b07c6617-aed7-48fd-9617-5754c1fd1cff",
+          "4d477236-e51e-4f7d-9bc6-2fbbfbe89487"
         ],
-        "skillLogic": "and"
+        "skillLogic": "or"
       },
       "combat": {
         "kind": "none",
@@ -404,9 +408,11 @@
           }
         ],
         "skills": [
+          "3a09952b-9014-417c-8c11-e2b650c5e7c2",
+          "b07c6617-aed7-48fd-9617-5754c1fd1cff",
           "4d477236-e51e-4f7d-9bc6-2fbbfbe89487"
         ],
-        "skillLogic": "and"
+        "skillLogic": "or"
       },
       "combat": {
         "kind": "self_buff",
