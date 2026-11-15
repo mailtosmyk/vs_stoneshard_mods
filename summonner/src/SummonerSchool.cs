@@ -60,8 +60,7 @@ public static class SummonerSchool
             "text = \"" + SummonerSkills.SchoolName + "\"\n" +
             "skill = [" + icons + "]\n" +
             "branch_sprite = s_summoner_tree\n" +
-            "is_execute = false\n" +
-            "owner = gml_Script_scr_GetMobParametr\n");
+            "is_execute = false\n");
 
         var layout = new System.Text.StringBuilder("event_inherited()\n");
         void Place(SummonerSkill[] skills, int[] xs, int y)
@@ -114,52 +113,81 @@ public static class SummonerSchool
         }
     }
 
-    const string WeaponsColumn =
-        "o_skill_category_sword, o_skill_category_axe, o_skill_category_mace, o_skill_category_dagger, " +
-        "o_skill_category_greatsword, o_skill_category_greataxe, o_skill_category_greatmauls, " +
-        "o_skill_category_polearms, o_skill_category_bows, o_skill_category_shields, " +
-        "o_skill_category_staves, o_skill_category_wands";
-
-    const string UtilityColumn =
-        "o_skill_category_basic_skills, o_skill_category_dual_wielding, o_skill_category_combat, " +
-        "o_skill_category_athletics, o_skill_category_basic_armor, o_skill_category_survival, " +
-        "o_skill_category_mastery_of_magic, o_skill_category_alchemy, o_skill_category_sabotage";
-
-    const string SorceryColumn =
-        "o_skill_category_pyromancy, o_skill_category_geomancy, o_skill_category_electromancy, " +
-        "o_skill_category_arcanistics, o_skill_category_venomancy, o_skill_category_cryomancy, " +
-        "o_skill_category_astromancy, o_skill_category_psymancy";
-
+    /// <summary>
+    /// Inject into the existing <c>_metaCategoriesArray</c> instead of replacing it.
+    /// ReplaceBy wipes sibling schools (Necromancy) because UTMT decompiles the array as
+    /// numeric IDs and the second mod's full rewrite drops the first mod's category.
+    /// Columns: 0 = weapons, 1 = utility, 2 = sorcery.
+    /// </summary>
     static void InsertCategoryIntoSkillMenu()
     {
-        var weapons = WeaponsColumn;
-        var utility = UtilityColumn;
-        var sorcery = SorceryColumn;
-        switch (SummonerSkills.SchoolTarget.Trim().ToLowerInvariant())
+        var column = SummonerSkills.SchoolTarget.Trim().ToLowerInvariant() switch
         {
-            case "sorcery":
-            case "magic":
-                sorcery += ", " + CategoryObjectName;
-                break;
-            case "utility":
-            case "survival":
-            case "warfare":
-            case "mastery":
-                utility = utility.Replace(
-                    "o_skill_category_survival",
-                    "o_skill_category_survival, " + CategoryObjectName);
-                break;
-            default:
-                throw new InvalidOperationException(
-                    $"Unknown summonner.json target '{SummonerSkills.SchoolTarget}'.");
+            "sorcery" or "magic" => 2,
+            "utility" or "survival" or "warfare" or "mastery" => 1,
+            _ => throw new InvalidOperationException(
+                $"Unknown summonner.json target '{SummonerSkills.SchoolTarget}'.")
+        };
+
+        Msl.LoadGML("gml_Object_o_skillmenu_Create_0")
+            .Apply(lines => InjectMetaCategory(lines, CategoryObjectName, column))
+            .Save();
+    }
+
+    static IEnumerable<string> InjectMetaCategory(
+        IEnumerable<string> lines, string categoryObjectName, int column)
+    {
+        const string marker = "var _metaCategoriesArray = ";
+        foreach (var line in lines)
+        {
+            if (!line.Contains(marker, StringComparison.Ordinal) ||
+                line.Contains(categoryObjectName, StringComparison.Ordinal))
+            {
+                yield return line;
+                continue;
+            }
+
+            yield return InjectIntoMetaCategoriesArray(line, categoryObjectName, column);
+        }
+    }
+
+    static string InjectIntoMetaCategoriesArray(string line, string categoryObjectName, int column)
+    {
+        var start = line.IndexOf("[[", StringComparison.Ordinal);
+        if (start < 0)
+            return line;
+
+        var i = start + 1; // '[' of column 0
+        for (var col = 0; col <= column; col++)
+        {
+            if (i < 0 || i >= line.Length)
+                return line;
+            if (line[i] != '[')
+                i = line.IndexOf('[', i);
+            if (i < 0)
+                return line;
+
+            var depth = 0;
+            for (var j = i; j < line.Length; j++)
+            {
+                if (line[j] == '[')
+                    depth++;
+                else if (line[j] == ']')
+                {
+                    depth--;
+                    if (depth != 0)
+                        continue;
+                    if (col == column)
+                        return line[..j] + ", " + categoryObjectName + line[j..];
+                    i = j + 1;
+                    while (i < line.Length && (line[i] == ',' || char.IsWhiteSpace(line[i])))
+                        i++;
+                    break;
+                }
+            }
         }
 
-        var replacement =
-            "var _metaCategoriesArray = [[" + weapons + "], [" + utility + "], [" + sorcery + "]]";
-        Msl.LoadGML("gml_Object_o_skillmenu_Create_0")
-            .MatchFrom("var _metaCategoriesArray = ")
-            .ReplaceBy(replacement)
-            .Save();
+        return line;
     }
 
     static void InsertTierGlobals(

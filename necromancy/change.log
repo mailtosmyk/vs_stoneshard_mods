@@ -1,3 +1,7 @@
+1.14.1
+- Fix skill menu coexistence with Summoner (inject category instead of ReplaceBy wipe).
+- Drop bogus category owner script assignment.
+
 1.14.0
 - Summon RMB context menu: Inspect (Explore) and tile Swap with the player (adjacent).
 - Swap works while summons are idle (vanilla gate blocked idle neutrals).

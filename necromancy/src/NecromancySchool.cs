@@ -76,8 +76,7 @@ public static class NecromancySchool
             "text = \"Necromancy\"\n" +
             "skill = [" + icons + "]\n" +
             "branch_sprite = s_nmancy_reworked\n" +
-            "is_execute = false\n" +
-            "owner = gml_Script_scr_GetMobParametr\n");
+            "is_execute = false\n");
 
         // Branches:
         //   Left   Dark Bolt → Essence Leech → Death Touch → Corpse Burst
@@ -181,58 +180,81 @@ public static class NecromancySchool
         }
     }
 
-    // Current Stoneshard decompiles this array as numeric asset IDs, so matching
-    // individual o_skill_category_* names fails. Replace the whole assignment
-    // (same approach as BW-s-Necromancy) using stable object names.
-    const string WeaponsColumn =
-        "o_skill_category_sword, o_skill_category_axe, o_skill_category_mace, o_skill_category_dagger, " +
-        "o_skill_category_greatsword, o_skill_category_greataxe, o_skill_category_greatmauls, " +
-        "o_skill_category_polearms, o_skill_category_bows, o_skill_category_shields, " +
-        "o_skill_category_staves, o_skill_category_wands";
-
-    const string UtilityColumn =
-        "o_skill_category_basic_skills, o_skill_category_dual_wielding, o_skill_category_combat, " +
-        "o_skill_category_athletics, o_skill_category_basic_armor, o_skill_category_survival, " +
-        "o_skill_category_mastery_of_magic, o_skill_category_alchemy, o_skill_category_sabotage";
-
-    const string SorceryColumn =
-        "o_skill_category_pyromancy, o_skill_category_geomancy, o_skill_category_electromancy, " +
-        "o_skill_category_arcanistics, o_skill_category_venomancy, o_skill_category_cryomancy, " +
-        "o_skill_category_astromancy, o_skill_category_psymancy";
-
+    /// <summary>
+    /// Inject into the existing <c>_metaCategoriesArray</c> instead of replacing it.
+    /// Full ReplaceBy drops sibling schools (Summoner): UTMT decompiles IDs as numbers, so
+    /// the second mod cannot see the first mod's named category and rewrites vanilla-only.
+    /// Columns: 0 = weapons, 1 = utility, 2 = sorcery.
+    /// </summary>
     static void InsertCategoryIntoSkillMenu()
     {
-        var weapons = WeaponsColumn;
-        var utility = UtilityColumn;
-        var sorcery = SorceryColumn;
-
-        switch (NecromancySkills.SchoolTarget.Trim().ToLowerInvariant())
+        var column = NecromancySkills.SchoolTarget.Trim().ToLowerInvariant() switch
         {
-            case "sorcery":
-            case "magic":
-                sorcery += ", " + CategoryObjectName;
-                break;
-
-            case "utility":
-            case "survival":
-            case "mastery":
-                utility = utility.Replace(
-                    "o_skill_category_mastery_of_magic",
-                    "o_skill_category_mastery_of_magic, " + CategoryObjectName);
-                break;
-
-            default:
-                throw new InvalidOperationException(
-                    $"Unknown necromancy.json target '{NecromancySkills.SchoolTarget}'. Use \"Sorcery\" or \"Utility\".");
-        }
-
-        var replacement =
-            "var _metaCategoriesArray = [[" + weapons + "], [" + utility + "], [" + sorcery + "]]";
+            "sorcery" or "magic" => 2,
+            "utility" or "survival" or "mastery" => 1,
+            _ => throw new InvalidOperationException(
+                $"Unknown necromancy.json target '{NecromancySkills.SchoolTarget}'. Use \"Sorcery\" or \"Utility\".")
+        };
 
         Msl.LoadGML("gml_Object_o_skillmenu_Create_0")
-            .MatchFrom("var _metaCategoriesArray = ")
-            .ReplaceBy(replacement)
+            .Apply(lines => InjectMetaCategory(lines, CategoryObjectName, column))
             .Save();
+    }
+
+    static IEnumerable<string> InjectMetaCategory(
+        IEnumerable<string> lines, string categoryObjectName, int column)
+    {
+        const string marker = "var _metaCategoriesArray = ";
+        foreach (var line in lines)
+        {
+            if (!line.Contains(marker, StringComparison.Ordinal) ||
+                line.Contains(categoryObjectName, StringComparison.Ordinal))
+            {
+                yield return line;
+                continue;
+            }
+
+            yield return InjectIntoMetaCategoriesArray(line, categoryObjectName, column);
+        }
+    }
+
+    static string InjectIntoMetaCategoriesArray(string line, string categoryObjectName, int column)
+    {
+        var start = line.IndexOf("[[", StringComparison.Ordinal);
+        if (start < 0)
+            return line;
+
+        var i = start + 1; // '[' of column 0
+        for (var col = 0; col <= column; col++)
+        {
+            if (i < 0 || i >= line.Length)
+                return line;
+            if (line[i] != '[')
+                i = line.IndexOf('[', i);
+            if (i < 0)
+                return line;
+
+            var depth = 0;
+            for (var j = i; j < line.Length; j++)
+            {
+                if (line[j] == '[')
+                    depth++;
+                else if (line[j] == ']')
+                {
+                    depth--;
+                    if (depth != 0)
+                        continue;
+                    if (col == column)
+                        return line[..j] + ", " + categoryObjectName + line[j..];
+                    i = j + 1;
+                    while (i < line.Length && (line[i] == ',' || char.IsWhiteSpace(line[i])))
+                        i++;
+                    break;
+                }
+            }
+        }
+
+        return line;
     }
 
     static void InsertTierGlobals(
