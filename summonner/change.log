@@ -1,3 +1,6 @@
+0.7.0
+- Localize skills, buffs, and school hover into EN / RU / ZH / DE / JA (Stoneshard top languages).
+
 0.6.1
 - Fix missing skill descriptions (table_skills desc rows were skipped after name insert).
 - Tier 2 locks until its corresponding Tier 1 is learned (Hunt→Howl, Wolf→Instincts, Unsummon→Mend).
