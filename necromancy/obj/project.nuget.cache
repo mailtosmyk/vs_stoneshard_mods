@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "SPf9PPZ1wtZEA5fE1YXcSME8ntlj4KcdX0MwZ2W51t3/Yb35a+faA1GdC0wuU5oP1Ltc9JuwyGpoNSu9qgXCEQ==",
+  "dgSpecHash": "OAkNdoEPRek=",
   "success": true,
   "projectFilePath": "/home/vitali/Mods/vs_stoneshard_mods/necromancy/Necromancy.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/home/vitali/.nuget/packages/microsoft.netcore.app.ref/6.0.36/microsoft.netcore.app.ref.6.0.36.nupkg.sha512",
+    "/home/vitali/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.36/microsoft.aspnetcore.app.ref.6.0.36.nupkg.sha512"
+  ],
   "logs": []
 }
