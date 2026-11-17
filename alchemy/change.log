@@ -1,3 +1,7 @@
+0.2.13
+- Rebuild for ModShardLauncher Enhanced (InjectTableItemStats 88-param API / .NET 10).
+- Fixes MissingMethodException when loading Alchemy under MSL Enhanced.
+
 0.2.12
 - Blank Scroll is a known Base Recipe (hemp → blank scroll) from the start.
 

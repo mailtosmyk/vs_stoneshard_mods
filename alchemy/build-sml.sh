@@ -39,9 +39,16 @@ fi
 echo "Building $MOD_NAME ($CONFIG)..."
 dotnet build "$ROOT/Alchemy.csproj" -c "$CONFIG" --nologo
 
-DLL="$ROOT/bin/$CONFIG/net6.0/$MOD_NAME.dll"
-if [[ ! -f "$DLL" ]]; then
-  echo "error: build output missing: $DLL" >&2
+DLL=""
+for tfm in net10.0 net9.0 net8.0 net6.0; do
+  candidate="$ROOT/bin/$CONFIG/$tfm/$MOD_NAME.dll"
+  if [[ -f "$candidate" ]]; then
+    DLL="$candidate"
+    break
+  fi
+done
+if [[ -z "$DLL" ]]; then
+  echo "error: build output missing under $ROOT/bin/$CONFIG/" >&2
   exit 1
 fi
 

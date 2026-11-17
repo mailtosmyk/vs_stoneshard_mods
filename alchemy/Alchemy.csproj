@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <RootNamespace>Alchemy</RootNamespace>
@@ -11,12 +11,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <!-- Prefer ModShardLauncher-Enhanced (InjectTableItemStats 88-param API). -->
     <Reference Include="ModShardLauncher">
-      <HintPath>..\..\msl\ModShardLauncher.dll</HintPath>
+      <HintPath>..\..\ModShardLauncher-Enhanced\ModShardLauncher.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="UndertaleModLib">
-      <HintPath>..\..\msl\UndertaleModLib.dll</HintPath>
+      <HintPath>..\..\ModShardLauncher-Enhanced\UndertaleModLib.dll</HintPath>
       <Private>false</Private>
     </Reference>
   </ItemGroup>
