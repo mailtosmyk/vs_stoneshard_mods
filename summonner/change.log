@@ -1,3 +1,7 @@
+0.7.1
+- Unsummon now safe-dismisses (no Morale death debuff).
+- Summoned pets leave no corpse/remains on death or dismiss.
+
 0.7.0
 - Localize skills, buffs, and school hover into EN / RU / ZH / DE / JA (Stoneshard top languages).
 

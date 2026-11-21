@@ -1,64 +1,106 @@
 [b]  Description[/b]
+
 Summoner adds a full beastbinder skill school to Stoneshard. Bond living companions that keep their own Experience and level, command the pack with Howl and Hunt, and grow Wolf, Crawler, Bear, Bison, and Gulon across a 13-skill tree (11 active, 2 passive).
-Built for the current ModShardLauncher pipeline and Stoneshard 0.9.4.x.
+
+Built for ModShardLauncher Enhanced and Stoneshard 0.9.4.x.
+
 Play a beastmaster who fights beside permanent companions — summon, mend, mark, and unleash the pack.
+
 ────────────────────────────────────────
+
 [b]  Installation instructions[/b]
+
 1. Switch Stoneshard to the modbranch beta on Steam (Properties → Betas → modbranch). The version in-game should end with -vm.
-2. Install ModShardLauncher (MSL) from GitHub releases (https://github.com/ModShardTeam/ModShardLauncher/releases) or Nexus (https://www.nexusmods.com/stoneshard/mods/29). Follow the official install guide
-(https://modshardteam.github.io/ModShardLauncher/guides/how-to-play-mod.html).
+
+2. Install ModShardLauncher Enhanced from Nexus (https://www.nexusmods.com/stoneshard/mods/103), or upstream MSL from GitHub (https://github.com/ModShardTeam/ModShardLauncher/releases) / Nexus (https://www.nexusmods.com/stoneshard/mods/29). Follow the official install guide (https://modshardteam.github.io/ModShardLauncher/guides/how-to-play-mod.html).
+
 3. In your Stoneshard folder, rename data.win to vanilla.win (backup first).
+
 4. Download this mod’s .sml file and place it in MSL’s Mods folder.
+
 5. Open MSL → Anvil (Mods) → load vanilla.win → enable Summoner → Save as e.g. modded.win.
+
 6. Launch Stoneshard and select modded.win.
+
 Tip: Back up your saves before using mods. If MSL appears frozen while loading the .win, wait — that is normal.
+
 ────────────────────────────────────────
+
 [b]  Main features[/b]
+
 • New skill school: Summoner — 13 skills across 4 tiers
+
 • Living companions — Summon Wolf, Crawler, Bear, Bison, Gulon; each species keeps its own XP and level
+
 • Progression — per-summon XP curves plus HP / Damage / Armor tables through level 10
+
 • Pack tools — Hunt Command, Alpha’s Howl, Mend Pack, Savage Bond, Primal Apex
+
 • Passives — Pack Instincts (+1 summon cap), Kindred Spirit (XP bonus, halved death Morale)
-• Death cost — companion death applies a temporary Morale debuff for 600 turns (does not stack); Unsummon / map travel dismiss safely with XP kept
+
+• Death cost — companion death applies a temporary Morale debuff for 600 turns (does not stack); Unsummon / map travel dismiss safely with XP kept; pets leave no corpse/remains
+
 • Treatises — Beastbinder skill books
+
 • Tier gates — attribute thresholds and skill prerequisites across the tree
+
 ────────────────────────────────────────
+
 [b]  Skill tree[/b]
+
 [img]https://files.catbox.moe/q1z82l.png[/img]
+
 [img]https://files.catbox.moe/r75mds.png[/img]
+
 [img]https://files.catbox.moe/suzkru.png[/img]
+
 [img]https://files.catbox.moe/eybc5i.png[/img]
+
 [img]https://files.catbox.moe/6jrbzu.png[/img]
+
 ────────────────────────────────────────
+
 [b]  Requirements[/b]
+
 • Stoneshard 0.9.4.x on Steam modbranch
-• ModShardLauncher (recent version that supports current .sml files)
-• .NET Desktop Runtime 6.0 if MSL fails to start
+• ModShardLauncher Enhanced (https://www.nexusmods.com/stoneshard/mods/103) — recommended / required for current builds
+• .NET Desktop Runtime 10.0 for MSL Enhanced (or .NET 6.0 if using older upstream MSL)
 • No other content mods required (compatible with other MSL mods in principle; load order / conflicts not guaranteed)
+
 ────────────────────────────────────────
+
 [b]  Shout outs[/b]
+
 Thanks to the ModShardTeam for ModShardLauncher, and to the Stoneshard Mod Hub community for tools, docs, and support.
+
 ────────────────────────────────────────
+
 [b]  Changelog (recent)[/b]
-0.4.0
-• Summon RMB context menu: Inspect (Explore) and tile Swap with the player (adjacent).
-• Swap works while summons are idle (vanilla gate blocked idle neutrals).
-• Fix AddFunction order so scr_sm_apply_level_stats exists before scr_sm_bind_summon (startup crash).
-0.3.0
-• Hunt Command aura recolored red; Kindred Spirit icon recolored green.
-• Skill deps: T3 requires any T2; T4 requires any T3 only (no T2→T4 skips); T2 still gated by T1.
-• Alpha's Howl 8 turns; Savage Bond 10 turns; Primal Apex 6 turns.
-0.2.0
-• Arcane Bestiary skill icons (frameless extracts) for all 13 skills.
-• Summon death applies temporary Morale debuff for 600 turns (does not stack); Kindred still halves.
-• Per-summon XP / HP / damage / armor progression tables on each summon skill.
-0.1.0
-• Initial Summoner school scaffold: 13 skills, per-species XP tracks, balance pass.
-• Summons dismiss safely when changing map tiles / rooms (XP kept, no Morale loss).
-• Skill icons and .sml build pipeline.
+
+0.7.1
+• Unsummon now safe-dismisses (no Morale death debuff).
+• Summoned pets leave no corpse/remains on death or dismiss.
+0.7.0
+• Localize skills, buffs, and school hover into EN / RU / ZH / DE / JA (Stoneshard top languages).
+0.6.1
+• Fix missing skill descriptions (table_skills desc rows were skipped after name insert).
+• Tier 2 locks until its corresponding Tier 1 is learned (Hunt→Howl, Wolf→Instincts, Unsummon→Mend).
+• Gate higher tiers with can_learn like vanilla/Necromancy (no free unlock).
+0.6.0
+• Move Summoner school to the Magic (Sorcery) skill column.
+• Restore skill-tree background (locks + links) on s_summoner_tree.
+• Tier 2 unlocks when any Tier 1 skill is learned (not a specific column).
+• Fix skill hover crash: active icons now copy desc via event_perform_object(child_skill).
+
+────────────────────────────────────────
+
 ────────────────────────────────────────
 [b]  Support[/b]
+
 If you enjoy the mod and want to support further updates and maintenance:
+
 • Patreon: https://www.patreon.com/c/vitali_smyk
+
 • PayPal: https://www.paypal.com/donate/?hosted_button_id=FV3P3RCGG9MD8
+
 Any support is appreciated — it helps keep the school alive through game patches.

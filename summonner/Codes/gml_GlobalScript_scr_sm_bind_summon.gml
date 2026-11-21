@@ -10,6 +10,9 @@ function scr_sm_bind_summon(argument0, argument1, argument2)
         owner = argument1
         can_drop_loot = false
         loot_script = -4
+        loot_corpse = -4
+        corpse_type = noone
+        is_corpse_spawn = false
         gain_xp *= 0.1
         scr_faction_map_remove(id)
         faction_key = "Player"

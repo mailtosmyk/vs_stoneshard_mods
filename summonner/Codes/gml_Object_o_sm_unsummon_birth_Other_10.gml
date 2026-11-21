@@ -18,7 +18,12 @@ if ((!is_execute) && instance_exists(owner))
     if instance_exists(_target)
     {
         with (_target)
+        {
+            sm_safe_dismiss = true
+            corpse_type = noone
+            is_corpse_spawn = false
             instance_destroy()
+        }
     }
     if is_player(owner)
         scr_allturn()

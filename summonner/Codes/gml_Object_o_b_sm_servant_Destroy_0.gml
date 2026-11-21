@@ -1,6 +1,26 @@
 event_inherited()
 if (!instance_exists(target))
     exit
+// Buff Destroy runs after enemy corpse spawn — strip any remains left by the summon.
+if (variable_instance_exists(target, "corpse") && instance_exists(target.corpse))
+{
+    with (target.corpse)
+        instance_destroy()
+}
+else
+{
+    var _tx = target.x
+    var _ty = target.y
+    var _corpse = asset_get_index("o_corpse")
+    if (_corpse != -1)
+    {
+        with (_corpse)
+        {
+            if (x == _tx && y == _ty)
+                instance_destroy()
+        }
+    }
+}
 if (variable_instance_exists(target, "sm_safe_dismiss") && target.sm_safe_dismiss)
     exit
 if (!instance_exists(owner))

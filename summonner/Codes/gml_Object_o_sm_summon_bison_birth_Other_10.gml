@@ -14,6 +14,8 @@ if ((!is_execute) && instance_exists(owner))
             if ((!_dropped) && variable_instance_exists(id, "sm_summon") && sm_summon)
             {
                 sm_safe_dismiss = true
+                corpse_type = noone
+                is_corpse_spawn = false
                 instance_destroy()
                 _dropped = true
             }
