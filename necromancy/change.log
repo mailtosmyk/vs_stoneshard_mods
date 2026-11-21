@@ -1,3 +1,7 @@
+1.15.0
+- Black Sepulchre: base range 6; pick an enemy target instead of area/tile cast.
+- Mastery of Binding: available as tier 3 (Level 16 / PRC or WIL 14) after Resurrection.
+
 1.14.1
 - Fix skill menu coexistence with Summoner (inject category instead of ReplaceBy wipe).
 - Drop bogus category owner script assignment.

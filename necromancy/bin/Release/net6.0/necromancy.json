@@ -472,7 +472,7 @@
       "type": "active",
       "tier": 3,
       "image": "s_black_sepulchre",
-      "description": "Detonates ~r~\"Withering Curse\"~/~ on the target (Range: ~w~5~/~), or on the strongest cursed enemy in a 3x3 if cast on a tile: removes stacks, deals ~ur~6 Unholy Damage~/~ × stacks to the target and ~ur~3 Unholy Damage~/~ × stacks to adjacent enemies.##Allows ~r~\"Withering Curse\"~/~ to stack up to III.##Bodypart worsen becomes ~r~0.5%~/~ per turn per stack while at III.",
+      "description": "Detonates ~r~\"Withering Curse\"~/~ on the targeted enemy (Range: ~w~6~/~): removes stacks, deals ~ur~6 Unholy Damage~/~ × stacks to the target and ~ur~3 Unholy Damage~/~ × stacks to adjacent enemies.##Allows ~r~\"Withering Curse\"~/~ to stack up to III.##Bodypart worsen becomes ~r~0.5%~/~ per turn per stack while at III.",
       "magicPhrase": "Shaggrath Namar!",
       "requirements": {
         "attributes": [
@@ -493,14 +493,14 @@
       },
       "combat": {
         "kind": "debuff",
-        "target": "point",
-        "range": "5",
+        "target": "object",
+        "range": "6",
         "cooldown": 8,
         "energy": 16,
         "reserve": 0,
         "duration": 0,
-        "aoeLength": 3,
-        "aoeWidth": 3,
+        "aoeLength": 0,
+        "aoeWidth": 0,
         "isMovement": false,
         "pattern": "normal",
         "class": "spell",

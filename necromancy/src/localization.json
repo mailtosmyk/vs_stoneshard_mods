@@ -302,11 +302,11 @@
         "Russian": "Чёрная усыпальница"
       },
       "description": {
-        "English": "Detonates \"Withering Curse\" on the target (Range: 5), or on the strongest cursed enemy in a 3x3 if cast on a tile: removes stacks, deals 6 Unholy Damage × stacks to the target and 3 Unholy Damage × stacks to adjacent enemies. Allows \"Withering Curse\" to stack up to III. Bodypart worsen becomes 0.5% per turn per stack while at III.",
-        "Japanese": "対象の「枯死の呪い」を起爆する（射程: 5）。タイル詠唱時は3x3内で最も強い呪い持ちを対象：スタックを除去し、対象に不浄ダメージ6×スタック、隣接敵に3×スタック。呪いを最大IIIまで重複可能。III時の部位悪化はスタックごとに毎ターン0.5%。",
-        "Chinese": "引爆目标身上的“凋零诅咒”（射程：5）；若对格子施放，则引爆3x3内最强的被诅咒敌人：移除层数，对目标造成6×层数邪秽伤害，对相邻敌人造成3×层数邪秽伤害。使“凋零诅咒”可叠至III。达到III时，部位恶化变为每层每回合0.5%。",
-        "German": "Zündet „Verdorrender Fluch“ am Ziel (Reichweite: 5) oder am stärksten verfluchten Feind in 3x3 bei Feldwirken: entfernt Stapel, verursacht 6 Unheiligen Schaden × Stapel am Ziel und 3 × Stapel an angrenzenden Feinden. Erlaubt Stapelung bis III. Bei III: Körperteilverschlechterung 0,5% pro Zug und Stapel.",
-        "Russian": "Детонирует «Иссушающее проклятие» на цели (дальность: 5) или на сильнейшем проклятом враге в 3x3 при применении на клетку: снимает стаки, наносит цели 6 урона нечестием × стаки и соседним врагам 3 × стаки. Позволяет стакать проклятие до III. При III ухудшение частей тела: 0,5% за ход за стак."
+        "English": "Detonates \"Withering Curse\" on the targeted enemy (Range: 6): removes stacks, deals 6 Unholy Damage × stacks to the target and 3 Unholy Damage × stacks to adjacent enemies. Allows \"Withering Curse\" to stack up to III. Bodypart worsen becomes 0.5% per turn per stack while at III.",
+        "Japanese": "対象の敵の「枯死の呪い」を起爆する（射程: 6）：スタックを除去し、対象に不浄ダメージ6×スタック、隣接敵に3×スタック。呪いを最大IIIまで重複可能。III時の部位悪化はスタックごとに毎ターン0.5%。",
+        "Chinese": "引爆选定敌人身上的“凋零诅咒”（射程：6）：移除层数，对目标造成6×层数邪秽伤害，对相邻敌人造成3×层数邪秽伤害。使“凋零诅咒”可叠至III。达到III时，部位恶化变为每层每回合0.5%。",
+        "German": "Zündet „Verdorrender Fluch“ am gewählten Feind (Reichweite: 6): entfernt Stapel, verursacht 6 Unheiligen Schaden × Stapel am Ziel und 3 × Stapel an angrenzenden Feinden. Erlaubt Stapelung bis III. Bei III: Körperteilverschlechterung 0,5% pro Zug und Stapel.",
+        "Russian": "Детонирует «Иссушающее проклятие» на выбранном враге (дальность: 6): снимает стаки, наносит цели 6 урона нечестием × стаки и соседним врагам 3 × стаки. Позволяет стакать проклятие до III. При III ухудшение частей тела: 0,5% за ход за стак."
       },
       "magicPhrase": {
         "English": "Shaggrath Namar!",

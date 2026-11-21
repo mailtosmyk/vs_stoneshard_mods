@@ -790,11 +790,11 @@ public static class NecromancyLocalization
             },
             new Dictionary<ModLanguage, string>
             {
-                { ModLanguage.English, "Detonates ~r~\"Withering Curse\"~/~ on the target (Range: ~w~5~/~), or on the strongest cursed enemy in a 3x3 if cast on a tile: removes stacks, deals ~ur~6 Unholy Damage~/~ × stacks to the target and ~ur~3 Unholy Damage~/~ × stacks to adjacent enemies.##Allows ~r~\"Withering Curse\"~/~ to stack up to III.##Bodypart worsen becomes ~r~0.5%~/~ per turn per stack while at III." },
-                { ModLanguage.Japanese, "対象の~r~「枯死の呪い」~/~を起爆する（射程: ~w~5~/~）。##タイル詠唱時は3x3内で最も強い呪い持ちを対象：スタックを除去し、対象に~ur~不浄ダメージ6~/~×スタック、隣接敵に~ur~3~/~×スタック。##呪いを最大IIIまで重複可能。##III時の部位悪化はスタックごとに毎ターン~r~0.5%~/~。" },
-                { ModLanguage.Chinese, "引爆目标身上的~r~“凋零诅咒”~/~（射程：~w~5~/~）；若对格子施放，则引爆3x3内最强的被诅咒敌人：移除层数，对目标造成~ur~6×层数邪秽伤害~/~，对相邻敌人造成~ur~3×层数邪秽伤害~/~。##使~r~“凋零诅咒”~/~可叠至III。##达到III时，部位恶化变为每层每回合~r~0.5%~/~。" },
-                { ModLanguage.German, "Zündet ~r~„Verdorrender Fluch“~/~ am Ziel (Reichweite: ~w~5~/~) oder am stärksten verfluchten Feind in 3x3 bei Feldwirken: entfernt Stapel, verursacht ~ur~6 Unheiligen Schaden~/~ × Stapel am Ziel und ~ur~3~/~ × Stapel an angrenzenden Feinden.##Erlaubt Stapelung bis III.##Bei III: Körperteilverschlechterung ~r~0,5%~/~ pro Zug und Stapel." },
-                { ModLanguage.Russian, "Детонирует ~r~«Иссушающее проклятие»~/~ на цели (дальность: ~w~5~/~) или на сильнейшем проклятом враге в 3x3 при применении на клетку: снимает стаки, наносит цели ~ur~6 урона нечестием~/~ × стаки и соседним врагам ~ur~3~/~ × стаки.##Позволяет стакать проклятие до III.##При III ухудшение частей тела: ~r~0,5%~/~ за ход за стак." },
+                { ModLanguage.English, "Detonates ~r~\"Withering Curse\"~/~ on the targeted enemy (Range: ~w~6~/~): removes stacks, deals ~ur~6 Unholy Damage~/~ × stacks to the target and ~ur~3 Unholy Damage~/~ × stacks to adjacent enemies.##Allows ~r~\"Withering Curse\"~/~ to stack up to III.##Bodypart worsen becomes ~r~0.5%~/~ per turn per stack while at III." },
+                { ModLanguage.Japanese, "対象の敵の~r~「枯死の呪い」~/~を起爆する（射程: ~w~6~/~）：スタックを除去し、対象に~ur~不浄ダメージ6~/~×スタック、隣接敵に~ur~3~/~×スタック。##呪いを最大IIIまで重複可能。##III時の部位悪化はスタックごとに毎ターン~r~0.5%~/~。" },
+                { ModLanguage.Chinese, "引爆选定敌人身上的~r~“凋零诅咒”~/~（射程：~w~6~/~）：移除层数，对目标造成~ur~6×层数邪秽伤害~/~，对相邻敌人造成~ur~3×层数邪秽伤害~/~。##使~r~“凋零诅咒”~/~可叠至III。##达到III时，部位恶化变为每层每回合~r~0.5%~/~。" },
+                { ModLanguage.German, "Zündet ~r~„Verdorrender Fluch“~/~ am gewählten Feind (Reichweite: ~w~6~/~): entfernt Stapel, verursacht ~ur~6 Unheiligen Schaden~/~ × Stapel am Ziel und ~ur~3~/~ × Stapel an angrenzenden Feinden.##Erlaubt Stapelung bis III.##Bei III: Körperteilverschlechterung ~r~0,5%~/~ pro Zug und Stapel." },
+                { ModLanguage.Russian, "Детонирует ~r~«Иссушающее проклятие»~/~ на выбранном враге (дальность: ~w~6~/~): снимает стаки, наносит цели ~ur~6 урона нечестием~/~ × стаки и соседним врагам ~ur~3~/~ × стаки.##Позволяет стакать проклятие до III.##При III ухудшение частей тела: ~r~0,5%~/~ за ход за стак." },
             });
         RegisterSkillLocalization(
             "sealed_mind",

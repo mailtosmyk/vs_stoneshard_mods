@@ -90,7 +90,7 @@ public static class NecromancyTier3Skills
             $"gml_Object_{skill.SkillObjectName}_Create_0.gml",
             $"gml_Object_{skill.SkillObjectName}_Other_17.gml",
         };
-        if (skill.Slug is "corpse_burst" or "death_touch")
+        if (skill.Slug is "corpse_burst" or "death_touch" or "black_sepulchre")
             skillEvents.Add($"gml_Object_{skill.SkillObjectName}_Other_19.gml");
 
         NecromancyTier1Skills.ApplyEventAndReplace(skillObj, modFiles, skillEvents.ToArray());

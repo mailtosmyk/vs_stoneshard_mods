@@ -7,56 +7,15 @@ if (!instance_exists(owner))
 var _curse = asset_get_index("o_db_withering_curse")
 var _main = -4
 var _stacks = 0
-var _cx = x
-var _cy = y
-if instance_exists(target)
-{
-    _cx = target.x
-    _cy = target.y
-}
 
-if (_curse != -1)
+// Direct target pick: detonate Withering Curse on the selected enemy.
+if (_curse != -1 && instance_exists(target) && object_is_ancestor(target.object_index, o_unit))
 {
-    // Prefer a unit under the cast point that already has the curse.
-    if (instance_exists(target) && object_is_ancestor(target.object_index, o_unit))
+    var _onTarget = scr_instance_exists_in_list(_curse, target.buffs)
+    if _onTarget
     {
-        var _onTarget = scr_instance_exists_in_list(_curse, target.buffs)
-        if _onTarget
-        {
-            _main = target
-            _stacks = max(1, _onTarget.stage)
-        }
-    }
-
-    // Tile cast / no cursed unit under cursor: strongest cursed enemy in 3x3.
-    if (!instance_exists(_main))
-    {
-        var _best = -4
-        var _bestStage = 0
-        var _tTileX = floor(_cx / 26)
-        var _tTileY = floor(_cy / 26)
-        with (o_enemy)
-        {
-            if (visible && is_player_enemy && HP > 0)
-            {
-                var _dx = abs(floor(x / 26) - _tTileX)
-                var _dy = abs(floor(y / 26) - _tTileY)
-                if (max(_dx, _dy) <= 1)
-                {
-                    var _c = scr_instance_exists_in_list(_curse, buffs)
-                    if (_c && _c.stage > _bestStage)
-                    {
-                        _best = id
-                        _bestStage = _c.stage
-                    }
-                }
-            }
-        }
-        if instance_exists(_best)
-        {
-            _main = _best
-            _stacks = _bestStage
-        }
+        _main = target
+        _stacks = max(1, _onTarget.stage)
     }
 }
 

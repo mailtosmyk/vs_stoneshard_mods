@@ -47,6 +47,9 @@ Thanks to the ModShardTeam for ModShardLauncher, and to the Stoneshard Mod Hub c
 
 [b]  Changelog (recent)[/b]
 
+1.15.0
+• Black Sepulchre: base range 6; pick an enemy target instead of area/tile cast.
+• Mastery of Binding: available as tier 3 (Level 16 / PRC or WIL 14) after Resurrection.
 1.14.1
 • Fix skill menu coexistence with Summoner (inject category instead of ReplaceBy wipe).
 • Drop bogus category owner script assignment.
@@ -56,9 +59,6 @@ Thanks to the ModShardTeam for ModShardLauncher, and to the Stoneshard Mod Hub c
 1.13.0
 • Death Touch / Corpse Burst / Black Sepulchre: re-init damage fields on Animation End before scr_skill_damage (fixes Weapon_Damage crash when Create was never registered on re-patch).
 • ApplyEventAndReplace: register each event subtype individually so a pre-existing Other_7 cannot skip adding Create_0.
-1.12.0
-• Mastery of Binding: removes summon level cap entirely (was +1); Skeleton/Resurrection duration +10 turns.
-• Wraith Summoning: explicitly tile-target with no corpse required.
 
 ────────────────────────────────────────
 

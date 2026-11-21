@@ -82,7 +82,14 @@ Type: Active
 Level: 3
 Requirements: Level 16 or Attributes: PRC or WIL >= 14; Skills: Grave Blight
 Image: s_black_sepulchre
-Description: Detonates "Withering Curse" on the target (Range: 5), or on the strongest cursed enemy in a 3x3 if cast on a tile: removes stacks, deals 6 Unholy Damage × stacks to the target and 3 Unholy Damage × stacks to adjacent enemies. Allows "Withering Curse" to stack up to III. Bodypart worsen becomes 0.5% per turn per stack while at III.
+Description: Detonates "Withering Curse" on the targeted enemy (Range: 6): removes stacks, deals 6 Unholy Damage × stacks to the target and 3 Unholy Damage × stacks to adjacent enemies. Allows "Withering Curse" to stack up to III. Bodypart worsen becomes 0.5% per turn per stack while at III.
+
+Name: Mastery of Binding
+Type: Passive
+Level: 3
+Requirements: Level 16 or Attributes: PRC or WIL >= 14; Skills: Resurrection
+Image: s_mastery_of_binding
+Description: Unbinding allies doesn't take a turn and replenishes Energy equal to 10% of your Magic Power. Removes the level limit of summoning abilities. Summon Skeleton: +10 turns base duration and +10% Max Health / Max Energy. Resurrection thralls start at 60% Max Health and last +10 turns. Still limited to one safe Undead at a time unless a higher-tier skill allows more.
 
 ================================================================================
 TIER 4
@@ -94,13 +101,6 @@ Level: 4
 Requirements: Level 22 or Attributes: Vitality or WIL or STR >= 20; Skills: Corpse Burst
 Image: s_immortality
 Description: Prevents dying from lethal hits as long as Max Health and Morale are both higher than 50%. When Health drops below 2, replenishes 33% of Max Health and Max Energy, and applies: -10% Morale, +2% Fatigue. Prevents death from starvation or dehydration.
-
-Name: Mastery of Binding
-Type: Passive
-Level: 4
-Requirements: Level 22 or Attributes: PRC or WIL >= 20; Skills: Resurrection
-Image: s_mastery_of_binding
-Description: Unbinding allies doesn't take a turn and replenishes Energy equal to 10% of your Magic Power. Removes the level limit of summoning abilities. Summon Skeleton: +10 turns base duration and +10% Max Health / Max Energy. Resurrection thralls start at 60% Max Health and last +10 turns. Still limited to one safe Undead at a time unless a higher-tier skill allows more.
 
 Name: Blooming Madness
 Type: Passive
