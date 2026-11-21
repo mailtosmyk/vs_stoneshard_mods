@@ -1,49 +1,96 @@
 [b]  Description[/b]
+
 Necromancy adds a full occult skill school to Stoneshard. Raise skeletons and thralls, curse enemies with Withering Curse, drain essence from the dead, and bind unholy power across a 14-skill tree (11 active, 3 passive).
+
 Built for ModShardLauncher Enhanced and Stoneshard 0.9.4.x.
+
 Play a dark mage who turns corpses into weapons — bolt, blight, blast, and army.
+
 ────────────────────────────────────────
+
 [b]  Installation instructions[/b]
+
 1. Switch Stoneshard to the modbranch beta on Steam (Properties → Betas → modbranch). The version in-game should end with -vm.
+
 2. Install ModShardLauncher Enhanced from Nexus (https://www.nexusmods.com/stoneshard/mods/103), or upstream MSL from GitHub (https://github.com/ModShardTeam/ModShardLauncher/releases) / Nexus (https://www.nexusmods.com/stoneshard/mods/29). Follow the official install guide (https://modshardteam.github.io/ModShardLauncher/guides/how-to-play-mod.html).
+
 3. In your Stoneshard folder, rename data.win to vanilla.win (backup first).
+
 4. Download this mod’s .sml file and place it in MSL’s Mods folder.
+
 5. Open MSL → Anvil (Mods) → load vanilla.win → enable Necromancy → Save as e.g. modded.win.
+
 6. Launch Stoneshard and select modded.win.
+
 Tip: Back up your saves before using mods. If MSL appears frozen while loading the .win, wait — that is normal.
+
 ────────────────────────────────────────
+
 [b]  Main features[/b]
+
 • New skill school: Necromancy — 14 skills across 4 tiers
+
 • Summoning — Summon Skeleton, Resurrection, Wraith Summoning; thralls scale with Willpower and passives
+
 • Bone offering — casting Summon Skeleton near a Bone consumes it for +10% Max Health and Armor Durability 10%
+
 • Offense — Dark Bolt, Death Touch, Corpse Burst, Black Sepulchre
-• Defense & support — Bone Ward, Death’s Blessing, Essence Leech
-• Curses & zones — Grave Blight / Withering Curse stacking and detonation (area scales with Magic Power, applies Blind, shows gas)
+
+• Defense &amp; support — Bone Ward, Death’s Blessing, Essence Leech
+
+• Curses &amp; zones — Grave Blight / Withering Curse stacking and detonation (area scales with Magic Power, applies Blind, shows gas)
+
 • Passives — Immortality, Mastery of Binding, Blooming Madness
+
 • Summon gear enchants — gear bonuses that empower Skeleton, Resurrection, and Wraith summons
+
 • Treatises — Necromancy skill books (lootable, including witch-house container chances)
+
 • XP from summons — kills by your thralls credit the player
+
 • Tier 3 / 4 gates — Level 16 / 22 or attribute thresholds
+
 ────────────────────────────────────────
+
 [b]  Skill tree[/b]
+
 [img]https://files.catbox.moe/9ksboc.png[/img]
+
 [img]https://files.catbox.moe/irqlj9.png[/img]
+
 [img]https://files.catbox.moe/3203yk.png[/img]
+
 [img]https://files.catbox.moe/f73va3.png[/img]
+
 [img]https://files.catbox.moe/noci5h.png[/img]
+
 ────────────────────────────────────────
+
 [b]  Requirements[/b]
+
 • Stoneshard 0.9.4.x on Steam modbranch
+
 • ModShardLauncher Enhanced (https://www.nexusmods.com/stoneshard/mods/103) — recommended / required for current builds
+
 • .NET Desktop Runtime 10.0 for MSL Enhanced (or .NET 6.0 if using older upstream MSL)
+
 • No other content mods required (compatible with other MSL mods in principle; load order / conflicts not guaranteed)
 
-────────────────────────────────────────
-[b]  Shout outs[/b]
-Huge thanks to Blackwood (BW) and CommissarAmethyst — the original Necromancy Remade / BW’s Necromancy design, balance, and artwork this school builds on.
-Thanks to the ModShardTeam for ModShardLauncher, and to the Stoneshard Mod Hub community for tools, docs, and support.
+
 
 ────────────────────────────────────────
+
+[b]  Shout outs[/b]
+
+Huge thanks to Blackwood (BW) and CommissarAmethyst — the original Necromancy Remade / BW’s Necromancy design, balance, and artwork this school builds on.
+
+Thanks to the ModShardTeam for ModShardLauncher, and to the Stoneshard Mod Hub community for tools, docs, and support.
+
+
+
+────────────────────────────────────────
+
+
 
 [b]  Changelog (recent)[/b]
 
@@ -61,10 +108,13 @@ Thanks to the ModShardTeam for ModShardLauncher, and to the Stoneshard Mod Hub c
 • ApplyEventAndReplace: register each event subtype individually so a pre-existing Other_7 cannot skip adding Create_0.
 
 ────────────────────────────────────────
-
-────────────────────────────────────────
 [b]  Support[/b]
+
 If you enjoy the mod and want to support further updates and maintenance:
+
 • Patreon: https://www.patreon.com/c/vitali_smyk
+
 • PayPal: https://www.paypal.com/donate/?hosted_button_id=FV3P3RCGG9MD8
+
 Any support is appreciated — it helps keep the school alive through game patches.
+
