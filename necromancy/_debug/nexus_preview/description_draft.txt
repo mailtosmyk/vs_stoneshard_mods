@@ -1,12 +1,11 @@
 [b]  Description[/b]
 Necromancy adds a full occult skill school to Stoneshard. Raise skeletons and thralls, curse enemies with Withering Curse, drain essence from the dead, and bind unholy power across a 14-skill tree (11 active, 3 passive).
-Built for the current ModShardLauncher pipeline and Stoneshard 0.9.4.x.
+Built for ModShardLauncher Enhanced and Stoneshard 0.9.4.x.
 Play a dark mage who turns corpses into weapons — bolt, blight, blast, and army.
 ────────────────────────────────────────
 [b]  Installation instructions[/b]
 1. Switch Stoneshard to the modbranch beta on Steam (Properties → Betas → modbranch). The version in-game should end with -vm.
-2. Install ModShardLauncher (MSL) from GitHub releases (https://github.com/ModShardTeam/ModShardLauncher/releases) or Nexus (https://www.nexusmods.com/stoneshard/mods/29). Follow the official install guide
-(https://modshardteam.github.io/ModShardLauncher/guides/how-to-play-mod.html).
+2. Install ModShardLauncher Enhanced from Nexus (https://www.nexusmods.com/stoneshard/mods/103), or upstream MSL from GitHub (https://github.com/ModShardTeam/ModShardLauncher/releases) / Nexus (https://www.nexusmods.com/stoneshard/mods/29). Follow the official install guide (https://modshardteam.github.io/ModShardLauncher/guides/how-to-play-mod.html).
 3. In your Stoneshard folder, rename data.win to vanilla.win (backup first).
 4. Download this mod’s .sml file and place it in MSL’s Mods folder.
 5. Open MSL → Anvil (Mods) → load vanilla.win → enable Necromancy → Save as e.g. modded.win.
@@ -35,15 +34,22 @@ Tip: Back up your saves before using mods. If MSL appears frozen while loading t
 ────────────────────────────────────────
 [b]  Requirements[/b]
 • Stoneshard 0.9.4.x on Steam modbranch
-• ModShardLauncher (recent version that supports current .sml files)
-• .NET Desktop Runtime 6.0 if MSL fails to start
+• ModShardLauncher Enhanced (https://www.nexusmods.com/stoneshard/mods/103) — recommended / required for current builds
+• .NET Desktop Runtime 10.0 for MSL Enhanced (or .NET 6.0 if using older upstream MSL)
 • No other content mods required (compatible with other MSL mods in principle; load order / conflicts not guaranteed)
+
 ────────────────────────────────────────
 [b]  Shout outs[/b]
 Huge thanks to Blackwood (BW) and CommissarAmethyst — the original Necromancy Remade / BW’s Necromancy design, balance, and artwork this school builds on.
 Thanks to the ModShardTeam for ModShardLauncher, and to the Stoneshard Mod Hub community for tools, docs, and support.
+
 ────────────────────────────────────────
+
 [b]  Changelog (recent)[/b]
+
+1.14.1
+• Fix skill menu coexistence with Summoner (inject category instead of ReplaceBy wipe).
+• Drop bogus category owner script assignment.
 1.14.0
 • Summon RMB context menu: Inspect (Explore) and tile Swap with the player (adjacent).
 • Swap works while summons are idle (vanilla gate blocked idle neutrals).
@@ -53,11 +59,9 @@ Thanks to the ModShardTeam for ModShardLauncher, and to the Stoneshard Mod Hub c
 1.12.0
 • Mastery of Binding: removes summon level cap entirely (was +1); Skeleton/Resurrection duration +10 turns.
 • Wraith Summoning: explicitly tile-target with no corpse required.
-1.11.0
-• Summon Skeleton: Willpower tiers (Risen Recruit / Squire / Companion) with per-tier ally AI.
-• Wraith Summoning: Willpower tiers (Wraith / Squire / Warrior / Commander).
-1.10.0
-• Bone Ward: shatter immediately on buff Destroy with center burst VFX + adjacent hit sparks/damage (deferred alarm helpers never fired).
+
+────────────────────────────────────────
+
 ────────────────────────────────────────
 [b]  Support[/b]
 If you enjoy the mod and want to support further updates and maintenance:
