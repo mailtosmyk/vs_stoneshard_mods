@@ -17,6 +17,7 @@ public class Summoner : Mod
     {
         SummonerLocalization.PatchAll();
         SummonerHelpers.Patch(ModFiles);
+        SummonerKillExperience.Patch();
         SummonerSkillsPatch.Patch(ModFiles);
         SummonerSchool.Patch(ModFiles);
         SummonerMapHooks.Patch();
