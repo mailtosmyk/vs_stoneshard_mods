@@ -263,6 +263,36 @@ public static class SummonerLocalization
                 ja: "この獣はあなたの意志に縛られている。"));
 
         RegisterBuff(
+            "o_b_sm_hunt_mark",
+            Loc(
+                en: "Hunt Mark",
+                ru: "Метка охоты",
+                zh: "狩猎标记",
+                de: "Jagdmal",
+                ja: "狩りの印"),
+            Loc(
+                en: "Marked for the pack.##Bound companions gain ~lg~+12%~/~ Weapon Damage and ~lg~+10%~/~ Accuracy against this target.",
+                ru: "Помечен для стаи.##Связанные компаньоны получают ~lg~+12%~/~ урона оружием и ~lg~+10%~/~ точности против этой цели.",
+                zh: "已被兽群标记。##羁绊同伴对该目标获得~lg~+12%~/~武器伤害与~lg~+10%~/~命中。",
+                de: "Für das Rudel markiert.##Gebundene Gefährten erhalten ~lg~+12%~/~ Waffenschaden und ~lg~+10%~/~ Trefferchance gegen dieses Ziel.",
+                ja: "群れの標的。##絆の仲間はこの対象に対し~lg~武器ダメージ+12%~/~と~lg~命中+10%~/~を得る。"));
+
+        RegisterBuff(
+            "o_b_sm_hunt_focus",
+            Loc(
+                en: "Hunt Focus",
+                ru: "Охотничий фокус",
+                zh: "狩猎专注",
+                de: "Jagdfokus",
+                ja: "狩りの集中"),
+            Loc(
+                en: "~lg~+12%~/~ Weapon Damage#~lg~+10%~/~ Accuracy##Against the Hunt-marked target.",
+                ru: "~lg~+12%~/~ урона оружием#~lg~+10%~/~ точности##Против цели с Меткой охоты.",
+                zh: "~lg~+12%~/~武器伤害#~lg~+10%~/~命中##对狩猎标记目标生效。",
+                de: "~lg~+12%~/~ Waffenschaden#~lg~+10%~/~ Trefferchance##Gegen das mit Jagdmal markierte Ziel.",
+                ja: "~lg~武器ダメージ+12%~/~#~lg~命中+10%~/~##狩りの印の対象に対して。"));
+
+        RegisterBuff(
             "o_b_sm_alphas_howl",
             Loc(
                 en: "Alpha's Howl",

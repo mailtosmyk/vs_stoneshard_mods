@@ -53,6 +53,35 @@ public static class SummonerSkillsPatch
             "gml_Object_o_b_sm_summon_death_Create_0.gml",
             "gml_Object_o_b_sm_summon_death_Other_10.gml",
             "gml_Object_o_b_sm_summon_death_Alarm_2.gml");
+
+        // Hunt Command: visible mark on the enemy + focus buff on summons vs that mark.
+        var huntMark = Msl.AddObject(
+            name: "o_b_sm_hunt_mark",
+            spriteName: "s_hunt_command",
+            parentName: "o_physical_buff",
+            isVisible: true,
+            isPersistent: false,
+            isAwake: true,
+            collisionShapeFlags: CollisionShapeFlags.Circle);
+        ApplyEventAndReplace(huntMark, modFiles,
+            "gml_Object_o_b_sm_hunt_mark_Create_0.gml",
+            "gml_Object_o_b_sm_hunt_mark_Other_10.gml",
+            "gml_Object_o_b_sm_hunt_mark_Alarm_2.gml",
+            "gml_Object_o_b_sm_hunt_mark_Destroy_0.gml");
+
+        var huntFocus = Msl.AddObject(
+            name: "o_b_sm_hunt_focus",
+            spriteName: "s_hunt_command",
+            parentName: "o_physical_buff",
+            isVisible: true,
+            isPersistent: false,
+            isAwake: true,
+            collisionShapeFlags: CollisionShapeFlags.Circle);
+        ApplyEventAndReplace(huntFocus, modFiles,
+            "gml_Object_o_b_sm_hunt_focus_Create_0.gml",
+            "gml_Object_o_b_sm_hunt_focus_Other_10.gml",
+            "gml_Object_o_b_sm_hunt_focus_Alarm_2.gml",
+            "gml_Object_o_b_sm_hunt_focus_Alarm_3.gml");
     }
 
     static void CreateSkillObjects(SummonerSkill skill, ModFile modFiles)
