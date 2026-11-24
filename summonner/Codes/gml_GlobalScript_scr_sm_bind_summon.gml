@@ -19,7 +19,9 @@ function scr_sm_bind_summon(argument0, argument1, argument2)
         subfaction_key = "Player"
         faction = "Player"
         scr_faction_map_add(id)
-        combat_array = ["Brigand", "Undead", "Vampire", "Wolf", "Bear", "Gulon", "Dog", "Wild Dog", "Young Troll", "Ancient Troll", "Crawler", "Bat Flock", "Snake", "Harpy", "Hive", "Forest Buzzer", "carnivore", "omnivore", "Moose", "Saiga", "Deer", "Fox", "Boar", "Bison", "GrandMagistrate", "Mercenary", "RottenWillow", "Neutral"]
+        // Hostile threats only — never Neutral / Mercenary / town / village NPCs
+        // (caravan followers live under those factions and must not be hunted).
+        combat_array = ["Brigand", "Undead", "Vampire", "Wolf", "Bear", "Gulon", "Dog", "Wild Dog", "Young Troll", "Ancient Troll", "Crawler", "Bat Flock", "Snake", "Harpy", "Hive", "Buzzer Hive", "Forest Buzzer", "carnivore", "omnivore", "Moose", "Saiga", "Deer", "Fox", "Boar", "Bison"]
         threat_array = []
         flee_array = []
         is_player_enemy = false

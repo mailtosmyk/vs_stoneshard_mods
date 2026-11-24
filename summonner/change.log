@@ -1,3 +1,9 @@
+0.7.7
+- Fix servant crash: only read combat-target state on real units.
+
+0.7.6
+- Summons no longer hunt Neutral/Mercenary/town NPCs or caravan followers; re-stick ally flags so they stay non-hostile.
+
 0.7.5
 - Fix AddFunction order so scr_sm_level_get exists before callers (startup crash).
 

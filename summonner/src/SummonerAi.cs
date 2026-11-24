@@ -3,7 +3,7 @@ using ModShardLauncher;
 namespace Summoner;
 
 /// <summary>
-/// Summons must not aggro Unaware (idle) NPCs — preserves stealth.
+/// Summons must not aggro Unaware (idle) NPCs or caravan / town friendlies.
 /// Hunt Command marks still override so the player can force a target.
 /// </summary>
 public static class SummonerAi
@@ -13,11 +13,11 @@ public static class SummonerAi
     public static void Patch()
     {
         Msl.LoadGML("gml_GlobalScript_scr_nearest_in_array")
-            .Apply(SkipUnawareTargets)
+            .Apply(SkipFriendlyAndUnawareTargets)
             .Save();
     }
 
-    static IEnumerable<string> SkipUnawareTargets(IEnumerable<string> lines)
+    static IEnumerable<string> SkipFriendlyAndUnawareTargets(IEnumerable<string> lines)
     {
         var list = lines as IList<string> ?? lines.ToList();
         if (list.Any(l => l.Contains(Marker, StringComparison.Ordinal)))
@@ -36,8 +36,17 @@ public static class SummonerAi
             }
         }
 
+        // Already expanded by a prior patch build — refresh body if marker lives inside braces.
         if (idx < 0)
+        {
+            for (var i = 0; i < list.Count; i++)
+            {
+                if (list[i].Contains(Marker, StringComparison.Ordinal))
+                    return list;
+            }
+
             return list;
+        }
 
         var indent = LeadingWhitespace(list[idx]);
         var bodyIndent = indent + "    ";
@@ -46,17 +55,25 @@ public static class SummonerAi
             $"{indent}else if (state != \"KO\" && state != \"jailed\" && (!is_ignored_by_enemies))",
             $"{indent}{{",
             $"{bodyIndent}// {Marker}",
-            $"{bodyIndent}var _sm_skip_unaware = false",
-            $"{bodyIndent}if (state == \"idle\")",
+            $"{bodyIndent}var _sm_skip = false",
+            $"{bodyIndent}if (variable_instance_exists(_id, \"sm_summon\") && _id.sm_summon)",
             $"{bodyIndent}{{",
-            $"{bodyIndent}    if (variable_instance_exists(_id, \"sm_summon\") && _id.sm_summon)",
-            $"{bodyIndent}    {{",
-            $"{bodyIndent}        _sm_skip_unaware = true",
-            $"{bodyIndent}        if (instance_exists(o_player) && variable_instance_exists(o_player, \"sm_hunt_target\") && o_player.sm_hunt_target == id)",
-            $"{bodyIndent}            _sm_skip_unaware = false",
-            $"{bodyIndent}    }}",
+            $"{bodyIndent}    if (state == \"idle\")",
+            $"{bodyIndent}        _sm_skip = true",
+            $"{bodyIndent}    if (variable_instance_exists(id, \"faction_key\") && faction_key == \"Player\")",
+            $"{bodyIndent}        _sm_skip = true",
+            $"{bodyIndent}    if (variable_instance_exists(id, \"sm_summon\") && sm_summon)",
+            $"{bodyIndent}        _sm_skip = true",
+            $"{bodyIndent}    if (variable_instance_exists(id, \"nm_summon\") && nm_summon)",
+            $"{bodyIndent}        _sm_skip = true",
+            $"{bodyIndent}    if (variable_instance_exists(id, \"is_follower\") && is_follower)",
+            $"{bodyIndent}        _sm_skip = true",
+            $"{bodyIndent}    if (variable_instance_exists(id, \"is_player_enemy\") && (!is_player_enemy) && variable_instance_exists(id, \"is_neutral\") && is_neutral)",
+            $"{bodyIndent}        _sm_skip = true",
+            $"{bodyIndent}    if (_sm_skip && instance_exists(o_player) && variable_instance_exists(o_player, \"sm_hunt_target\") && o_player.sm_hunt_target == id)",
+            $"{bodyIndent}        _sm_skip = false",
             $"{bodyIndent}}}",
-            $"{bodyIndent}if (!_sm_skip_unaware)",
+            $"{bodyIndent}if (!_sm_skip)",
             $"{bodyIndent}    array_push(_target_array, id)",
             $"{indent}}}",
         };
