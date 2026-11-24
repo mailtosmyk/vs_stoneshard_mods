@@ -18,6 +18,7 @@ public static class SummonerHelpers
             modFiles.GetCode("gml_GlobalScript_scr_sm_on_enemy_kill_xp.gml"),
             "scr_sm_on_enemy_kill_xp");
         Msl.AddFunction(modFiles.GetCode("gml_GlobalScript_scr_sm_level_get.gml"), "scr_sm_level_get");
+        Msl.AddFunction(modFiles.GetCode("gml_GlobalScript_scr_sm_xp_next.gml"), "scr_sm_xp_next");
         Msl.AddFunction(modFiles.GetCode("gml_GlobalScript_scr_sm_apply_level_stats.gml"), "scr_sm_apply_level_stats");
         Msl.AddFunction(modFiles.GetCode("gml_GlobalScript_scr_sm_bind_summon.gml"), "scr_sm_bind_summon");
         Msl.AddFunction(modFiles.GetCode("gml_GlobalScript_scr_sm_count_summons.gml"), "scr_sm_count_summons");

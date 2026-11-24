@@ -39,6 +39,9 @@ function scr_sm_apply_level_stats(argument0, argument1)
     var _dmgVal = _dmg[_idx]
     var _armorVal = _armor[_idx]
     var _ups = max(0, (_lvl - 1))
+    var _bonusHp = floor(_hp[_idx] - _hp[0])
+    var _bonusDmg = floor(_dmg[_idx] - _dmg[0])
+    var _bonusArmor = (_armor[_idx] - _armor[0])
 
     with (argument0)
     {
@@ -69,5 +72,13 @@ function scr_sm_apply_level_stats(argument0, argument1)
         sm_species = argument1
         sm_level = _lvl
         sm_armor = _armorVal
+        // Inspect window: level-up deltas vs species L1 baseline.
+        sm_bonus_hp = _bonusHp
+        sm_bonus_dmg = _bonusDmg
+        sm_bonus_armor = _bonusArmor
+        sm_bonus_str = (1.0 * _ups)
+        sm_bonus_agl = (1.0 * _ups)
+        sm_bonus_prc = (0.5 * _ups)
+        sm_bonus_vit = (1.0 * _ups)
     }
 }
