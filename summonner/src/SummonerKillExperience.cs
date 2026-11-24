@@ -6,71 +6,71 @@ namespace Summoner;
 /// <summary>
 /// Credit player XP when a Summoner beast (sm_summon + player owner) lands the kill, and
 /// feed the species companion XP track via scr_sm_on_enemy_kill_xp.
-/// Mirrors Necromancy's <c>o_enemy_Destroy</c> assembly patch; coexist with Necromancy load order.
+/// Assembly-only: o_enemy Destroy does not round-trip through LoadGML / ReplaceGML.
 /// </summary>
 public static class SummonerKillExperience
 {
-    static readonly Regex LabelDef = new(@"^\s*:\[(\d+)\]\s*$", RegexOptions.Compiled);
     static readonly Regex BranchFail = new(@"^\s*bf\s+\[(\d+)\]\s*$", RegexOptions.Compiled);
     static readonly Regex BranchAlways = new(@"^\s*b\s+\[(\d+)\]\s*$", RegexOptions.Compiled);
+
+    const string CompanionXpCall = "call.i gml_Script_scr_sm_on_enemy_kill_xp(argc=0)";
 
     public static void Patch()
     {
         Msl.LoadAssemblyAsString("gml_Object_o_enemy_Destroy_0")
             .Apply(SummonKillExperienceAsm)
             .Save();
-
-        Msl.LoadGML("gml_Object_o_enemy_Destroy_0")
-            .Apply(InsertCompanionKillXpHook)
-            .Save();
-    }
-
-    static IEnumerable<string> InsertCompanionKillXpHook(IEnumerable<string> lines)
-    {
-        var list = lines as IList<string> ?? lines.ToList();
-        if (list.Any(l => l.Contains("scr_sm_on_enemy_kill_xp", StringComparison.Ordinal)))
-            return list;
-
-        var hook = "scr_sm_on_enemy_kill_xp()\n";
-        var output = new List<string>(list.Count + 2);
-        foreach (var line in list)
-        {
-            output.Add(line);
-            if (line.Contains("event_inherited()", StringComparison.Ordinal))
-                output.Add(hook);
-        }
-
-        if (!output.Any(l => l.Contains("scr_sm_on_enemy_kill_xp", StringComparison.Ordinal)))
-        {
-            throw new InvalidOperationException(
-                "Summoner: could not insert scr_sm_on_enemy_kill_xp in gml_Object_o_enemy_Destroy_0");
-        }
-
-        return output;
     }
 
     /// <summary>
     /// Vanilla credits XP when last_attacker is o_summoned_entity owned by the player.
-    /// When that instance_is check fails it pushes false ([156] push.e 0). Extend that path
-    /// for nm_summon and sm_summon thralls owned by the player (Necromancy + Summoner).
+    /// Extend that path for nm_summon / sm_summon, then hook companion XP after event_inherited.
     /// </summary>
     static IEnumerable<string> SummonKillExperienceAsm(IEnumerable<string> input)
     {
         var lines = input as IList<string> ?? input.ToList();
 
-        // Necromancy already extended this block with nm_summon — add sm_summon only.
-        // After Necromancy's patch is saved/reloaded, UTMT renumbers :[9002]/:[9003],
-        // so discover the fail/success labels from the live nm_summon block.
         if (lines.Any(l => l.Contains("nm_summon", StringComparison.Ordinal)) &&
             !lines.Any(l => l.Contains("sm_summon", StringComparison.Ordinal)))
         {
-            return InsertSmSummonBeforeFailPush(lines);
+            lines = InsertSmSummonBeforeFailPush(lines).ToList();
+        }
+        else if (!lines.Any(l => l.Contains("sm_summon", StringComparison.Ordinal)))
+        {
+            lines = PatchVanillaSummonCreditSite(lines).ToList();
         }
 
-        if (lines.Any(l => l.Contains("sm_summon", StringComparison.Ordinal)))
+        return InsertCompanionKillXpAsm(lines);
+    }
+
+    static IEnumerable<string> InsertCompanionKillXpAsm(IList<string> lines)
+    {
+        if (lines.Any(l => l.Contains("scr_sm_on_enemy_kill_xp", StringComparison.Ordinal)))
             return lines;
 
-        return PatchVanillaSummonCreditSite(lines);
+        var idx = -1;
+        for (var i = 0; i < lines.Count - 1; i++)
+        {
+            if (lines[i].Contains("call.i event_inherited(argc=0)", StringComparison.Ordinal)
+                && lines[i + 1].Trim() == "popz.v")
+            {
+                idx = i + 1;
+                break;
+            }
+        }
+
+        if (idx < 0)
+        {
+            throw new InvalidOperationException(
+                "Summoner: event_inherited site not found in gml_Object_o_enemy_Destroy_0");
+        }
+
+        var output = new List<string>(lines.Count + 3);
+        output.AddRange(lines.Take(idx + 1));
+        output.Add(CompanionXpCall);
+        output.Add("popz.v");
+        output.AddRange(lines.Skip(idx + 1));
+        return output;
     }
 
     static IEnumerable<string> InsertSmSummonBeforeFailPush(IList<string> lines)
@@ -88,8 +88,6 @@ public static class SummonerKillExperience
                 "Summoner: nm_summon present but index lost in gml_Object_o_enemy_Destroy_0");
         }
 
-        // After the last nm_summon reference: collect bf targets and the following b target,
-        // then find :[fail] / push.e 0 / :[success].
         int? failLabel = null;
         int? successLabel = null;
         for (var i = nmIdx; i < lines.Count && i < nmIdx + 40; i++)

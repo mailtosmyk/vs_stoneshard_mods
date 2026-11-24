@@ -6,5 +6,5 @@ namespace Summoner;
 /// </summary>
 internal static class SummonerVersion
 {
-    internal const string Value = "0.7.3";
+    internal const string Value = "0.7.4";
 }

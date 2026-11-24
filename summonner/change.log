@@ -1,3 +1,6 @@
+0.7.4
+- Companion kill XP hook is assembly-only (o_enemy Destroy cannot ReplaceGML).
+
 0.7.3
 - Fix summon kill XP patch when Necromancy already renumbered assembly labels.
 
