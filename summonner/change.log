@@ -1,3 +1,6 @@
+0.7.5
+- Fix AddFunction order so scr_sm_level_get exists before callers (startup crash).
+
 0.7.4
 - Companion kill XP hook is assembly-only (o_enemy Destroy cannot ReplaceGML).
 
