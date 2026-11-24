@@ -46,9 +46,8 @@ with (target)
 }
 
 scr_skill_damage(target)
-var _dealt = damage_done
-if (_dealt <= 0)
-    _dealt = Unholy_Damage
+// o_magic_pillar impacts never get damage_done (unlike projectile bolts).
+var _dealt = Unholy_Damage
 
 if (_hasCurse && instance_exists(target))
 {
