@@ -70,10 +70,11 @@ internal static class AlchemyRecipes
     /// </summary>
     static void PatchBlankScrollCraftAmount()
     {
-        const string marker = "var _count = max(1, string_to_real(ds_map_find_value(_data, \"amount\")))";
+        // Match a short stable anchor — full amount-line text differs by game/MSL
+        // decompile (amount vs AMOUNT, wrapping), which broke MatchFrom/ReplaceBy.
+        const string anchor = "repeat _count";
         var adjust = string.Join(
             "\n",
-            marker,
             "if (idName == \"blank_scroll\")",
             "{",
             "    var _alch_from_book = false",
@@ -85,10 +86,11 @@ internal static class AlchemyRecipes
             "            _alch_from_book = true",
             "    }",
             "    _count = _alch_from_book ? 3 : 1",
-            "}");
+            "}",
+            anchor);
 
         Msl.LoadGML("gml_Object_o_craftingConsumsMenu_Other_14")
-            .MatchFrom(marker)
+            .MatchFrom(anchor)
             .ReplaceBy(adjust)
             .Save();
     }

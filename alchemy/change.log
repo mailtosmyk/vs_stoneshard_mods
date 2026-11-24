@@ -1,3 +1,6 @@
+0.2.18
+- Fix MSL save crash in blank-scroll craft amount patch (MatchFrom amount-line mismatch).
+
 0.2.17
 - Fix throwable/elixir floor loot: use small centered s_loot_* sprites (was full 27×54 inv icon).
 - Top-align inventory flask/vial icons in the 27×54 canvas.
