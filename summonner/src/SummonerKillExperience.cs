@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using ModShardLauncher;
 
 namespace Summoner;
@@ -9,6 +10,10 @@ namespace Summoner;
 /// </summary>
 public static class SummonerKillExperience
 {
+    static readonly Regex LabelDef = new(@"^\s*:\[(\d+)\]\s*$", RegexOptions.Compiled);
+    static readonly Regex BranchFail = new(@"^\s*bf\s+\[(\d+)\]\s*$", RegexOptions.Compiled);
+    static readonly Regex BranchAlways = new(@"^\s*b\s+\[(\d+)\]\s*$", RegexOptions.Compiled);
+
     public static void Patch()
     {
         Msl.LoadAssemblyAsString("gml_Object_o_enemy_Destroy_0")
@@ -54,6 +59,8 @@ public static class SummonerKillExperience
         var lines = input as IList<string> ?? input.ToList();
 
         // Necromancy already extended this block with nm_summon — add sm_summon only.
+        // After Necromancy's patch is saved/reloaded, UTMT renumbers :[9002]/:[9003],
+        // so discover the fail/success labels from the live nm_summon block.
         if (lines.Any(l => l.Contains("nm_summon", StringComparison.Ordinal)) &&
             !lines.Any(l => l.Contains("sm_summon", StringComparison.Ordinal)))
         {
@@ -68,55 +75,97 @@ public static class SummonerKillExperience
 
     static IEnumerable<string> InsertSmSummonBeforeFailPush(IList<string> lines)
     {
-        const string failLabel = ":[9002]";
-        var output = new List<string>(lines.Count + 24);
-        var inserted = false;
-        foreach (var item in lines)
+        var nmIdx = -1;
+        for (var i = 0; i < lines.Count; i++)
         {
-            if (!inserted && item.Trim() == failLabel)
-            {
-                output.Add(SmSummonOwnerIsPlayerAsm);
-                inserted = true;
-            }
-
-            output.Add(item);
+            if (lines[i].Contains("nm_summon", StringComparison.Ordinal))
+                nmIdx = i;
         }
 
-        if (!inserted)
+        if (nmIdx < 0)
         {
             throw new InvalidOperationException(
-                "Summoner: expected Necromancy summon XP label :[9002] in gml_Object_o_enemy_Destroy_0");
+                "Summoner: nm_summon present but index lost in gml_Object_o_enemy_Destroy_0");
         }
 
+        // After the last nm_summon reference: collect bf targets and the following b target,
+        // then find :[fail] / push.e 0 / :[success].
+        int? failLabel = null;
+        int? successLabel = null;
+        for (var i = nmIdx; i < lines.Count && i < nmIdx + 40; i++)
+        {
+            var bf = BranchFail.Match(lines[i]);
+            if (bf.Success)
+                failLabel = int.Parse(bf.Groups[1].Value);
+
+            var b = BranchAlways.Match(lines[i]);
+            if (b.Success)
+            {
+                successLabel = int.Parse(b.Groups[1].Value);
+                break;
+            }
+        }
+
+        if (failLabel is null || successLabel is null)
+        {
+            throw new InvalidOperationException(
+                "Summoner: could not resolve Necromancy summon XP fail/success labels in gml_Object_o_enemy_Destroy_0");
+        }
+
+        var failDef = $":[{failLabel.Value}]";
+        var failDefIdx = -1;
+        for (var i = nmIdx; i < lines.Count; i++)
+        {
+            if (lines[i].Trim() != failDef)
+                continue;
+            if (i + 1 < lines.Count && lines[i + 1].Trim() == "push.e 0")
+            {
+                failDefIdx = i;
+                break;
+            }
+        }
+
+        if (failDefIdx < 0)
+        {
+            throw new InvalidOperationException(
+                $"Summoner: expected Necromancy summon XP fail label {failDef} before push.e 0 in gml_Object_o_enemy_Destroy_0");
+        }
+
+        var block = BuildSummonOwnerIsPlayerAsm("sm_summon", failLabel.Value, successLabel.Value);
+        var output = new List<string>(lines.Count + 24);
+        output.AddRange(lines.Take(failDefIdx));
+        foreach (var line in block.Split('\n'))
+            output.Add(line);
+        output.AddRange(lines.Skip(failDefIdx));
         return output;
     }
 
-    const string SmSummonOwnerIsPlayerAsm = @"
+    static string BuildSummonOwnerIsPlayerAsm(string flag, int failLabel, int successLabel) => $@"
 push.v self.last_attacker
 call.i instance_exists(argc=1)
 conv.v.b
-bf [9002]
+bf [{failLabel}]
 
-push.s ""sm_summon""
+push.s ""{flag}""
 conv.s.v
 push.v self.last_attacker
 call.i variable_instance_exists(argc=2)
 conv.v.b
-bf [9002]
+bf [{failLabel}]
 
-push.s ""sm_summon""
+push.s ""{flag}""
 conv.s.v
 push.v self.last_attacker
 call.i variable_instance_get(argc=2)
 conv.v.b
-bf [9002]
+bf [{failLabel}]
 
 push.v self.last_attacker
 pushi.e -9
 push.v [stacktop]self.owner
 call.i gml_Script_is_player(argc=1)
 conv.v.b
-b [9003]
+b [{successLabel}]
 ";
 
     static IEnumerable<string> PatchVanillaSummonCreditSite(IList<string> lines)

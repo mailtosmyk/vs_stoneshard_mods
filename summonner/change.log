@@ -1,3 +1,6 @@
+0.7.3
+- Fix summon kill XP patch when Necromancy already renumbered assembly labels.
+
 0.7.2
 - Summons no longer attack Unaware (idle) NPCs; Hunt Command marks still override.
 - Inspect window shows companion Level, XP, and level-up parameter bonuses.
