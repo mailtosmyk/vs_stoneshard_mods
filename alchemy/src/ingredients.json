@@ -2654,6 +2654,20 @@
       "effects": []
     },
     {
+      "id": "vessel",
+      "name": "Glass Vessel",
+      "price": 2,
+      "description": "A cracked or empty bit of glassware. Useless as is, but enough raw glass to reshape into a proper flask.",
+      "effects": []
+    },
+    {
+      "id": "bottle",
+      "name": "Bottle",
+      "price": 4,
+      "description": "An empty glass bottle. Can be reheated and reshaped into an alchemy flask.",
+      "effects": []
+    },
+    {
       "id": "oil",
       "name": "Bottle of Oil",
       "price": 20,
@@ -3947,15 +3961,28 @@
     },
     {
       "ingredients": [
-        "hemp"
+        "book, hemp"
       ],
       "enabled": true,
       "elixir": "blank_scroll",
-      "ingredients_cost": 5,
-      "recipe_cost": 5,
+      "ingredients_cost": 15,
+      "recipe_cost": 15,
+      "elixir_cost": 5,
+      "amount": 3,
+      "source": "base"
+    },
+    {
+      "ingredients": [
+        "vessel, bottle"
+      ],
+      "enabled": true,
+      "elixir": "flask",
+      "ingredients_cost": 4,
+      "recipe_cost": 4,
       "elixir_cost": 5,
       "source": "base"
     },
+
     {
       "ingredients": [
         "blank_scroll",

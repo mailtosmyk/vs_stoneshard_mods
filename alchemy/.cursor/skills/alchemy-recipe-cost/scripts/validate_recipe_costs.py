@@ -48,19 +48,38 @@ def main() -> int:
         for it in data.get("scrolls") or []
         if isinstance(it, dict) and it.get("id")
     }
+    # Vanilla craft categories matched by item.category (not catalog item ids).
+    category_ingredients = {
+        "book": 15,  # synthetic: matches 3× blank_scroll
+        "herb": 2,
+        "vegetable": 2,
+        "additive": 10,
+        "medicine": 10,
+        "tool": 10,
+        "material": 5,
+    }
 
     failures = 0
     for i, recipe in enumerate(data.get("recipes") or []):
         label = recipe.get("elixir", f"#{i}")
         ings = recipe.get("ingredients") or []
         local_fail = 0
+        amount = int(recipe.get("amount") or 1)
+        if amount < 1:
+            print(f"FAIL {label}: amount must be >= 1, got {amount}")
+            failures += 1
+            continue
 
         if not 1 <= len(ings) <= 4:
             print(f"FAIL {label}: ingredients must be 1..4, got {len(ings)}")
             failures += 1
             continue
 
-        missing = [x for x in ings if x not in prices]
+        def split_alts(slot: str) -> list[str]:
+            return [a.strip() for a in slot.split(",") if a.strip()]
+
+        flat_ings = [a for slot in ings for a in split_alts(slot)]
+        missing = [x for x in flat_ings if x not in prices and x not in category_ingredients]
         if missing:
             print(f"FAIL {label}: unknown ingredient ids {missing}")
             failures += 1
@@ -72,18 +91,38 @@ def main() -> int:
             failures += 1
             continue
 
-        ingredients_cost = sum(prices[x] for x in ings)
+        def price_of(token: str) -> int:
+            return prices[token] if token in prices else category_ingredients[token]
+
+        # OR-alternatives in one slot: price the slot as the max option (declared cost).
+        ingredients_cost = sum(max(price_of(a) for a in split_alts(slot)) for slot in ings)
         elixir_cost = prices[elixir_id]
+        output_value = elixir_cost * amount
         # Ore/material smelts and scroll crafts skip flask+spirit surcharge and
         # spirit/midtier alchemy rules (scroll recipes still include spirit when needed).
-        is_material = elixir_id in ore_outcomes or elixir_id in scroll_outcomes
+        # Flask/oil-style container & scroll/ore crafts skip flask+spirit surcharge.
+        basic_container_outcomes = {"flask"}
+        is_material = (
+            elixir_id in ore_outcomes
+            or elixir_id in scroll_outcomes
+            or elixir_id in basic_container_outcomes
+        )
+        uses_category = any(
+            x in category_ingredients and x not in prices for x in flat_ings
+        )
+        # OR-slots with unequal alt prices (e.g. vessel/bottle) skip the tight band.
+        uneven_or = any(
+            len(alts := split_alts(slot)) > 1
+            and min(price_of(a) for a in alts) != max(price_of(a) for a in alts)
+            for slot in ings
+        )
         recipe_cost = (
             ingredients_cost
             if is_material
             else recipe_cost_of(ingredients_cost, ings, spirit, flask)
         )
-        minimum = math.ceil(elixir_cost * MIN_RATIO)
-        maximum = elixir_cost
+        minimum = math.ceil(output_value * MIN_RATIO)
+        maximum = output_value
 
         expected = {
             "ingredients_cost": ingredients_cost,
@@ -96,11 +135,17 @@ def main() -> int:
                 print(f"FAIL {label}: {key} stored={got} expected={want}")
                 local_fail += 1
 
-        if ingredients_cost < minimum or ingredients_cost > maximum:
+        # Category crafts / uneven OR crafts skip the tight band (synthetic or mixed prices).
+        if (
+            not uses_category
+            and not uneven_or
+            and (ingredients_cost < minimum or ingredients_cost > maximum)
+        ):
             print(
                 f"FAIL {label}: ingredients_cost {ingredients_cost} "
                 f"outside [{minimum}, {maximum}] "
-                f"({MIN_RATIO:.0%}..100% of elixir_cost {elixir_cost})"
+                f"({MIN_RATIO:.0%}..100% of output_value {output_value} "
+                f"= elixir_cost {elixir_cost} × amount {amount})"
             )
             local_fail += 1
 
@@ -126,7 +171,7 @@ def main() -> int:
             print(
                 f"OK   {label}: ingredients_cost={ingredients_cost} "
                 f"band=[{minimum},{maximum}] elixir_cost={elixir_cost} "
-                f"recipe_cost={recipe_cost}"
+                f"amount={amount} recipe_cost={recipe_cost}"
             )
 
     if failures:

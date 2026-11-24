@@ -15,6 +15,7 @@ internal static class AlchemyItems
     public static void Patch()
     {
         PatchCustomProducts();
+        CenterLootSpriteOrigins();
         PatchVanillaMaterialPrices();
         PatchRecipeScrolls();
         // MSL InjectTableItemStats still emits the pre-0.9.4 column layout (97 cols).
@@ -108,13 +109,49 @@ internal static class AlchemyItems
 
     static string LootSpriteFor(AlchemyProduct product)
     {
-        if (product.Kind == AlchemyProductKind.Scroll)
+        if (product.Kind == AlchemyProductKind.Scroll
+            && !product.Icon.StartsWith("s_inv_alch_", StringComparison.Ordinal))
             return "s_loot_scroll";
-        if (product.Kind != AlchemyProductKind.Material)
-            return product.Icon;
+        // Floor loot must use a small centered sprite — never the 27×54 inv icon.
         if (product.Icon.StartsWith("s_inv_", StringComparison.Ordinal))
             return "s_loot_" + product.Icon["s_inv_".Length..];
         return product.Icon;
+    }
+
+    /// <summary>
+    /// Vanilla loot flasks use a centered origin; MSL imports default to (0,0),
+    /// which makes dropped items draw offset from the tile.
+    /// </summary>
+    static void CenterLootSpriteOrigins()
+    {
+        foreach (var product in AlchemyCatalog.CustomProducts.Values)
+        {
+            var lootName = LootSpriteFor(product);
+            try
+            {
+                var sprite = Msl.GetSprite(lootName);
+                sprite.OriginX = (int)sprite.Width / 2;
+                sprite.OriginY = (int)sprite.Height / 2;
+            }
+            catch
+            {
+                // Sprite missing — AddObject already logged the failure.
+            }
+        }
+
+        foreach (var name in new[] { "s_loot_copper_ingot", "s_loot_gold_ingot" })
+        {
+            try
+            {
+                var sprite = Msl.GetSprite(name);
+                sprite.OriginX = (int)sprite.Width / 2;
+                sprite.OriginY = (int)sprite.Height / 2;
+            }
+            catch
+            {
+                // optional
+            }
+        }
     }
 
     /// <summary>

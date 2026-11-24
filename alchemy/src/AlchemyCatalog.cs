@@ -222,7 +222,8 @@ internal sealed class AlchemyJsonRoot
             || elixir.StartsWith("scroll_", StringComparison.OrdinalIgnoreCase);
         var knownFromStart = materialOutcome
             || blankScroll
-            || string.Equals(elixir, "spirit", StringComparison.OrdinalIgnoreCase);
+            || string.Equals(elixir, "spirit", StringComparison.OrdinalIgnoreCase)
+            || string.Equals(elixir, "flask", StringComparison.OrdinalIgnoreCase);
 
         var source = string.Equals(dto.Source?.Trim(), "base", StringComparison.OrdinalIgnoreCase)
                 || (dto.Source is null && knownFromStart)
@@ -230,9 +231,11 @@ internal sealed class AlchemyJsonRoot
             : AlchemyCraftSource.Trade;
 
         // Ingots and learned scrolls craft at the workbench / craftkit.
-        // Blank Scroll is a simple known-from-start Base Recipe (basic craft).
+        // Blank Scroll (book → parchment) stays a simple Base Recipe (basic craft).
         var advanced = dto.Advanced || materialOutcome
             || (scrollOutcome && !blankScroll);
+
+        var amount = dto.Amount is > 0 ? dto.Amount.Value : 1;
 
         return new AlchemyRecipe(
             elixir,
@@ -243,7 +246,8 @@ internal sealed class AlchemyJsonRoot
             dto.ElixirCost,
             dto.Debug,
             source,
-            advanced);
+            advanced,
+            amount);
     }
 }
 
@@ -279,7 +283,8 @@ internal sealed record AlchemyRecipe(
     int ElixirCost,
     bool Debug,
     AlchemyCraftSource Source,
-    bool Advanced);
+    bool Advanced,
+    int Amount = 1);
 
 internal sealed class AlchemyProductDto
 {
@@ -342,4 +347,10 @@ internal sealed class AlchemyRecipeDto
     /// </summary>
     [JsonPropertyName("advanced")]
     public bool Advanced { get; set; }
+
+    /// <summary>
+    /// How many product items one craft yields. Default 1.
+    /// </summary>
+    [JsonPropertyName("amount")]
+    public int? Amount { get; set; }
 }

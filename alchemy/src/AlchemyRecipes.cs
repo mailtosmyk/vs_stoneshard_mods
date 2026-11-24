@@ -25,6 +25,8 @@ internal static class AlchemyRecipes
                 ? Msl.RecipesCraftSource.BaseRecipe
                 : Msl.RecipesCraftSource.Trade;
 
+            var amount = (ushort)Math.Clamp(recipe.Amount, 1, 99);
+
             if (advanced)
             {
                 Msl.InjectTableRecipesCraft(
@@ -32,7 +34,7 @@ internal static class AlchemyRecipes
                     recipe.Elixir,
                     Msl.RecipesCraftCategory.advanced,
                     xp,
-                    AMOUNT: 1,
+                    AMOUNT: amount,
                     source,
                     slots[0] ?? "craftkit, workbench",
                     slots[1],
@@ -47,7 +49,7 @@ internal static class AlchemyRecipes
                     recipe.Elixir,
                     Msl.RecipesCraftCategory.basic,
                     xp,
-                    AMOUNT: 1,
+                    AMOUNT: amount,
                     source,
                     slots[0] ?? "-",
                     slots[1],
@@ -59,6 +61,36 @@ internal static class AlchemyRecipes
         // MSL InjectTableRecipesCraft omits the trailing ';' so rows have 11 cols while the
         // header has 12. o_textLoader then crashes: Variable Index [11] out of range [11].
         PadRecipeCraftRowsToHeaderWidth();
+        PatchBlankScrollCraftAmount();
+    }
+
+    /// <summary>
+    /// Blank Scroll recipe accepts book or hemp; table amount is 3 (book yield).
+    /// Hemp still yields a single scroll.
+    /// </summary>
+    static void PatchBlankScrollCraftAmount()
+    {
+        const string marker = "var _count = max(1, string_to_real(ds_map_find_value(_data, \"amount\")))";
+        var adjust = string.Join(
+            "\n",
+            marker,
+            "if (idName == \"blank_scroll\")",
+            "{",
+            "    var _alch_from_book = false",
+            "    var _alch_n = array_length(item_array)",
+            "    for (var _alch_i = 0; _alch_i < _alch_n; _alch_i++)",
+            "    {",
+            "        var _alch_ing = item_array[_alch_i]",
+            "        if (instance_exists(_alch_ing) && ds_list_find_index(_alch_ing.category, \"book\") >= 0)",
+            "            _alch_from_book = true",
+            "    }",
+            "    _count = _alch_from_book ? 3 : 1",
+            "}");
+
+        Msl.LoadGML("gml_Object_o_craftingConsumsMenu_Other_14")
+            .MatchFrom(marker)
+            .ReplaceBy(adjust)
+            .Save();
     }
 
     static void PadRecipeCraftRowsToHeaderWidth()
@@ -130,7 +162,10 @@ internal static class AlchemyRecipes
 
         foreach (var ing in recipe.Ingredients)
         {
-            if (ing is "flask" or "spirit" or "oil" or "craftkit" or "workbench")
+            // Outcome flask is a basic glass reshape — not an alchemy station craft.
+            if (ing is "spirit" or "oil" or "craftkit" or "workbench")
+                return true;
+            if (ing is "flask" && recipe.Elixir != "flask")
                 return true;
         }
 
