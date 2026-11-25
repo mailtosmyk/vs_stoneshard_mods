@@ -1,711 +1,1403 @@
 [b]  Description[/b]
+
 Alchemy expands Stoneshard crafting with useful recipes built from vanilla herbs, fruits, reagents, spirit, and flasks — no new skill school. Brew field tonics, combat throwables, weapon coatings, and rare high-end draughts, then learn schematics from shops or by reverse-engineering products at a cooking pot / craft station.
+
 Built for ModShardLauncher Enhanced and Stoneshard 0.9.4.x.
+
 Turn scavenged reagents into real tools — drink, coat, throw, and respec.
+
 ────────────────────────────────────────
+
+
 
 [b]  Installation instructions[/b]
+
 1. Switch Stoneshard to the modbranch beta on Steam (Properties → Betas → modbranch). The version in-game should end with -vm.
+
 2. Install ModShardLauncher Enhanced from Nexus (https://www.nexusmods.com/stoneshard/mods/103), or upstream MSL from GitHub (https://github.com/ModShardTeam/ModShardLauncher/releases) / Nexus (https://www.nexusmods.com/stoneshard/mods/29). Follow the official install guide (https://modshardteam.github.io/ModShardLauncher/guides/how-to-play-mod.html).
+
 3. In your Stoneshard folder, rename data.win to vanilla.win (backup first).
+
 4. Download this mod’s .sml file and place it in MSL’s Mods folder.
+
 5. Open MSL → Anvil (Mods) → load vanilla.win → enable Alchemy → Save as e.g. modded.win.
+
 6. Launch Stoneshard and select modded.win.
+
 Tip: Back up your saves before using mods. If MSL appears frozen while loading the .win, wait — that is normal.
+
 ────────────────────────────────────────
+
+
 
 [b]  Main features[/b]
+
 • 50+ craft recipes from existing ingredients (no new gathering nodes or skill trees)
+
 • Custom products with inventory icons: elixirs/philters, throwables, and weapon coatings
+
 • Shop stock — herbalists sell cheaper field/utility recipes; the Brynn alchemist sells the full set (including combat kits and expensive draughts)
+
 • Study / reverse-engineer — place 3 of the same product + any gem in a cooking pot or craft station to learn that recipe (works for elixirs, flasks, coatings, and scrolls)
+
 • Spirit, blank scrolls, and metal smelting (copper/iron/gold nuggets → ingots) are known from the start; Bottle of Oil still uses a schematic
+
 • Compatible in principle with other MSL mods (load order / conflicts not guaranteed)
-Utility & combat elixirs
+
+Utility &amp; combat elixirs
+
 • Field brews — Styptic Brew, Clearhead Bitters, Marching Tea (180-turn buffs), Field Extract, Night Vision Philter, Apple Cider, and more
+
 • Combat buffs — Soldier’s Draught, Cleaving Bitters, Bloodwake, Ironbark Tonic, Ward Philter, Frostguard, Venomguard, Pyreheart, Mooncap Elixir, Arcane Focus
+
 • Spell range — Horizon Philter (+1 range / 60 turns), Farreach Elixir (+2 range / 60 turns)
+
 • Vanilla favorites craftable too — Mead, Dark Ale, Abasa, Al’qud, Nikkaf, Hornet Honey, Gwynnel’s Elixir, etc.
+
 Throwables
+
 • Damage — Flame / Venom vials (single target) and flasks (3×3); craftable vanilla Nistrian Flame Flask
-• Control & debuffs — Choke, Gas, Blur, Tar, Daze, Weaken, Terror, Fog, Mire, Blind, Rootbind, Cripple
+
+• Control &amp; debuffs — Choke, Gas, Blur, Tar, Daze, Weaken, Terror, Fog, Mire, Blind, Rootbind, Cripple
+
 Coatings
+
 • Ember Oil, Cinder Lacquer (fire) · Venom Lacquer, Puffball Paste (poison)
-Metal & scrolls
+
+Metal &amp; scrolls
+
 • Smelt 2 nuggets → copper / iron / gold ingot at a workbench (known from start)
+
 • Craft blank scrolls from hemp; Identification, Disenchantment, and Enchantment scrolls from blank scroll + reagents
+
 High-end draughts
+
 • Rewoven Philter — refunds spent attribute points
+
 • Unlearning Elixir — refunds allocated skill points (skill respec)
+
 ────────────────────────────────────────
+
+
 
 [b]  Custom products (icons, effects, ingredients)[/b]
+
 All new craftable products added by this mod. Vanilla craftables (Mead, Abasa, Spirit, Oil, Nistrian Flame Flask, ingots, scrolls, etc.) are listed in-game via their recipes.
-[b]  Elixirs & Philters[/b]
+
+[b]  Elixirs &amp; Philters[/b]
+
 [table][tr][th]Elixir[/th]
-[th]Description & effects[/th]
+
+[th]Description &amp; effects[/th]
+
 [th]Ingredients[/th]
+
 [/tr]
+
 [tr][td][center][b]Apple Cider
+
 [/b][/center]
+
 [center][img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_apple_cider_0.png[/img][/center]
+
 [/td]
+
 [td]Pressed orchard apples left to ferment until the sweetness turns sharp. A Sentian favorite at harvest feasts - it lifts the spirits and loosens the tongue.
 
+
+
 [i]Effects:[/i]
+
 Thirst -5%; Thirst/turn +0.05% (60t); Intoxication +5%; Intoxication/turn +0.01% (60t); Morale +4%; Energy +3; Uses +2; Light drunkenness
 
+
+
 Cost: 25[/td]
+
 [td]Apple
+
 Apple
+
 Hop Cone[/td]
+
 [/tr]
+
 [tr][td][center][b]Night Vision Philter
+
 [/b][/center]
+
 [center][img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_night_vision_0.png[/img][/center]
+
 [/td]
+
 [td]A cool blue draught of ginger and berry steeped for dusk watches. Eyes adjust to moonlight; the world sharpens at the edges of shadow.
 
+
+
 [i]Effects:[/i]
+
 Thirst +5%; Intoxication +5%; Vision +5 (600t); Accuracy +5% (600t); Fumble -5% (600t)
 
+
+
 Cost: 70[/td]
+
 [td]Flask
+
 Spirit
+
 Ginger Root
+
 Blueberry[/td]
+
 [/tr]
+
 [tr][td][center][b]Styptic Brew
+
 [/b][/center]
+
 [center][img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_styptic_brew_0.png[/img][/center]
+
 [/td]
+
 [td]A bitter roadside wash of burnet and nettle. Field surgeons swear by it for closing fresh cuts when bandages run short.
 
+
+
 [i]Effects:[/i]
+
 Thirst +5%; Health +3; Health Restore +2 (60t); Bleed Resist +10% (90t)
 
+
+
 Cost: 25[/td]
+
 [td]Burnet
+
 Nettle
+
 Burdock
+
 Bogbean[/td]
+
 [/tr]
+
 [tr][td][center][b]Clearhead Bitters
+
 [/b][/center]
+
 [center][img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_clearhead_bitters_0.png[/img][/center]
+
 [/td]
+
 [td]A sharp ginger-and-mindwort draught favored by caravan guards after a night of cheap spirit. It clears the fog, though the taste alone is punishment enough.
 
+
+
 [i]Effects:[/i]
+
 Thirst +8%; Intoxication -10%; Intoxication/turn -0.1% (60t); Immunity +1%; Sober faster; Halve hangover
 
+
+
 Cost: 40[/td]
+
 [td]Ginger Root
+
 Mindwort[/td]
+
 [/tr]
+
 [tr][td][b]Marching Tea[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_marching_tea_0.png[/img][/td]
+
 [td]A fragrant thyme-and-mint infusion brewed by scouts before long marches. No drunkenness, only a steadier step and clearer head.
 
+
+
 [i]Effects:[/i]
+
 Thirst -5%; Energy Restore +2 (180t); Fatigue/turn -0.02% (180t); Fatigue Resist +5% (180t); Morale +1%
 
+
+
 Cost: 20[/td]
+
 [td]Thyme
+
 Lavender
+
 Spearmint
+
 Blueberry[/td]
+
 [/tr]
+
 [tr][td][b]Field Extract[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_field_extract_0.png[/img][/td]
+
 [td]A crude poppy-and-wormwood soak mixed in camp kettles. Weaker than a proper herbal extract, but still enough to dull a wound when the apothecary is days away.
 
+
+
 [i]Effects:[/i]
+
 Intoxication/turn +0.3% (40t); Pain -15%; Pain Resist +5% (40t)
 
+
+
 Cost: 25[/td]
+
 [td]Poppy
+
 Wormwood
+
 Hemp
+
 Hop Cone[/td]
+
 [/tr]
+
 [tr][td][b]Soldier's Draught[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_soldiers_draught_0.png[/img][/td]
+
 [td]A harsh amber-and-henbane mix issued to levy men before a charge. It puts iron in the arm for a short while, then leaves the tongue bitter and the head swimming.
 
+
+
 [i]Effects:[/i]
+
 Intoxication +10%; Weapon Damage +8% (240t); Pain Resist +5% (240t)
 
+
+
 Cost: 90[/td]
+
 [td]Flask
+
 Spirit
+
 Handful of Amber
+
 Henbane[/td]
+
 [/tr]
+
 [tr][td][b]Cleaving Bitters[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_cleaving_bitters_0.png[/img][/td]
+
 [td]Honeyed bitters prized by duelists who favor a single decisive cut. Sweet on the first swallow, cruel on the second.
 
+
+
 [i]Effects:[/i]
+
 Intoxication +10%; Crit Chance +6% (240t); Crit Eff. +10% (240t)
 
+
+
 Cost: 100[/td]
+
 [td]Flask
+
 Spirit
+
 Handful of Amber
+
 Honeycomb[/td]
+
 [/tr]
+
 [tr][td][b]Bloodwake[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_bloodwake_0.png[/img][/td]
+
 [td]Turquoise-tinted bloodwake is said to thin the foe's armor as much as it thickens one's resolve. Mercenaries drink it before storming plate-clad lines.
 
+
+
 [i]Effects:[/i]
+
 Intoxication +12%; Armor Pen +8% (240t); Bleed Resist +5% (240t)
 
+
+
 Cost: 120[/td]
+
 [td]Flask
+
 Spirit
+
 Turquoise
+
 Burnet[/td]
+
 [/tr]
+
 [tr][td][b]Ironbark Tonic[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_ironbark_tonic_0.png[/img][/td]
+
 [td]Brewed over agate-ground bark powders, ironbark tonic toughens flesh against cuts and bruises. The aftertaste is like chewing wet oak.
 
+
+
 [i]Effects:[/i]
+
 Intoxication +8%; Bleed Resist +12% (300t); Healing Eff. +8% (300t); Pain Resist +5% (300t)
 
+
+
 Cost: 120[/td]
+
 [td]Flask
+
 Spirit
+
 Agate
+
 Honeycomb[/td]
+
 [/tr]
+
 [tr][td][b]Ward Philter[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_ward_philter_0.png[/img][/td]
+
 [td]A turquoise ward philter whispered over with mindwort prayers. It blunts hostile magic, though some complain of a faint ringing behind the eyes.
 
+
+
 [i]Effects:[/i]
+
 Intoxication +8%; Magic Resist +12% (300t); Sanity/turn -0.02 (300t)
 
+
+
 Cost: 125[/td]
+
 [td]Flask
+
 Spirit
+
 Turquoise
+
 Mindwort[/td]
+
 [/tr]
+
 [tr][td][b]Frostguard[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_frostguard_0.png[/img][/td]
+
 [td]Amber steeped with lavender against the bite of highland winters and frost-cursed blades. Warmth blooms in the chest, then fades like breath on glass.
 
+
+
 [i]Effects:[/i]
+
 Intoxication +8%; Frost Resist +15% (300t); Energy +5
 
+
+
 Cost: 100[/td]
+
 [td]Flask
+
 Spirit
+
 Handful of Amber
+
 Lavender[/td]
+
 [/tr]
+
 [tr][td][b]Venomguard[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_venomguard_0.png[/img][/td]
+
 [td]Azurecap and horsetail rendered into a pale green philter. Hunters sip it before stalking swamp vipers and deathstinger nests.
 
+
+
 [i]Effects:[/i]
+
 Intoxication +5%; Poison Resist +20% (300t); Intox Resist +10% (300t)
 
+
+
 Cost: 110[/td]
+
 [td]Flask
+
 Spirit
+
 Azurecap
+
 Horsetail[/td]
+
 [/tr]
+
 [tr][td][b]Mooncap Elixir[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_mooncap_elixir_0.png[/img][/td]
+
 [td]Moonlit azurecap essence in a clear flask. Weaker than true stardust, yet enough to lend a hedge-mage's cantrips a keener edge.
 
+
+
 [i]Effects:[/i]
+
 Intoxication +10%; Magic Power +12% (240t); Morale +5%
 
+
+
 Cost: 110[/td]
+
 [td]Flask
+
 Spirit
+
 Azurecap
+
 Spearmint[/td]
+
 [/tr]
+
 [tr][td][b]Arcane Focus[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_arcane_focus_0.png[/img][/td]
+
 [td]Moonstone powder suspended in spirit, steadied with thyme. It gathers a caster's will and quiets the worst misfires - for a price paid in thirst.
 
+
+
 [i]Effects:[/i]
+
 Thirst +10%; Intoxication +12%; Magic Power +10% (300t); Backfire -10% (300t)
 
+
+
 Cost: 140[/td]
+
 [td]Flask
+
 Spirit
+
 Moonstone
+
 Thyme[/td]
+
 [/tr]
+
 [tr][td][b]Horizon Philter[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_horizon_philter_0.png[/img][/td]
+
 [td]Amber spirit clarified with thyme until the liquid catches distant light. For a short while, spells stretch one tile farther than habit allows.
 
+
+
 [i]Effects:[/i]
+
 Thirst +8%; Intoxication +8%; Spell Range +1 (60t)
 
+
+
 Cost: 90[/td]
+
 [td]Flask
+
 Spirit
+
 Handful of Amber
+
 Thyme[/td]
+
 [/tr]
+
 [tr][td][b]Farreach Elixir[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_farreach_elixir_0.png[/img][/td]
+
 [td]Moonstone dissolved in spirit until the draught seems to pull the far edge of the room closer. Spells gain two tiles of reach while the shimmer lasts.
 
+
+
 [i]Effects:[/i]
+
 Thirst +10%; Intoxication +12%; Spell Range +2 (60t)
 
+
+
 Cost: 160[/td]
+
 [td]Flask
+
 Spirit
+
 Moonstone
+
 Thyme[/td]
+
 [/tr]
+
 [tr][td][b]Pyreheart[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_pyreheart_0.png[/img][/td]
+
 [td]Coal-black pyreheart burns going down. It steels the blade-hand and hardens the skin against flame, as if a forge fire briefly took root in the veins.
 
+
+
 [i]Effects:[/i]
+
 Intoxication +12%; Weapon Damage +5% (240t); Fire Resist +10% (240t)
 
+
+
 Cost: 100[/td]
+
 [td]Flask
+
 Spirit
+
 Handful of Amber
+
 Charcoal Chunk[/td]
+
 [/tr]
+
 [tr][td][b]Rewoven Philter[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_rewoven_philter_0.png[/img][/td]
+
 [td]A jewel-tempered spirit said to unstitch the body's hard-won gifts. One draught returns spent attribute points to be allocated anew — at a price few purses survive twice.
 
+
+
 [i]Effects:[/i]
+
 Respec attributes; Intoxication +25%; Pain +10%; Sanity -5
 
+
+
 Cost: 1500[/td]
+
 [td]Diamond
+
 Sapphire
+
 Sea Pearls
+
 Spirit[/td]
+
 [/tr]
+
 [tr][td][b]Unlearning Elixir[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_unlearning_elixir_0.png[/img][/td]
+
 [td]Brewed from Gwynnel's work and rare gemstones, this draught unravels trained techniques from muscle and mind. All allocated skill points are refunded — the knowledge remains only as a bitter aftertaste.
 
+
+
 [i]Effects:[/i]
+
 Respec skills; Intoxication +35%; Pain +15%; Sanity -10; Fatigue/turn +0.2% (60t)
 
+
+
 Cost: 2500[/td]
+
 [td]Diamond
+
 Sapphire
+
 Gwynnel's Elixir
+
 Spirit[/td]
+
 [/tr]
+
 [/table]
+
 [b]  Throwables[/b]
+
 [table][tr][th]Elixir[/th]
-[th]Description & effects[/th]
+
+[th]Description &amp; effects[/th]
+
 [th]Ingredients[/th]
+
 [/tr]
+
 [tr][td][b]Flame Vial[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_flame_vial_0.png[/img][/td]
+
 [td]A small flask of lamp oil and powdered charcoal. Shattered against a single foe, it bursts into a brief, clinging flame.
 
+
+
 [i]Effects:[/i]
+
 Fire Dmg (throw) +12; Ignite turns +3; AoE +1
 
+
+
 Cost: 45[/td]
+
 [td]Flask
+
 Bottle of Oil
+
 Charcoal Chunk
+
 Thyme[/td]
+
 [/tr]
+
 [tr][td][b]Flame Flask[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_flame_flask_0.png[/img][/td]
+
 [td]A heavier spirit-cut fire mixture. On impact it spatters burning oil across a three-by-three pace of ground.
 
+
+
 [i]Effects:[/i]
+
 Fire Dmg (throw) +18; Ignite turns +4; AoE +3
 
+
+
 Cost: 90[/td]
+
 [td]Flask
+
 Spirit
+
 Bottle of Oil
+
 Charcoal Chunk[/td]
+
 [/tr]
+
 [tr][td][b]Venom Vial[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_venom_vial_0.png[/img][/td]
+
 [td]Puffball toxin sealed in glass. A direct hit soaks one target in virulent poison.
 
+
+
 [i]Effects:[/i]
+
 Poison Dmg (throw) +8; Poisoning chance +80%; Poisoning duration +40; AoE +1
 
+
+
 Cost: 40[/td]
+
 [td]Flask
+
 Pale Puffball
+
 Wormwood[/td]
+
 [/tr]
+
 [tr][td][b]Venom Flask[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_venom_flask_0.png[/img][/td]
+
 [td]A volatile spore brew that bursts into a choking poison cloud covering a three-by-three area.
 
+
+
 [i]Effects:[/i]
+
 Poison Dmg (throw) +10; Poisoning chance +70%; Poisoning duration +50; Spore cloud turns 3-5; AoE +3
 
+
+
 Cost: 85[/td]
+
 [td]Flask
+
 Spirit
+
 Pale Puffball
+
 Wormwood[/td]
+
 [/tr]
+
 [tr][td][b]Choke Vial[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_choke_vial_0.png[/img][/td]
+
 [td]Hemp smoke and charcoal dust under pressure. Thrown at a single target, it forces a fit of coughing and blurred sight.
 
+
+
 [i]Effects:[/i]
+
 Gas cloud; Coughing % +75; Accuracy (debuff) -20; Fumble (debuff) +20; AoE +1
 
+
+
 Cost: 35[/td]
+
 [td]Flask
+
 Hemp
+
 Charcoal Chunk
+
 Hop Cone[/td]
+
 [/tr]
+
 [tr][td][b]Gas Flask[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_gas_flask_0.png[/img][/td]
+
 [td]Oil, hemp, and charcoal packed to burst into a spreading haze. The cloud fills a three-by-three space, cutting vision and inviting coughs.
 
+
+
 [i]Effects:[/i]
+
 Gas cloud; Coughing % +50; Accuracy (debuff) -25; Fumble (debuff) +25; Vision (debuff) +1; AoE +3; Spore cloud turns 4-6
 
+
+
 Cost: 60[/td]
+
 [td]Flask
+
 Bottle of Oil
+
 Hemp
+
 Charcoal Chunk[/td]
+
 [/tr]
+
 [tr][td][b]Blur Vial[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_blur_vial_0.png[/img][/td]
+
 [td]Mint oil and wormwood soot sealed under pressure. A direct hit smears the enemy's vision into a watery haze.
 
+
+
 [i]Effects:[/i]
+
 Vision (debuff) +1; Accuracy (debuff) -10; Debuff turns +6; AoE +1
 
+
+
 Cost: 40[/td]
+
 [td]Flask
+
 Spearmint
+
 Wormwood
+
 Charcoal Chunk[/td]
+
 [/tr]
+
 [tr][td][b]Tar Vial[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_tar_vial_0.png[/img][/td]
+
 [td]Lamp oil thickened with hop resin. It spatters one foe's feet, making every step stick and stumble.
 
+
+
 [i]Effects:[/i]
+
 Movement (debuff) -1; Dodge (debuff) -10; Debuff turns +5; AoE +1
 
+
+
 Cost: 40[/td]
+
 [td]Flask
+
 Bottle of Oil
+
 Hop Cone[/td]
+
 [/tr]
+
 [tr][td][b]Daze Vial[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_daze_vial_0.png[/img][/td]
+
 [td]Ginger heat and henbane vapor packed to burst. The shock leaves a single target reeling and open to missteps.
 
+
+
 [i]Effects:[/i]
+
 Confuse/Stagger % +100; Accuracy (debuff) -10; Fumble (debuff) +15; Debuff turns +4; AoE +1
 
+
+
 Cost: 45[/td]
+
 [td]Flask
+
 Ginger Root
+
 Henbane[/td]
+
 [/tr]
+
 [tr][td][b]Weaken Vial[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_weaken_vial_0.png[/img][/td]
+
 [td]Puffball essence cut with wormwood. Soaked into skin and cloth, it saps the strength behind a foe's swings.
 
+
+
 [i]Effects:[/i]
+
 Weapon Dmg (debuff) -15; Accuracy (debuff) -10; Debuff turns +6; AoE +1
 
+
+
 Cost: 50[/td]
+
 [td]Flask
+
 Pale Puffball
+
 Wormwood[/td]
+
 [/tr]
+
 [tr][td][b]Terror Vial[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_terror_vial_0.png[/img][/td]
+
 [td]Henbane and ginger smoke that claws at the nerves. One target coughs, flinches, and fights with shaking hands.
 
+
+
 [i]Effects:[/i]
+
 Gas cloud; Coughing % +60; Fumble (debuff) +20; Debuff turns +5; AoE +1
 
+
+
 Cost: 55[/td]
+
 [td]Flask
+
 Ginger Root
+
 Henbane
+
 Hop Cone[/td]
+
 [/tr]
+
 [tr][td][b]Fog Flask[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_fog_flask_0.png[/img][/td]
+
 [td]Oil and smoking mix that blooms into a pale cloud. Across a three-by-three space, eyes water and sight fails.
 
+
+
 [i]Effects:[/i]
+
 Gas cloud; Vision (debuff) +1; Accuracy (debuff) -15; Debuff turns +7; AoE +3; Spore cloud turns 3-5
 
+
+
 Cost: 65[/td]
+
 [td]Flask
+
 Bottle of Oil
+
 Smoking Mix
+
 Spearmint[/td]
+
 [/tr]
+
 [tr][td][b]Mire Flask[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_mire_flask_0.png[/img][/td]
+
 [td]Honeyed oil and charcoal grit that splatters into clinging sludge. A three-by-three patch of ground becomes a trap for feet.
 
+
+
 [i]Effects:[/i]
+
 Movement (debuff) -2; Dodge (debuff) -15; Debuff turns +6; AoE +3
 
+
+
 Cost: 70[/td]
+
 [td]Flask
+
 Bottle of Oil
+
 Charcoal Chunk
+
 Honeycomb[/td]
+
 [/tr]
+
 [tr][td][b]Blind Flask[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_blind_flask_0.png[/img][/td]
+
 [td]Spirit-cut puffball dust that flares on impact. The cloud sears eyes across a three-by-three area, leaving foes nearly sightless.
 
+
+
 [i]Effects:[/i]
+
 Gas cloud; Vision (debuff) +2; Accuracy (debuff) -25; Debuff turns +5; AoE +3; Spore cloud turns 4-6
 
+
+
 Cost: 90[/td]
+
 [td]Flask
+
 Spirit
+
 Pale Puffball
+
 Spearmint[/td]
+
 [/tr]
+
 [tr][td][b]Rootbind Flask[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_rootbind_flask_0.png[/img][/td]
+
 [td]A spirit-and-oil binder that hardens on contact. The struck enemy is briefly locked in place, then left heavy-legged.
 
+
+
 [i]Effects:[/i]
+
 Immobilize turns +2; Movement (debuff) -2; Dodge (debuff) -20; Debuff turns +4; AoE +1
 
+
+
 Cost: 95[/td]
+
 [td]Flask
+
 Spirit
+
 Bottle of Oil
+
 Honeycomb[/td]
+
 [/tr]
+
 [tr][td][b]Cripple Flask[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_cripple_flask_0.png[/img][/td]
+
 [td]Amber-tempered henbane brew that bursts over a three-by-three space. Joints seize, footwork fails, and counters die in the throat.
 
+
+
 [i]Effects:[/i]
+
 Movement (debuff) -2; Dodge (debuff) -20; Crit (debuff) -10; Counter (debuff) -10; Debuff turns +7; AoE +3
 
+
+
 Cost: 100[/td]
+
 [td]Flask
+
 Spirit
+
 Handful of Amber
+
 Henbane[/td]
+
 [/tr]
+
 [/table]
+
 [b]  Coatings[/b]
+
 [table][tr][th]Elixir[/th]
-[th]Description & effects[/th]
+
+[th]Description &amp; effects[/th]
+
 [th]Ingredients[/th]
+
 [/tr]
+
 [tr][td][b]Ember Oil[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_ember_oil_0.png[/img][/td]
+
 [td]A lamp oil thickened with charcoal and thyme. Rubbed along a blade, it leaves a smoldering sheen that bites with fire on each strike.
 
+
+
 [i]Effects:[/i]
+
 Weapon Fire Dmg +4% (120t); Coating hits +12
 
+
+
 Cost: 40[/td]
+
 [td]Bottle of Oil
+
 Charcoal Chunk
+
 Thyme[/td]
+
 [/tr]
+
 [tr][td][b]Cinder Lacquer[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_cinder_lacquer_0.png[/img][/td]
+
 [td]A denser charcoal lacquer laced with henbane. The coated edge glows faintly, as if still resting on the forge.
 
+
+
 [i]Effects:[/i]
+
 Weapon Fire Dmg +7% (180t); Coating hits +16
 
+
+
 Cost: 60[/td]
+
 [td]Bottle of Oil
+
 Charcoal Chunk
+
 Charcoal Chunk
+
 Henbane[/td]
+
 [/tr]
+
 [tr][td][b]Venom Lacquer[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_venom_lacquer_0.png[/img][/td]
+
 [td]Death cap and wormwood cooked into oil until the mixture turns sickly green. A thin coat is enough to poison shallow cuts.
 
+
+
 [i]Effects:[/i]
+
 Weapon Poison Dmg +3% (120t); Coating hits +12
 
+
+
 Cost: 35[/td]
+
 [td]Bottle of Oil
+
 Death Cap
+
 Wormwood
+
 Hop Cone[/td]
+
 [/tr]
+
 [tr][td][b]Puffball Paste[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_puffball_paste_0.png[/img][/td]
+
 [td]Pale puffball spores mashed into oil. Assassins favor the paste for its clinging poison that outlasts a brief skirmish.
 
+
+
 [i]Effects:[/i]
+
 Weapon Poison Dmg +6% (180t); Coating hits +16
 
+
+
 Cost: 55[/td]
+
 [td]Bottle of Oil
+
 Pale Puffball
+
 Wormwood[/td]
+
 [/tr]
+
 [/table]
+
 [b]  Metal smelting[/b]
+
 Known from the start. Smelt at a workbench / craftkit. Price = two nuggets + 10%.
+
 [table][tr][th]Ingot[/th]
-[th]Description & effects[/th]
+
+[th]Description &amp; effects[/th]
+
 [th]Ingredients[/th]
+
 [/tr]
+
 [tr][td][b]Copper Ingot[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_copper_ingot_0.png[/img][/td]
+
 [td]A cast bar of copper. Useful for alloys, fittings, and trade with smiths.
 
+
+
 Cost: 44[/td]
+
 [td]Copper Nugget
+
 Copper Nugget[/td]
+
 [/tr]
+
 [tr][td][b]Iron Ingot[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_iron_ingot_0.png[/img][/td]
+
 [td]An ingot of solid iron that will be readily purchased by any blacksmith.
 
+
+
 Cost: 66[/td]
+
 [td]Iron Nugget
+
 Iron Nugget[/td]
+
 [/tr]
+
 [tr][td][b]Gold Ingot[/b]
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_gold_ingot_0.png[/img][/td]
+
 [td]A gleaming bar of refined gold. Merchants and jewelers pay handsomely for it.
 
+
+
 Cost: 176[/td]
+
 [td]Gold Nugget
+
 Gold Nugget[/td]
+
 [/tr]
+
 [/table]
+
 [b]  Scroll crafting[/b]
+
 Blank Scroll is known from the start. Identification / Disenchantment / Enchantment unlock via shop schematics or study (3 identical scrolls + any gem).
+
 [table][tr][th]Scroll[/th]
-[th]Description & effects[/th]
+
+[th]Description &amp; effects[/th]
+
 [th]Ingredients[/th]
+
 [/tr]
+
 [tr][td][center][b]Blank Scroll[/b][/center]
+
 [center][img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_blank_scroll_0.png[/img][/center]
+
 [/td]
+
 [td]A clean strip of hemp parchment, ready for ink and reagents.
 
+
+
 Cost: 5[/td]
+
 [td]Hemp[/td]
+
 [/tr]
+
 [tr][td][center][b]Identification Scroll[/b][/center]
+
 [center][img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_scroll_identification_0.png[/img][/center]
+
 [/td]
+
 [td]A result of a longstanding clash between the Mages Guild and the Enchanters Guild.
 
+
+
 Cost: 10[/td]
+
 [td]Blank Scroll
+
 Mindwort[/td]
+
 [/tr]
+
 [tr][td][center][b]Disenchantment Scroll[/b][/center]
+
 [center][img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_scroll_disenchant_0.png[/img][/center]
+
 [/td]
+
 [td]Fight fire with fire: it magically purges items of all traces of magic.
 
+
+
 Cost: 40[/td]
+
 [td]Blank Scroll
+
 Spirit
+
 Wormwood[/td]
+
 [/tr]
+
 [tr][td][center][b]Enchantment Scroll[/b][/center]
+
 [center][img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_scroll_enchant_0.png[/img][/center]
+
 [/td]
+
 [td]Another powerful blow delivered by the Mages Guild to the Enchanters Guild.
 
+
+
 Cost: 200[/td]
+
 [td]Blank Scroll
+
 Spirit
+
 Moonstone
+
 Handful of Amber[/td]
+
 [/tr]
+
 [/table]
+
 [b]  Vanilla throwable unlocked by recipe[/b]
+
 [table][tr][th]Item[/th]
-[th]Description & effects[/th]
+
+[th]Description &amp; effects[/th]
+
 [th]Ingredients[/th]
+
 [/tr]
+
 [tr][td][b]Nistrian Flame Flask[/b] (vanilla id: bomb_fire)
+
 [img]https://raw.githubusercontent.com/mailtosmyk/vs_stoneshard_mods/develop/alchemy/Sprites/s_inv_alch_flame_flask_0.png[/img][/td]
+
 [td]The recipe for Nistrian flame, the flasks of which occasionally find their way to Aldor, still remains a secret despite the efforts of many talented scholars. Alas, no one has yet invented an alternative that burns at least half as well.
 
+
+
 [i]Effects:[/i]
+
 Fire Dmg (throw) +20; Caustic Dmg (throw) +5; Ignite turns +4; AoE +3
 
+
+
 Cost: 140[/td]
+
 [td]Flask
+
 Spirit
+
 Bottle of Oil
+
 Turquoise[/td]
+
 [/tr]
+
 [/table]
+
 ────────────────────────────────────────
+
 [b]  Requirements[/b]
+
 • Stoneshard 0.9.4.x on Steam modbranch
+
 • ModShardLauncher Enhanced (https://www.nexusmods.com/stoneshard/mods/103) — recommended / required for current builds
+
 • .NET Desktop Runtime 10.0 for MSL Enhanced (or .NET 6.0 if using older upstream MSL)
+
 • No other content mods required
 
-────────────────────────────────────────
-[b]  Shout outs[/b]
-Thanks to the ModShardTeam for ModShardLauncher, and to the Stoneshard Mod Hub community for tools, docs, and support.
+
 
 ────────────────────────────────────────
+
+[b]  Shout outs[/b]
+
+Thanks to the ModShardTeam for ModShardLauncher, and to the Stoneshard Mod Hub community for tools, docs, and support.
+
+
+
+────────────────────────────────────────
+
+
 
 [b]  Changelog (recent)[/b]
 
-0.2.13
-• Rebuild for ModShardLauncher Enhanced (InjectTableItemStats 88-param API / .NET 10).
-• Fixes MissingMethodException when loading Alchemy under MSL Enhanced.
-0.2.12
-• Blank Scroll is a known Base Recipe (hemp → blank scroll) from the start.
-0.2.11
-• Add Nexus page icons for iron ingot and scroll crafts; ship Blank Scroll as a craftable item.
-• Craft blank scrolls (known from start) and Identification / Disenchantment / Enchantment scrolls.
-• Study scroll crafts with 3 identical scrolls + any gem (same as elixirs).
-• Document metal smelting and scroll recipes on the Nexus description.
-0.2.10
-• Marching Tea lasting buffs increased from 90 to 180 turns.
+0.2.19
+• Rebuild package for ModShardLauncher Enhanced / Nexus .sml release.
 
-────────────────────────────────────────
 
-────────────────────────────────────────
+0.2.18
+• Fix MSL save crash in blank-scroll craft amount patch (MatchFrom amount-line mismatch).
+
+0.2.17
+• Fix throwable/elixir floor loot: use small centered s_loot_* sprites (was full 27×54 inv icon).
+• Top-align inventory flask/vial icons in the 27×54 canvas.
+
+0.2.16
+• Flask is a known Base Recipe: reshape a glass vessel or empty bottle into a flask.
+
 [b]  Support[/b]
+
 If you enjoy the mod and want to support further updates and maintenance:
+
 • Patreon: https://www.patreon.com/c/vitali_smyk
+
 • PayPal: https://www.paypal.com/donate/?hosted_button_id=FV3P3RCGG9MD8
+
 Any support is appreciated — it helps keep Alchemy current through game patches.
+
+
