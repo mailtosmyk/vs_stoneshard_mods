@@ -653,23 +653,19 @@ Thanks to the ModShardTeam for ModShardLauncher, and to the Stoneshard Mod Hub c
 
 [b]  Changelog (recent)[/b]
 
-0.2.19
+0.2.20
+• Fix blank scroll container loot crash: set base_index/skill in Create (o_inv_scroll_parent Alarm_0).
+• Mark blank scroll item stats as special so it stays craft-only (not common scroll loot).
 
+0.2.19
 • Rebuild package for ModShardLauncher Enhanced / Nexus .sml release.
 
 0.2.18
-
 • Fix MSL save crash in blank-scroll craft amount patch (MatchFrom amount-line mismatch).
 
 0.2.17
-
 • Fix throwable/elixir floor loot: use small centered s_loot_* sprites (was full 27×54 inv icon).
-
 • Top-align inventory flask/vial icons in the 27×54 canvas.
-
-0.2.16
-
-• Flask is a known Base Recipe: reshape a glass vessel or empty bottle into a flask.
 
 [b]  Support[/b]
 
