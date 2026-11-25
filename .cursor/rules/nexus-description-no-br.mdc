@@ -1,0 +1,26 @@
+---
+description: Nexus mod descriptions must use plain BBCode newlines — never HTML br tags
+globs: "**/description_draft.txt"
+alwaysApply: true
+---
+
+# Nexus description: no `<br>`
+
+When writing, syncing, or PATCHing a Nexus Mods description (any of Necromancy / Summoner / Alchemy):
+
+- Send **plain BBCode with real newlines only**
+- **Never** insert `<br>`, `<br/>`, `<br />`, or HTML-escaped `&lt;br /&gt;`
+- Nexus HTML-escapes those tags; they show as literal text and blow out spacing
+- Prefer at most one blank line between blocks; collapse runs of 3+ newlines
+- Inside `[table]...[/table]`, avoid blank lines between tags
+
+```python
+# ❌ BAD — Nexus stores this as visible &lt;br /&gt;
+body = description.replace("\n", "<br />")
+api(..., {"description": body})
+
+# ✅ GOOD — plain newlines
+api(..., {"description": description})  # BBCode + \n only
+```
+
+Use `normalize_description()` in `.cursor/skills/build/scripts/deploy_nexus.py` when reading live text (converts any leftover `<br>` / entities back to `\n` and collapses spacing).

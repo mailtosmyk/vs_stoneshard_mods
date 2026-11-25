@@ -1,0 +1,62 @@
+{
+  "msl_dir": "/home/vitali/Mods/ModShardLauncher-Enhanced",
+  "out_dir": "/home/vitali/Mods/ModShardLauncher-Enhanced/Mods",
+  "dotnet_root_net10": "/home/vitali/.local/share/JetBrains/Toolbox/apps/rider/lib/ReSharperHost/linux-x64/dotnet",
+  "nexus_key_transcript": "/home/vitali/.cursor/projects/home-vitali-Mods-vs-stoneshard-mods/agent-transcripts/608656c2-371d-43bc-beee-a4c28bf0c04b/608656c2-371d-43bc-beee-a4c28bf0c04b.jsonl",
+  "nexus_key_file": "/tmp/.nexus_api_key",
+  "mods": {
+    "necromancy": {
+      "folder": "necromancy",
+      "display": "Necromancy",
+      "sml_name": "Necromancy",
+      "build_script": "necromancy/build-sml.sh",
+      "auto_bump": true,
+      "needs_net10": false,
+      "version_cs": "necromancy/src/NecromancyVersion.cs",
+      "tracked_bins": [
+        "necromancy/bin/Release/net6.0/Necromancy.dll",
+        "necromancy/bin/Release/net6.0/Necromancy.pdb"
+      ],
+      "nexus_page": 448,
+      "mod_uid": "21088289423808",
+      "file_id": "8361639",
+      "description": "Necromancy for Stoneshard (ModShardLauncher). .sml only.",
+      "draft": "necromancy/_debug/nexus_preview/description_draft.txt"
+    },
+    "summoner": {
+      "folder": "summonner",
+      "display": "Summoner",
+      "sml_name": "Summoner",
+      "build_script": "summonner/build-sml.sh",
+      "auto_bump": true,
+      "needs_net10": false,
+      "version_cs": "summonner/src/SummonerVersion.cs",
+      "tracked_bins": [
+        "summonner/bin/Release/net6.0/Summoner.dll",
+        "summonner/bin/Release/net6.0/Summoner.pdb",
+        "summonner/obj/Release/net6.0/Summoner.dll",
+        "summonner/obj/Release/net6.0/Summoner.pdb"
+      ],
+      "nexus_page": 456,
+      "mod_uid": "21088289423816",
+      "file_id": "8383947",
+      "description": "Summoner for Stoneshard (ModShardLauncher). .sml only.",
+      "draft": "summonner/_debug/nexus_preview/description_draft.txt"
+    },
+    "alchemy": {
+      "folder": "alchemy",
+      "display": "Alchemy",
+      "sml_name": "Alchemy",
+      "build_script": "alchemy/build-sml.sh",
+      "auto_bump": false,
+      "needs_net10": true,
+      "version_cs": "alchemy/src/AlchemyVersion.cs",
+      "tracked_bins": [],
+      "nexus_page": 451,
+      "mod_uid": "21088289423811",
+      "file_id": "8361399",
+      "description": "Alchemy for Stoneshard (ModShardLauncher). .sml only.",
+      "draft": "alchemy/_debug/nexus_preview/description_draft.txt"
+    }
+  }
+}
