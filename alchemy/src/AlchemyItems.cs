@@ -64,7 +64,7 @@ internal static class AlchemyItems
             // Drinkables inherit o_inv_dishes_beverage which already calls it.
             if (product.Kind is AlchemyProductKind.Throwable or AlchemyProductKind.Coating
                 or AlchemyProductKind.Material or AlchemyProductKind.Scroll)
-                EnsureConsumCreate(inv, product.Id);
+                EnsureConsumCreate(inv, product.Id, product.Kind);
 
             var (cat, subcat, material, weight, tags) = StatsFor(product);
             Msl.InjectTableItemStats(
@@ -157,14 +157,29 @@ internal static class AlchemyItems
     /// <summary>
     /// Vanilla bombs/coatings set <c>name</c> via <c>scr_consum_atr</c> in Create.
     /// Without that, <c>o_inv_consum</c> Alarm_0 reads an unset <c>name</c>.
+    /// Scrolls under <c>o_inv_scroll_parent</c> also need <c>base_index</c> — Alarm_0
+    /// indexes <c>global.scrollsDataList</c> with it when the item is first looted.
     /// </summary>
-    static void EnsureConsumCreate(UndertaleGameObject inv, string productId)
+    static void EnsureConsumCreate(
+        UndertaleGameObject inv,
+        string productId,
+        AlchemyProductKind kind)
     {
-        var gml = string.Join(
-            "\n",
+        var lines = new List<string>
+        {
             "event_inherited()",
             $"scr_consum_atr(\"{productId}\")",
-            "is_execute = false");
+        };
+        if (kind == AlchemyProductKind.Scroll)
+        {
+            // Mirror vanilla o_inv_scroll_* Create (identification/enchant/disenchant).
+            // Blank parchment is not a castable scroll; index 0 is a safe visual slot.
+            lines.Add("base_index = 0");
+            lines.Add("skill = -4");
+        }
+
+        lines.Add("is_execute = false");
+        var gml = string.Join("\n", lines);
 
         try
         {
@@ -176,9 +191,8 @@ internal static class AlchemyItems
         }
 
         var codeName = Msl.EventName(inv.Name.Content, EventType.Create, 0);
-        var lines = gml.Split('\n');
         Msl.LoadGML(codeName)
-            .Apply(_ => lines)
+            .Apply(_ => lines.ToArray())
             .Save();
     }
 
@@ -256,7 +270,9 @@ internal static class AlchemyItems
                 Msl.ItemStatsSubcategory.none,
                 Msl.ItemStatsMaterial.paper,
                 Msl.ItemStatsWeight.Light,
-                Msl.ItemStatsTags.common),
+                // special — craft-only blank parchment; common scroll loot expects
+                // vanilla o_inv_scroll_* Create (base_index / skill) and would soft-lock boxes.
+                Msl.ItemStatsTags.special),
             _ => (
                 Msl.ItemStatsCategory.medicine,
                 Msl.ItemStatsSubcategory.potion,

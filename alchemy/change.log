@@ -1,3 +1,7 @@
+0.2.20
+- Fix blank scroll container loot crash: set base_index/skill in Create (o_inv_scroll_parent Alarm_0).
+- Mark blank scroll item stats as special so it stays craft-only (not common scroll loot).
+
 0.2.19
 - Rebuild package for ModShardLauncher Enhanced / Nexus .sml release.
 
