@@ -1,3 +1,7 @@
+0.8.0
+- Rebuild package for ModShardLauncher Enhanced / Nexus .sml release.
+
+
 0.7.9
 - Hunt Command applies a visible Hunt Mark debuff; summons get Hunt Focus (+12% damage / +10% accuracy) vs the mark.
 

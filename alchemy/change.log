@@ -1,3 +1,7 @@
+0.2.19
+- Rebuild package for ModShardLauncher Enhanced / Nexus .sml release.
+
+
 0.2.18
 - Fix MSL save crash in blank-scroll craft amount patch (MatchFrom amount-line mismatch).
 

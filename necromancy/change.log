@@ -1,3 +1,7 @@
+1.18.0
+- Rebuild package for ModShardLauncher Enhanced / Nexus .sml release.
+
+
 1.17.0
 - Death Touch: stop reading unset damage_done on impact (heal uses Unholy_Damage).
 
