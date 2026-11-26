@@ -1,5 +1,5 @@
-skill_tree.png https://files.catbox.moe/q1z82l.png
-tier_1.png https://files.catbox.moe/r75mds.png
-tier_2.png https://files.catbox.moe/suzkru.png
-tier_3.png https://files.catbox.moe/eybc5i.png
-tier_4.png https://files.catbox.moe/6jrbzu.png
+skill_tree.png https://cdn.jsdelivr.net/gh/mailtosmyk/vs_stoneshard_mods@develop/summonner/_debug/nexus_preview/skill_tree.png
+tier_1.png https://cdn.jsdelivr.net/gh/mailtosmyk/vs_stoneshard_mods@develop/summonner/_debug/nexus_preview/tier_1.png
+tier_2.png https://cdn.jsdelivr.net/gh/mailtosmyk/vs_stoneshard_mods@develop/summonner/_debug/nexus_preview/tier_2.png
+tier_3.png https://cdn.jsdelivr.net/gh/mailtosmyk/vs_stoneshard_mods@develop/summonner/_debug/nexus_preview/tier_3.png
+tier_4.png https://cdn.jsdelivr.net/gh/mailtosmyk/vs_stoneshard_mods@develop/summonner/_debug/nexus_preview/tier_4.png

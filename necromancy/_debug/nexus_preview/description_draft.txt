@@ -54,15 +54,15 @@ Tip: Back up your saves before using mods. If MSL appears frozen while loading t
 
 [b]  Skill tree[/b]
 
-[img]https://files.catbox.moe/9ksboc.png[/img]
+[img]https://cdn.jsdelivr.net/gh/mailtosmyk/vs_stoneshard_mods@develop/necromancy/_debug/nexus_preview/skill_tree.png[/img]
 
-[img]https://files.catbox.moe/irqlj9.png[/img]
+[img]https://cdn.jsdelivr.net/gh/mailtosmyk/vs_stoneshard_mods@develop/necromancy/_debug/nexus_preview/tier_1.png[/img]
 
-[img]https://files.catbox.moe/3203yk.png[/img]
+[img]https://cdn.jsdelivr.net/gh/mailtosmyk/vs_stoneshard_mods@develop/necromancy/_debug/nexus_preview/tier_2.png[/img]
 
-[img]https://files.catbox.moe/f73va3.png[/img]
+[img]https://cdn.jsdelivr.net/gh/mailtosmyk/vs_stoneshard_mods@develop/necromancy/_debug/nexus_preview/tier_3.png[/img]
 
-[img]https://files.catbox.moe/noci5h.png[/img]
+[img]https://cdn.jsdelivr.net/gh/mailtosmyk/vs_stoneshard_mods@develop/necromancy/_debug/nexus_preview/tier_4.png[/img]
 
 ────────────────────────────────────────
 
