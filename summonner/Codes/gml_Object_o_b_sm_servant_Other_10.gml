@@ -123,10 +123,14 @@ with (target)
         if (instance_exists(_enemy))
         {
             target = _enemy
-            state = "npc combat"
             _has_enemy = true
         }
     }
+
+    // Always re-enter combat state while fighting. Keep-target / follow recovery can leave
+    // pets stuck in move_to_exit, and vanilla FSM only casts skills from npc combat / attack.
+    if (_has_enemy && instance_exists(target))
+        state = "npc combat"
 
     // Hunt Focus: +12% Weapon Damage / +10% Accuracy while fighting a Hunt-marked foe.
     var _focus = asset_get_index("o_b_sm_hunt_focus")

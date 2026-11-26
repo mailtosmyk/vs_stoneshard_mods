@@ -1,3 +1,6 @@
+0.11.0
+- Pets: force npc combat while fighting so companion skills can cast (no longer stuck in follow after kills).
+
 0.10.0
 - Pack Link: ship rebuilt .sml with updated skill assets and localization.
 
