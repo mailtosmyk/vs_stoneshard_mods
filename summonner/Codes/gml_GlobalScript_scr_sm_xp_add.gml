@@ -1,15 +1,21 @@
 function scr_sm_xp_add(argument0, argument1)
 {
     // argument0 = species slug, argument1 = xp amount
-    if (!instance_exists(o_player) || (argument1 <= 0))
+    if (argument1 <= 0)
         return
     var _prevLvl = scr_sm_level_get(argument0)
     var _key = ("sm_xp_" + string(argument0))
     var _next = (scr_sm_xp_get(argument0) + argument1)
-    if (!variable_instance_exists(o_player, _key))
+
+    // Persist on characterDataMap so XP survives room changes and save/load.
+    if (variable_global_exists("characterDataMap") && ds_exists(global.characterDataMap, 1))
+        ds_map_set(global.characterDataMap, _key, _next)
+    else if (instance_exists(o_player))
+    {
+        // Fallback before character map exists (very early boot).
         variable_instance_set(o_player, _key, _next)
-    else
-        variable_instance_set(o_player, _key, _next)
+    }
+
     var _newLvl = scr_sm_level_get(argument0)
     if (_newLvl > _prevLvl)
     {

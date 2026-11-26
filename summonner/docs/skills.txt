@@ -7,8 +7,10 @@ Balance notes:
 - Bear 100/13/2, Bison 130/10/4 at L1 (roles differentiated; armor scales per level)
 - Pack Instincts: +1 cap, +4% HP / +3% damage
 - Death Morale: 6/8/10/10/12 for 600t, no stack (Kindred halves); RMB Unsummon / map travel = safe dismiss
-- Map tile / room change: scr_sm_unsummon_all() (XP kept, no Morale loss)
+- Map tile / room change: scr_sm_unsummon_all() (XP kept on characterDataMap, no Morale loss)
+- After a kill, summons re-scan Vision via scr_nearest_in_array (do not wait to be hit)
 - Pack Link: 6t / 20% summon damage → player heal
+- Mend Pack: 10% Max HP (+1%/5 WIL) in Vision; bodypart injury heal = 25% of HP restored
 - Howl 8t / Bond 10t / Apex 6t; Howl +10% dmg / +5% crit; Hunt +12% dmg; Apex +15% dmg / +10% crit
 - Deps: T2←T1 column; T3←any T2; T4←any T3 (no cross-tier skips)
 

@@ -88,11 +88,11 @@ public static class SummonerLocalization
                 de: "Rudel heilen",
                 ja: "群れの癒やし"),
             Loc(
-                en: "Restores Health to all active summons within Vision (scales with Magic Power / Willpower).##Also clears ~lg~1~/~ minor injury stage on each healed companion.",
-                ru: "Восстанавливает здоровье всем активным призывам в зоне видимости (зависит от силы магии / Воли).##Также снимает ~lg~1~/~ ступень лёгкой травмы с каждого исцелённого компаньона.",
-                zh: "恢复视野内所有活跃召唤物的生命（随魔法强度/意志缩放）。##并对每个被治疗的同伴清除~lg~1~/~级轻微伤势。",
-                de: "Stellt allen aktiven Beschwörungen in Sichtweite Gesundheit wieder her (skaliert mit Magiekraft / Willenskraft).##Entfernt außerdem ~lg~1~/~ leichte Verletzungsstufe bei jedem geheilten Gefährten.",
-                ja: "視界内の全召喚体の体力を回復する（魔法威力/意志で変動）。##回復した各仲間の軽傷段階を~lg~1~/~段階取り除く。"));
+                en: "Restores ~lg~10%~/~ Max Health to all active summons within Vision, plus ~lg~+1%~/~ per ~w~5~/~ Willpower.##Also improves bodypart condition on each healed companion (based on Health restored).",
+                ru: "Восстанавливает ~lg~10%~/~ макс. здоровья всем активным призывам в зоне видимости, плюс ~lg~+1%~/~ за каждые ~w~5~/~ Воли.##Также улучшает состояние частей тела у каждого исцелённого компаньона (от объёма лечения).",
+                zh: "恢复视野内所有活跃召唤物~lg~10%~/~最大生命，每~w~5~/~意志额外~lg~+1%~/~。##并改善每个被治疗同伴的肢体状况（随治疗量）。",
+                de: "Stellt allen aktiven Beschwörungen in Sichtweite ~lg~10%~/~ max. Gesundheit wieder her, plus ~lg~+1%~/~ je ~w~5~/~ Willenskraft.##Verbessert außerdem den Zustand der Körperteile jedes geheilten Gefährten (basiert auf der Heilmenge).",
+                ja: "視界内の全召喚体の最大体力の~lg~10%~/~を回復し、意志~w~5~/~ごとにさらに~lg~+1%~/~。##回復した各仲間の部位状態も改善する（回復量に応じて）。"));
 
         RegisterSkill(
             "pack_instincts",

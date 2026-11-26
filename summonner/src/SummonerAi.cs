@@ -3,25 +3,53 @@ using ModShardLauncher;
 namespace Summoner;
 
 /// <summary>
-/// Summons must not aggro Unaware (idle) NPCs or caravan / town friendlies.
-/// Hunt Command marks still override so the player can force a target.
+/// Summons must not aggro town/caravan friendlies (Player faction, neutrals, followers).
+/// Hostiles in Vision stay valid even while idle so the pack can chain kills.
+/// Hunt Command marks still override filters.
 /// </summary>
 public static class SummonerAi
 {
-    const string Marker = "vs_sm_skip_unaware";
+    const string Marker = "vs_sm_skip_friendlies";
+    const string LegacyMarker = "vs_sm_skip_unaware";
 
     public static void Patch()
     {
         Msl.LoadGML("gml_GlobalScript_scr_nearest_in_array")
-            .Apply(SkipFriendlyAndUnawareTargets)
+            .Apply(SkipFriendlyTargets)
             .Save();
     }
 
-    static IEnumerable<string> SkipFriendlyAndUnawareTargets(IEnumerable<string> lines)
+    static IEnumerable<string> SkipFriendlyTargets(IEnumerable<string> lines)
     {
         var list = lines as IList<string> ?? lines.ToList();
         if (list.Any(l => l.Contains(Marker, StringComparison.Ordinal)))
             return list;
+
+        // Replace a prior idle-skip patch in place if present.
+        var legacyStart = -1;
+        for (var i = 0; i < list.Count; i++)
+        {
+            if (list[i].Contains(LegacyMarker, StringComparison.Ordinal)
+                || list[i].Contains(Marker, StringComparison.Ordinal))
+            {
+                legacyStart = FindBlockStart(list, i);
+                break;
+            }
+        }
+
+        if (legacyStart >= 0)
+        {
+            var legacyEnd = FindMatchingBrace(list, legacyStart);
+            if (legacyEnd > legacyStart)
+            {
+                var indent = LeadingWhitespace(list[legacyStart]);
+                var output = new List<string>(list.Count);
+                output.AddRange(list.Take(legacyStart));
+                output.AddRange(BuildBlock(indent));
+                output.AddRange(list.Skip(legacyEnd + 1));
+                return output;
+            }
+        }
 
         var idx = -1;
         for (var i = 0; i < list.Count - 1; i++)
@@ -36,21 +64,21 @@ public static class SummonerAi
             }
         }
 
-        // Already expanded by a prior patch build — refresh body if marker lives inside braces.
         if (idx < 0)
-        {
-            for (var i = 0; i < list.Count; i++)
-            {
-                if (list[i].Contains(Marker, StringComparison.Ordinal))
-                    return list;
-            }
-
             return list;
-        }
 
-        var indent = LeadingWhitespace(list[idx]);
+        var baseIndent = LeadingWhitespace(list[idx]);
+        var rebuilt = new List<string>(list.Count + 24);
+        rebuilt.AddRange(list.Take(idx));
+        rebuilt.AddRange(BuildBlock(baseIndent));
+        rebuilt.AddRange(list.Skip(idx + 2));
+        return rebuilt;
+    }
+
+    static string[] BuildBlock(string indent)
+    {
         var bodyIndent = indent + "    ";
-        var block = new[]
+        return new[]
         {
             $"{indent}else if (state != \"KO\" && state != \"jailed\" && (!is_ignored_by_enemies))",
             $"{indent}{{",
@@ -58,8 +86,6 @@ public static class SummonerAi
             $"{bodyIndent}var _sm_skip = false",
             $"{bodyIndent}if (variable_instance_exists(_id, \"sm_summon\") && _id.sm_summon)",
             $"{bodyIndent}{{",
-            $"{bodyIndent}    if (state == \"idle\")",
-            $"{bodyIndent}        _sm_skip = true",
             $"{bodyIndent}    if (variable_instance_exists(id, \"faction_key\") && faction_key == \"Player\")",
             $"{bodyIndent}        _sm_skip = true",
             $"{bodyIndent}    if (variable_instance_exists(id, \"sm_summon\") && sm_summon)",
@@ -80,12 +106,41 @@ public static class SummonerAi
             $"{bodyIndent}    array_push(_target_array, id)",
             $"{indent}}}",
         };
+    }
 
-        var output = new List<string>(list.Count + block.Length);
-        output.AddRange(list.Take(idx));
-        output.AddRange(block);
-        output.AddRange(list.Skip(idx + 2));
-        return output;
+    static int FindBlockStart(IList<string> list, int markerLine)
+    {
+        for (var i = markerLine; i >= 0; i--)
+        {
+            if (list[i].Contains(
+                    "else if (state != \"KO\" && state != \"jailed\" && (!is_ignored_by_enemies))",
+                    StringComparison.Ordinal))
+                return i;
+        }
+
+        return -1;
+    }
+
+    static int FindMatchingBrace(IList<string> list, int start)
+    {
+        var depth = 0;
+        for (var i = start; i < list.Count; i++)
+        {
+            var line = list[i];
+            foreach (var ch in line)
+            {
+                if (ch == '{')
+                    depth++;
+                else if (ch == '}')
+                {
+                    depth--;
+                    if (depth == 0)
+                        return i;
+                }
+            }
+        }
+
+        return -1;
     }
 
     static string LeadingWhitespace(string line)

@@ -292,7 +292,7 @@
       "type": "active",
       "tier": 2,
       "image": "s_mend_pack",
-      "description": "Restores Health to all active summons within Vision (scales with Magic Power / Willpower).##Also clears ~lg~1~/~ minor injury stage on each healed companion.",
+      "description": "Restores ~lg~10%~/~ Max Health to all active summons within Vision, plus ~lg~+1%~/~ per ~w~5~/~ Willpower.##Also improves bodypart condition on each healed companion (based on Health restored).",
       "magicPhrase": "Sanare fera!",
       "requirements": {
         "attributes": [
@@ -329,8 +329,9 @@
         "armorPenetration": "x",
         "isMissile": false,
         "selfCast": true,
-        "healBase": 12,
-        "injuryClear": 1
+        "healBasePct": 10,
+        "healWilDiv": 5,
+        "injuryHealOfHeal": 0.25
       }
     },
     {
