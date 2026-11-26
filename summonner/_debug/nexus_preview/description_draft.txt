@@ -39,6 +39,7 @@ Tip: Back up your saves before using mods. If MSL appears frozen while loading t
 • Passives — Pack Instincts (+1 summon cap), Kindred Spirit (XP bonus, halved death Morale)
 
 • Death cost — companion death applies a temporary Morale debuff for 600 turns (does not stack); RMB Unsummon / map travel dismiss safely with XP kept; pets leave no corpse/remains
+
 • Pack Link — while active, 20% of damage dealt by your summons heals you
 
 • Treatises — Beastbinder skill books
@@ -81,6 +82,9 @@ Thanks to the ModShardTeam for ModShardLauncher, and to the Stoneshard Mod Hub c
 
 [b]  Changelog (recent)[/b]
 
+0.11.0
+• Pets: force npc combat while fighting so companion skills can cast (no longer stuck in follow after kills).
+
 0.10.0
 • Pack Link: ship rebuilt .sml with updated skill assets and localization.
 
@@ -91,9 +95,6 @@ Thanks to the ModShardTeam for ModShardLauncher, and to the Stoneshard Mod Hub c
 
 0.8.1
 • RMB on summons: Unsummon (safe dismiss, keeps XP) alongside Inspect and Swap.
-
-0.8.0
-• Rebuild package for ModShardLauncher Enhanced / Nexus .sml release.
 
 [b]  Support[/b]
 
