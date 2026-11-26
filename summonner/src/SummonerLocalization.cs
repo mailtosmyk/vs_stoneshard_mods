@@ -50,19 +50,19 @@ public static class SummonerLocalization
                 ja: "対象マスに絆を結んだ~lg~狼~/~を召喚する。##解散時も死亡時も、狼は他の仲間と別の~lg~独自~/~経験とレベルを保持する。##レベルごとに最大体力・ダメージ・基本能力が上がる。##基本上限：同時に召喚~w~1~/~体。##戦闘で狼が死ぬと~r~士気-6~/~を~w~600~/~ターン受ける（重複しない）。"));
 
         RegisterSkill(
-            "unsummon",
+            "pack_link",
             Loc(
-                en: "Unsummon",
-                ru: "Распустить",
-                zh: "解散召唤",
-                de: "Entlassen",
-                ja: "召喚解除"),
+                en: "Pack Link",
+                ru: "Связь стаи",
+                zh: "兽群联结",
+                de: "Rudelband",
+                ja: "群れの絆"),
             Loc(
-                en: "Safely dismisses a targeted allied summon (or the nearest one).##That companion's ~lg~own~/~ Experience and level are kept.##Does ~lg~not~/~ apply the Morale penalty that occurs when a summon dies in combat.",
-                ru: "Безопасно распускает выбранного союзного призыва (или ближайшего).##~lg~Свой~/~ опыт и уровень компаньона сохраняются.##~lg~Не~/~ накладывает штраф Морали, как при гибели призыва в бою.",
-                zh: "安全解散目标友方召唤物（或最近的一只）。##该同伴的~lg~自身~/~经验与等级会保留。##~lg~不会~/~施加战斗中死亡时的士气惩罚。",
-                de: "Entlässt sicher eine gezielte verbündete Beschwörung (oder die nächste).##Die ~lg~eigene~/~ Erfahrung und Stufe des Gefährten bleiben erhalten.##Verursacht ~lg~nicht~/~ die Moralstrafe, die bei Tod im Kampf entsteht.",
-                ja: "対象の味方召喚（または最も近い一体）を安全に解散する。##その仲間の~lg~独自~/~経験とレベルは保持される。##戦闘死時の士気ペナルティは~lg~発生しない~/~。"));
+                en: "Opens a living bond for ~w~6~/~ turns.##While active, ~lg~20%~/~ of damage dealt by your summons is restored to you as Health.##Dismiss companions via RMB (Unsummon) instead.",
+                ru: "Открывает живую связь на ~w~6~/~ ходов.##Пока действует, ~lg~20%~/~ урона ваших призывов восстанавливается вам как здоровье.##Распускайте компаньонов через ПКМ (Unsummon).",
+                zh: "开启存活联结，持续~w~6~/~回合。##生效期间，召唤物造成伤害的~lg~20%~/~会化为你的生命恢复。##解散同伴请用右键（Unsummon）。",
+                de: "Öffnet ein lebendiges Band für ~w~6~/~ Züge.##Solange aktiv, werden ~lg~20%~/~ des Schadens deiner Beschwörungen als Gesundheit wiederhergestellt.##Gefährten per RMB (Unsummon) entlassen.",
+                ja: "~w~6~/~ターンの生きた絆を開く。##効果中、召喚体が与えたダメージの~lg~20%~/~があなたの体力として回復する。##仲間の解散は右クリック（Unsummon）。"));
 
         RegisterSkill(
             "hunt_command",
@@ -291,6 +291,21 @@ public static class SummonerLocalization
                 zh: "~lg~+12%~/~武器伤害#~lg~+10%~/~命中##对狩猎标记目标生效。",
                 de: "~lg~+12%~/~ Waffenschaden#~lg~+10%~/~ Trefferchance##Gegen das mit Jagdmal markierte Ziel.",
                 ja: "~lg~武器ダメージ+12%~/~#~lg~命中+10%~/~##狩りの印の対象に対して。"));
+
+        RegisterBuff(
+            "o_b_sm_pack_link",
+            Loc(
+                en: "Pack Link",
+                ru: "Связь стаи",
+                zh: "兽群联结",
+                de: "Rudelband",
+                ja: "群れの絆"),
+            Loc(
+                en: "~lg~20%~/~ of damage dealt by your summons is restored to you as Health.",
+                ru: "~lg~20%~/~ урона ваших призывов восстанавливается вам как здоровье.",
+                zh: "召唤物造成伤害的~lg~20%~/~会化为你的生命恢复。",
+                de: "~lg~20%~/~ des Schadens deiner Beschwörungen wird als Gesundheit wiederhergestellt.",
+                ja: "召喚体が与えたダメージの~lg~20%~/~があなたの体力として回復する。"));
 
         RegisterBuff(
             "o_b_sm_alphas_howl",

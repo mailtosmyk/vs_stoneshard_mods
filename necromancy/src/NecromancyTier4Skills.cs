@@ -92,15 +92,10 @@ public static class NecromancyTier4Skills
             $"gml_Object_{skill.IconObjectName}_Create_0.gml",
             $"gml_Object_{skill.IconObjectName}_Step_2.gml");
 
-        var skillEvents = new List<string>
-        {
+        // Corpse Burst is Target Point (no custom Other_19 / sector UI).
+        NecromancyTier1Skills.ApplyEventAndReplace(skillObj, modFiles,
             $"gml_Object_{skill.SkillObjectName}_Create_0.gml",
-            $"gml_Object_{skill.SkillObjectName}_Other_17.gml",
-        };
-        if (skill.Slug == "corpse_burst")
-            skillEvents.Add($"gml_Object_{skill.SkillObjectName}_Other_19.gml");
-
-        NecromancyTier1Skills.ApplyEventAndReplace(skillObj, modFiles, skillEvents.ToArray());
+            $"gml_Object_{skill.SkillObjectName}_Other_17.gml");
 
         NecromancyTier1Skills.ApplyEventAndReplace(birth, modFiles,
             $"gml_Object_{skill.BirthObjectName}_Create_0.gml",

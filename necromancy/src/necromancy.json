@@ -398,15 +398,17 @@
       "type": "active",
       "tier": 4,
       "image": "s_corpse_burst",
-      "description": "Targets a corpse or allied Undead/Skeleton and makes it explode, destroying it.##Deals Unholy and Piercing Damage in a base 3x3 area around the target and has a chance to apply Bleeding to affected enemies.##Damage, Bleeding chance, and area size scale with Willpower (area grows from 3x3 toward 5x5 / 7x7).##Exploding an ally causes a small Sanity loss.",
+      "description": "Explodes a corpse or allied Undead/Skeleton on the targeted tile, destroying it.##Deals Unholy and Piercing Damage in a base 3x3 area around that tile and has a chance to apply Bleeding to affected enemies.##Damage, Bleeding chance, and area size scale with Willpower (area grows from 3x3 toward 5x5 / 7x7).##Exploding an ally causes a small Sanity loss.",
       "magicPhrase": "Barath Shatterk!",
       "requirements": {
         "attributes": [
           {
             "stats": [
-              "WIL"
+              "WIL",
+              "Vitality",
+              "PRC"
             ],
-            "logic": "and",
+            "logic": "or",
             "min": 20
           }
         ],
@@ -417,18 +419,18 @@
       },
       "combat": {
         "kind": "debuff",
-        "target": "object",
+        "target": "point",
         "range": "5",
         "cooldown": 12,
         "energy": 20,
         "reserve": 0,
         "duration": 0,
-        "aoeLength": 3,
-        "aoeWidth": 3,
+        "aoeLength": 0,
+        "aoeWidth": 0,
         "isMovement": false,
         "pattern": "normal",
         "class": "spell",
-        "bonusRange": false,
+        "bonusRange": true,
         "starcast": "",
         "fumble": 8,
         "armorPenetration": "x",

@@ -4,7 +4,7 @@ using ModShardLauncher.Mods;
 namespace Summoner;
 
 /// <summary>
-/// Registers global GML helpers used by summon / unsummon / map-travel dismiss.
+/// Registers global GML helpers used by summon / map-travel dismiss.
 /// </summary>
 public static class SummonerHelpers
 {

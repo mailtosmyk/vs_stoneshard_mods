@@ -3,8 +3,9 @@ using ModShardLauncher;
 namespace Alchemy;
 
 /// <summary>
-/// Puts craft recipe scrolls into herbalist / alchemist shop stock via
+/// Puts craft recipe scrolls into herbalist / alchemist / drug-dealer shop stock via
 /// <c>scr_selling_loot_singular_stock</c> (persistent unique stock).
+/// Base recipes (known from the start) have no schematic and are skipped.
 /// </summary>
 internal static class AlchemyShops
 {
@@ -20,7 +21,7 @@ internal static class AlchemyShops
             return;
 
         var herbalist = recipes.Where(IsHerbalistStock).Select(ObjectName).ToArray();
-        var alchemist = recipes.Where(IsAlchemistStock).Select(ObjectName).ToArray();
+        var full = recipes.Select(ObjectName).ToArray();
 
         InjectSingularStock(
             "gml_Object_o_npc_herbalist_osbrook_Create_0",
@@ -35,12 +36,18 @@ internal static class AlchemyShops
         InjectSingularStock(
             "gml_Object_o_npc_alchemist_brynn_Create_0",
             "occupation = \"alchemist\"",
-            alchemist);
+            full);
+
+        // o_npc_drugdealer covers every Drug Dealer instance (occupation = "dealer").
+        InjectSingularStock(
+            "gml_Object_o_npc_drugdealer_Create_0",
+            "occupation = \"dealer\"",
+            full);
     }
 
     static bool IsHerbalistStock(AlchemyRecipe recipe)
     {
-        // Field / restorative brews and basic craftables — keep legendary & combat kits for Brynn.
+        // Field / restorative brews and basic craftables — keep legendary & combat kits for Brynn / dealers.
         if (recipe.RecipeCost >= 500)
             return false;
         if (AlchemyCatalog.CustomProducts.TryGetValue(recipe.Elixir, out var product)
@@ -48,8 +55,6 @@ internal static class AlchemyShops
             return false;
         return recipe.RecipeCost <= 150;
     }
-
-    static bool IsAlchemistStock(AlchemyRecipe recipe) => true;
 
     static string ObjectName(AlchemyRecipe recipe) => $"o_inv_recipe_{recipe.Elixir}";
 

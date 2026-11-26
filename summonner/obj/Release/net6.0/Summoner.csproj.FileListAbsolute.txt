@@ -27,3 +27,4 @@
 /home/vitali/Mods/vs_stoneshard_mods/summonner/obj/Release/net6.0/refint/Summoner.dll
 /home/vitali/Mods/vs_stoneshard_mods/summonner/obj/Release/net6.0/Summoner.pdb
 /home/vitali/Mods/vs_stoneshard_mods/summonner/obj/Release/net6.0/ref/Summoner.dll
+/home/vitali/Mods/vs_stoneshard_mods/summonner/bin/Release/net6.0/Sprites/s_pack_link_0.png

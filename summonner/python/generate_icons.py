@@ -19,11 +19,12 @@ RECOLOR: dict[str, tuple[float, bool, float]] = {
     # name -> (target_hue, preserve_neutral, sat_floor)
     "s_hunt_command": (0.0, True, 0.30),
     "s_kindred_spirit": (0.33, False, 0.22),
+    "s_pack_link": (0.33, True, 0.28),
 }
 
 # Sheet is laid out 3 / 3 / 4 / 3 (tree shape). Cells mapped by art, not tree column order.
 LAYOUT: list[list[str]] = [
-    ["s_summon_wolf", "s_alphas_howl", "s_unsummon"],
+    ["s_summon_wolf", "s_alphas_howl", "s_pack_link"],
     ["s_pack_instincts", "s_hunt_command", "s_mend_pack"],
     ["s_summon_crawler", "s_summon_bear", "s_summon_bison", "s_savage_bond"],
     ["s_summon_gulon", "s_kindred_spirit", "s_primal_apex"],

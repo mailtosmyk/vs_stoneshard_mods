@@ -8,9 +8,51 @@ var _tx = target.x
 var _ty = target.y
 var _tTileX = floor(_tx / 26)
 var _tTileY = floor(_ty / 26)
-var _wasAlly = false
+
+// Point targeting passes a floor marker — resolve a corpse or thrall on that tile.
+var _burst = target
 var _servant = asset_get_index("o_b_nm_servant")
-if (object_is_ancestor(target.object_index, o_enemy) && _servant != -1 && scr_instance_exists_in_list(_servant, target.buffs))
+var _isCorpse = (instance_exists(_burst) && _burst.object_index == o_corpse)
+var _isThrall = (instance_exists(_burst) && object_is_ancestor(_burst.object_index, o_enemy) && _servant != -1 && scr_instance_exists_in_list(_servant, _burst.buffs))
+if ((!_isCorpse) && (!_isThrall))
+{
+    _burst = -4
+    with (o_corpse)
+    {
+        if (visible && floor(x / 26) == _tTileX && floor(y / 26) == _tTileY)
+            _burst = id
+    }
+    if (!instance_exists(_burst))
+    {
+        with (o_enemy)
+        {
+            if (visible && HP > 0 && floor(x / 26) == _tTileX && floor(y / 26) == _tTileY)
+            {
+                if (_servant != -1 && scr_instance_exists_in_list(_servant, buffs))
+                    _burst = id
+            }
+        }
+    }
+}
+
+if (!instance_exists(_burst))
+{
+    event_inherited()
+    if instance_exists(owner)
+    {
+        if is_player(owner)
+            scr_allturn()
+    }
+    return;
+}
+
+_tx = _burst.x
+_ty = _burst.y
+_tTileX = floor(_tx / 26)
+_tTileY = floor(_ty / 26)
+
+var _wasAlly = false
+if (object_is_ancestor(_burst.object_index, o_enemy) && _servant != -1 && scr_instance_exists_in_list(_servant, _burst.buffs))
     _wasAlly = true
 
 var _wil = owner.WIL
@@ -24,7 +66,7 @@ var _unholy = max(1, math_round(((8 + floor(_wil / 4.0)) * owner.Magic_Power) * 
 var _pierce = max(1, math_round(((6 + floor(_wil / 5.0)) * owner.Magic_Power) * 0.01))
 var _bleedChance = clamp(25 + (_wil * 2), 25, 75)
 
-with (target)
+with (_burst)
 {
     scr_guiAnimation_ext(x, y, s_signofdarkness_impact)
     scr_audio_play_at(snd_meat_blood_death_1)

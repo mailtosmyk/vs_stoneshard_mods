@@ -5,7 +5,7 @@ namespace Alchemy;
 /// <summary>
 /// ModShardLauncher entry point for Alchemy.
 /// Expands useful crafting recipes from existing ingredients and sells their
-/// schematics at herbalists / the Brynn alchemist — no new skill school.
+/// schematics at herbalists, drug dealers, and the Brynn alchemist — no new skill school.
 /// </summary>
 public class Alchemy : Mod
 {

@@ -738,11 +738,11 @@ public static class NecromancyLocalization
             },
             new Dictionary<ModLanguage, string>
             {
-                { ModLanguage.English, "Targets a corpse or allied Undead/Skeleton and makes it explode, destroying it.##Deals Unholy and Piercing Damage in a base 3x3 area around the target and has a chance to apply Bleeding to affected enemies.##Damage, Bleeding chance, and area size scale with Willpower (area grows from 3x3 toward 5x5 / 7x7).##Exploding an ally causes a small Sanity loss." },
-                { ModLanguage.Japanese, "死体または味方のアンデッド/スケルトンを爆発させ破壊する。##対象周囲の基本3x3に不浄と刺突ダメージを与え、被弾敵に出血を付与する確率がある。##ダメージ・出血確率・範囲は意志力に比例（範囲は3x3から5x5 / 7x7へ拡大）。##味方を爆発させると正気をわずかに失う。" },
-                { ModLanguage.Chinese, "以尸体或友方亡灵/骷髅为目标使其爆炸并摧毁。##在目标周围基础3x3范围内造成邪秽与穿刺伤害，并有几率使受影响敌人出血。##伤害、出血几率与范围随意志力提升（范围从3x3扩大至5x5 / 7x7）。##炸毁盟友会造成少量理智损失。" },
-                { ModLanguage.German, "Zielt auf eine Leiche oder einen verbündeten Untoten/Skelett und lässt sie explodieren (Zerstörung).##Verursacht Unheiligen und Stichschaden in einem Basisgebiet 3x3 und kann Blutung verursachen.##Schaden, Blutungschance und Gebietsgröße skalieren mit Willenskraft (Gebiet wächst von 3x3 zu 5x5 / 7x7).##Explosion eines Verbündeten verursacht kleinen Verstandverlust." },
-                { ModLanguage.Russian, "Целится в труп или союзную нежить/скелета и взрывает их, уничтожая.##Наносит урон нечестием и колющий урон в базовой области 3x3 и может наложить кровотечение.##Урон, шанс кровотечения и размер области зависят от Воли (область растёт с 3x3 до 5x5 / 7x7).##Взрыв союзника вызывает небольшую потерю рассудка." },
+                { ModLanguage.English, "Explodes a corpse or allied Undead/Skeleton on the targeted tile, destroying it.##Deals Unholy and Piercing Damage in a base 3x3 area around that tile and has a chance to apply Bleeding to affected enemies.##Damage, Bleeding chance, and area size scale with Willpower (area grows from 3x3 toward 5x5 / 7x7).##Exploding an ally causes a small Sanity loss." },
+                { ModLanguage.Japanese, "対象マス上の死体または味方のアンデッド/スケルトンを爆発させ破壊する。##そのマス周囲の基本3x3に不浄と刺突ダメージを与え、被弾敵に出血を付与する確率がある。##ダメージ・出血確率・範囲は意志力に比例（範囲は3x3から5x5 / 7x7へ拡大）。##味方を爆発させると正気をわずかに失う。" },
+                { ModLanguage.Chinese, "使目标格子上的尸体或友方亡灵/骷髅爆炸并摧毁。##在该格周围基础3x3范围内造成邪秽与穿刺伤害，并有几率使受影响敌人出血。##伤害、出血几率与范围随意志力提升（范围从3x3扩大至5x5 / 7x7）。##炸毁盟友会造成少量理智损失。" },
+                { ModLanguage.German, "Lässt eine Leiche oder einen verbündeten Untoten/Skelett auf dem Zielfeld explodieren (Zerstörung).##Verursacht Unheiligen und Stichschaden in einem Basisgebiet 3x3 um dieses Feld und kann Blutung verursachen.##Schaden, Blutungschance und Gebietsgröße skalieren mit Willenskraft (Gebiet wächst von 3x3 zu 5x5 / 7x7).##Explosion eines Verbündeten verursacht kleinen Verstandverlust." },
+                { ModLanguage.Russian, "Взрывает труп или союзную нежить/скелета на выбранной клетке, уничтожая их.##Наносит урон нечестием и колющий урон в базовой области 3x3 вокруг клетки и может наложить кровотечение.##Урон, шанс кровотечения и размер области зависят от Воли (область растёт с 3x3 до 5x5 / 7x7).##Взрыв союзника вызывает небольшую потерю рассудка." },
             });
         RegisterSkillLocalization(
             "mastery_of_binding",

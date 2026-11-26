@@ -114,4 +114,4 @@ Type: Active
 Level: 4
 Requirements: Attributes: AGL or WIL or PRC >= 12; Skills: Mastery of Binding
 Image: s_wraith_summoning
-Description: Summons a Wraith on the targeted tile; power depends on "Essence Charge" stacks. Removes "Essence Charge". If no weapon equipped: -50% Cooldown Duration and Halves Miscast Chance. Risk of "Obsession": Extremely High. Summoning more than one Wraith instantly causes "Obsession". Can't summon Wraiths higher than the skill's level cap. Cannot cast under "Obsession".
+Description: Summons a Wraith on the targeted tile; power depends on "Essence Charge" stacks. Removes "Essence Charge". If no weapon equipped: -50% Cooldown Duration and Halves Miscast Chance. Risk of "Obsession": Extremely High. Summoning more than one Wraith instantly causes "Obsession". Can't summon / higher than the skill's level cap. Cannot cast under "Obsession".

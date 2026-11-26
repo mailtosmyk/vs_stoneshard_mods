@@ -42,7 +42,7 @@ COLOR_MAP = {
 
 # Layout order matching generate_skill_tree.py / in-game branch
 TIER_ORDER = {
-    1: ["hunt_command", "summon_wolf", "unsummon"],
+    1: ["hunt_command", "summon_wolf", "pack_link"],
     2: ["alphas_howl", "pack_instincts", "mend_pack"],
     3: ["summon_crawler", "summon_bear", "summon_bison", "savage_bond"],
     4: ["summon_gulon", "kindred_spirit", "primal_apex"],

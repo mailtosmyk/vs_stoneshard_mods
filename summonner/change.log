@@ -1,3 +1,11 @@
+0.9.0
+- Replace Unsummon skill with Pack Link (6t: 20% of summon damage heals you).
+- Mend Pack now requires Pack Link.
+- RMB Unsummon remains the safe-dismiss path (with Inspect / Swap).
+
+0.8.1
+- RMB on summons: Unsummon (safe dismiss, keeps XP) alongside Inspect and Swap.
+
 0.8.0
 - Rebuild package for ModShardLauncher Enhanced / Nexus .sml release.
 

@@ -34,11 +34,12 @@ Tip: Back up your saves before using mods. If MSL appears frozen while loading t
 
 • Progression — per-summon XP curves plus HP / Damage / Armor tables through level 10
 
-• Pack tools — Hunt Command, Alpha’s Howl, Mend Pack, Savage Bond, Primal Apex
+• Pack tools — Hunt Command, Pack Link, Alpha’s Howl, Mend Pack, Savage Bond, Primal Apex
 
 • Passives — Pack Instincts (+1 summon cap), Kindred Spirit (XP bonus, halved death Morale)
 
-• Death cost — companion death applies a temporary Morale debuff for 600 turns (does not stack); Unsummon / map travel dismiss safely with XP kept; pets leave no corpse/remains
+• Death cost — companion death applies a temporary Morale debuff for 600 turns (does not stack); RMB Unsummon / map travel dismiss safely with XP kept; pets leave no corpse/remains
+• Pack Link — while active, 20% of damage dealt by your summons heals you
 
 • Treatises — Beastbinder skill books
 

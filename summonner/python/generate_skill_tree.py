@@ -55,7 +55,7 @@ SLUG_X: dict[str, int] = {
     # Tier 1 — 24 / 81 / 138
     "hunt_command": 24,
     "summon_wolf": 81,
-    "unsummon": 138,
+    "pack_link": 138,
     # Tier 2 — 24 / 81 / 138
     "alphas_howl": 24,
     "pack_instincts": 81,
@@ -573,7 +573,7 @@ examples:
 
   # Icons tree, only some skills filled (rest stay as locks)
   python3 python/generate_skill_tree.py --icons \\
-    --filled hunt_command,summon_wolf,unsummon
+    --filled hunt_command,summon_wolf,pack_link
 
   # Selected skills on blank panel; draw direct tree.edges between them
   python3 python/generate_skill_tree.py \\
