@@ -88,23 +88,20 @@ Thanks to the ModShardTeam for ModShardLauncher, and to the Stoneshard Mod Hub c
 
 [b]  Changelog (recent)[/b]
 
+1.20.0
+• Wraith Summoning: refreshed skill icon from new art.
+• Regenerated skill-tree preview assets.
+
+1.19.0
+• Corpse Burst: Target Point (tile) instead of sector/AoE targeting; explosion still resolves corpse/thrall on that tile.
+• Corpse Burst unlock: Death Touch + WIL/Vitality/PRC 20 (OR), matching other tier-4 gates.
+• Immortality can_learn now follows Black Sepulchre (same as Blooming Madness / JSON).
+
+1.18.1
+• RMB on thralls: Unsummon alongside Inspect and Swap (Mastery of Binding still makes dismiss free + restores Energy).
+
 1.18.0
-
 • Rebuild package for ModShardLauncher Enhanced / Nexus .sml release.
-
-1.17.0
-
-• Death Touch: stop reading unset damage_done on impact (heal uses Unholy_Damage).
-
-1.16.0
-
-• Rebuild package for ModShardLauncher Enhanced / Nexus .sml release.
-
-1.15.0
-
-• Black Sepulchre: base range 6; pick an enemy target instead of area/tile cast.
-
-• Mastery of Binding: available as tier 3 (Level 16 / PRC or WIL 14) after Resurrection.
 
 [b]  Support[/b]
 

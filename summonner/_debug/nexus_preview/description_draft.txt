@@ -81,21 +81,19 @@ Thanks to the ModShardTeam for ModShardLauncher, and to the Stoneshard Mod Hub c
 
 [b]  Changelog (recent)[/b]
 
+0.10.0
+• Pack Link: ship rebuilt .sml with updated skill assets and localization.
+
+0.9.0
+• Replace Unsummon skill with Pack Link (6t: 20% of summon damage heals you).
+• Mend Pack now requires Pack Link.
+• RMB Unsummon remains the safe-dismiss path (with Inspect / Swap).
+
+0.8.1
+• RMB on summons: Unsummon (safe dismiss, keeps XP) alongside Inspect and Swap.
+
 0.8.0
-
 • Rebuild package for ModShardLauncher Enhanced / Nexus .sml release.
-
-0.7.9
-
-• Hunt Command applies a visible Hunt Mark debuff; summons get Hunt Focus (+12% damage / +10% accuracy) vs the mark.
-
-0.7.8
-
-• Fix summons not following: do not clear the player as a target; follow when no valid hostile.
-
-0.7.7
-
-• Fix servant crash: only read combat-target state on real units.
 
 [b]  Support[/b]
 
