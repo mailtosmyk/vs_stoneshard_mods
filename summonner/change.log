@@ -1,3 +1,6 @@
+0.12.0
+- Summoner Pack Link: assembly-hook heal so vanilla on_damage_method is not rewritten (fixes Unable to find function on_damage_method on load).
+
 0.11.0
 - Pets: force npc combat while fighting so companion skills can cast (no longer stuck in follow after kills).
 
