@@ -18,7 +18,11 @@ public static class SummonerPackLink
         Msl.LoadGML("gml_GlobalScript_scr_physical_damage")
             .Apply(lines =>
             {
-                var list = lines as IList<string> ?? lines.ToList();
+                // Undertale decompiles method-var calls as self.fn(...), which ReplaceGML cannot
+                // parse unless MSL EnableWithBlockFixes is on. Normalize so Pack Link always saves.
+                var list = lines
+                    .Select(l => l.Replace("self.on_damage_method(", "on_damage_method(", StringComparison.Ordinal))
+                    .ToList();
                 if (list.Any(l => l.Contains(Marker, StringComparison.Ordinal)))
                     return list;
 
