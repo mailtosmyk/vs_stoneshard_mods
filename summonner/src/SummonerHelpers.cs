@@ -23,5 +23,8 @@ public static class SummonerHelpers
         Msl.AddFunction(modFiles.GetCode("gml_GlobalScript_scr_sm_count_summons.gml"), "scr_sm_count_summons");
         Msl.AddFunction(modFiles.GetCode("gml_GlobalScript_scr_sm_max_summons.gml"), "scr_sm_max_summons");
         Msl.AddFunction(modFiles.GetCode("gml_GlobalScript_scr_sm_unsummon_all.gml"), "scr_sm_unsummon_all");
+        Msl.AddFunction(
+            modFiles.GetCode("gml_GlobalScript_scr_sm_pack_link_heal.gml"),
+            "scr_sm_pack_link_heal");
     }
 }
