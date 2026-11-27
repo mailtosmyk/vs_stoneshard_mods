@@ -653,6 +653,9 @@ Thanks to the ModShardTeam for ModShardLauncher, and to the Stoneshard Mod Hub c
 
 [b]  Changelog (recent)[/b]
 
+0.2.22
+• Rebuild for Nexus.
+
 0.2.21
 • Drug Dealer stock: add recipe scrolls; refresh shop descriptions.
 
@@ -662,9 +665,6 @@ Thanks to the ModShardTeam for ModShardLauncher, and to the Stoneshard Mod Hub c
 
 0.2.19
 • Rebuild package for ModShardLauncher Enhanced / Nexus .sml release.
-
-0.2.18
-• Fix MSL save crash in blank-scroll craft amount patch (MatchFrom amount-line mismatch).
 
 [b]  Support[/b]
 

@@ -88,6 +88,9 @@ Thanks to the ModShardTeam for ModShardLauncher, and to the Stoneshard Mod Hub c
 
 [b]  Changelog (recent)[/b]
 
+1.21.0
+• Rebuild for Nexus.
+
 1.20.0
 • Wraith Summoning: refreshed skill icon from new art.
 • Regenerated skill-tree preview assets.
@@ -99,9 +102,6 @@ Thanks to the ModShardTeam for ModShardLauncher, and to the Stoneshard Mod Hub c
 
 1.18.1
 • RMB on thralls: Unsummon alongside Inspect and Swap (Mastery of Binding still makes dismiss free + restores Energy).
-
-1.18.0
-• Rebuild package for ModShardLauncher Enhanced / Nexus .sml release.
 
 [b]  Support[/b]
 
