@@ -82,6 +82,9 @@ Thanks to the ModShardTeam for ModShardLauncher, and to the Stoneshard Mod Hub c
 
 [b]  Changelog (recent)[/b]
 
+0.14.0
+• Rebuild package for ModShardLauncher Enhanced / Nexus .sml release.
+
 0.13.0
 • Rebuild package for ModShardLauncher Enhanced / Nexus .sml release.
 
@@ -90,9 +93,6 @@ Thanks to the ModShardTeam for ModShardLauncher, and to the Stoneshard Mod Hub c
 
 0.11.0
 • Pets: force npc combat while fighting so companion skills can cast (no longer stuck in follow after kills).
-
-0.10.0
-• Pack Link: ship rebuilt .sml with updated skill assets and localization.
 
 [b]  Support[/b]
 

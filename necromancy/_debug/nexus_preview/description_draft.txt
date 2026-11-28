@@ -88,6 +88,9 @@ Thanks to the ModShardTeam for ModShardLauncher, and to the Stoneshard Mod Hub c
 
 [b]  Changelog (recent)[/b]
 
+1.23.0
+• Wraith Summoning: Syndicate-style ally AI (like skeletons) so wraiths stop alerting on / attacking the player.
+
 1.22.0
 • Essence Leech: steal % and Essence Charge duration scale with Willpower.
 
@@ -97,11 +100,6 @@ Thanks to the ModShardTeam for ModShardLauncher, and to the Stoneshard Mod Hub c
 1.20.0
 • Wraith Summoning: refreshed skill icon from new art.
 • Regenerated skill-tree preview assets.
-
-1.19.0
-• Corpse Burst: Target Point (tile) instead of sector/AoE targeting; explosion still resolves corpse/thrall on that tile.
-• Corpse Burst unlock: Death Touch + WIL/Vitality/PRC 20 (OR), matching other tier-4 gates.
-• Immortality can_learn now follows Black Sepulchre (same as Blooming Madness / JSON).
 
 [b]  Support[/b]
 

@@ -653,6 +653,9 @@ Thanks to the ModShardTeam for ModShardLauncher, and to the Stoneshard Mod Hub c
 
 [b]  Changelog (recent)[/b]
 
+0.2.24
+• Rebuild package for ModShardLauncher Enhanced / Nexus .sml release.
+
 0.2.23
 • Lesser Vital Philter / Vital Philter: restore 10% / 20% Max Health and Energy.
 • Anodyne Tincture: clear pain and suppress it for 120 turns.
@@ -663,10 +666,6 @@ Thanks to the ModShardTeam for ModShardLauncher, and to the Stoneshard Mod Hub c
 
 0.2.21
 • Drug Dealer stock: add recipe scrolls; refresh shop descriptions.
-
-0.2.20
-• Fix blank scroll container loot crash: set base_index/skill in Create (o_inv_scroll_parent Alarm_0).
-• Mark blank scroll item stats as special so it stays craft-only (not common scroll loot).
 
 [b]  Support[/b]
 
