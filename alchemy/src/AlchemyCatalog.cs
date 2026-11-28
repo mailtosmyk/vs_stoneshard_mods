@@ -46,6 +46,17 @@ internal static class AlchemyCatalog
             .Distinct(StringComparer.OrdinalIgnoreCase)
             .ToArray();
 
+    /// <summary>
+    /// Outcome ids marked known-from-start (<c>source: base</c> / inferred).
+    /// Synced into <c>recipesConsumsOpened</c> on player create for existing saves.
+    /// </summary>
+    public static IReadOnlyList<string> BaseRecipeIds =>
+        EnabledRecipes
+            .Where(r => r.Source == AlchemyCraftSource.BaseRecipe)
+            .Select(r => r.Elixir)
+            .Distinct(StringComparer.OrdinalIgnoreCase)
+            .ToArray();
+
     static AlchemyJsonRoot LoadRoot()
     {
         using var stream = OpenDataStream();
@@ -308,6 +319,12 @@ internal sealed class AlchemyProductDto
     /// </summary>
     [JsonPropertyName("debug")]
     public bool Debug { get; set; }
+
+    /// <summary>
+    /// Structured consumable effects (mapped into table_items_stats by AlchemyConsumEffects).
+    /// </summary>
+    [JsonPropertyName("effects")]
+    public List<Dictionary<string, JsonElement>>? Effects { get; set; }
 }
 
 internal sealed class AlchemyRecipeDto

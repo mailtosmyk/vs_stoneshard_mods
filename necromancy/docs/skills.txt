@@ -36,7 +36,7 @@ Type: Active
 Level: 2
 Requirements: Attributes: PRC or WIL >= 6; Skills: Dark Bolt
 Image: s_essence_leech
-Description: Devours a targeted corpse or steals 8% Max Health and 8% Max Energy from an allied Undead or Skeleton, transferring half of them to the caster. Activates "Essence Charge" for 12 turns: +5% Magic Power, -5% Abilities Energy Cost, +4 Max Energy. Repeated use grants an extra stack (up to II) and refreshes duration. Using Spells reduces stacks by 1.
+Description: Devours a targeted corpse or steals Max Health and Max Energy from an allied Undead or Skeleton, transferring half of them to the caster. Steal amount and "Essence Charge" duration scale with Willpower (starts at 8% / 12 turns). "Essence Charge": +5% Magic Power, -5% Abilities Energy Cost, +4 Max Energy. Repeated use grants an extra stack (up to II) and refreshes duration. Using Spells reduces stacks by 1.
 
 Name: Death's Blessing
 Type: Active

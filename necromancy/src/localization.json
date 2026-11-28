@@ -127,11 +127,11 @@
         "Russian": "Поглощение сущности"
       },
       "description": {
-        "English": "Devours a targeted corpse or steals 8% Max Health and 8% Max Energy from an allied Undead or Skeleton, transferring half of them to the caster. Activates \"Essence Charge\" for 12 turns: +5% Magic Power, -5% Abilities Energy Cost, +4 Max Energy. Repeated use grants an extra stack (up to II) and refreshes duration. Using Spells reduces stacks by 1.",
-        "Japanese": "対象の死体を喰らうか、味方のアンデッド/スケルトンから最大体力8%と最大エネルギー8%を奪い、半分を術者へ移す。「本質充填」を12ターン発動：魔力+5%、能力のエネルギー消費-5%、最大エネルギー+4。再使用で追加スタック（最大II）と持続更新。呪文使用でスタックが1減少。",
-        "Chinese": "吞噬目标尸体，或从友方亡灵/骷髅窃取8%最大生命与8%最大能量，并将一半转移给施法者。激活“精华充能”，持续12回合：+5%魔法强度、-5%技能能量消耗、+4最大能量。重复使用额外叠加（最高II）并刷新持续时间。施放法术会使层数减1。",
-        "German": "Verschlingt eine gezielte Leiche oder stiehlt 8% max. Gesundheit und 8% max. Energie von einem verbündeten Untoten oder Skelett und überträgt die Hälfte auf den Wirker. Aktiviert „Essenzladung“ für 12 Züge: +5% Magiekraft, -5% Energiekosten von Fähigkeiten, +4 max. Energie. Wiederholte Nutzung gibt einen Extra-Stapel (bis II) und erneuert die Dauer. Zauber verringern Stapel um 1.",
-        "Russian": "Пожирает выбранный труп или крадёт 8% макс. здоровья и 8% макс. энергии у союзной нежити/скелета, передавая половину заклинателю. Активирует «Заряд сущности» на 12 ходов: +5% силы магии, -5% стоимости энергии способностей, +4 макс. энергии. Повторное применение даёт доп. стак (до II) и обновляет длительность. Заклинания уменьшают стаки на 1."
+        "English": "Devours a targeted corpse or steals Max Health and Max Energy from an allied Undead or Skeleton, transferring half of them to the caster. Steal amount and \"Essence Charge\" duration scale with Willpower (starts at 8% / 12 turns). \"Essence Charge\": +5% Magic Power, -5% Abilities Energy Cost, +4 Max Energy. Repeated use grants an extra stack (up to II) and refreshes duration. Using Spells reduces stacks by 1.",
+        "Japanese": "対象の死体を喰らうか、味方のアンデッド/スケルトンから最大体力と最大エネルギーを奪い、半分を術者へ移す。奪取量と「本質充填」の持続は意志力で増加（初期8% / 12ターン）。「本質充填」：魔力+5%、能力のエネルギー消費-5%、最大エネルギー+4。再使用で追加スタック（最大II）と持続更新。呪文使用でスタックが1減少。",
+        "Chinese": "吞噬目标尸体，或从友方亡灵/骷髅窃取最大生命与最大能量，并将一半转移给施法者。窃取量与“精华充能”持续时间随意志力提升（起始8% / 12回合）。“精华充能”：+5%魔法强度、-5%技能能量消耗、+4最大能量。重复使用额外叠加（最高II）并刷新持续时间。施放法术会使层数减1。",
+        "German": "Verschlingt eine gezielte Leiche oder stiehlt max. Gesundheit und max. Energie von einem verbündeten Untoten oder Skelett und überträgt die Hälfte auf den Wirker. Diebstahlmenge und Dauer von „Essenzladung“ skalieren mit Willenskraft (Start 8% / 12 Züge). „Essenzladung“: +5% Magiekraft, -5% Energiekosten von Fähigkeiten, +4 max. Energie. Wiederholte Nutzung gibt einen Extra-Stapel (bis II) und erneuert die Dauer. Zauber verringern Stapel um 1.",
+        "Russian": "Пожирает выбранный труп или крадёт макс. здоровье и макс. энергию у союзной нежити/скелета, передавая половину заклинателю. Объём кражи и длительность «Заряда сущности» растут с Волей (старт 8% / 12 ходов). «Заряд сущности»: +5% силы магии, -5% стоимости энергии способностей, +4 макс. энергии. Повторное применение даёт доп. стак (до II) и обновляет длительность. Заклинания уменьшают стаки на 1."
       },
       "magicPhrase": {
         "English": "En'thero!",

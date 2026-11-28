@@ -3,6 +3,12 @@ if (!(instance_exists(owner) && instance_exists(target)))
     event_inherited()
     return;
 }
+var _wil = 10
+if instance_exists(owner)
+    _wil = owner.WIL
+// Base 8% / 12 turns; +1% and +1 turn per 5 WIL (cap 20% / 30 turns).
+var _pct = (clamp(8 + floor(_wil / 5), 8, 20) * 0.01)
+var _turns = clamp(12 + floor(_wil / 5), 12, 30)
 var _hp = 0
 var _mp = 0
 var _grant = 0
@@ -21,8 +27,8 @@ with (target)
     }
     else if (object_is_ancestor(object_index, o_enemy) && _servant != -1 && scr_instance_exists_in_list(_servant, buffs))
     {
-        _hp = (0.08 * max_hp)
-        _mp = (0.08 * max_mp)
+        _hp = (_pct * max_hp)
+        _mp = (_pct * max_mp)
         scr_pure_damage(id, _hp)
         scr_restore_mp(id, (-_mp), other.name)
         _grant = 1
@@ -42,17 +48,20 @@ with (owner)
         var _buff = asset_get_index("o_b_nm_essence_charge")
         if (_buff != -1)
         {
-            var _turns = 12
             var _existing = scr_instance_exists_in_list(_buff, buffs)
             if (!_existing)
             {
                 with (scr_effect_create(_buff, _turns, id, id))
+                {
                     stage = 1
+                    max_duration = _turns
+                }
             }
             else
             {
                 with (_existing)
                 {
+                    max_duration = _turns
                     duration = max_duration
                     if (stage < max_stage)
                         stage += 1

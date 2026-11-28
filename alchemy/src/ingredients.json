@@ -2561,6 +2561,59 @@
       "icon": "s_inv_alch_pyreheart"
     },
     {
+      "id": "lesser_vital_philter",
+      "name": "Lesser Vital Philter",
+      "price": 50,
+      "description": "A honeyed field tonic that knits flesh and steadies the breath. Restores a tenth of one's health and energy in a single swallow.",
+      "effects": [
+        {
+          "add_health_replenishment": 10
+        },
+        {
+          "add_energy_replenishment": 10
+        }
+      ],
+      "icon": "s_inv_alch_lesser_vital_philter"
+    },
+    {
+      "id": "vital_philter",
+      "name": "Vital Philter",
+      "price": 100,
+      "description": "Amber-bright spirit steeped with honey. A stronger draught that restores a fifth of health and energy when the fight has drained you dry.",
+      "effects": [
+        {
+          "add_intoxication": 5
+        },
+        {
+          "add_health_replenishment": 20
+        },
+        {
+          "add_energy_replenishment": 20
+        }
+      ],
+      "icon": "s_inv_alch_vital_philter"
+    },
+    {
+      "id": "anodyne_tincture",
+      "name": "Anodyne Tincture",
+      "price": 70,
+      "description": "Poppy, hemp, and ginger steeped until the nerves go quiet. Clears pain on the spot and keeps it at bay for a long watch.",
+      "effects": [
+        {
+          "add_pain": -100
+        },
+        {
+          "add_pain_resistance": 25,
+          "turns": 120
+        },
+        {
+          "add_pain_change": -0.25,
+          "turns": 120
+        }
+      ],
+      "icon": "s_inv_alch_anodyne_tincture"
+    },
+    {
       "id": "rewoven_philter",
       "name": "Rewoven Philter",
       "price": 1500,
@@ -3476,6 +3529,45 @@
       "ingredients_cost": 20,
       "recipe_cost": 55,
       "elixir_cost": 25
+    },
+    {
+      "ingredients": [
+        "honey",
+        "honey",
+        "burnet",
+        "thyme"
+      ],
+      "enabled": true,
+      "elixir": "lesser_vital_philter",
+      "ingredients_cost": 46,
+      "recipe_cost": 81,
+      "elixir_cost": 50
+    },
+    {
+      "ingredients": [
+        "flask",
+        "spirit",
+        "honey",
+        "amber"
+      ],
+      "enabled": true,
+      "elixir": "vital_philter",
+      "ingredients_cost": 93,
+      "recipe_cost": 93,
+      "elixir_cost": 100
+    },
+    {
+      "ingredients": [
+        "poppy",
+        "hemp",
+        "ginger",
+        "honey"
+      ],
+      "enabled": true,
+      "elixir": "anodyne_tincture",
+      "ingredients_cost": 58,
+      "recipe_cost": 93,
+      "elixir_cost": 70
     },
     {
       "ingredients": [

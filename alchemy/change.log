@@ -1,3 +1,8 @@
+0.2.23
+- Lesser Vital Philter / Vital Philter: restore 10% / 20% Max Health and Energy.
+- Anodyne Tincture: clear pain and suppress it for 120 turns.
+- Inject custom elixir effects into items_stats (max_hp_res, Pain, Duration, …).
+
 0.2.22
 - Rebuild for Nexus.
 

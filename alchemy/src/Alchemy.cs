@@ -25,9 +25,12 @@ public class Alchemy : Mod
         // Study helpers must register before any GML that calls them.
         AlchemyStudy.Patch();
         AlchemyItems.Patch();
+        // Effect columns after item rows exist (InjectTableItemStats + width pad).
+        AlchemyConsumEffects.Patch();
         // Buff objects + drink hooks need inventory objects from AlchemyItems first.
         AlchemySpellRange.Patch();
         AlchemyRecipes.Patch();
+        AlchemyKnownRecipes.Patch();
         AlchemyShops.Patch();
         AlchemyDebug.Patch();
     }
