@@ -2,8 +2,8 @@ event_inherited()
 if ((!instance_exists(target)) || (!instance_exists(o_player)))
     return;
 
-// Sticky ally bind only — movement/combat AI is on o_nm_skeleton_ally Other_10
-// (Syndicate retinue pattern: unit Other_10 + event_inherited / scr_turn).
+// Sticky ally bind only — movement/combat AI is on o_nm_skeleton_ally /
+// o_nm_wraith_ally Other_10 (Syndicate retinue pattern).
 with (target)
 {
     // Prefer live player id so kill XP attribution stays valid even if buff.owner drifts.

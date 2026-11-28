@@ -116,6 +116,31 @@ public static class NecromancyTier4Skills
         NecromancyTier1Skills.ApplyEventAndReplace(mortalBlocker, modFiles,
             "gml_Object_o_nm_mortal_blocker_Create_0.gml",
             "gml_Object_o_nm_mortal_blocker_Alarm_1.gml");
+
+        // Wraith allies by Willpower tier — same Syndicate-style Other_10 as skeletons.
+        // Vanilla o_ghost* keep hostile Specter AI and can re-alert on the player.
+        RegisterWraithAlly(modFiles, "o_nm_wraith_ally", "s_ghost", "o_ghost");
+        RegisterWraithAlly(modFiles, "o_nm_wraith_ally_squire", "s_ghost_squire", "o_ghost_squire");
+        RegisterWraithAlly(modFiles, "o_nm_wraith_ally_warrior", "s_wraith_knight", "o_ghost_knight");
+        RegisterWraithAlly(modFiles, "o_nm_wraith_ally_commander", "s_ghost_commander", "o_ghost_commander");
+    }
+
+    static void RegisterWraithAlly(ModFile modFiles, string name, string sprite, string parentName)
+    {
+        var ally = Msl.AddObject(
+            name: name,
+            spriteName: sprite,
+            parentName: parentName,
+            isVisible: true,
+            isPersistent: false,
+            isAwake: true,
+            collisionShapeFlags: CollisionShapeFlags.Circle);
+        var parent = Msl.GetObject(parentName);
+        if (parent != null)
+            ally.ParentId = parent;
+
+        NecromancyTier1Skills.ApplyEventAndReplace(ally, modFiles,
+            $"gml_Object_{name}_Other_10.gml");
     }
 
     static void HookImmortalityHungerThirst()

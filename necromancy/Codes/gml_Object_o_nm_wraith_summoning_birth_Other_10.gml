@@ -14,14 +14,30 @@ if ((!is_execute) && instance_exists(owner))
     }
 
     // WIL: <25 Wraith, 25-29 Squire, 30-39 Warrior (Knight), 40+ Commander.
+    // Custom ally objects keep Syndicate-style Other_10; fall back to vanilla parents.
     var _wil = scr_atr("WIL")
-    var _unit = o_ghost
+    var _allyName = "o_nm_wraith_ally"
+    var _fallback = o_ghost
     if (_wil >= 40.0)
-        _unit = o_ghost_commander
+    {
+        _allyName = "o_nm_wraith_ally_commander"
+        _fallback = o_ghost_commander
+    }
     else if (_wil >= 30.0)
-        _unit = o_ghost_knight
+    {
+        _allyName = "o_nm_wraith_ally_warrior"
+        _fallback = o_ghost_knight
+    }
     else if (_wil >= 25.0)
-        _unit = o_ghost_squire
+    {
+        _allyName = "o_nm_wraith_ally_squire"
+        _fallback = o_ghost_squire
+    }
+    var _unit = asset_get_index(_allyName)
+    if (_unit == -1 || (!object_exists(_unit)))
+        _unit = _fallback
+    if (!object_exists(_unit))
+        _unit = o_ghost
 
     // Drop previous wraith summon marked nm_wraith.
     with (o_enemy)
@@ -66,11 +82,14 @@ if ((!is_execute) && instance_exists(owner))
             loot_script = -4
             gain_xp *= 0.1
             ArmorDurability = 0
+
+            // Syndicate-style Player retinue bind (same as Summon Skeleton).
             scr_faction_map_remove(id)
             faction_key = "Player"
             subfaction_key = "Player"
             faction = "Player"
             scr_faction_map_add(id)
+            // Must match vanilla table_ai / subfaction_key names (scr_nearest_in_array + faction_map).
             combat_array = ["Brigand", "Undead", "Vampire", "Wolf", "Bear", "Gulon", "Dog", "Wild Dog", "Young Troll", "Ancient Troll", "Crawler", "Bat Flock", "Snake", "Harpy", "Hive", "Buzzer Hive", "Forest Buzzer", "carnivore", "omnivore", "Moose", "Saiga", "Deer", "Fox", "Boar", "Bison", "GrandMagistrate", "Mercenary", "RottenWillow", "Neutral"]
             threat_array = []
             flee_array = []
@@ -79,11 +98,15 @@ if ((!is_execute) && instance_exists(owner))
             is_hostile = false
             havePenaltyAttack = false
             is_follower = true
+            // Must stay true: o_player Alarm_4 only runs event_user(0)/Other_10 for
+            // instances on enemylist (see scr_enemy_create + scr_unitTurnEvents).
             ai_is_on = true
             target = -4
             last_attacker = -4
             is_damage_taken = false
             state = "idle"
+            alarmPercent = 0
+            threat_time = 0
             scr_delete_from_enemy_list("Player")
             if instance_exists(owner)
                 callerId = owner.callerId
