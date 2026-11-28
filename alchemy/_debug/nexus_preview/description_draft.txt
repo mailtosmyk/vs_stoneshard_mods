@@ -653,6 +653,11 @@ Thanks to the ModShardTeam for ModShardLauncher, and to the Stoneshard Mod Hub c
 
 [b]  Changelog (recent)[/b]
 
+0.2.23
+• Lesser Vital Philter / Vital Philter: restore 10% / 20% Max Health and Energy.
+• Anodyne Tincture: clear pain and suppress it for 120 turns.
+• Inject custom elixir effects into items_stats (max_hp_res, Pain, Duration, …).
+
 0.2.22
 • Rebuild for Nexus.
 
@@ -662,9 +667,6 @@ Thanks to the ModShardTeam for ModShardLauncher, and to the Stoneshard Mod Hub c
 0.2.20
 • Fix blank scroll container loot crash: set base_index/skill in Create (o_inv_scroll_parent Alarm_0).
 • Mark blank scroll item stats as special so it stays craft-only (not common scroll loot).
-
-0.2.19
-• Rebuild package for ModShardLauncher Enhanced / Nexus .sml release.
 
 [b]  Support[/b]
 
